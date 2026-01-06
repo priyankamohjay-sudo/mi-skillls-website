@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <!-- fav icon -->
+       <link rel="icon" href="assets/images/fav-icon/logo-new.png">
+        
+        <!-- bootstarp -->
+        <link rel="stylesheet" href="css/vendors/bootstrap.min.css">
+        
+        <!-- animate.css file -->
+        <link rel="stylesheet" href="css/vendors/animate.css">
+        
+        <!-- Fancybox -->
+        <link rel="stylesheet" href="css/vendors/jquery.fancybox.min.css">
+        
+        <!-- flaticon -->
+        <link rel="stylesheet" href="css/vendors/flaticon/flaticon.css">
+        
+        <!-- fontAwesome -->
+        <link rel="stylesheet" href="css/vendors/all.min.css">
+        
+        <!-- bootstrap icons -->
+        <link rel="stylesheet" href="css/vendors/bootstrap-icons-1.9.1/bootstrap-icons.css">
+        
+        <!-- Swiper -->
+        <link rel="stylesheet" href="css/vendors/swiper-bundle.min.css">
+        
+        <!-- Font Family -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&amp;display=swap">
+        
+        <!-- main-LTR -->
+        <link rel="stylesheet" href="css/main-LTR.css">
+        <title> Mi Skills | Courses | Testing</title>
+  </head>
+  <body class=" dark-theme "> 
+ 
+  <?php include 'header.php'; ?>
+
+  <!-- Start inner Page hero-->
+<section class="page-hero inner-page-hero d-flex align-items-center" id="page-hero">
+
+  <!-- Background Image -->
+  <div class="hero-bg"
+       style="background-image: url('assets/images/hero/inner-banner.jpg');">
+  </div>
+
+  <!-- Black Overlay -->
+  <div class="hero-overlay"></div>
+
+  <div class="container position-relative">
+    <div class="hero-text-area centerd">
+      <h1 class="hero-title wow fadeInUp" data-wow-delay=".2s">
+        Testing
+      </h1>
+
+      <nav aria-label="breadcrumb">
+        <ul class="breadcrumb wow fadeInUp" data-wow-delay=".6s">
+          <li class="breadcrumb-item">
+            <a class="breadcrumb-link" href="index.php">
+              <i class="bi bi-house icon"></i> Home
+            </a>
+          </li>
+          <li class="breadcrumb-item active">Testing</li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+</section>
+<!-- End inner Page hero-->
+
+    
+    <!-- Start inner Page hero-->
+  <div class="service-single "> 
+  <div class="container">
+    <div class="row">
+      <!--Start service content-->
+      <div class="col-12 col-xl-8  ">
+        <div class="service-content-area">
+          <div class="featured-img-area part">
+            <img class="feat-img img-fluid" src="assets/images/services/testing-2.avif" alt="featured image">
+          </div>
+
+          <div class="service-content">
+            <div class="part">
+              <h2 class="service-title">Software Testing Course – Manual & Automation Testing</h2>
+              <h3 class="service-title">Course Overview</h3>
+              <p class="service-text">
+                Our Software Testing Course is designed to help you ensure software quality through systematic testing techniques.
+                This course covers both Manual Testing and Automation Testing, focusing on real-world testing scenarios, bug tracking,
+                and industry-standard QA practices. It prepares you for software testing and QA roles in IT companies.
+              </p>
+            </div>
+
+            <div class="part">
+              <div class="two-cols-img ">
+                <div class="row">
+                  <div class="col-12 col-md-6 mb-3">
+                    <div class="img-col">
+                      <img class="img-fluid" src="assets/images/services/testing-1.jpg" loading="lazy" alt="service single image ">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="img-col">
+                      <img class="img-fluid" src="assets/images/services/testing.jpg" loading="lazy" alt="service single image ">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="part">
+              <h3 class="service-title">What This Course Includes</h3>
+              <p class="service-text">Manual Testing :</p>
+              <p class="info-text">
+                Learn how to manually test software applications to detect bugs, validate functionality, and improve user experience.
+              </p>
+              <ul>
+                <li>Software testing fundamentals and STLC</li>
+                <li>Test case design and execution</li>
+                <li>Functional, smoke, and regression testing</li>
+                <li>Bug reporting and defect tracking</li>
+                <li>Test scenarios and documentation</li>
+              </ul>
+            </div>
+
+            <div class="part">
+              <p class="service-text">Automation Testing :</p>
+              <p class="info-text">
+                Automate test cases to improve testing speed, accuracy, and efficiency using modern automation techniques.
+              </p>
+              <ul>
+                <li>Automation testing concepts and benefits</li>
+                <li>Automation frameworks fundamentals</li>
+                <li>Writing and executing automation scripts</li>
+                <li>Web application automation testing</li>
+                <li>Test execution, reporting, and maintenance</li>
+              </ul>
+            </div>
+
+            <div class="part">
+              <div class="info-items-list">
+                <div class="row">
+                  <div class="col-12 col-md-6 ">
+                    <div class="info-item">
+                      <span class="info-number ">01.</span>
+                      <div class="info-content">
+                        <h5 class="info-title">Industry-Relevant Curriculum</h5>
+                        <p class="info-text">
+                          Learn testing practices that are widely used in real software development companies.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 ">
+                    <div class="info-item">
+                      <span class="info-number ">02.</span>
+                      <div class="info-content">
+                        <h5 class="info-title">Manual + Automation Testing</h5>
+                        <p class="info-text">
+                          Gain complete testing knowledge by learning both manual and automation testing together.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 ">
+                    <div class="info-item">
+                      <span class="info-number ">03.</span>
+                      <div class="info-content">
+                        <h5 class="info-title">Hands-On Testing Experience</h5>
+                        <p class="info-text">
+                          Work on real test cases, bug reports, and automation scenarios.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 ">
+                    <div class="info-item">
+                      <span class="info-number ">04.</span>
+                      <div class="info-content">
+                        <h5 class="info-title">Career-Oriented Training</h5>
+                        <p class="info-text">
+                          Prepare for QA, Software Tester, and Automation Tester roles.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="part">
+              <h2 class="service-title"> most asked questions</h2>
+              <div class="faq">           
+                <div class="faq-accordion " id="accordion">
+
+                  <div class="card mb-2">
+                    <div class="card-header " id="heading-1">
+                      <h5 class="mb-0 faq-title">
+                        <button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-1">
+                          Is this course suitable for beginners?
+                        </button>
+                      </h5>
+                    </div>
+                    <div class="collapse" id="collapse-1" data-bs-parent="#accordion">
+                      <div class="card-body">
+                        <p class="faq-answer">
+                          Yes, this course starts from the basics and is suitable for beginners with no prior experience.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card mb-2">
+                    <div class="card-header " id="heading-2">
+                      <h5 class="mb-0 faq-title">
+                        <button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-2">
+                          Do I need coding knowledge for automation testing?
+                        </button>
+                      </h5>
+                    </div>
+                    <div class="collapse" id="collapse-2" data-bs-parent="#accordion">
+                      <div class="card-body">
+                        <p class="faq-answer">
+                          No prior coding knowledge is required. Basic programming concepts are taught during the course.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card mb-2">
+                    <div class="card-header " id="heading-3">
+                      <h5 class="mb-0 faq-title">
+                        <button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-3">
+                          What job roles can I apply for after this course?
+                        </button>
+                      </h5>
+                    </div>
+                    <div class="collapse" id="collapse-3" data-bs-parent="#accordion">
+                      <div class="card-body">
+                        <p class="faq-answer">
+                          You can apply for Software Tester, QA Analyst, and Automation Tester roles.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Start service sidebar-->
+      <div class="col-12 col-xl-4">
+        <div class="service-sidebar ">
+          <div class="sidebar-pane">
+            <h2 class="sidebar-title">list of Courses</h2>
+            <ul class="list">
+              <li class="list-item"><i class="flaticon-web-development font-icon"></i><a href="web-development.php"> web development<i class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item"><i class="flaticon-nanotechnology font-icon"></i><a href="digital-marketing.php"> Digital Marketing<i class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item"><i class="flaticon-web-domain font-icon"></i><a href="app-development.php"> App Development<i class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item"><i class="flaticon-profile font-icon"></i><a href="graphic-designing.php"> Graphic Desinging<i class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item active"><i class="flaticon-search font-icon"></i><a href="testing.php">Testing<i class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item"><i class="flaticon-strategy font-icon"></i><a href="networking.php"> Networking<i class="bi bi-arrow-right icon "></i></a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-pane">
+            <div class="download-area">
+              <h2 class="sidebar-title">Course Resources</h2>
+              <p class="sidebar-text">
+                Access all essential learning materials, guides, and documents related to your testing course.
+                Download resources anytime to support your learning and practice.
+              </p>
+              <ul class="list">
+                <li class="list-item">
+                  <i class="flaticon-downloading font-icon"></i>
+                  <a href="#0">All Courses<i class="bi bi-arrow-right icon "></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sidebar-pane">
+            <div class="social-area">
+              <h2 class="sidebar-title">follow us</h2>
+              <div class="sc-wrapper dir-row sc-size-40">
+                <ul class="sc-list">
+                  <li class="sc-item"><a class="sc-link" href="#0"><i class="fab fa-facebook-f sc-icon"></i></a></li>
+                  <li class="sc-item"><a class="sc-link" href="#0"><i class="fab fa-youtube sc-icon"></i></a></li>
+                  <li class="sc-item"><a class="sc-link" href="#0"><i class="fab fa-instagram sc-icon"></i></a></li>
+                  <li class="sc-item"><a class="sc-link" href="#0"><i class="fab fa-x-twitter sc-icon"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- End service sidebar-->
+    </div>
+  </div>
+</div>
+      <!--Start service content-->
+    <!-- End inner Page hero-->
+
+     <?php include 'footer.php'; ?>
+
+    <!-- Start loading-screen Component-->
+    <div class="loading-screen" id="loading-screen"><span class="bar top-bar"></span><span class="bar down-bar"></span><span class="progress-line"></span><span class="loading-counter"> </span></div>
+    <!-- End loading-screen Component-->
+    <!-- Start back-to-top Button-->
+    <div class="back-to-top" id="back-to-top"><i class="bi bi-arrow-up icon "></i>
+    </div>
+    <!-- End back-to-top Button-->
+    <!-- Start privacy-policy-modal-->
+    <div class="modal privacy-policy-modal fade" id="privacyPolicyModal" aria-labelledby="PrivacyPolicyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-xl ">
+        <div class="modal-content text-dark">
+          <div class="modal-header">
+            <h2 class="modal-title" id="PrivacyPolicyModalLabel">Privacy Policy Modal Title</h2>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="content">
+              <h4>privacy policy item Title goes here </h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
+            </div>
+            <div class="content">
+              <h4>privacy policy item Title goes here </h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
+            </div>
+            <div class="content">
+              <h4>privacy policy item Title goes here </h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
+            </div>
+            <div class="content">
+              <h4>privacy policy item Title goes here </h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
+            </div>
+            <div class="content">
+              <h4>privacy policy item Title goes here </h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
+            </div>
+            <div class="content">
+              <h4>privacy policy item Title goes here </h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-solid" type="button" data-bs-dismiss="modal" aria-label="Close">Click to close</button>
+            <button class="btn-outline" type="button">Do somthing else</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End privacy-policy-modal-->   
+        
+        <!--     JQuery     -->
+        <script src="js/vendors/jquery-3.6.1.min.js"></script>
+        
+        <!--     bootstrap     -->
+        <script src="js/vendors/bootstrap.bundle.min.js"></script>
+        
+        <!--     fancybox     -->
+        <script src="js/vendors/jquery.fancybox.min.js"></script>
+        
+        <!--     swiper     -->
+        <script src="js/vendors/swiper-bundle.min.js"></script>
+        
+        <!--     wow     -->
+        <script src="js/vendors/wow.min.js"></script>
+        
+        <!--     main     -->
+        <script src="js/main.js"></script>
+  </body>
+
+</html>
