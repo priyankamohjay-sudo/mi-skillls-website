@@ -79,157 +79,249 @@
 <!-- End inner Page hero-->
 
 
-<!-- ======================== PRICING PAGE SECTION ======================== -->
+<!-- Start pricing Section-->
 <section class="pricing mega-section" id="pricing-1">
-
   <div class="container">
 
-    <!-- ===== SECTION HEADING ===== -->
-    <div class="sec-heading text-center mb-5">
-      <span class="pre-title wow fadeInUp" data-wow-delay=".2s">pricing plans</span>
-
-      <h2 class="title wow fadeInUp text-white" data-wow-delay=".4s">
-        <span class="hollow-text">Courses</span> pricing plans
-      </h2>
-
-      <p class="subtitle wow fadeInUp text-white-50" data-wow-delay=".6s">
-        MI Skills offers flexible and affordable pricing plans with access to live classes, expert support, and interview and internship opportunities.
-      </p>
-    </div>
-
-
-    <!-- ======= 8 CATEGORY TABS ======= -->
-    <div class="course-category-tabs mb-5 text-center">
-      <button class="cat-tab active" onclick="showCategory('web')">Web Development</button>
-      <button class="cat-tab" onclick="showCategory('app')">App Development</button>
-      <button class="cat-tab" onclick="showCategory('marketing')">Digital Marketing</button>
-      <button class="cat-tab" onclick="showCategory('graphic')">Graphic Designing</button>
-      <button class="cat-tab" onclick="showCategory('testing')">Testing</button>
-      <button class="cat-tab" onclick="showCategory('networking')">Networking</button>
-      <button class="cat-tab" onclick="showCategory('interview')">Interview & Internship</button>
-      <button class="cat-tab" onclick="showCategory('funding')">Business Funding</button>
-    </div>
-
-
-    <!-- ======================== WEB DEVELOPMENT ======================== -->
-    <div id="web" class="category-content">
-
-      <!-- Toggle -->
-      <div class="web-toggle text-center mb-4">
-        <label class="text-white me-3">
-          <input type="radio" name="web_toggle" checked onclick="toggleWeb('individual')" />
-          <span>Individual Courses</span>
-        </label>
-
-        <label class="text-white">
-          <input type="radio" name="web_toggle" onclick="toggleWeb('full')" />
-          <span>Full Course Package</span>
-        </label>
+    <!-- Section Heading -->
+    <div class="sec-heading">
+      <div class="content-area">
+        <span class="pre-title wow fadeInUp" data-wow-delay=".2s">pricing plans</span>
+        <h2 class="title wow fadeInUp" data-wow-delay=".4s">
+          <span class="hollow-text">Courses</span> pricing plans
+        </h2>
+        <p class="subtitle wow fadeInUp" data-wow-delay=".6s">
+          MI Skills offers flexible and affordable pricing plans with access to live classes, expert support, and interview and internship opportunities.
+        </p>
       </div>
+      
+    </div>
 
+    <!-- ================= FIRST ROW ================= -->
+    <div class="row">
 
-      <!-- ===== FULL COURSE – SINGLE BIG CARD ===== -->
-      <div id="web_full" class="wrap-inner" style="display:none">
-        <div class="plan p-4 full-big-card">
-
-          <span class="ribbon">Most Popular</span>
-
-          <i class="flaticon-nft-1 plan-icon"></i>
-
-          <h3 class="text-white">Web Development Masterclass</h3>
-          <p class="text-white-50">Complete Frontend & Backend Course</p>
-
-          <div class="plan-price text-white mb-3">
-            <h2>₹1,495</h2>
-            <span>3 Months Access</span>
+      <!-- Web Development -->
+      <div class="col-12 col-md-6 col-xl-3 price-plan">
+        <div class="plan wow fadeInUp">
+          <div class="plan-head">
+            <i class="flaticon-nft-1 plan-icon"></i>
+            <h4 class="plane-name">Web Development</h4>
+            <div class="plan-price">
+              <h3 class="price">1,495<sup>₹</sup></h3>
+              <span class="per">Full Course</span>
+            </div>
           </div>
-
-          <select class="form-control dark-select mt-3">
-            <option>₹1,495 – 3 Months</option>
-          </select>
-
-          <button class="cta-btn w-100 mt-3">Select Plan</button>
-
+          <div class="plan-details">
+            <table class="price-table">
+              <thead>
+                <tr><th>Course</th><th>Duration</th><th>Monthly</th><th>Total</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Front-End</td><td>2 Months</td><td>₹499</td><td>₹998</td></tr>
+                <tr><td>Back-End</td><td>2 Months</td><td>₹499</td><td>₹998</td></tr>
+                <tr class="highlight"><td>Full Stack</td><td>3 Months</td><td>—</td><td>₹1,495</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
         </div>
       </div>
 
-
-
-      <!-- ===== INDIVIDUAL – 2 CARDS (FRONTEND + BACKEND) ===== -->
-      <div id="web_individual" class="wrap-inner">
-        <div class="row">
-
-          <!-- Frontend -->
-          <div class="col-12 col-md-6">
-            <div class="plan p-4">
-
-              <i class="flaticon-basic-shapes plan-icon"></i>
-
-              <h4 class="text-white">Frontend Development</h4>
-              <p class="text-white-50">HTML, CSS, JavaScript, Responsive UI</p>
-
-              <label class="option">
-                <input type="radio" name="fe_plan" checked />
-                <span>1 Month – ₹499</span>
-              </label>
-
-              <label class="option">
-                <input type="radio" name="fe_plan" />
-                <span>2 Months – ₹998</span>
-              </label>
-
-              <button class="cta-btn w-100 mt-3">Select Plan</button>
-
+      <!-- App Development -->
+      <div class="col-12 col-md-6 col-xl-3 price-plan">
+        <div class="plan wow fadeInUp">
+          <div class="plan-head">
+            <i class="flaticon-virtual-reality plan-icon"></i>
+            <h4 class="plane-name">App Development</h4>
+            <div class="plan-price">
+              <h3 class="price">3,899<sup>₹</sup></h3>
+              <span class="per">Full Course</span>
             </div>
           </div>
+          <div class="plan-details">
+            <table class="price-table">
+              <thead>
+                <tr><th>Course</th><th>Duration</th><th>Monthly</th><th>Total</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>iOS App</td><td>2 Months</td><td>₹899</td><td>₹1,798</td></tr>
+                <tr><td>Android App</td><td>2 Months</td><td>₹899</td><td>₹1,798</td></tr>
+                <tr><td>Cross-Platform</td><td>2 Months</td><td>—</td><td>₹1,299</td></tr>
+                <tr class="highlight"><td>Complete Course</td><td>4 Months</td><td>—</td><td>₹3,899</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+        </div>
+      </div>
 
-
-          <!-- Backend -->
-          <div class="col-12 col-md-6">
-            <div class="plan p-4">
-
-              <i class="flaticon-search plan-icon"></i>
-
-              <h4 class="text-white">Backend Development</h4>
-              <p class="text-white-50">MongoDB, SQL, Authentication</p>
-
-              <label class="option">
-                <input type="radio" name="be_plan" checked />
-                <span>1 Month – ₹499</span>
-              </label>
-
-              <label class="option">
-                <input type="radio" name="be_plan" />
-                <span>2 Months – ₹998</span>
-              </label>
-
-              <button class="cta-btn w-100 mt-3">Select Plan</button>
-
+      <!-- Digital Marketing -->
+      <div class="col-12 col-md-6 col-xl-3 price-plan">
+        <div class="plan featured wow fadeInUp">
+          <div class="plan-head">
+            <i class="flaticon-box plan-icon"></i>
+            <h4 class="plane-name">Digital Marketing</h4>
+            <div class="plan-price">
+              <h3 class="price">4,799<sup>₹</sup></h3>
+              <span class="per">Full Course</span>
             </div>
           </div>
+          <div class="plan-details">
+            <table class="price-table">
+              <tbody>
+                <tr><td>SEO</td><td colspan="3">No individual pricing</td></tr>
+                <tr><td>SMO</td><td colspan="3">No individual pricing</td></tr>
+                <tr><td>Content Writing</td><td colspan="3">No individual pricing</td></tr>
+                <tr class="highlight">
+                  <td colspan="4">Duration: 4 Months · ₹1,299 / month · Total ₹4,799</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+        </div>
+      </div>
 
+      <!-- Graphic Designing -->
+      <div class="col-12 col-md-6 col-xl-3 price-plan">
+        <div class="plan wow fadeInUp">
+          <div class="plan-head">
+            <i class="flaticon-basic-shapes plan-icon"></i>
+            <h4 class="plane-name">Graphic Designing</h4>
+            <div class="plan-price">
+              <h3 class="price">2,495<sup>₹</sup></h3>
+              <span class="per">Full Course</span>
+            </div>
+          </div>
+          <div class="plan-details">
+            <table class="price-table">
+              <tbody>
+                <tr><td>UI / UX Design</td><td colspan="3">Included</td></tr>
+                <tr><td>Figma</td><td colspan="3">Included</td></tr>
+                <tr><td>Canva</td><td colspan="3">Included</td></tr>
+                <tr><td>Photoshop & Illustration</td><td colspan="3">Included</td></tr>
+                <tr class="highlight">
+                  <td colspan="4">Duration: 5 Months · ₹499 / month · Total ₹2,495</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
         </div>
       </div>
 
     </div>
 
+    <!-- ================= SECOND ROW ================= -->
+    <div class="row mt-5">
 
-
-    <!-- ======================== APP DEVELOPMENT ======================== -->
-    <div id="app" class="category-content" style="display:none">
-      <div class="plan p-4 text-center">
-        <h3 class="text-white">App Development – Full Course</h3>
-        <button class="cta-btn w-100 mt-3">Select Plan</button>
+      <!-- Software Testing -->
+      <div class="col-12 col-md-6 col-xl-3 price-plan">
+        <div class="plan wow fadeInUp">
+          <div class="plan-head">
+            <i class="flaticon-search plan-icon"></i>
+            <h4 class="plane-name">Software Testing</h4>
+            <div class="plan-price">
+              <h3 class="price">3,099<sup>₹</sup></h3>
+              <span class="per">Full Course</span>
+            </div>
+          </div>
+          <div class="plan-details">
+            <table class="price-table">
+              <tbody>
+                <tr><td>Manual Testing</td><td class="text-end">Included</td></tr>
+                <tr><td>Automation Testing</td><td class="text-end">Included</td></tr>
+                <tr class="highlight">
+                  <td colspan="2">Duration: 4 Months · ₹899 / Month · Total ₹3,099</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+        </div>
       </div>
+
+      <!-- Networking -->
+      <div class="col-12 col-md-6 col-xl-3 price-plan">
+        <div class="plan wow fadeInUp">
+          <div class="plan-head">
+            <i class="flaticon-strategy plan-icon"></i>
+            <h4 class="plane-name">Networking</h4>
+            <div class="plan-price">
+              <h3 class="price">1,497<sup>₹</sup></h3>
+              <span class="per">Full Course</span>
+            </div>
+          </div>
+          <div class="plan-details">
+            <table class="price-table">
+              <tbody>
+                <tr><td>Duration</td><td class="text-end">2 Months</td></tr>
+                <tr><td>Total Fee</td><td class="text-end">₹1,497</td></tr>
+                <tr class="highlight">
+                  <td colspan="2">Duration: 2 Months · Total ₹1,497</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+        </div>
+      </div>
+
+      <!-- Interview Support -->
+      <div class="col-12 col-md-6 col-xl-3 price-plan">
+        <div class="plan wow fadeInUp">
+          <div class="plan-head">
+            <i class="flaticon-profile plan-icon"></i>
+            <h4 class="plane-name">Interview Support</h4>
+            <div class="plan-price">
+              <h3 class="price">499<sup>₹</sup></h3>
+              <span class="per">Support</span>
+            </div>
+          </div>
+          <div class="plan-details">
+            <table class="price-table">
+              <tbody>
+                <tr><td>Sessions</td><td class="text-end">2 Interviews</td></tr>
+                <tr class="highlight">
+                  <td colspan="2">2 Interview Opportunities · ₹499</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+        </div>
+      </div>
+
+      <!-- Business Funding -->
+      <div class="col-12 col-md-6 col-xl-3 price-plan">
+        <div class="plan wow fadeInUp">
+          <div class="plan-head">
+            <i class="flaticon-box plan-icon"></i>
+            <h4 class="plane-name">Business Funding</h4>
+            <div class="plan-price">
+              <h3 class="price">499<sup>₹</sup></h3>
+              <span class="per">Starting</span>
+            </div>
+          </div>
+          <div class="plan-details">
+            <table class="price-table">
+              <tbody>
+                <tr><td>Meetings</td><td class="text-end">2 Business Meets</td></tr>
+                <tr class="highlight">
+                  <td colspan="2">2 Business Meetings · Starting ₹499</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+        </div>
+      </div>
+
     </div>
-
-
-    <!-- Other categories abhi static placeholders rahenge, baad me logic lagega -->
 
   </div>
-
 </section>
-
+<!-- End pricing Section-->
 
 
     <!-- Start  pricing Section-->
