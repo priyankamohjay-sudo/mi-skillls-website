@@ -25,8 +25,8 @@
               </div>
             </div> -->
           </div>
-          <div class="col-6 col-lg-2  footer-col ">
-            <h2 class=" footer-col-title    ">useful links</h2>
+          <div class="col-12 col-md-6 col-lg-2 footer-col">
+            <h2 class=" footer-col-title ">useful links</h2>
             <div class="footer-col-content-wrapper">
               <ul class="footer-menu ">
                 <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" href="index.php">Home</a>
@@ -42,7 +42,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-6 col-lg-2 footer-col ">
+          <div class="col-12 col-md-6 col-lg-2 footer-col ">
             <h2 class=" footer-col-title    ">Our Courses</h2>
             <div class="footer-col-content-wrapper">
               <ul class="footer-menu">
@@ -62,7 +62,7 @@
             </div>
           </div>
 
-          <div class="col-6 col-lg-2 footer-col ">
+          <div class="col-12 col-md-6 col-lg-2 footer-col ">
             <h2 class=" footer-col-title">Company Policies</h2>
             <div class="footer-col-content-wrapper">
               <ul class="footer-menu">

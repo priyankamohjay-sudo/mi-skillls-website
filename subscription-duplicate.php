@@ -79,155 +79,449 @@
 <!-- End inner Page hero-->
 
 
-<!-- Start pricing Section -->
-
 <!-- ================= PRICING SECTION ================= -->
 <section class="pricing mega-section" id="pricing-1">
-<div class="container position-relative">
+  <div class="container position-relative">
 
-  <!-- ===== HEADING BLOCK ===== -->
-  <div class="sec-heading text-center mb-5">
-    <div class="content-area">
-      <span class="pre-title">Pricing Plans</span>
-      <h2 class="title text-white">Choose Your Learning Path</h2>
-      <p class="subtitle text-white-50">
-        MI Skills offers flexible plans with live classes, mentor support, and industry projects.
-      </p>
-    </div>
-  </div>
-
-  <!-- ======= 8 TABS ======= -->
-  <div class="course-category-tabs mb-5 text-center">
-    <button class="cat-tab active" onclick="showCategory('web')">Web Development</button>
-    <button class="cat-tab" onclick="showCategory('app')">App Development</button>
-    <button class="cat-tab" onclick="showCategory('marketing')">Digital Marketing</button>
-    <button class="cat-tab" onclick="showCategory('graphic')">Graphic Designing</button>
-    <button class="cat-tab" onclick="showCategory('testing')">Software Testing</button>
-    <button class="cat-tab" onclick="showCategory('networking')">Networking</button>
-    <button class="cat-tab" onclick="showCategory('interview')">Interview & Internship</button>
-    <button class="cat-tab" onclick="showCategory('funding')">Business Funding</button>
-  </div>
-
-  <!-- ============ WEB DEVELOPMENT ============ -->
-  <div id="web" class="category-content">
-
-    <!-- Toggle -->
-    <div class="web-toggle text-center mb-4">
-      <label class="text-white me-3">
-        <input type="radio" name="web_toggle" checked onclick="toggleWeb('individual')">
-        <span>Individual Courses</span>
-      </label>
-
-      <label class="text-white">
-        <input type="radio" name="web_toggle" onclick="toggleWeb('full')">
-        <span>Full Course Package</span>
-      </label>
-    </div>
-
-    <!-- ===== FULL → SINGLE CARD ONLY ===== -->
-    <div id="web_full" style="display:none">
-      <div class="plan full-ui-card p-4">
-
-        <span class="ribbon">Most Popular</span>
-
-        <i class="flaticon-nft-1 plan-icon"></i>
-
-        <h3 class="text-white">Web Development – Full Course</h3>
-
-        <p class="text-white-50">
-          3 Months complete course with frontend & backend
+    <!-- SECTION HEADING -->
+    <div class="sec-heading centered">
+      <div class="content-area">
+        <span class="pre-title">pricing plans</span>
+        <h2 class="title">
+          <span class="hollow-text">Courses</span> pricing plans
+        </h2>
+        <p class="subtitle">
+          MI Skills offers flexible and affordable pricing plans with access to live classes,<br>
+          expert support, and interview and internship opportunities.
         </p>
-
-        <div class="plan-price text-white mb-3">
-          <h2>₹1,495</h2>
-        </div>
-
-        <select class="form-control dark-select mt-2">
-          <option>₹1,495 – 3 Months</option>
-          <option>₹499 / Monthly Plan</option>
-        </select>
-
-        <button class="cta-btn w-100 mt-3">Select Plan</button>
-
       </div>
     </div>
 
-    <!-- ===== INDIVIDUAL → 2 CARDS ONLY ===== -->
-    <div id="web_individual">
-      <div class="row">
+    <!-- CATEGORY TABS -->
+    <div class="course-category-tabs text-center mb-5">
+      <div class="d-inline-flex flex-wrap gap-2 justify-content-center category-pill-wrap">
+        <button class="cat-tab btn active" onclick="activateTab(this); showCategory('web')">Web Development</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('app')">App Development</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('marketing')">Digital Marketing</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('graphic')">Graphic Designing</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('testing')">Testing</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('networking')">Networking</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('interview')">Interview & Internship</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('funding')">Business Funding</button>
+      </div>
+    </div>
 
-        <!-- Frontend -->
-        <div class="col-12 col-md-6 price-plan">
-          <div class="plan ui-style-card p-4">
+      <!-- ================= WEB DEVELOPMENT ================= -->
+      <div id="web" class="category-content">
 
-            <h3 class="text-white">Frontend Development</h3>
-
-            <p class="text-white-50">
-              Modules Included: HTML · CSS · JavaScript · Responsive UI
-            </p>
-
-            <label class="option">
-              <input type="radio" name="fe_plan" checked>
-              <span>1 Month Plan</span>
-            </label>
-
-            <label class="option">
-              <input type="radio" name="fe_plan">
-              <span>2 Months Plan</span>
-            </label>
-
-            <select class="form-control dark-select mt-2">
-              <option>₹499 / month – Total ₹998</option>
-            </select>
-
-            <button class="cta-btn w-100 mt-3">Select Plan</button>
-
+        <!-- TOGGLE -->
+        <div class="text-center mb-4">
+          <div class="d-inline-flex gap-2 category-pill-wrap">
+            <button id="btnIndividual" class="cat-tab btn active" onclick="toggleWeb('individual')">Individual Courses</button>
+            <button id="btnFull" class="cat-tab btn" onclick="toggleWeb('full')">Full Course Package</button>
           </div>
         </div>
 
-        <!-- Backend -->
-        <div class="col-12 col-md-6 price-plan">
-          <div class="plan ui-style-card p-4">
-
-            <h3 class="text-white">Backend Development</h3>
-
-            <p class="text-white-50">
-              Modules Included: MongoDB · SQL · Authentication · APIs
-            </p>
-
-            <label class="option">
-              <input type="radio" name="be_plan" checked>
-              <span>1 Month Plan</span>
-            </label>
-
-            <label class="option">
-              <input type="radio" name="be_plan">
-              <span>2 Months Plan</span>
-            </label>
-
-            <select class="form-control dark-select mt-2">
-              <option>₹499 / month – Total ₹998</option>
-            </select>
-
-            <button class="cta-btn w-100 mt-3">Select Plan</button>
-
+        <!-- FULL -->
+        <div id="web_full" style="display:none">
+          <div class="full-course-card mx-auto">
+            <div class="full-course-left">
+              <span class="badge">Most Popular</span>
+              <h3>Web Development – Full Course</h3>
+              <p class="sub-text">Full Stack Development – Frontend + Backend</p>
+              <ul class="full-feature-list">
+                <li>Frontend Development</li>
+                <li>Backend Development</li>
+                <li>15+ Industry Projects</li>
+                <li>Internship Support</li>
+                <li>Career Guidance & Interview Prep</li>
+                <li>Lifetime Access & Updates</li>
+              </ul>
+            </div>
+            <div class="full-course-right">
+              <span class="best-value">BEST VALUE</span>
+              <h2 class="price">₹1,495</h2>
+              <p class="duration">3 Months Access</p>
+              <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div>
+            </div>
           </div>
         </div>
 
+        <!-- INDIVIDUAL -->
+        <div id="web_individual">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="plan ui-style-card p-4 price-card">
+                <h3>Frontend Development</h3>
+                <p class="text-white-50">HTML · CSS · JavaScript · Responsive UI</p>
+
+                <div class="price-option active">
+                  <label><input type="radio" checked> Monthly</label>
+                  <strong>₹499 / month</strong>
+                </div>
+                <div class="price-option">
+                  <label><input type="radio"> 2 Months</label>
+                  <strong>₹998 <small class="save-text">Save 15%</small></strong>
+                </div>
+
+                <ul class="feature-list mt-3">
+                  <li>HTML5 & CSS3</li>
+                  <li>JavaScript ES6+</li>
+                  <li>React Basics</li>
+                  <li>8+ Projects</li>
+                </ul>
+                <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="plan ui-style-card p-4 price-card">
+                <h3>Backend Development</h3>
+                <p class="text-white-50">MongoDB · SQL · APIs · Auth</p>
+
+                <div class="price-option active">
+                  <label><input type="radio" checked> Monthly</label>
+                  <strong>₹499 / month</strong>
+                </div>
+                <div class="price-option">
+                  <label><input type="radio"> 2 Months</label>
+                  <strong>₹998 <small class="save-text">Save 15%</small></strong>
+                </div>
+
+                <ul class="feature-list mt-3">
+                  <li>Node & Express</li>
+                  <li>REST APIs</li>
+                  <li>Authentication</li>
+                  <li>7+ Projects</li>
+                </ul>
+                <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- ================= APP DEVELOPMENT ================= -->
+<div id="app" class="category-content" style="display:none">
+
+  <!-- TOGGLE -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button id="btnAppIndividual"
+        class="cat-tab btn active"
+        onclick="toggleApp('individual')">
+        Individual Courses
+      </button>
+
+      <button id="btnAppFull"
+        class="cat-tab btn"
+        onclick="toggleApp('full')">
+        Full Course Package
+      </button>
+    </div>
+  </div>
+
+  <!-- FULL -->
+  <div id="app_full" style="display:none">
+    <div class="full-course-card mx-auto">
+
+      <div class="full-course-left">
+        <span class="badge">Complete Program</span>
+        <h3>App Development – Full Course</h3>
+        <p class="sub-text">Android + iOS + Cross Platform</p>
+
+        <ul class="full-feature-list">
+          <li>Android App Development</li>
+          <li>iOS App Development</li>
+          <li>Cross Platform Apps</li>
+          <li>Live Projects</li>
+          <li>Career Guidance</li>
+        </ul>
+      </div>
+
+      <div class="full-course-right">
+        <span class="best-value">BEST VALUE</span>
+        <h2 class="price">₹3,899</h2>
+        <p class="duration">4 Months Access</p>
+        <div class="plan-cta">
+          <a class="cta-btn btn-solid" href="#">Select Plan</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INDIVIDUAL -->
+  <div id="app_individual">
+    <div class="row">
+
+      <!-- IOS -->
+      <div class="col-md-4">
+        <div class="plan ui-style-card p-4 price-card">
+
+          <h3>iOS App Development</h3>
+          <p class="text-white-50">Swift · iOS SDK</p>
+
+          <div class="price-option active">
+            <label><input type="radio" checked> Monthly</label>
+            <strong>₹899 / month</strong>
+          </div>
+
+          <div class="price-option">
+            <label><input type="radio"> 2 Months</label>
+            <strong>₹1,798</strong>
+          </div>
+
+          <ul class="feature-list mt-3">
+            <li>Swift Programming</li>
+            <li>iOS SDK & Xcode</li>
+            <li>App UI & Navigation</li>
+            <li>Live Projects</li>
+          </ul>
+
+          <div class="plan-cta">
+            <a class="cta-btn btn-solid" href="#">Select Plan</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ANDROID -->
+      <div class="col-md-4">
+        <div class="plan ui-style-card p-4 price-card">
+
+          <h3>Android App Development</h3>
+          <p class="text-white-50">Java · Kotlin</p>
+
+          <div class="price-option active">
+            <label><input type="radio" checked> Monthly</label>
+            <strong>₹899 / month</strong>
+          </div>
+
+          <div class="price-option">
+            <label><input type="radio"> 2 Months</label>
+            <strong>₹1,798</strong>
+          </div>
+
+          <ul class="feature-list mt-3">
+            <li>Java & Kotlin</li>
+            <li>Android SDK</li>
+            <li>API Integration</li>
+            <li>Live Projects</li>
+          </ul>
+
+          <div class="plan-cta">
+            <a class="cta-btn btn-solid" href="#">Select Plan</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CROSS PLATFORM -->
+      <div class="col-md-4">
+        <div class="plan ui-style-card p-4 price-card">
+
+          <h3>Cross-Platform App Development</h3>
+          <p class="text-white-50">Flutter · React Native</p>
+
+          <div class="price-option active">
+            <strong>₹1,299</strong>
+          </div>
+
+          <ul class="feature-list mt-3">
+            <li>Flutter / React Native</li>
+            <li>Single Codebase</li>
+            <li>Android & iOS Apps</li>
+            <li>Live Projects</li>
+            <li>Dart</li>
+          </ul>
+
+          <div class="plan-cta">
+            <a class="cta-btn btn-solid" href="#">Select Plan</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<!-- ================= APP END ================= -->
+
+
+
+    <!-- ================= FULL-ONLY CATEGORIES ================= -->
+
+    <!-- DIGITAL MARKETING -->
+    <div id="marketing" class="category-content" style="display:none">
+
+       <!-- FULL COURSE BUTTON -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button class="cat-tab btn active">Full Course Package</button>
+    </div>
+  </div>
+      <div class="full-course-card mx-auto">
+        <div class="full-course-left">
+          <span class="badge">Complete Program</span>
+          <h3>Digital Marketing</h3>
+          <p class="sub-text">No Individual Courses</p>
+          <ul class="full-feature-list">
+            <li>SEO</li><li>SMO</li><li>Content Writing</li>
+          </ul>
+        </div>
+        <div class="full-course-right">
+           <span class="best-value">BEST VALUE</span>
+          <h2 class="price">₹4,799</h2>
+          <p class="duration">4 Months</p>
+          <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <!-- GRAPHIC -->
+    <div id="graphic" class="category-content" style="display:none">
+
+     <!-- FULL COURSE BUTTON -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button class="cat-tab btn active">Full Course Package</button>
+    </div>
+  </div>
+
+      <div class="full-course-card mx-auto">
+        <div class="full-course-left">
+           <span class="badge">Complete Program</span>
+          <h3>Graphic Designing</h3>
+          <p class="sub-text">No Individual Courses</p>
+          <ul class="full-feature-list">
+            <li>UI/UX</li><li>Figma</li><li>Photoshop</li>
+          </ul>
+        </div>
+        <div class="full-course-right">
+           <span class="best-value">BEST VALUE</span>
+          <h2 class="price">₹2,495</h2>
+          <p class="duration">5 Months</p>
+          <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTING -->
+    <div id="testing" class="category-content" style="display:none">
+
+     <!-- FULL COURSE BUTTON -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button class="cat-tab btn active">Full Course Package</button>
+    </div>
+  </div>
+
+      <div class="full-course-card mx-auto">
+        <div class="full-course-left">
+           <span class="badge">Complete Program</span>
+          <h3>Software Testing</h3>
+          <p class="sub-text">No Individual Courses</p>
+          <ul class="full-feature-list">
+            <li>Manual Testing</li><li>Automation Testing</li>
+          </ul>
+        </div>
+        <div class="full-course-right">
+           <span class="best-value">BEST VALUE</span>
+          <h2 class="price">₹3,099</h2>
+          <p class="duration">4 Months</p>
+          <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NETWORKING -->
+    <div id="networking" class="category-content" style="display:none">
+
+     <!-- FULL COURSE BUTTON -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button class="cat-tab btn active">Full Course Package</button>
+    </div>
+  </div>
+
+      <div class="full-course-card mx-auto">
+        <div class="full-course-left">
+           <span class="badge">Complete Program</span>
+          <h3>Networking</h3>
+          <p class="sub-text">No Individual Courses</p>
+          <ul class="full-feature-list">
+            <li>networking1</li><li>networking</li>
+          </ul>
+        </div>
+        <div class="full-course-right">
+           <span class="best-value">BEST VALUE</span>
+          <h2 class="price">₹1,497</h2>
+          <p class="duration">2 Months</p>
+          <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERVIEW -->
+    <div id="interview" class="category-content" style="display:none">
+
+       <!-- FULL COURSE BUTTON -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button class="cat-tab btn active">Interview Package</button>
+    </div>
+  </div>
+      <div class="full-course-card mx-auto">
+        <div class="full-course-left">
+           <span class="badge">Most Popular</span>
+          <h3>Interview & Internship Support</h3>
+          <ul class="full-feature-list">
+            <li>2 Interview Opportunities</li>
+          </ul>
+        </div>
+        <div class="full-course-right">
+           <span class="best-value">BEST VALUE</span>
+          <h2 class="price">₹499</h2>
+          <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FUNDING -->
+    <div id="funding" class="category-content" style="display:none">
+
+     <!-- FULL COURSE BUTTON -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button class="cat-tab btn active">Business Funding Package</button>
+    </div>
+  </div>
+
+      <div class="full-course-card mx-auto">
+        <div class="full-course-left">
+            <span class="badge">Most Popular</span>
+          <h3>Business Funding</h3>
+          <ul class="full-feature-list">
+            <li>2 Business Meetings</li>
+          </ul>
+        </div>
+        <div class="full-course-right">
+           <span class="best-value">BEST VALUE</span>
+          <h2 class="price">₹499</h2>
+          <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div>
+        </div>
       </div>
     </div>
 
   </div>
-  <!-- ============ WEB END ============ -->
-
-</div>
-</div>
 </section>
+<!-- ================= END PRICING ================= -->
 
 
-
-<!-- end new subscription duplicate -->
-   
       <!-- Start  take-action Section-->
     <section class="our-clients elf-section has-dark-bg" id="take-action">
       <div class="overlay-photo-image-bg  " data-bg-img="assets/images/sections-bg-images/2.jpg" data-bg-opacity=".25"> </div>
@@ -246,6 +540,7 @@
       </div>
     </section>
     <!-- End  take-action Section-->
+
 
     <!-- Start  page-footer Section-->
  <?php include 'footer.php'; ?>
@@ -283,26 +578,77 @@
         <!--     main     -->
         <script src="js/main.js"></script>
 
-   <!-- ===== JS TAB LOGIC ===== -->
-<script>
-function showCategory(name){
-  var i, x = document.getElementsByClassName("category-content");
-  for(i=0;i<x.length;i++){ x[i].style.display="none"; }
+<!-- price script -->
 
-  document.getElementById(name).style.display="block";
-  event.currentTarget.classList.add("active");
+<script>
+function activateTab(el){
+  document.querySelectorAll('.cat-tab').forEach(btn=>{
+    btn.classList.remove('active');
+  });
+  el.classList.add('active');
+}
+
+function showCategory(name){
+  document.querySelectorAll('.category-content')
+    .forEach(sec => sec.style.display = 'none');
+
+  document.getElementById(name).style.display = 'block';
+
+  if(name === 'web'){
+    toggleWeb('individual');
+  }
+
+  if(name === 'app'){
+    toggleApp('individual');
+  }
 }
 
 function toggleWeb(type){
-  if(type=='full'){
-    document.getElementById('web_full').style.display='block';
-    document.getElementById('web_individual').style.display='none';
-  }else{
-    document.getElementById('web_full').style.display='none';
-    document.getElementById('web_individual').style.display='block';
-  }
+  document.getElementById('web_full').style.display =
+    type === 'full' ? 'block' : 'none';
+
+  document.getElementById('web_individual').style.display =
+    type === 'individual' ? 'block' : 'none';
+
+  document.getElementById('btnIndividual').classList.remove('active');
+  document.getElementById('btnFull').classList.remove('active');
+
+  type === 'individual'
+    ? document.getElementById('btnIndividual').classList.add('active')
+    : document.getElementById('btnFull').classList.add('active');
 }
+
+/* NEW: APP TOGGLE */
+function toggleApp(type){
+  document.getElementById('app_individual').style.display =
+    type === 'individual' ? 'block' : 'none';
+
+  document.getElementById('app_full').style.display =
+    type === 'full' ? 'block' : 'none';
+
+  document.getElementById('btnAppIndividual').classList.remove('active');
+  document.getElementById('btnAppFull').classList.remove('active');
+
+  type === 'individual'
+    ? document.getElementById('btnAppIndividual').classList.add('active')
+    : document.getElementById('btnAppFull').classList.add('active');
+}
+
+/* PRICE OPTION ACTIVE */
+document.addEventListener('click', function(e){
+  const option = e.target.closest('.price-option');
+  if(!option) return;
+
+  const card = option.closest('.price-card');
+  card.querySelectorAll('.price-option')
+      .forEach(o => o.classList.remove('active'));
+
+  option.classList.add('active');
+  const input = option.querySelector('input');
+  if(input) input.checked = true;
+});
 </script>
+
 
   </body>
 

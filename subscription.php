@@ -79,353 +79,441 @@
 <!-- End inner Page hero-->
 
 
-<!-- Start pricing Section-->
+<!-- ================= PRICING SECTION ================= -->
 <section class="pricing mega-section" id="pricing-1">
-  <div class="container">
+  <div class="container position-relative">
 
-    <!-- Section Heading -->
-    <div class="sec-heading">
+    <!-- SECTION HEADING -->
+    <div class="sec-heading centered">
       <div class="content-area">
-        <span class="pre-title wow fadeInUp" data-wow-delay=".2s">pricing plans</span>
-        <h2 class="title wow fadeInUp" data-wow-delay=".4s">
+        <span class="pre-title">pricing plans</span>
+        <h2 class="title">
           <span class="hollow-text">Courses</span> pricing plans
         </h2>
-        <p class="subtitle wow fadeInUp" data-wow-delay=".6s">
-          MI Skills offers flexible and affordable pricing plans with access to live classes, expert support, and interview and internship opportunities.
+        <p class="subtitle">
+          MI Skills offers flexible and affordable pricing plans with access to live classes,<br>
+          expert support, and interview and internship opportunities.
         </p>
       </div>
-      
     </div>
 
-    <!-- ================= FIRST ROW ================= -->
+    <!-- CATEGORY TABS -->
+    <div class="course-category-tabs text-center mb-5">
+      <div class="d-inline-flex flex-wrap gap-2 justify-content-center category-pill-wrap">
+        <button class="cat-tab btn active" onclick="activateTab(this); showCategory('web')">Web Development</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('app')">App Development</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('marketing')">Digital Marketing</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('graphic')">Graphic Designing</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('testing')">Testing</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('networking')">Networking</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('interview')">Interview & Internship</button>
+        <button class="cat-tab btn" onclick="activateTab(this); showCategory('funding')">Business Funding</button>
+      </div>
+    </div>
+
+      <!-- ================= WEB DEVELOPMENT ================= -->
+      <div id="web" class="category-content">
+
+        <!-- TOGGLE -->
+        <div class="text-center mb-4">
+          <div class="d-inline-flex gap-2 category-pill-wrap">
+            <button id="btnIndividual" class="cat-tab btn active" onclick="toggleWeb('individual')">Individual Courses</button>
+            <button id="btnFull" class="cat-tab btn" onclick="toggleWeb('full')">Full Course Package</button>
+          </div>
+        </div>
+
+        <!-- FULL -->
+        <div id="web_full" style="display:none">
+          <div class="full-course-card mx-auto">
+            <div class="full-course-left">
+              <span class="badge">Most Popular</span>
+              <h3>Web Development – Full Course</h3>
+              <p class="sub-text">Full Stack Development – Frontend + Backend</p>
+              <ul class="full-feature-list">
+                <li>Frontend Development</li>
+                <li>Backend Development</li>
+                <li>15+ Industry Projects</li>
+                <li>Internship Support</li>
+                <li>Career Guidance & Interview Prep</li>
+                <li>Lifetime Access & Updates</li>
+              </ul>
+            </div>
+            <div class="full-course-right">
+              <span class="best-value">BEST VALUE</span>
+              <h2 class="price">₹1,495</h2>
+              <p class="duration">3 Months Access</p>
+              <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- INDIVIDUAL -->
+        <div id="web_individual">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="plan ui-style-card p-4 price-card">
+                <h3>Frontend Development</h3>
+                <p class="text-white-50">HTML · CSS · JavaScript · Responsive UI</p>
+
+                <div class="price-option active">
+                  <label><input type="radio" checked> Monthly</label>
+                  <strong>₹499 / month</strong>
+                </div>
+                <div class="price-option">
+                  <label><input type="radio"> 2 Months</label>
+                  <strong>₹998 <small class="save-text">Save 15%</small></strong>
+                </div>
+
+                <ul class="feature-list mt-3">
+                  <li>HTML5 & CSS3</li>
+                  <li>JavaScript ES6+</li>
+                  <li>React Basics</li>
+                  <li>8+ Projects</li>
+                </ul>
+                <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="plan ui-style-card p-4 price-card">
+                <h3>Backend Development</h3>
+                <p class="text-white-50">MongoDB · SQL · APIs · Auth</p>
+
+                <div class="price-option active">
+                  <label><input type="radio" checked> Monthly</label>
+                  <strong>₹499 / month</strong>
+                </div>
+                <div class="price-option">
+                  <label><input type="radio"> 2 Months</label>
+                  <strong>₹998 <small class="save-text">Save 15%</small></strong>
+                </div>
+
+                <ul class="feature-list mt-3">
+                  <li>Node & Express</li>
+                  <li>REST APIs</li>
+                  <li>Authentication</li>
+                  <li>7+ Projects</li>
+                </ul>
+                <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- ================= APP DEVELOPMENT ================= -->
+<div id="app" class="category-content" style="display:none">
+
+  <!-- TOGGLE -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button id="btnAppIndividual"
+        class="cat-tab btn active"
+        onclick="toggleApp('individual')">
+        Individual Courses
+      </button>
+
+      <button id="btnAppFull"
+        class="cat-tab btn"
+        onclick="toggleApp('full')">
+        Full Course Package
+      </button>
+    </div>
+  </div>
+
+  <!-- FULL -->
+  <div id="app_full" style="display:none">
+    <div class="full-course-card mx-auto">
+
+      <div class="full-course-left">
+        <span class="badge">Complete Program</span>
+        <h3>App Development – Full Course</h3>
+        <p class="sub-text">Android + iOS + Cross Platform</p>
+
+        <ul class="full-feature-list">
+          <li>Android App Development</li>
+          <li>iOS App Development</li>
+          <li>Cross Platform Apps</li>
+          <li>Live Projects</li>
+          <li>Career Guidance</li>
+        </ul>
+      </div>
+
+      <div class="full-course-right">
+        <span class="best-value">BEST VALUE</span>
+        <h2 class="price">₹3,899</h2>
+        <p class="duration">4 Months Access</p>
+        <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INDIVIDUAL -->
+  <div id="app_individual">
     <div class="row">
 
-      <!-- Web Development -->
-      <div class="col-12 col-md-6 col-xl-3 price-plan">
-        <div class="plan wow fadeInUp">
-          <div class="plan-head">
-            <i class="flaticon-nft-1 plan-icon"></i>
-            <h4 class="plane-name">Web Development</h4>
-            <div class="plan-price">
-              <h3 class="price">1,495<sup>₹</sup></h3>
-              <span class="per">Full Course</span>
-            </div>
+      <!-- IOS -->
+      <div class="col-md-4">
+        <div class="plan ui-style-card p-4 price-card">
+
+          <h3>iOS App Development</h3>
+          <p class="text-white-50">Swift · iOS SDK</p>
+
+          <div class="price-option active">
+            <label><input type="radio" checked> Monthly</label>
+            <strong>₹899 / month</strong>
           </div>
-          <div class="plan-details">
-            <table class="price-table">
-              <thead>
-                <tr><th>Course</th><th>Duration</th><th>Monthly</th><th>Total</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>Front-End</td><td>2 Months</td><td>₹499</td><td>₹998</td></tr>
-                <tr><td>Back-End</td><td>2 Months</td><td>₹499</td><td>₹998</td></tr>
-                <tr class="highlight"><td>Full Stack</td><td>3 Months</td><td>—</td><td>₹1,495</td></tr>
-              </tbody>
-            </table>
+
+          <div class="price-option">
+            <label><input type="radio"> 2 Months</label>
+            <strong>₹1,798</strong>
           </div>
-          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+
+          <ul class="feature-list mt-3">
+            <li>Swift Programming</li>
+            <li>iOS SDK & Xcode</li>
+            <li>App UI & Navigation</li>
+            <li>Live Projects</li>
+          </ul>
+
+          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+
         </div>
       </div>
 
-      <!-- App Development -->
-      <div class="col-12 col-md-6 col-xl-3 price-plan">
-        <div class="plan wow fadeInUp">
-          <div class="plan-head">
-            <i class="flaticon-virtual-reality plan-icon"></i>
-            <h4 class="plane-name">App Development</h4>
-            <div class="plan-price">
-              <h3 class="price">3,899<sup>₹</sup></h3>
-              <span class="per">Full Course</span>
-            </div>
+      <!-- ANDROID -->
+      <div class="col-md-4">
+        <div class="plan ui-style-card p-4 price-card">
+
+          <h3>Android App Development</h3>
+          <p class="text-white-50">Java · Kotlin</p>
+
+          <div class="price-option active">
+            <label><input type="radio" checked> Monthly</label>
+            <strong>₹899 / month</strong>
           </div>
-          <div class="plan-details">
-            <table class="price-table">
-              <thead>
-                <tr><th>Course</th><th>Duration</th><th>Monthly</th><th>Total</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>iOS App</td><td>2 Months</td><td>₹899</td><td>₹1,798</td></tr>
-                <tr><td>Android App</td><td>2 Months</td><td>₹899</td><td>₹1,798</td></tr>
-                <tr><td>Cross-Platform</td><td>2 Months</td><td>—</td><td>₹1,299</td></tr>
-                <tr class="highlight"><td>Complete Course</td><td>4 Months</td><td>—</td><td>₹3,899</td></tr>
-              </tbody>
-            </table>
+
+          <div class="price-option">
+            <label><input type="radio"> 2 Months</label>
+            <strong>₹1,798</strong>
           </div>
-          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+
+          <ul class="feature-list mt-3">
+            <li>Java & Kotlin</li>
+            <li>Android SDK</li>
+            <li>API Integration</li>
+            <li>Live Projects</li>
+          </ul>
+
+          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+
         </div>
       </div>
 
-      <!-- Digital Marketing -->
-      <div class="col-12 col-md-6 col-xl-3 price-plan">
-        <div class="plan featured wow fadeInUp">
-          <div class="plan-head">
-            <i class="flaticon-box plan-icon"></i>
-            <h4 class="plane-name">Digital Marketing</h4>
-            <div class="plan-price">
-              <h3 class="price">4,799<sup>₹</sup></h3>
-              <span class="per">Full Course</span>
-            </div>
-          </div>
-          <div class="plan-details">
-            <table class="price-table">
-              <tbody>
-                <tr><td>SEO</td><td colspan="3">No individual pricing</td></tr>
-                <tr><td>SMO</td><td colspan="3">No individual pricing</td></tr>
-                <tr><td>Content Writing</td><td colspan="3">No individual pricing</td></tr>
-                <tr class="highlight">
-                  <td colspan="4">Duration: 4 Months · ₹1,299 / month · Total ₹4,799</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
-        </div>
-      </div>
+      <!-- CROSS PLATFORM -->
+      <div class="col-md-4">
+        <div class="plan ui-style-card p-4 price-card">
 
-      <!-- Graphic Designing -->
-      <div class="col-12 col-md-6 col-xl-3 price-plan">
-        <div class="plan wow fadeInUp">
-          <div class="plan-head">
-            <i class="flaticon-basic-shapes plan-icon"></i>
-            <h4 class="plane-name">Graphic Designing</h4>
-            <div class="plan-price">
-              <h3 class="price">2,495<sup>₹</sup></h3>
-              <span class="per">Full Course</span>
-            </div>
+          <h3>Cross-Platform App Development</h3>
+          <p class="text-white-50">Flutter · React Native</p>
+
+          <div class="price-option active">
+            <strong>₹1,299</strong>
           </div>
-          <div class="plan-details">
-            <table class="price-table">
-              <tbody>
-                <tr><td>UI / UX Design</td><td colspan="3">Included</td></tr>
-                <tr><td>Figma</td><td colspan="3">Included</td></tr>
-                <tr><td>Canva</td><td colspan="3">Included</td></tr>
-                <tr><td>Photoshop & Illustration</td><td colspan="3">Included</td></tr>
-                <tr class="highlight">
-                  <td colspan="4">Duration: 5 Months · ₹499 / month · Total ₹2,495</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+
+          <ul class="feature-list mt-3">
+            <li>Flutter / React Native</li>
+            <li>Single Codebase</li>
+            <li>Android & iOS Apps</li>
+            <li>Live Projects</li>
+            <li>Dart</li>
+          </ul>
+
+          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+
         </div>
       </div>
 
     </div>
+  </div>
 
-    <!-- ================= SECOND ROW ================= -->
-    <div class="row mt-5">
+</div>
+<!-- ================= APP END ================= -->
 
-      <!-- Software Testing -->
-      <div class="col-12 col-md-6 col-xl-3 price-plan">
-        <div class="plan wow fadeInUp">
-          <div class="plan-head">
-            <i class="flaticon-search plan-icon"></i>
-            <h4 class="plane-name">Software Testing</h4>
-            <div class="plan-price">
-              <h3 class="price">3,099<sup>₹</sup></h3>
-              <span class="per">Full Course</span>
-            </div>
-          </div>
-          <div class="plan-details">
-            <table class="price-table">
-              <tbody>
-                <tr><td>Manual Testing</td><td class="text-end">Included</td></tr>
-                <tr><td>Automation Testing</td><td class="text-end">Included</td></tr>
-                <tr class="highlight">
-                  <td colspan="2">Duration: 4 Months · ₹899 / Month · Total ₹3,099</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+
+
+    <!-- ================= FULL-ONLY CATEGORIES ================= -->
+
+    <!-- DIGITAL MARKETING -->
+    <div id="marketing" class="category-content" style="display:none">
+
+       <!-- FULL COURSE BUTTON -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button class="cat-tab btn active">Full Course Package</button>
+    </div>
+  </div>
+      <div class="full-course-card mx-auto">
+        <div class="full-course-left">
+          <span class="badge">Complete Program</span>
+          <h3>Digital Marketing</h3>
+          <p class="sub-text">No Individual Courses</p>
+          <ul class="full-feature-list">
+            <li>SEO</li><li>SMO</li><li>Content Writing</li>
+          </ul>
+        </div>
+        <div class="full-course-right">
+           <span class="best-value">BEST VALUE</span>
+          <h2 class="price">₹4,799</h2>
+          <p class="duration">4 Months</p>
+          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
         </div>
       </div>
+    </div>
 
-      <!-- Networking -->
-      <div class="col-12 col-md-6 col-xl-3 price-plan">
-        <div class="plan wow fadeInUp">
-          <div class="plan-head">
-            <i class="flaticon-strategy plan-icon"></i>
-            <h4 class="plane-name">Networking</h4>
-            <div class="plan-price">
-              <h3 class="price">1,497<sup>₹</sup></h3>
-              <span class="per">Full Course</span>
-            </div>
-          </div>
-          <div class="plan-details">
-            <table class="price-table">
-              <tbody>
-                <tr><td>Duration</td><td class="text-end">2 Months</td></tr>
-                <tr><td>Total Fee</td><td class="text-end">₹1,497</td></tr>
-                <tr class="highlight">
-                  <td colspan="2">Duration: 2 Months · Total ₹1,497</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+    
+
+    <!-- GRAPHIC -->
+    <div id="graphic" class="category-content" style="display:none">
+
+     <!-- FULL COURSE BUTTON -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button class="cat-tab btn active">Full Course Package</button>
+    </div>
+  </div>
+
+      <div class="full-course-card mx-auto">
+        <div class="full-course-left">
+           <span class="badge">Complete Program</span>
+          <h3>Graphic Designing</h3>
+          <p class="sub-text">No Individual Courses</p>
+          <ul class="full-feature-list">
+            <li>UI/UX</li><li>Figma</li><li>Photoshop</li>
+          </ul>
+        </div>
+        <div class="full-course-right">
+           <span class="best-value">BEST VALUE</span>
+          <h2 class="price">₹2,495</h2>
+          <p class="duration">5 Months</p>
+          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
         </div>
       </div>
+    </div>
 
-      <!-- Interview Support -->
-      <div class="col-12 col-md-6 col-xl-3 price-plan">
-        <div class="plan wow fadeInUp">
-          <div class="plan-head">
-            <i class="flaticon-profile plan-icon"></i>
-            <h4 class="plane-name">Interview Support</h4>
-            <div class="plan-price">
-              <h3 class="price">499<sup>₹</sup></h3>
-              <span class="per">Support</span>
-            </div>
-          </div>
-          <div class="plan-details">
-            <table class="price-table">
-              <tbody>
-                <tr><td>Sessions</td><td class="text-end">2 Interviews</td></tr>
-                <tr class="highlight">
-                  <td colspan="2">2 Interview Opportunities · ₹499</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+    <!-- TESTING -->
+    <div id="testing" class="category-content" style="display:none">
+
+     <!-- FULL COURSE BUTTON -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button class="cat-tab btn active">Full Course Package</button>
+    </div>
+  </div>
+
+      <div class="full-course-card mx-auto">
+        <div class="full-course-left">
+           <span class="badge">Complete Program</span>
+          <h3>Software Testing</h3>
+          <p class="sub-text">No Individual Courses</p>
+          <ul class="full-feature-list">
+            <li>Manual Testing</li><li>Automation Testing</li>
+          </ul>
+        </div>
+        <div class="full-course-right">
+           <span class="best-value">BEST VALUE</span>
+          <h2 class="price">₹3,099</h2>
+          <p class="duration">4 Months</p>
+          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
         </div>
       </div>
+    </div>
 
-      <!-- Business Funding -->
-      <div class="col-12 col-md-6 col-xl-3 price-plan">
-        <div class="plan wow fadeInUp">
-          <div class="plan-head">
-            <i class="flaticon-box plan-icon"></i>
-            <h4 class="plane-name">Business Funding</h4>
-            <div class="plan-price">
-              <h3 class="price">499<sup>₹</sup></h3>
-              <span class="per">Starting</span>
-            </div>
-          </div>
-          <div class="plan-details">
-            <table class="price-table">
-              <tbody>
-                <tr><td>Meetings</td><td class="text-end">2 Business Meets</td></tr>
-                <tr class="highlight">
-                  <td colspan="2">2 Business Meetings · Starting ₹499</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="plan-cta"><a class="cta-btn btn-outline" href="#">Select Plan</a></div>
+    <!-- NETWORKING -->
+    <div id="networking" class="category-content" style="display:none">
+
+     <!-- FULL COURSE BUTTON -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button class="cat-tab btn active">Full Course Package</button>
+    </div>
+  </div>
+
+      <div class="full-course-card mx-auto">
+        <div class="full-course-left">
+           <span class="badge">Complete Program</span>
+          <h3>Networking</h3>
+          <p class="sub-text">No Individual Courses</p>
+          <ul class="full-feature-list">
+            <li>Desktop Support</li><li>Core Networking</li>
+          </ul>
+        </div>
+        <div class="full-course-right">
+           <span class="best-value">BEST VALUE</span>
+          <h2 class="price">₹1,497</h2>
+          <p class="duration">2 Months</p>
+          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
         </div>
       </div>
+    </div>
 
+    <!-- INTERVIEW -->
+    <div id="interview" class="category-content" style="display:none">
+
+       <!-- FULL COURSE BUTTON -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button class="cat-tab btn active">Interview Package</button>
+    </div>
+  </div>
+      <div class="full-course-card mx-auto">
+        <div class="full-course-left">
+           <span class="badge">Most Popular</span>
+          <h3>Interview & Internship Support</h3>
+          <ul class="full-feature-list">
+            <li>2 Interview Opportunities</li>
+          </ul>
+        </div>
+        <div class="full-course-right">
+           <span class="best-value">BEST VALUE</span>
+          <h2 class="price">₹499</h2>
+          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- FUNDING -->
+    <div id="funding" class="category-content" style="display:none">
+
+     <!-- FULL COURSE BUTTON -->
+  <div class="text-center mb-4">
+    <div class="d-inline-flex gap-2 category-pill-wrap">
+      <button class="cat-tab btn active">Business Funding Package</button>
+    </div>
+  </div>
+
+      <div class="full-course-card mx-auto">
+        <div class="full-course-left">
+            <span class="badge">Most Popular</span>
+          <h3>Business Funding</h3>
+          <ul class="full-feature-list">
+            <li>2 Business Meetings</li>
+          </ul>
+        </div>
+        <div class="full-course-right">
+           <span class="best-value">BEST VALUE</span>
+          <h2 class="price">₹499</h2>
+          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
-<!-- End pricing Section-->
+<!-- ================= END PRICING ================= -->
 
 
-    <!-- Start  pricing Section-->
-
-
-    <!-- <section class="pricing mega-section  " id="pricing-1">
-      <div class="container">
-        <div class="sec-heading  ">
-          <div class="content-area"><span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">pricing plans</span>
-            <h2 class=" title    wow fadeInUp" data-wow-delay=".4s"><span class='hollow-text'>affordable</span> pricing plans</h2>
-            <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">Lorem ipsum dolor sit amet consectetur adipisicing elit Omnis <br>id atque  dignissimos repellat quae ullam.</p>
-          </div>
-          <div class=" cta-area   wow fadeInUp" data-wow-delay=".8s"><a class="cta-btn btn-solid    " href="pricing.html">see all plans<i class="bi bi-arrow-right icon "></i></a></div>
-        </div>
-        <div class="row">
-         
-          <div class="col-12  col-md-6 col-xl-3  mx-auto price-plan ">
-            <div class="plan    wow fadeInUp  " data-wow-delay=".1s ">
-              <div class="plan-head"><i class="flaticon-nft-1 plan-icon"></i>
-                <h4 class="plane-name">free plan</h4>
-                <div class="plan-price">
-                  <h3 class="price">00<sup class="currency-symbol">$</sup></h3><span class="per">per project</span>
-                </div>
-              </div>
-              <div class="plan-details">
-                <ul class="plan-list">
-                  <li class="plan-feat "> <span class="feat-text"> 150 Lorem, ipsum dolor. </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> 20 Lorem ipsum dolor sit . </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> Lorem ipsum dolor sit. </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> free Lorem ipsum dolor . </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> added Lorem ipsum dolor. </span></li>
-                </ul>
-              </div>
-              <div class="plan-cta"><a class="cta-btn btn-outline " href="#0">select plan  </a></div>
-            </div>
-          </div>
-        
-          <div class="col-12  col-md-6 col-xl-3  mx-auto price-plan ">
-            <div class="plan    wow fadeInUp  " data-wow-delay=".3s ">
-              <div class="plan-head"><i class="flaticon-virtual-reality plan-icon"></i>
-                <h4 class="plane-name">standerd plan</h4>
-                <div class="plan-price">
-                  <h3 class="price">85<sup class="currency-symbol">$</sup></h3><span class="per">per project</span>
-                </div>
-              </div>
-              <div class="plan-details">
-                <ul class="plan-list">
-                  <li class="plan-feat "> <span class="feat-text"> 150 Lorem, ipsum dolor. </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> 20 Lorem ipsum dolor sit . </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> Lorem ipsum dolor sit. </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> free Lorem ipsum dolor . </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> added Lorem ipsum dolor. </span></li>
-                </ul>
-              </div>
-              <div class="plan-cta"><a class="cta-btn btn-outline " href="#0">select plan  </a></div>
-            </div>
-          </div>
-         
-          <div class="col-12  col-md-6 col-xl-3  mx-auto price-plan ">
-            <div class="plan   featured  wow fadeInUp  " data-wow-delay=".5s ">
-              <div class="plan-head"><i class="flaticon-box plan-icon"></i>
-                <h4 class="plane-name">pro plan</h4>
-                <div class="plan-price">
-                  <h3 class="price">150<sup class="currency-symbol">$</sup></h3><span class="per">per project</span>
-                </div>
-              </div>
-              <div class="plan-details">
-                <ul class="plan-list">
-                  <li class="plan-feat "> <span class="feat-text"> 150 Lorem, ipsum dolor. </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> 20 Lorem ipsum dolor sit . </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> Lorem ipsum dolor sit. </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> free Lorem ipsum dolor . </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> added Lorem ipsum dolor. </span></li>
-                </ul>
-              </div>
-              <div class="plan-cta"><a class="cta-btn btn-outline " href="#0">select plan  </a></div>
-            </div>
-          </div>
-         
-          <div class="col-12  col-md-6 col-xl-3  mx-auto price-plan ">
-            <div class="plan    wow fadeInUp  " data-wow-delay=".6s ">
-              <div class="plan-head"><i class="flaticon-basic-shapes plan-icon"></i>
-                <h4 class="plane-name">ultimate plan</h4>
-                <div class="plan-price">
-                  <h3 class="price">210<sup class="currency-symbol">$</sup></h3><span class="per">per project</span>
-                </div>
-              </div>
-              <div class="plan-details">
-                <ul class="plan-list">
-                  <li class="plan-feat "> <span class="feat-text"> 150 Lorem, ipsum dolor. </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> 20 Lorem ipsum dolor sit . </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> Lorem ipsum dolor sit. </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> free Lorem ipsum dolor . </span></li>
-                  <li class="plan-feat "> <span class="feat-text"> added Lorem ipsum dolor. </span></li>
-                </ul>
-              </div>
-              <div class="plan-cta"><a class="cta-btn btn-outline " href="#0">select plan  </a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!-- End  pricing Section-->
-   
       <!-- Start  take-action Section-->
     <section class="our-clients elf-section has-dark-bg" id="take-action">
       <div class="overlay-photo-image-bg  " data-bg-img="assets/images/sections-bg-images/2.jpg" data-bg-opacity=".25"> </div>
@@ -445,6 +533,7 @@
     </section>
     <!-- End  take-action Section-->
 
+
     <!-- Start  page-footer Section-->
  <?php include 'footer.php'; ?>
     <!-- End  page-footer Section-->
@@ -455,48 +544,7 @@
     <div class="back-to-top" id="back-to-top"><i class="bi bi-arrow-up icon "></i>
     </div>
     <!-- End back-to-top Button-->
-    <!-- Start privacy-policy-modal-->
-    <div class="modal privacy-policy-modal fade" id="privacyPolicyModal" aria-labelledby="PrivacyPolicyModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-xl ">
-        <div class="modal-content text-dark">
-          <div class="modal-header">
-            <h2 class="modal-title" id="PrivacyPolicyModalLabel">Privacy Policy Modal Title</h2>
-            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button class="btn-solid" type="button" data-bs-dismiss="modal" aria-label="Close">Click to close</button>
-            <button class="btn-outline" type="button">Do somthing else</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End privacy-policy-modal-->   
+   
         
         <!--     JQuery     -->
         <script src="js/vendors/jquery-3.6.1.min.js"></script>
@@ -521,6 +569,79 @@
         
         <!--     main     -->
         <script src="js/main.js"></script>
+
+<!-- price script -->
+
+<script>
+function activateTab(el){
+  document.querySelectorAll('.cat-tab').forEach(btn=>{
+    btn.classList.remove('active');
+  });
+  el.classList.add('active');
+}
+
+function showCategory(name){
+  document.querySelectorAll('.category-content')
+    .forEach(sec => sec.style.display = 'none');
+
+  document.getElementById(name).style.display = 'block';
+
+  if(name === 'web'){
+    toggleWeb('individual');
+  }
+
+  if(name === 'app'){
+    toggleApp('individual');
+  }
+}
+
+function toggleWeb(type){
+  document.getElementById('web_full').style.display =
+    type === 'full' ? 'block' : 'none';
+
+  document.getElementById('web_individual').style.display =
+    type === 'individual' ? 'block' : 'none';
+
+  document.getElementById('btnIndividual').classList.remove('active');
+  document.getElementById('btnFull').classList.remove('active');
+
+  type === 'individual'
+    ? document.getElementById('btnIndividual').classList.add('active')
+    : document.getElementById('btnFull').classList.add('active');
+}
+
+/* NEW: APP TOGGLE */
+function toggleApp(type){
+  document.getElementById('app_individual').style.display =
+    type === 'individual' ? 'block' : 'none';
+
+  document.getElementById('app_full').style.display =
+    type === 'full' ? 'block' : 'none';
+
+  document.getElementById('btnAppIndividual').classList.remove('active');
+  document.getElementById('btnAppFull').classList.remove('active');
+
+  type === 'individual'
+    ? document.getElementById('btnAppIndividual').classList.add('active')
+    : document.getElementById('btnAppFull').classList.add('active');
+}
+
+/* PRICE OPTION ACTIVE */
+document.addEventListener('click', function(e){
+  const option = e.target.closest('.price-option');
+  if(!option) return;
+
+  const card = option.closest('.price-card');
+  card.querySelectorAll('.price-option')
+      .forEach(o => o.classList.remove('active'));
+
+  option.classList.add('active');
+  const input = option.querySelector('input');
+  if(input) input.checked = true;
+});
+</script>
+
+
   </body>
 
 </html>

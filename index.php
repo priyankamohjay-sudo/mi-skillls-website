@@ -95,6 +95,7 @@
       </div>
     </section>
     <!-- End  Page hero-->
+
      
     <!-- Start  services Section-->
     <section class="services services-boxed mega-section  " id="services">
@@ -177,6 +178,8 @@
       </div>
     </section>
     <!-- End  services Section-->
+
+
     <!-- Start  about Section-->
     <section class="about " id="about">
       <div class="overlay-photo-image-bg" data-bg-img="assets/images/sections-bg-images/pattern-bg-2.jpg" data-bg-opacity=".2"></div>
@@ -223,6 +226,37 @@
       </div>
     </section>
     <!-- End  about Section-->
+
+       <!-- Start  take-action Section-->
+
+    <section class=" elf-section " id="take-action" style="background: #673ab7;">
+      <div class="overlay-photo-image-bg  " data-bg-img="assets/images/hero/white-bg.jpg" data-bg-opacity=".25"> </div>
+      <div class="cta-wrapper">
+        <div class="container">
+          <div class="sec-heading  centered mb-0 ">         
+            <!-- <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">contact us</span> -->
+              <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">Download MI Skills App & Desktop</h2>
+              <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">Learn through live online classes, track interviews, internships, and job opportunities, and manage your courses seamlessly <br>on the MI Skills App—available on Play Store, App Store, and Desktop for learning anytime, anywhere.</p>
+            </div>
+          </div>
+
+            <div class="see-more-area wow fadeInUp pt-5 d-flex justify-content-center gap-4" data-wow-delay="0.8s">
+        
+        <a class="btn btn-dark cta-link px-4 py-2 d-inline-flex align-items-center gap-2" target="_blank" href="https://play.google.com/store/apps/details?id=com.skill.my&pcampaignid=web_share&pli=1"><i class="bi bi-google-play fs-5"></i>
+          Get it on Play Store</a>
+
+              <a class="btn btn-dark cta-link px-4 py-2 d-inline-flex align-items-center gap-2" target="_blank" href="#"><i class="bi bi-windows fs-5"></i>
+          Download for Windows
+        </a>
+
+      </div>
+           
+        </div>
+      </div>
+    </section>
+
+    <!-- End  take-action Section-->
+
     <!-- Start  stats Section-->
     <section class="stats js-stats-counter mega-section">
       <div class="overlay-photo-image-bg" data-bg-img="assets/images/sections-bg-images/pattern-bg-3.jpg" data-bg-opacity=".2"></div>
@@ -259,6 +293,7 @@
     </section>
 
  <!-- End  stats Section-->
+
      <section class="about-us">
         <!-- Start first about div-->
         <div class="content-block container ">

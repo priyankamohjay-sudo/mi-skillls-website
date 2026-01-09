@@ -5063,6 +5063,7 @@ body.rounded-btns .read-more {
 }
 
 /*    End benefits Section  */
+
 /*   Start pricing Section  */
 .pricing {
   overflow: hidden;
@@ -5210,6 +5211,8 @@ body.rounded-btns .read-more {
 }
 
 /*    End pricing Section  */
+
+
 /*   Start stats section Rules  */
 .stats {
   position: relative;
@@ -5462,75 +5465,187 @@ html, body {
 
 /* subscription page css */
 
-.pricing{
-  background:#0a0d1a;
-  border-radius:12px;
-  padding:40px 0;
+
+.price-card {
+  background: #0b1120;
 }
 
-.course-tabs{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:center;
+.price-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #060922;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: .3s;
 }
 
-.tab-btn{
-  background:#13172b;
-  border:1px solid rgba(152,98,218,.3);
-  color:white;
-  padding:12px 18px;
-  border-radius:30px;
-  transition:.3s;
+.price-option label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
 
-.tab-btn.active{
-  background:#9862DA;
-  color:white;
+.price-option input {
+  accent-color: var(--clr-main);
 }
 
-.plan{
- background:#13172b;
- border-radius:12px;
- padding:20px;
- position:relative;
+.price-option.active {
+  border-color: var(--clr-main);
+  background: rgba(103,58,183,.08);
 }
 
-.ribbon{
- position:absolute;
- top:-10px;
- right:10px;
- background:#9862DA;
- color:white;
- padding:4px 10px;
- border-radius:20px;
- font-size:12px;
+.save-text {
+  color: #22c55e;
+  font-size: 12px;
+  margin-left: 6px;
 }
 
-.option{
- display:block;
- background:#0b0f19;
- border:1px solid rgba(152,98,218,.3);
- padding:10px;
- margin-bottom:8px;
- border-radius:8px;
- cursor:pointer;
- color:white-50;
+
+/* full course card css */
+
+.full-course-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 30px;
+  padding: 32px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #2a0a4a, #1a1038);
+  border: 1px solid rgba(139,92,246,0.4);
+  max-width: 950px;
+  color: #fff;
 }
 
-.cta-btn{
- background:#9862DA;
- color:white;
- border:none;
- padding:12px;
- border-radius:8px;
+/* LEFT */
+.full-course-left {
+  flex: 1;
 }
 
-.dark-select{
- background:#0b0f19;
- border:1px solid #9862da;
- color:white;
+.full-course-left h3 {
+  font-size: 26px;
+  margin-bottom: 6px;
 }
+
+.sub-text {
+  font-size: 15px;
+  color: #c7c9e2;
+  margin-bottom: 18px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(139,92,246,0.15);
+  color: #c4b5fd;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+/* FEATURES */
+.full-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.full-feature-list li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #e5e7ff;
+  position: relative;
+  padding-left: 18px;
+}
+
+.full-feature-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #8b5cf6;
+  font-size: 12px;
+}
+
+/* RIGHT PRICE BOX */
+.full-course-right {
+  width: 260px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.best-value {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 10px 0 4px;
+}
+
+.duration {
+  font-size: 14px;
+  color: #c7c9e2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .full-course-card {
+    flex-direction: column;
+  }
+
+  .full-course-right {
+    width: 100%;
+  }
+}
+
+/* full course card css end */
+
+/* CATEGORY TAB WRAPPER */
+.category-pill-wrap {
+  background: #0b1120;
+  padding: 10px;
+  border-radius: 14px;
+}
+
+/* BASE TAB */
+.cat-tab {
+  background: #11162a;
+  color: #c7c9e2;
+  border: 1px solid #1f2545;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* HOVER */
+.cat-tab:hover {
+  background: rgba(139, 92, 246, 0.12);
+  color: #e5e7ff;
+}
+
+/* ACTIVE TAB (PURPLE) */
+.cat-tab.active {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.45);
+}
+
+
 
 /*  End  stats section Rules    */
 
