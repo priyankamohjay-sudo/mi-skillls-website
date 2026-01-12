@@ -12,7 +12,7 @@
       </div>
       <div class="container">
         <nav class="menu-navbar">
-          <div class="header-logo"><a class="logo-link" href="#"><img class="logo-img light-logo" loading="lazy" src="assets/images/logo/logo-white-new.png" alt="logo"/><img class="logo-img  dark-logo" loading="lazy" src="assets/images/logo/logo-dark.png" alt="logo"/></a></div>
+          <div class="header-logo"><a class="logo-link" href="https://miskills.in/"><img class="logo-img light-logo" loading="lazy" src="assets/images/logo/logo-white-new.png" alt="logo"/><img class="logo-img  dark-logo" loading="lazy" src="assets/images/logo/logo-dark.png" alt="logo"/></a></div>
           <div class="links menu-wrapper ">
             <ul class="list-js links-list">
                <li class="menu-item"><a class="menu-link  " href="index.php">Home</a></li>
@@ -34,10 +34,8 @@
           <div class="controls-box">
             <!--Menu Toggler button-->
             <div class="control  menu-toggler"><span></span><span></span><span></span></div>
-            <!--search Icon button-->
-            <!-- <div class="control header-search-btn"><i class="bi bi-search icon"></i></div> -->
-            <div class="cta-links-area"><a class=" btn-solid cta-link cta-link-primary " href="contact-us.php">Apply Now</a></div>  
-            <!--mini shoping cart-->
+            <!--download app button-->
+            <div class="cta-links-area"><a class="btn-solid cta-link cta-link-primary" href="#take-action">Download App</a></div>
           </div>
         </nav>
       </div>

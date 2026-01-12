@@ -1,3 +1,34 @@
+<?php
+$success = '';
+$error = '';
+
+if (isset($_POST['UserSubmit'])) {
+
+    $name    = trim($_POST['UserName']);
+    $email   = trim($_POST['UserEmail']);
+    $subject = trim($_POST['subject']);
+    $message = trim($_POST['message']);
+
+    $to = "contact@miskills.in";
+    $mail_subject = "New Contact Form Message";
+
+    $body  = "Name: $name\n";
+    $body .= "Email: $email\n";
+    $body .= "Subject: $subject\n\n";
+    $body .= "Message:\n$message";
+
+    $headers = "From: $email";
+
+    if (mail($to, $mail_subject, $body, $headers)) {
+        $success = "Thank you! Your message has been sent successfully.";
+    } else {
+        $error = "Something went wrong. Please try again.";
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="zxx">
   
@@ -168,6 +199,7 @@
                           <button class=" btn-solid" id="submit-btn" type="submit" name="UserSubmit">Send your message</button>
                         </div>
                       </div>
+                      
                     </form>
                   </div>
                 </div>
@@ -204,48 +236,7 @@
     <div class="back-to-top" id="back-to-top"><i class="bi bi-arrow-up icon "></i>
     </div>
     <!-- End back-to-top Button-->
-    <!-- Start privacy-policy-modal-->
-    <div class="modal privacy-policy-modal fade" id="privacyPolicyModal" aria-labelledby="PrivacyPolicyModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-xl ">
-        <div class="modal-content text-dark">
-          <div class="modal-header">
-            <h2 class="modal-title" id="PrivacyPolicyModalLabel">Privacy Policy Modal Title</h2>
-            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button class="btn-solid" type="button" data-bs-dismiss="modal" aria-label="Close">Click to close</button>
-            <button class="btn-outline" type="button">Do somthing else</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End privacy-policy-modal-->   
+  
         
         <!--     JQuery     -->
         <script src="js/vendors/jquery-3.6.1.min.js"></script>
@@ -258,6 +249,8 @@
         
         <!--     main     -->
         <script src="js/main.js"></script>
+
+
   </body>
 
 </html>

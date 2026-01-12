@@ -85,7 +85,7 @@
                   <p class="hero-subtitle ">MI Skills offers expert-led live courses to build industry-ready skills, along with scheduled interview opportunities to support career growth.</p>
                 </div>
                 <div class="col-12   ">
-                  <div class="cta-links-area"><a class=" btn-solid cta-link cta-link-primary  " href="courses.php">Find Courses</a><a class=" btn-outline cta-link  " href="#">Download App</a></div>
+                  <div class="cta-links-area"><a class=" btn-solid cta-link cta-link-primary  " href="courses.php">Find Courses</a><a class=" btn-outline cta-link  " href="contact-us.php">Contact Us</a></div>
                 </div>
               </div>
             </div>
@@ -463,7 +463,7 @@
                 </tbody>
               </table>
             </div>
-              <div class="plan-cta"><a class="cta-btn btn-outline " href="#0">select plan  </a></div>
+              <!-- <div class="plan-cta"><a class="cta-btn btn-outline " href="#0">select plan  </a></div> -->
             </div>
           </div>
           <!--Second-plan-->
@@ -513,7 +513,7 @@
                 </tbody>
               </table>
             </div>
-              <div class="plan-cta"><a class="cta-btn btn-outline " href="#0">select plan  </a></div>
+              <!-- <div class="plan-cta"><a class="cta-btn btn-outline " href="#0">select plan  </a></div> -->
             </div>
           </div>
           <!--Third-plan-->
@@ -558,9 +558,7 @@
     </table>
   </div>
 
-  <div class="plan-cta">
-    <a class="cta-btn btn-outline" href="#0">select plan</a>
-  </div>
+  <!-- <div class="plan-cta"><a class="cta-btn btn-outline" href="#0">select plan</a></div> -->
 </div>
 
           </div>
@@ -614,9 +612,7 @@
     </table>
   </div>
 
-  <div class="plan-cta">
-    <a class="cta-btn btn-outline" href="#0">select plan</a>
-  </div>
+  <!-- <div class="plan-cta"><a class="cta-btn btn-outline" href="#0">select plan</a></div> -->
 </div>
 
           </div>
