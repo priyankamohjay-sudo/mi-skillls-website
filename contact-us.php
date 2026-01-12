@@ -147,7 +147,7 @@ if (isset($_POST['UserSubmit'])) {
                    
                     <div class="location-card  "><i class="flaticon-phone-call icon"></i>
                       <div class="card-content">
-                        <h6 class="content-title">phone:</h6><a class="tel link" href="tel:0123456789">+459876543210</a>
+                        <h6 class="content-title">phone:</h6><a class="tel link" href="tel:8679009923">8679009923</a>
                       </div>
                     </div>
                   </div>
