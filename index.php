@@ -245,7 +245,7 @@
         <a class="btn btn-dark cta-link px-4 py-2 d-inline-flex align-items-center gap-2" target="_blank" href="https://play.google.com/store/apps/details?id=com.skill.my&pcampaignid=web_share&pli=1"><i class="bi bi-google-play fs-5"></i>
           Get it on Play Store</a>
 
-              <a class="btn btn-dark cta-link px-4 py-2 d-inline-flex align-items-center gap-2" target="_blank" href="#"><i class="bi bi-windows fs-5"></i>
+              <a class="btn btn-dark cta-link px-4 py-2 d-inline-flex align-items-center gap-2" target="_blank" href="https://github.com/js-mohjay/miskills-desktop-updater/releases/download/v1.0.1/miskills-1.0.1-setup.exe"><i class="bi bi-windows fs-5"></i>
           Download for Windows
         </a>
 
