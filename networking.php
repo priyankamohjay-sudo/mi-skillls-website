@@ -330,6 +330,25 @@
       <!--Start service content-->
     <!-- End inner Page hero-->
 
+       <!-- Start  take-action Section-->
+    <section class="our-clients elf-section has-dark-bg" id="take-action">
+      <div class="overlay-photo-image-bg  " data-bg-img="assets/images/sections-bg-images/2.jpg" data-bg-opacity=".25"> </div>
+      <div class="cta-wrapper">
+        <div class="container">
+          <div class="sec-heading  centered mb-0 ">
+            <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">contact us</span>
+              <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">get in touch with us</h2>
+              <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">Our team at MI Skills is here to guide you at every step—from learning to real-world success. <br>Connect with us today and take the next step toward your career goals.</p>
+            </div>
+          </div>
+          <!--Start .see-more-area-->
+          <div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn btn-dark cta-link" href="contact-us.php">contact us</a></div>
+          <!--End Of .see-more-area        -->
+        </div>
+      </div>
+    </section>
+    <!-- End  take-action Section-->
+
      <?php include 'footer.php'; ?>
 
     <!-- Start loading-screen Component-->
@@ -339,48 +358,7 @@
     <div class="back-to-top" id="back-to-top"><i class="bi bi-arrow-up icon "></i>
     </div>
     <!-- End back-to-top Button-->
-    <!-- Start privacy-policy-modal-->
-    <div class="modal privacy-policy-modal fade" id="privacyPolicyModal" aria-labelledby="PrivacyPolicyModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-xl ">
-        <div class="modal-content text-dark">
-          <div class="modal-header">
-            <h2 class="modal-title" id="PrivacyPolicyModalLabel">Privacy Policy Modal Title</h2>
-            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-            <div class="content">
-              <h4>privacy policy item Title goes here </h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button class="btn-solid" type="button" data-bs-dismiss="modal" aria-label="Close">Click to close</button>
-            <button class="btn-outline" type="button">Do somthing else</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End privacy-policy-modal-->   
+    
         
         <!--     JQuery     -->
         <script src="js/vendors/jquery-3.6.1.min.js"></script>
