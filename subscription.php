@@ -526,7 +526,7 @@
             </div>
           </div>
           <!--Start .see-more-area-->
-          <div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn btn-dark cta-link" href="contact-us.html">contact us</a></div>
+          <div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn btn-dark cta-link" href="contact-us.php">contact us</a></div>
           <!--End Of .see-more-area        -->
         </div>
       </div>
