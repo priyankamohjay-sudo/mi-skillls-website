@@ -35,7 +35,7 @@
             <!--Menu Toggler button-->
             <div class="control  menu-toggler"><span></span><span></span><span></span></div>
             <!--download app button-->
-            <div class="cta-links-area"><a class="btn-solid cta-link cta-link-primary" href="#take-action">Download App</a></div>
+            <!-- <div class="cta-links-area"><a class="btn-solid cta-link cta-link-primary" href="#take-action">Download App</a></div> -->
           </div>
         </nav>
       </div>
