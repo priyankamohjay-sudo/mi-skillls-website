@@ -124,7 +124,7 @@
               </a>
 
               <a class="download-btn" 
-                href="https://github.com/js-mohjay/miskills-desktop-updater/releases/download/v1.0.4/miskills-1.0.4-setup.exe" 
+                href="https://github.com/js-mohjay/miskills-desktop-updater/releases/download/v1.0.5/miskills-1.0.5-setup.exe" 
                 target="_blank" 
                 rel="noopener">
                 <span class="text"><i class="fab fa-windows me-2"></i> Download For Windows</span>
