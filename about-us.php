@@ -121,7 +121,7 @@
     </section>
     <!-- End  about Section-->
 
- <!-- Start  testimonials Section-->
+  <!-- Start  testimonials Section-->
     <section class="testimonials testimonials-1-col   has-dark-bg  mega-section " id="testimonials-img-bg">
       <div class="overlay-photo-image-bg parallax " data-bg-img="assets/images/sections-bg-images/1.jpg" data-bg-opacity=".25"> </div>
       <div class="container">
@@ -209,6 +209,98 @@
                     </div>
                   </div>
                 </div>
+                <!--Fifth Slide-->
+                <div class="swiper-slide">
+                  <div class="testmonial-card d-flex align-items-center justify-content-center">
+                    <div class="testimonial-content">
+                      <div class="customer-img ">
+                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user-5.webp" alt="Student Review">
+                      </div>
+                      <div class="customer-testimonial">
+                        <div class="content">
+                          <p class="testimonial-text">
+                            MI Skills live classes helped me understand concepts clearly, even as a beginner. The interview scheduling support made the learning feel career-oriented, not just theoretical.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="customer-info">
+                        <div class="customer-details">
+                          <p class="customer-name">Amit Kumar</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Sixth Slide-->
+                <div class="swiper-slide">
+                  <div class="testmonial-card d-flex align-items-center justify-content-center">
+                    <div class="testimonial-content">
+                      <div class="customer-img ">
+                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user-6.png" alt="Student Review">
+                      </div>
+                      <div class="customer-testimonial">
+                        <div class="content">
+                          <p class="testimonial-text">
+                            The trainers at MI Skills explain everything with real examples. I also received proper guidance for interviews, which helped me feel more confident while applying for jobs.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="customer-info">
+                        <div class="customer-details">
+                          <p class="customer-name">Sneha Patel</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Seventh Slide-->
+                <div class="swiper-slide">
+                  <div class="testmonial-card d-flex align-items-center justify-content-center">
+                    <div class="testimonial-content">
+                      <div class="customer-img ">
+                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user-7.webp" alt="Student Review">
+                      </div>
+                      <div class="customer-testimonial">
+                        <div class="content">
+                          <p class="testimonial-text">
+                            What makes MI Skills unique is the combination of live classes and job interview opportunities. It feels like a complete learning-to-placement journey.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="customer-info">
+                        <div class="customer-details">
+                          <p class="customer-name">Rahul Joshi</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Eighth Slide-->
+                <div class="swiper-slide">
+                  <div class="testmonial-card d-flex align-items-center justify-content-center">
+                    <div class="testimonial-content">
+                      <div class="customer-img ">
+                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user-8.webp" alt="Student Review">
+                      </div>
+                      <div class="customer-testimonial">
+                        <div class="content">
+                          <p class="testimonial-text">
+                            MI Skills helped me move from basic knowledge to real-world skills. The mentorship and interview support gave me clarity about my career path.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="customer-info">
+                        <div class="customer-details">
+                          <p class="customer-name">Pooja Nair</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
               <!--navigation buttons-->
               <div class="swiper-button-prev">
@@ -235,8 +327,8 @@
             <div class="col-12 col-lg-6 d-flex align-items-center order-1 order-lg-0 about-col pad-end  wow fadeInUp " data-wow-delay="0.6s">
               <div class="text-area ">
                 <div class="sec-heading  light-title ">
-                  <div class="content-area"><span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">What We Provide</span>
-                    <h2 class=" title    wow fadeInUp" data-wow-delay=".4s"><span class='hollow-text'>Why </span> Trust <span class='featured-text'>  MI Skills</span></h2>
+                  <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">What We Provide</span>
+                    <h2 class=" title wow fadeInUp" data-wow-delay=".4s"><span class='hollow-text'>Why </span> Trust <span class='featured-text'>  MI Skills</span></h2>
                   </div>
                 </div>
                 <!-- <p class=" about-text">MI Skills goes beyond learning by connecting education with real career outcomes. Through expert-led live classes, students gain practical, industry-ready skills that employers value.</p> -->
@@ -306,7 +398,7 @@
                   loop
                   playsinline
                   preload="metadata">
-                  <source src="assets/videos/MI Skills_Keypoints.mp4" type="video/mp4">              
+                  <source src="assets/videos/miskills-info-video.mp4" type="video/mp4">              
                 </video>
               </div>
               </div>

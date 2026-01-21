@@ -415,12 +415,12 @@
             <!-- Portfolio Wrapper -->
             <div class="portfolio-wrapper">
 
-              <div class="portfolio-group wow fadeIn" data-wow-delay=".4s">
+              <div class="portfolio-group " data-wow-delay=".4s">
 
                 <div class="row">
 
                   <!-- Splash Screen Video -->
-                  <div class="col-12 col-md-6 col-lg-3 portfolio-item mobile">
+                     <div class="col-12 col-md-6 col-lg-3 portfolio-item web">
                     <div class="item">
                       <video
                         class="img-fluid"
@@ -911,7 +911,7 @@
                   <div class="testmonial-card d-flex align-items-center justify-content-center">
                     <div class="testimonial-content">
                       <div class="customer-img ">
-                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user5.png" alt="Student Review">
+                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user-5.webp" alt="Student Review">
                       </div>
                       <div class="customer-testimonial">
                         <div class="content">
@@ -934,7 +934,7 @@
                   <div class="testmonial-card d-flex align-items-center justify-content-center">
                     <div class="testimonial-content">
                       <div class="customer-img ">
-                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user6.png" alt="Student Review">
+                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user-6.png" alt="Student Review">
                       </div>
                       <div class="customer-testimonial">
                         <div class="content">
@@ -957,7 +957,7 @@
                   <div class="testmonial-card d-flex align-items-center justify-content-center">
                     <div class="testimonial-content">
                       <div class="customer-img ">
-                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user7.png" alt="Student Review">
+                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user-7.webp" alt="Student Review">
                       </div>
                       <div class="customer-testimonial">
                         <div class="content">
@@ -980,7 +980,7 @@
                   <div class="testmonial-card d-flex align-items-center justify-content-center">
                     <div class="testimonial-content">
                       <div class="customer-img ">
-                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user8.png" alt="Student Review">
+                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user-8.webp" alt="Student Review">
                       </div>
                       <div class="customer-testimonial">
                         <div class="content">

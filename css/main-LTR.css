@@ -5990,9 +5990,12 @@ html, body {
   }
 }
 
+
+
 /* placement video css */
 
-/* .portfolio-group {
+/* 
+.portfolio-group {
   height: auto !important;
 }
 
@@ -6013,6 +6016,45 @@ html, body {
   object-fit: cover;
 } */
 
+.portfolio .portfolio-group {
+  height: auto !important;
+  min-height: unset !important;
+}
+.portfolio .row {
+  position: relative;
+}
+
+/* fix wow animation height issue */
+.portfolio .portfolio-group {
+  height: auto !important;
+}
+
+/* video wrapper */
+.video-box {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* video fit */
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.portfolio .portfolio-item {
+  position: static !important;
+}
+.portfolio .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.portfolio .portfolio-group {
+  height: auto !important;
+  min-height: 450px;
+}
 /*  End  stats section Rules    */
 
 
