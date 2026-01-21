@@ -5096,7 +5096,7 @@ body.rounded-btns .read-more {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 50%;
+  width: 100%;
   height: 3px;
   background-color: var(--clr-main);
 }
@@ -5210,6 +5210,114 @@ body.rounded-btns .read-more {
   background-color: var(--clr-white);
 }
 
+
+/* mycss-ayush */
+.plan {
+  padding-bottom: 2rem;
+}
+
+.plan-head {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.plan-head .price {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.plan-head .per {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* full width divider */
+.divider {
+  height: 2px;
+  width: 100%;
+  background: rgba(var(--clr-main-rgb), 0.6);
+  margin: 1rem 0;
+}
+
+/* inner content — NO CARD LOOK */
+.plan-details.sketch-style {
+  background: transparent;
+  border: none;
+  padding: 1rem;
+}
+
+/* bubbles layout: 2 per row */
+.bubble-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  justify-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* center odd last bubble */
+.bubble-wrap > .bubble:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.bubble {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 2px solid rgba(var(--clr-main-rgb), 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* table-like grid */
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  font-size: 0.9rem;
+}
+
+.price-grid.header {
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.price-grid span:last-child {
+  text-align: right;
+}
+
+/* summary text */
+.summary-text {
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+/* featured overrides */
+.plan.featured .bubble {
+  border-color: #fff;
+  color: #fff;
+}
+
+.plan.featured .summary-text,
+.plan.featured .plane-name,
+.plan.featured .price {
+  color: #fff;
+}
+
+/* mobile */
+@media (max-width: 576px) {
+  .bubble {
+    width: 95px;
+    height: 95px;
+    font-size: 0.8rem;
+  }
+}
 /*    End pricing Section  */
 
 
