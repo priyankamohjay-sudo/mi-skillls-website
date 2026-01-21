@@ -5222,8 +5222,234 @@ body.rounded-btns .read-more {
   background-color: var(--clr-white);
 }
 
+/* mycss-ayush */
+.plan {
+  padding-bottom: 2rem;
+}
+
+.plan-head {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.plan-head .price {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.plan-head .per {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* full width divider */
+.divider {
+  height: 2px;
+  width: 100%;
+  background: rgba(var(--clr-main-rgb), 0.6);
+  margin: 1rem 0;
+}
+
+/* inner content — NO CARD LOOK */
+.plan-details.sketch-style {
+  background: transparent;
+  border: none;
+  padding: 1rem;
+}
+
+/* bubbles layout: 2 per row */
+.bubble-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  justify-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* center odd last bubble */
+.bubble-wrap > .bubble:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.bubble {
+  width: 100%;
+  max-width: 180px;
+  min-height: 52px;
+  padding: 0.6rem 1rem;
+  border-radius: 999px; /* pill shape */
+  border: 1.8px solid rgba(var(--clr-main-rgb), 0.65);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  background: rgba(255, 255, 255, 0.02);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.bubble {
+  animation: wobbleXLoad 5s ease-in-out infinite;
+}
+
+@keyframes wobbleXLoad {
+    /* idle */
+  0%   { transform: translateX(0) rotate(0deg); }
+
+  /* wobble window */
+  3%   { transform: translateX(-6px) rotate(-1.8deg); }
+  6%   { transform: translateX(5px) rotate(1.5deg); }
+  9%   { transform: translateX(-4px) rotate(-1.2deg); }
+  12%  { transform: translateX(3px) rotate(0.8deg); }
+  15%  { transform: translateX(0) rotate(0deg); }
+
+  /* long pause */
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+.plan.featured .bubble {
+  animation: wobbleXFeatured 5s ease-in-out infinite;
+}
+
+@keyframes wobbleXFeatured {
+0%   { transform: translateX(0) rotate(0deg); }
+  3%   { transform: translateX(-8px) rotate(-2.2deg); }
+  6%   { transform: translateX(7px) rotate(2deg); }
+  9%   { transform: translateX(-5px) rotate(-1.5deg); }
+  12%  { transform: translateX(3px) rotate(1deg); }
+  15%  { transform: translateX(0) rotate(0deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+.bubble span {
+  white-space: nowrap;
+}
+
+.plan.featured .bubble::after {
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+}
+
+/* table-like grid */
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.9rem;
+}
+
+.price-grid.header {
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.price-grid span:last-child {
+  text-align: right;
+}
+
+/* summary text */
+.summary-text {
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.plan.featured .summary-text,
+.plan.featured .plane-name,
+.plan.featured .price {
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble {
+    animation: none !important;
+  }
+}
+
+/* mobile */
+@media (max-width: 576px) {
+  .bubble {
+    max-width: 150px;
+    font-size: 0.8rem;
+  }
+}
+
 /*    End pricing Section  */
 
+/*   Start stats section Rules  */
+.stats {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  background-color: var(--clr-dark-blue);
+}
+.stats .section-heading .line-solid-color {
+  background: var(--clr-white);
+}
+.stats .stat-box {
+  position: relative;
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .stats .stat-box {
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .stats .stat-box {
+    padding: 1rem 3rem;
+  }
+}
+.stats .stat-box-inner {
+  text-align: center;
+  position: relative;
+  padding: 2rem;
+  color: var(--clr-white);
+  background-color: rgba(var(--clr-dark-blue-rgb), 0.25);
+  border: 1px solid rgba(var(--clr-main-rgb), 0.35);
+  border-top: 0.25rem solid rgba(var(--clr-main-rgb), 1);
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.stats .stat-icon {
+  font-size: 3rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-main);
+  opacity: 0.65;
+  transition: all 0.2s ease-in-out 0s;
+}
+.stats .stat-num {
+  display: block;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .stats .stat-num {
+    font-size: 2rem;
+  }
+}
+.stats .stat-desc {
+  font-size: 1.25rem;
+  font-weight: 400;
+  display: block;
+  text-transform: capitalize;
+}
+
+
+/*    End pricing Section  */
 
 /*   Start stats section Rules  */
 .stats {
@@ -5379,8 +5605,6 @@ body.rounded-btns .read-more {
   color: #9b7bff;
   line-height: 1.5;
 }
-
-
 
 /* ===== Equal height pricing cards ===== */
 
@@ -5766,32 +5990,28 @@ html, body {
   }
 }
 
-.portfolio-item video {
+/* placement video css */
+
+/* .portfolio-group {
+  height: auto !important;
+}
+
+.video-box {
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 420px;
+  overflow: hidden;
   border-radius: 12px;
 }
 
-/* Row ko flex banao */
-.portfolio-wrapper .row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-/* Column equal height ke liye */
-.portfolio-wrapper .portfolio-item {
-  display: flex;
-}
-
-/* Inner item full height */
-.portfolio-wrapper .portfolio-item .item {
-  display: flex;
+.video-box video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  min-height: 420px; /* 👈 same height for all cards */
-}
-
+  object-fit: cover;
+} */
 
 /*  End  stats section Rules    */
 
