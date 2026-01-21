@@ -26,7 +26,7 @@
                   <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  " href="testing.php">Testing</a></li>
                   <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  " href="networking.php">Networking</a></li>
                 </ul>
-              </li>
+              </li> 
              <li class="menu-item"><a class="menu-link  " href="subscription.php">Subscription</a></li>
               <li class="menu-item"><a class="menu-link  " href="contact-us.php">contact Us</a></li>
             </ul>

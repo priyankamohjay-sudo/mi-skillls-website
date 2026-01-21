@@ -1947,7 +1947,7 @@ body.rounded-btns .read-more {
   }
 }
 .header-basic .menu-wrapper {
-  margin-right: auto;
+  /* margin-right: auto; */
   margin-left: auto;
 }
 .header-basic .menu-wrapper.links-at-end {
@@ -2049,6 +2049,18 @@ body.rounded-btns .read-more {
   padding: 0;
   transition: all 0.3s ease-in-out 0s;
 }
+
+.header-basic .links-list > .menu-item > .menu-link {
+  padding: 10px 30px;
+  border-radius: 30px;
+  line-height: normal;
+  border: 1.5px solid transparent;
+
+  background:
+    linear-gradient(#05062d, #05062d) padding-box,
+    linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb) border-box;
+}
+
 .header-basic .menu-link.active, .header-basic .menu-link:hover {
   color: var(--clr-main);
 }
@@ -5709,6 +5721,17 @@ html, body {
 }
 
 /* banner download button css end */
+
+/* ===== mobie menu css ===== */
+@media (max-width: 991px) {
+  .header-basic .links-list > .menu-item > .menu-link {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    line-height: 60px !important;
+  }
+}
 
 /*  End  stats section Rules    */
 
