@@ -1986,7 +1986,7 @@ body.rounded-btns .read-more {
 .header-basic .header-logo .logo-img {
   display: block;
   max-width: 10rem;
-  max-height: calc(90px - 10px);
+  max-height: 100px;  
   transition: all 0.5s ease-in-out 0s;
 }
 .header-basic .header-logo .logo-img.light-logo {
@@ -5482,7 +5482,7 @@ html, body {
   background: #0b1120;
 }
 
-.price-option {
+/* .price-option {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -5493,6 +5493,22 @@ html, body {
   margin-bottom: 12px;
   cursor: pointer;
   transition: .3s;
+} */
+
+.price-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 10px;
+
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
 }
 
 .price-option label {
@@ -5506,9 +5522,26 @@ html, body {
   accent-color: var(--clr-main);
 }
 
-.price-option.active {
+/* .price-option.active {
   border-color: var(--clr-main);
   background: rgba(103,58,183,.08);
+} */
+
+.price-option input[type="radio"] {
+  accent-color: #ffffff;
+}
+
+
+.price-option:has(input[type="radio"]:checked) {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(#060922, #060922) padding-box,
+    linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb) border-box;
+}
+
+
+.price-option:has(input[type="radio"]:checked) input[type="radio"] {
+  accent-color: #af40ff;
 }
 
 .save-text {
@@ -5732,6 +5765,33 @@ html, body {
     line-height: 60px !important;
   }
 }
+
+.portfolio-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Row ko flex banao */
+.portfolio-wrapper .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Column equal height ke liye */
+.portfolio-wrapper .portfolio-item {
+  display: flex;
+}
+
+/* Inner item full height */
+.portfolio-wrapper .portfolio-item .item {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 420px; /* 👈 same height for all cards */
+}
+
 
 /*  End  stats section Rules    */
 

@@ -111,6 +111,9 @@
       </div>
     </div>
 
+    <!-- ================= ALL CATEGORY CONTENT ================= -->
+    <div class="pricing-categories-wrapper">
+
       <!-- ================= WEB DEVELOPMENT ================= -->
       <div id="web" class="category-content">
 
@@ -149,19 +152,28 @@
 
         <!-- INDIVIDUAL -->
         <div id="web_individual">
-          <div class="row">
+           <div class="row">
+
+            <!-- FRONTEND -->
             <div class="col-md-6">
               <div class="plan ui-style-card p-4 price-card">
                 <h3>Frontend Development</h3>
                 <p class="text-white-50">HTML · CSS · JavaScript · Responsive UI</p>
 
-                <div class="price-option active">
-                  <label><input type="radio" checked> Monthly</label>
-                  <strong>₹499 / month</strong>
-                </div>
                 <div class="price-option">
-                  <label><input type="radio"> 2 Months</label>
-                  <strong>₹998 <small class="save-text">Save 15%</small></strong>
+                  <label>
+                    <input type="radio" name="frontend_price">
+                    Monthly
+                  </label>
+                  <strong>₹499 / Month</strong>
+                </div>
+
+                <div class="price-option">
+                  <label>
+                    <input type="radio" name="frontend_price">
+                    2 Months
+                  </label>
+                  <strong>₹998 / Two Month</strong>
                 </div>
 
                 <ul class="feature-list mt-3">
@@ -170,22 +182,29 @@
                   <li>React Basics</li>
                   <li>8+ Projects</li>
                 </ul>
-                <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
               </div>
             </div>
 
+            <!-- BACKEND -->
             <div class="col-md-6">
               <div class="plan ui-style-card p-4 price-card">
                 <h3>Backend Development</h3>
                 <p class="text-white-50">MongoDB · SQL · APIs · Auth</p>
 
-                <div class="price-option active">
-                  <label><input type="radio" checked> Monthly</label>
-                  <strong>₹499 / month</strong>
-                </div>
                 <div class="price-option">
-                  <label><input type="radio"> 2 Months</label>
-                  <strong>₹998 <small class="save-text">Save 15%</small></strong>
+                  <label>
+                    <input type="radio" name="backend_price">
+                    Monthly
+                  </label>
+                  <strong>₹499 / Month</strong>
+                </div>
+
+                <div class="price-option">
+                  <label>
+                    <input type="radio" name="backend_price">
+                    2 Months
+                  </label>
+                  <strong>₹998 </strong>
                 </div>
 
                 <ul class="feature-list mt-3">
@@ -194,325 +213,366 @@
                   <li>Authentication</li>
                   <li>7+ Projects</li>
                 </ul>
-                <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
               </div>
             </div>
+
+          </div>
+
+        </div>
+        
+      </div>
+
+      <!-- ================= APP DEVELOPMENT ================= -->
+      <div id="app" class="category-content" style="display:none">
+
+        <div class="text-center mb-4">
+          <div class="d-inline-flex gap-2 category-pill-wrap">
+            <button id="btnAppIndividual"
+              class="cat-tab btn active"
+              onclick="toggleApp('individual')">
+              Individual Courses
+            </button>
+
+            <button id="btnAppFull"
+              class="cat-tab btn"
+              onclick="toggleApp('full')">
+              Full Course Package
+            </button>
+          </div>
+        </div>
+
+        <!-- FULL -->
+        <div id="app_full" style="display:none">
+          <div class="full-course-card mx-auto">
+
+            <div class="full-course-left">
+              <span class="badge">Complete Program</span>
+              <h3>App Development – Full Course</h3>
+              <p class="sub-text">Android + iOS + Cross Platform</p>
+
+              <ul class="full-feature-list">
+                <li>Android App Development</li>
+                <li>iOS App Development</li>
+                <li>Cross Platform Apps</li>
+                <li>Live Projects</li>
+                <li>Career Guidance</li>
+              </ul>
+            </div>
+
+            <div class="full-course-right">
+              <span class="best-value">BEST VALUE</span>
+              <h2 class="price">₹3,899</h2>
+              <p class="duration">4 Months Access</p>
+              <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+            </div>
+
+          </div>
+        </div>
+
+        <!-- INDIVIDUAL -->
+        <div id="app_individual">
+         <div class="row">
+
+        <!-- IOS -->
+        <div class="col-md-4">
+          <div class="plan ui-style-card p-4 price-card">
+
+            <h3>iOS App Development</h3>
+            <p class="text-white-50">Swift · iOS SDK</p>
+
+            <div class="price-option">
+              <label>
+                <input type="radio" name="ios_price">
+                Monthly
+              </label>
+              <strong>₹899 / Month</strong>
+            </div>
+
+            <div class="price-option">
+              <label>
+                <input type="radio" name="ios_price">
+                2 Months
+              </label>
+              <strong>₹1,798</strong>
+            </div>
+
+            <ul class="feature-list mt-3">
+              <li>Swift Programming</li>
+              <li>iOS SDK & Xcode</li>
+              <li>App UI & Navigation</li>
+              <li>Live Projects</li>
+            </ul>
+
+          </div>
+        </div>
+
+        <!-- ANDROID -->
+        <div class="col-md-4">
+          <div class="plan ui-style-card p-4 price-card">
+
+            <h3>Android App Development</h3>
+            <p class="text-white-50">Java · Kotlin</p>
+
+            <div class="price-option">
+              <label>
+                <input type="radio" name="android_price">
+                Monthly
+              </label>
+              <strong>₹899 / Month</strong>
+            </div>
+
+            <div class="price-option">
+              <label>
+                <input type="radio" name="android_price">
+                2 Months
+              </label>
+              <strong>₹1,798</strong>
+            </div>
+
+            <ul class="feature-list mt-3">
+              <li>Java & Kotlin</li>
+              <li>Android SDK</li>
+              <li>API Integration</li>
+              <li>Live Projects</li>
+            </ul>
+
+          </div>
+        </div>
+
+        <!-- CROSS PLATFORM -->
+        <div class="col-md-4">
+          <div class="plan ui-style-card p-4 price-card">
+
+            <h3>Cross-Platform App Development</h3>
+            <p class="text-white-50">Flutter · React Native</p>
+
+            <div class="price-option">
+              <strong>₹1,299</strong>
+            </div>
+
+            <ul class="feature-list mt-3">
+              <li>Flutter / React Native</li>
+              <li>Single Codebase</li>
+              <li>Android & iOS Apps</li>
+              <li>Live Projects</li>
+              <li>Dart</li>
+            </ul>
+
           </div>
         </div>
       </div>
+        </div>
 
-    <!-- ================= APP DEVELOPMENT ================= -->
-<div id="app" class="category-content" style="display:none">
-
-  <!-- TOGGLE -->
-  <div class="text-center mb-4">
-    <div class="d-inline-flex gap-2 category-pill-wrap">
-      <button id="btnAppIndividual"
-        class="cat-tab btn active"
-        onclick="toggleApp('individual')">
-        Individual Courses
-      </button>
-
-      <button id="btnAppFull"
-        class="cat-tab btn"
-        onclick="toggleApp('full')">
-        Full Course Package
-      </button>
-    </div>
-  </div>
-
-  <!-- FULL -->
-  <div id="app_full" style="display:none">
-    <div class="full-course-card mx-auto">
-
-      <div class="full-course-left">
-        <span class="badge">Complete Program</span>
-        <h3>App Development – Full Course</h3>
-        <p class="sub-text">Android + iOS + Cross Platform</p>
-
-        <ul class="full-feature-list">
-          <li>Android App Development</li>
-          <li>iOS App Development</li>
-          <li>Cross Platform Apps</li>
-          <li>Live Projects</li>
-          <li>Career Guidance</li>
-        </ul>
       </div>
 
-      <div class="full-course-right">
-        <span class="best-value">BEST VALUE</span>
-        <h2 class="price">₹3,899</h2>
-        <p class="duration">4 Months Access</p>
-        <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+          <!-- DIGITAL MARKETING -->
+      <div id="marketing" class="category-content" style="display:none">
+
+        <div class="category-inner">
+
+          <!-- FULL COURSE BUTTON -->
+          <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
+              <button class="cat-tab btn active">Full Course Package</button>
+            </div>
+          </div>
+
+          <!-- COURSE CARD -->
+          <div class="full-course-card mx-auto">
+            <div class="full-course-left">
+              <span class="badge">Complete Program</span>
+              <h3>Digital Marketing</h3>
+              <p class="sub-text">No Individual Courses</p>
+              <ul class="full-feature-list">
+                <li>SEO</li>
+                <li>SMO</li>
+                <li>Content Writing</li>
+              </ul>
+            </div>
+
+            <div class="full-course-right">
+              <span class="best-value">BEST VALUE</span>
+              <h2 class="price">₹4,799</h2>
+              <p class="duration">4 Months</p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
-    </div>
-  </div>
 
-  <!-- INDIVIDUAL -->
-  <div id="app_individual">
-    <div class="row">
+      <!-- ================= GRAPHIC ================= -->
+      <div id="graphic" class="category-content" style="display:none">
+        <div class="category-inner">
 
-      <!-- IOS -->
-      <div class="col-md-4">
-        <div class="plan ui-style-card p-4 price-card">
-
-          <h3>iOS App Development</h3>
-          <p class="text-white-50">Swift · iOS SDK</p>
-
-          <div class="price-option active">
-            <label><input type="radio" checked> Monthly</label>
-            <strong>₹899 / month</strong>
+          <!-- FULL COURSE BUTTON -->
+          <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
+              <button class="cat-tab btn active">Full Course Package</button>
+            </div>
           </div>
 
-          <div class="price-option">
-            <label><input type="radio"> 2 Months</label>
-            <strong>₹1,798</strong>
+          <!-- COURSE CARD -->
+          <div class="full-course-card mx-auto">
+            <div class="full-course-left">
+              <span class="badge">Complete Program</span>
+              <h3>Graphic Designing</h3>
+              <p class="sub-text">No Individual Courses</p>
+              <ul class="full-feature-list">
+                <li>UI/UX</li>
+                <li>Figma</li>
+                <li>Photoshop</li>
+              </ul>
+            </div>
+
+            <div class="full-course-right">
+              <span class="best-value">BEST VALUE</span>
+              <h2 class="price">₹2,495</h2>
+              <p class="duration">5 Months</p>
+            </div>
           </div>
 
-          <ul class="feature-list mt-3">
-            <li>Swift Programming</li>
-            <li>iOS SDK & Xcode</li>
-            <li>App UI & Navigation</li>
-            <li>Live Projects</li>
-          </ul>
+        </div>
 
-          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+      </div>
+
+      <!-- ================= TESTING ================= -->
+      
+        <div id="testing" class="category-content" style="display:none">
+          <div class="category-inner">
+
+            <!-- FULL COURSE BUTTON -->
+            <div class="text-center mb-4">
+              <div class="d-inline-flex gap-2 category-pill-wrap">
+                <button class="cat-tab btn active">Full Course Package</button>
+              </div>
+            </div>
+
+            <!-- COURSE CARD -->
+            <div class="full-course-card mx-auto">
+              <div class="full-course-left">
+                <span class="badge">Complete Program</span>
+                <h3>Software Testing</h3>
+                <p class="sub-text">No Individual Courses</p>
+                <ul class="full-feature-list">
+                  <li>Manual Testing</li>
+                  <li>Automation Testing</li>
+                </ul>
+              </div>
+
+              <div class="full-course-right">
+                <span class="best-value">BEST VALUE</span>
+                <h2 class="price">₹3,099</h2>
+                <p class="duration">4 Months</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      <!-- ================= NETWORKING ================= -->
+      
+      <div id="networking" class="category-content" style="display:none"> 
+        <div class="category-inner">
+
+          <!-- FULL COURSE BUTTON -->
+          <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
+              <button class="cat-tab btn active">Full Course Package</button>
+            </div>
+          </div>
+
+          <!-- COURSE CARD -->
+          <div class="full-course-card mx-auto">
+            <div class="full-course-left">
+              <span class="badge">Complete Program</span>
+              <h3>Networking</h3>
+              <p class="sub-text">No Individual Courses</p>
+              <ul class="full-feature-list">
+                <li>Desktop Support</li>
+                <li>Core Networking</li>
+              </ul>
+            </div>
+
+            <div class="full-course-right">
+              <span class="best-value">BEST VALUE</span>
+              <h2 class="price">₹1,497</h2>
+              <p class="duration">2 Months</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= INTERVIEW ================= -->
+      <div id="interview" class="category-content" style="display:none">
+        <div class="category-inner">
+
+          <!-- FULL COURSE BUTTON -->
+          <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
+              <button class="cat-tab btn active">Interview Package</button>
+            </div>
+          </div>
+
+          <!-- COURSE CARD -->
+          <div class="full-course-card mx-auto">
+            <div class="full-course-left">
+              <span class="badge">Most Popular</span>
+              <h3>Interview & Internship Support</h3>
+              <ul class="full-feature-list">
+                <li>2 Interview Opportunities</li>
+              </ul>
+            </div>
+
+            <div class="full-course-right">
+              <span class="best-value">BEST VALUE</span>
+              <h2 class="price">₹499</h2>
+            </div>
+          </div>
 
         </div>
       </div>
 
-      <!-- ANDROID -->
-      <div class="col-md-4">
-        <div class="plan ui-style-card p-4 price-card">
 
-          <h3>Android App Development</h3>
-          <p class="text-white-50">Java · Kotlin</p>
-
-          <div class="price-option active">
-            <label><input type="radio" checked> Monthly</label>
-            <strong>₹899 / month</strong>
-          </div>
-
-          <div class="price-option">
-            <label><input type="radio"> 2 Months</label>
-            <strong>₹1,798</strong>
-          </div>
-
-          <ul class="feature-list mt-3">
-            <li>Java & Kotlin</li>
-            <li>Android SDK</li>
-            <li>API Integration</li>
-            <li>Live Projects</li>
-          </ul>
-
-          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
-
-        </div>
-      </div>
-
-      <!-- CROSS PLATFORM -->
-      <div class="col-md-4">
-        <div class="plan ui-style-card p-4 price-card">
-
-          <h3>Cross-Platform App Development</h3>
-          <p class="text-white-50">Flutter · React Native</p>
-
-          <div class="price-option active">
-            <strong>₹1,299</strong>
-          </div>
-
-          <ul class="feature-list mt-3">
-            <li>Flutter / React Native</li>
-            <li>Single Codebase</li>
-            <li>Android & iOS Apps</li>
-            <li>Live Projects</li>
-            <li>Dart</li>
-          </ul>
-
-          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-<!-- ================= APP END ================= -->
-
-
-
-    <!-- ================= FULL-ONLY CATEGORIES ================= -->
-
-    <!-- DIGITAL MARKETING -->
-    <div id="marketing" class="category-content" style="display:none">
-
-       <!-- FULL COURSE BUTTON -->
-  <div class="text-center mb-4">
-    <div class="d-inline-flex gap-2 category-pill-wrap">
-      <button class="cat-tab btn active">Full Course Package</button>
-    </div>
-  </div>
-      <div class="full-course-card mx-auto">
-        <div class="full-course-left">
-          <span class="badge">Complete Program</span>
-          <h3>Digital Marketing</h3>
-          <p class="sub-text">No Individual Courses</p>
-          <ul class="full-feature-list">
-            <li>SEO</li><li>SMO</li><li>Content Writing</li>
-          </ul>
-        </div>
-        <div class="full-course-right">
-           <span class="best-value">BEST VALUE</span>
-          <h2 class="price">₹4,799</h2>
-          <p class="duration">4 Months</p>
-          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
-        </div>
-      </div>
-    </div>
-
+      <!-- ================= FUNDING ================= -->
     
+      <div id="funding" class="category-content" style="display:none">
+        <div class="category-inner">
 
-    <!-- GRAPHIC -->
-    <div id="graphic" class="category-content" style="display:none">
+          <!-- FULL COURSE BUTTON -->
+          <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
+              <button class="cat-tab btn active">Business Funding Package</button>
+            </div>
+          </div>
 
-     <!-- FULL COURSE BUTTON -->
-  <div class="text-center mb-4">
-    <div class="d-inline-flex gap-2 category-pill-wrap">
-      <button class="cat-tab btn active">Full Course Package</button>
-    </div>
-  </div>
+          <!-- COURSE CARD -->
+          <div class="full-course-card mx-auto">
+            <div class="full-course-left">
+              <span class="badge">Coming Soon</span>
+              <h3>Business Funding</h3>
+              <ul class="full-feature-list">
+                <li>2 Business Meetings</li>
+              </ul>
+            </div>
+            <div class="full-course-right">
+              <span class="best-value">BEST VALUE</span>
+              <h2 class="price">₹499</h2>
+            </div>
+          </div>
 
-      <div class="full-course-card mx-auto">
-        <div class="full-course-left">
-           <span class="badge">Complete Program</span>
-          <h3>Graphic Designing</h3>
-          <p class="sub-text">No Individual Courses</p>
-          <ul class="full-feature-list">
-            <li>UI/UX</li><li>Figma</li><li>Photoshop</li>
-          </ul>
-        </div>
-        <div class="full-course-right">
-           <span class="best-value">BEST VALUE</span>
-          <h2 class="price">₹2,495</h2>
-          <p class="duration">5 Months</p>
-          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
-        </div>
+        </div>     
       </div>
-    </div>
 
-    <!-- TESTING -->
-    <div id="testing" class="category-content" style="display:none">
-
-     <!-- FULL COURSE BUTTON -->
-  <div class="text-center mb-4">
-    <div class="d-inline-flex gap-2 category-pill-wrap">
-      <button class="cat-tab btn active">Full Course Package</button>
-    </div>
-  </div>
-
-      <div class="full-course-card mx-auto">
-        <div class="full-course-left">
-           <span class="badge">Complete Program</span>
-          <h3>Software Testing</h3>
-          <p class="sub-text">No Individual Courses</p>
-          <ul class="full-feature-list">
-            <li>Manual Testing</li><li>Automation Testing</li>
-          </ul>
-        </div>
-        <div class="full-course-right">
-           <span class="best-value">BEST VALUE</span>
-          <h2 class="price">₹3,099</h2>
-          <p class="duration">4 Months</p>
-          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
-        </div>
-      </div>
-    </div>
-
-    <!-- NETWORKING -->
-    <div id="networking" class="category-content" style="display:none">
-
-     <!-- FULL COURSE BUTTON -->
-  <div class="text-center mb-4">
-    <div class="d-inline-flex gap-2 category-pill-wrap">
-      <button class="cat-tab btn active">Full Course Package</button>
-    </div>
-  </div>
-
-      <div class="full-course-card mx-auto">
-        <div class="full-course-left">
-           <span class="badge">Complete Program</span>
-          <h3>Networking</h3>
-          <p class="sub-text">No Individual Courses</p>
-          <ul class="full-feature-list">
-            <li>Desktop Support</li><li>Core Networking</li>
-          </ul>
-        </div>
-        <div class="full-course-right">
-           <span class="best-value">BEST VALUE</span>
-          <h2 class="price">₹1,497</h2>
-          <p class="duration">2 Months</p>
-          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
-        </div>
-      </div>
-    </div>
-
-    <!-- INTERVIEW -->
-    <div id="interview" class="category-content" style="display:none">
-
-       <!-- FULL COURSE BUTTON -->
-  <div class="text-center mb-4">
-    <div class="d-inline-flex gap-2 category-pill-wrap">
-      <button class="cat-tab btn active">Interview Package</button>
-    </div>
-  </div>
-      <div class="full-course-card mx-auto">
-        <div class="full-course-left">
-           <span class="badge">Most Popular</span>
-          <h3>Interview & Internship Support</h3>
-          <ul class="full-feature-list">
-            <li>2 Interview Opportunities</li>
-          </ul>
-        </div>
-        <div class="full-course-right">
-           <span class="best-value">BEST VALUE</span>
-          <h2 class="price">₹499</h2>
-          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
-        </div>
-      </div>
-    </div>
-
-    <!-- FUNDING -->
-    <div id="funding" class="category-content" style="display:none">
-
-     <!-- FULL COURSE BUTTON -->
-  <div class="text-center mb-4">
-    <div class="d-inline-flex gap-2 category-pill-wrap">
-      <button class="cat-tab btn active">Business Funding Package</button>
-    </div>
-  </div>
-
-      <div class="full-course-card mx-auto">
-        <div class="full-course-left">
-            <span class="badge">Most Popular</span>
-          <h3>Business Funding</h3>
-          <ul class="full-feature-list">
-            <li>2 Business Meetings</li>
-          </ul>
-        </div>
-        <div class="full-course-right">
-           <span class="best-value">BEST VALUE</span>
-          <h2 class="price">₹499</h2>
-          <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
-        </div>
-      </div>
-    </div>
 
   </div>
 </section>
-<!-- ================= END PRICING ================= -->
 
+<!-- ================= PRICING SECTION ================= -->
 
       <!-- Start  take-action Section-->
     <section class="our-clients elf-section has-dark-bg" id="take-action">
@@ -610,7 +670,6 @@ function toggleWeb(type){
     : document.getElementById('btnFull').classList.add('active');
 }
 
-/* NEW: APP TOGGLE */
 function toggleApp(type){
   document.getElementById('app_individual').style.display =
     type === 'individual' ? 'block' : 'none';
@@ -625,21 +684,8 @@ function toggleApp(type){
     ? document.getElementById('btnAppIndividual').classList.add('active')
     : document.getElementById('btnAppFull').classList.add('active');
 }
-
-/* PRICE OPTION ACTIVE */
-document.addEventListener('click', function(e){
-  const option = e.target.closest('.price-option');
-  if(!option) return;
-
-  const card = option.closest('.price-card');
-  card.querySelectorAll('.price-option')
-      .forEach(o => o.classList.remove('active'));
-
-  option.classList.add('active');
-  const input = option.querySelector('input');
-  if(input) input.checked = true;
-});
 </script>
+
 
 
   </body>

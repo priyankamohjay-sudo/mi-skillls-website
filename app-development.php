@@ -230,9 +230,9 @@
               <div class="sidebar-pane">
                 <h2 class="sidebar-title">list of Courses</h2>
                 <ul class="list">
-                  <li class="list-item active"><i class="flaticon-web-development font-icon"></i><a href="web-development.php"> web development<i class="bi bi-arrow-right icon "></i></a></li>
+                  <li class="list-item "><i class="flaticon-web-development font-icon"></i><a href="web-development.php"> web development<i class="bi bi-arrow-right icon "></i></a></li>
                   <li class="list-item"><i class="flaticon-nanotechnology font-icon"></i><a href="digital-marketing.php"> Digital Marketing<i class="bi bi-arrow-right icon "></i></a></li>
-                  <li class="list-item"><i class="flaticon-web-domain font-icon"></i><a href="app-development.php"> App Development<i class="bi bi-arrow-right icon "></i></a></li>
+                  <li class="list-item active"><i class="flaticon-web-domain font-icon"></i><a href="app-development.php"> App Development<i class="bi bi-arrow-right icon "></i></a></li>
                   <li class="list-item"><i class="flaticon-profile font-icon"></i><a href="graphic-designing.php"> Graphic Desinging<i class="bi bi-arrow-right icon "></i></a></li>
                   <li class="list-item"><i class="flaticon-search font-icon"></i><a href="testing.php">Testing<i class="bi bi-arrow-right icon "></i></a></li>
                   <li class="list-item"><i class="flaticon-strategy font-icon"></i><a href="networking.php"> Networking<i class="bi bi-arrow-right icon "></i></a></li>
@@ -244,7 +244,7 @@
                   <p class="sidebar-text">Access all essential learning materials, guides, and documents related to your course. Download resources anytime to support your learning and practice.</p>
                   <ul class="list">
                     
-                    <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="#0">
+                    <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="courses.php">
                          All Courses<i class="bi bi-arrow-right icon "></i></a></li>
                   </ul>
                 </div>
@@ -254,10 +254,10 @@
                   <h2 class="sidebar-title">follow us</h2>
                   <div class="sc-wrapper dir-row sc-size-40">
                     <ul class="sc-list">
-                      <li class="sc-item " title="Facebook"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a></li>
-                      <li class="sc-item " title="youtube"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-youtube sc-icon"></i></a></li>
-                      <li class="sc-item " title="instagram"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-instagram sc-icon"></i></a></li>
-                      <li class="sc-item " title="X"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-x-twitter sc-icon"></i></a></li>
+                      <li class="sc-item " title="Facebook"><a class="sc-link" href="#" title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a></li>
+                      <li class="sc-item " title="youtube"><a class="sc-link" href="https://www.youtube.com/channel/UC0GbfPzvJazzHnPGJeOAgag" title="social media icon"><i class="fab fa-youtube sc-icon"></i></a></li>
+                      <li class="sc-item " title="instagram"><a class="sc-link" href="https://www.instagram.com/miskills.india/?igsh=MWc4ZmZmYjkwMjhtcA%3D%3D&utm_source=qr#" title="social media icon"><i class="fab fa-instagram sc-icon"></i></a></li>
+                      <!-- <li class="sc-item " title="X"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-x-twitter sc-icon"></i></a></li> -->
                     </ul>
                   </div>
                 </div>

@@ -124,7 +124,7 @@
               </a>
 
               <a class="download-btn" 
-                href="https://github.com/js-mohjay/miskills-desktop-updater/releases/download/v1.0.4/miskills-1.0.4-setup.exe" 
+                href="https://github.com/js-mohjay/miskills-desktop-updater/releases/download/v1.0.5/miskills-1.0.5-setup.exe" 
                 target="_blank" 
                 rel="noopener">
                 <span class="text"><i class="fab fa-windows me-2"></i> Download For Windows</span>
@@ -273,7 +273,7 @@
           <div class="sec-heading  centered mb-0 ">         
             <!-- <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">contact us</span> -->
               <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">Download MI Skills App & Desktop</h2>
-              <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">Learn through live online classes, track interviews, internships, and job opportunities, and manage your courses seamlessly <br>on the MI Skills App—available on Play Store, App Store, and Desktop for learning anytime, anywhere.</p>
+              <p class="info-text   wow fadeInUp " data-wow-delay=".6s">Learn through live online classes, track interviews, internships, and job opportunities, and manage your courses seamlessly <br>on the MI Skills App—available on Play Store, App Store, and Desktop for learning anytime, anywhere.</p>
             </div>
           </div>
 
@@ -282,7 +282,7 @@
         <a class="btn btn-dark cta-link px-4 py-2 d-inline-flex align-items-center gap-2" target="_blank" href="https://play.google.com/store/apps/details?id=com.skill.my&pcampaignid=web_share&pli=1"><i class="bi bi-google-play fs-5"></i>
           Get it on Play Store</a>
 
-              <a class="btn btn-dark cta-link px-4 py-2 d-inline-flex align-items-center gap-2" target="_blank" href="https://github.com/js-mohjay/miskills-desktop-updater/releases/download/v1.0.4/miskills-1.0.4-setup.exe"><i class="bi bi-windows fs-5"></i>
+              <a class="btn btn-dark cta-link px-4 py-2 d-inline-flex align-items-center gap-2" target="_blank" href="https://github.com/js-mohjay/miskills-desktop-updater/releases/download/v1.0.5/miskills-1.0.5-setup.exe"><i class="bi bi-windows fs-5"></i>
           Download for Windows
         </a>
 
@@ -308,19 +308,19 @@
             </div>
             <!--Info Two-->
             <div class="col-12 col-md-6 col-lg-3 stat-box ">
-              <div class="stat-box-inner  " data-tilt="data-tilt"><i class="flaticon-content-management stat-icon"></i>
+              <div class="stat-box-inner" data-tilt="data-tilt"><i class="flaticon-content-management stat-icon"></i>
                 <p class="stat-num "><span class="counter" data-from="0" data-to="8" data-speed="3000" data-refresh-interval="50"></span><span class="sign">+</span></p><span class="stat-desc">Total Courses</span>
               </div>
             </div>
             <!--Info Three-->
             <div class="col-12 col-md-6 col-lg-3 stat-box ">
-              <div class="stat-box-inner  " data-tilt="data-tilt"><i class="flaticon-user stat-icon"></i>
+              <div class="stat-box-inner" data-tilt="data-tilt"><i class="flaticon-user stat-icon"></i>
                 <p class="stat-num "><span class="counter" data-from="0" data-to="25" data-speed="3000" data-refresh-interval="50"></span><span class="sign">+</span></p><span class="stat-desc">Our Instructors</span>
               </div>
             </div>
             <!--Info Four-->
             <div class="col-12 col-md-6 col-lg-3 stat-box ">
-              <div class="stat-box-inner  " data-tilt="data-tilt"><i class="flaticon-aim stat-icon"></i>
+              <div class="stat-box-inner" data-tilt="data-tilt"><i class="flaticon-aim stat-icon"></i>
                 <p class="stat-num "><span class="counter" data-from="0" data-to="1800" data-speed="3000" data-refresh-interval="50"></span><span class="sign">+</span></p><span class="stat-desc">Total Students Enrolled</span>
               </div>
             </div>
@@ -393,61 +393,100 @@
         </div>
      </section>
 
-   <!-- placement section start -->
+        <!-- placement section start -->
+        <section class="portfolio mega-section" id="portfolio">
 
-   <!-- placement section start -->
+          <div class="container">
 
-    <section class="portfolio mega-section" id="portfolio">
-      <div class="container">
-        <div class="sec-heading  ">
-          <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">PLACEMENT & INTERNSHIP</span>
-            <h2 class=" title  wow fadeInUp" data-wow-delay=".4s">Student Placement & Internship  <span class='hollow-text'>Highlights</span></h2>
-          </div>
-          <!-- <div class=" cta-area wow fadeInUp" data-wow-delay=".8s"><a class="cta-btn btn-solid" href="portfolio-grid.html">see more <i class="bi bi-arrow-right icon "></i></a></div> -->
-        </div>
-        <div class="portfolio-wrapper  ">
-          <!--a menu of links to show the photos users needs   -->
-         
-          <div class="portfolio-group wow fadeIn" data-wow-delay=".4s">
-            <div class="row ">
-              <div class="col-12  col-md-6  col-lg-3  portfolio-item mobile ">
-                <div class="item   ">
-                  <a class="portfolio-img-link">
-                    <img class="img-fluid" src="assets/images/portfolio/splash-screen.png" alt="portfolio item photo"/>
-                  </a>
-                 
-                </div>
+            <!-- Section Heading -->
+            <div class="sec-heading">
+              <div class="content-area">
+                <span class="pre-title wow fadeInUp" data-wow-delay=".2s">
+                  PLACEMENT & INTERNSHIP
+                </span>
+
+                <h2 class="title wow fadeInUp" data-wow-delay=".4s">
+                  Shaping Careers Through
+                  <span class="hollow-text">Placements & Internships</span>
+                </h2>
               </div>
-              <div class="col-12  col-md-6  col-lg-3  portfolio-item web  ">
-                <div class="item   ">
-                  <a class="portfolio-img-link">
-                    <img class="img-fluid" src="assets/images/portfolio/today-interview.png" alt="portfolio item photo"/></a>
-                 
-                </div>
-              </div>
-              <div class="col-12  col-md-6  col-lg-3  portfolio-item data ">
-                <div class="item   ">
-                  <a class="portfolio-img-link">
-                    <img class="img-fluid" src="assets/images/portfolio/interview-status.png" alt="portfolio item photo"/></a>
-                
-                </div>
-              </div>
-        <div class="col-12  col-md-6  col-lg-3  portfolio-item data ">
-                <div class="item   ">
-                  <a class="portfolio-img-link">
-                    <img class="img-fluid" src="assets/images/portfolio/placement-dark.png" alt="portfolio item photo"/></a>
-                
-                </div>
             </div>
+
+            <!-- Portfolio Wrapper -->
+            <div class="portfolio-wrapper">
+
+              <div class="portfolio-group wow fadeIn" data-wow-delay=".4s">
+
+                <div class="row">
+
+                  <!-- Splash Screen Video -->
+                  <div class="col-12 col-md-6 col-lg-3 portfolio-item mobile">
+                    <div class="item">
+                      <video
+                        class="img-fluid"
+                        src="assets/videos/splash-sceen-video.mp4"
+                        autoplay
+                        muted
+                        loop
+                        playsinline>
+                      </video>
+                    </div>
+                  </div>
+
+                  <!-- Interview Video -->
+                  <div class="col-12 col-md-6 col-lg-3 portfolio-item web">
+                    <div class="item">
+                      <video
+                        class="img-fluid"
+                        src="assets/videos/interview-video.mp4"
+                        autoplay
+                        muted
+                        loop
+                        playsinline>
+                      </video>
+                    </div>
+                  </div>
+
+                  <!-- Interview Schedule Video -->
+                  <div class="col-12 col-md-6 col-lg-3 portfolio-item data">
+                    <div class="item">
+                      <video
+                        class="img-fluid"
+                        src="assets/videos/interview-schedule-video.mp4"
+                        autoplay
+                        muted
+                        loop
+                        playsinline>
+                      </video>
+                    </div>
+                  </div>
+
+                  <!-- Placement Video -->
+                  <div class="col-12 col-md-6 col-lg-3 portfolio-item data">
+                    <div class="item">
+                      <video
+                        class="img-fluid"
+                        src="assets/videos/placement-video.mp4"
+                        autoplay
+                        muted
+                        loop
+                        playsinline>
+                      </video>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
-        </div>
-      </div>
-    </section>
-    <!-- End  placement Section-->
 
-    <!-- End  placement Section-->
+        </section>
+        <!-- placement section end -->
 
-    
+
     <!-- Start  pricing Section-->
     <section class="pricing mega-section" id="pricing-1">
       <div class="container">
