@@ -89,7 +89,7 @@
                 <div class="part">
                   <h2 class="service-title">Learn to Grow Brands with Data-Driven Digital Strategies</h2>
                   <h3 class="service-title">Course Overview</h3>
-                  <p class="service-text">Our Digital Marketing Course is designed to help you master the core skills required to promote brands online effectively. This course focuses on SEO, SMO, and Content Writing, enabling you to drive traffic, build brand visibility, and generate consistent leads through proven digital marketing techniques.</p>
+                  <p class="info-text">Our Digital Marketing Course is designed to help you master the core skills required to promote brands online effectively. This course focuses on SEO, SMO, and Content Writing, enabling you to drive traffic, build brand visibility, and generate consistent leads through proven digital marketing techniques.</p>
                 </div>
                 <div class="part">
                   <div class="two-cols-img ">
@@ -282,8 +282,8 @@
         <div class="container">
           <div class="sec-heading  centered mb-0 ">
             <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">contact us</span>
-              <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">get in touch with us</h2>
-              <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">Our team at MI Skills is here to guide you at every step—from learning to real-world success. <br>Connect with us today and take the next step toward your career goals.</p>
+              <h2 class=" title wow fadeInUp" data-wow-delay=".4s">get in touch with us</h2>
+              <p class="info-text wow fadeInUp " data-wow-delay=".6s">Our team at MI Skills is here to guide you at every step—from learning to real-world success. <br>Connect with us today and take the next step toward your career goals.</p>
             </div>
           </div>
           <!--Start .see-more-area-->

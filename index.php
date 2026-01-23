@@ -59,9 +59,9 @@
       <div class="section-video-bg">
         <video class="hero-video-bg" src="assets/videos/banner-video.mp4" autoplay muted loop> </video>
       </div>
-      <div class="overlay-color " data-bg-opacity=".7"></div>
+      <div class="overlay-color" data-bg-opacity=".7"></div>
       <div class="container">
-        <div class="hero-text-area  content-always-light">
+        <div class="hero-text-area content-always-light">
           <div class="row g-0">
 
             <!-- LEFT CONTENT : col-lg-8 -->
@@ -89,7 +89,7 @@
                 </div>
 
                 <div class="col-10">
-                  <p class="hero-subtitle">
+                  <p class="info-text">
                     MI Skills offers expert-led live courses to build industry-ready skills,
                     along with scheduled interview opportunities to support career growth.
                   </p>
@@ -144,12 +144,12 @@
     <!-- Start  services Section-->
     <section class="services services-boxed mega-section  " id="services">
       <div class="container">
-        <div class="sec-heading  ">
-          <div class="content-area"><span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">Our Courses</span>
-            <h2 class=" title    wow fadeInUp" data-wow-delay=".4s"><span class='hollow-text'>Courses</span> we offer</h2>
-            <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">MI Skills offers live courses that build practical skills and support real career opportunity.</p>
+        <div class="sec-heading">
+          <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">Our Courses</span>
+            <h2 class=" title wow fadeInUp" data-wow-delay=".4s"><span class='hollow-text'>Courses</span> we offer</h2>
+            <p class="info-text wow fadeInUp " data-wow-delay=".6s">MI Skills offers live courses that build practical skills and support real career opportunity.</p>
           </div>
-          <div class=" cta-area   wow fadeInUp" data-wow-delay=".8s"><a class="cta-btn btn-solid" href="courses.php">see all Courses <i class="bi bi-arrow-right icon "></i></a></div>
+          <div class=" info-text" data-wow-delay=".8s"><a class="cta-btn btn-solid" href="courses.php">see all Courses <i class="bi bi-arrow-right icon "></i></a></div>
         </div>
         <div class="row gx-4 gy-4 services-row text-center">  
           <div class="col-12 col-md-6  col-lg-4 mx-auto ">
@@ -486,337 +486,191 @@
         </section>
         <!-- placement section end -->
 
+    <!-- start  pricing Section-->
+    <section class="pricing mega-section has-dark-bg" id="pricing-1">
 
-    <section class="pricing mega-section" id="pricing-1">
-    <div class="container">
-      <div class="sec-heading  ">
-        <div class="content-area"><span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">pricing plans</span>
-          <h2 class=" title    wow fadeInUp" data-wow-delay=".4s"><span class='hollow-text'>Courses</span> pricing plans
-          </h2>
-          <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">MI Skills offers flexible and affordable pricing
-            plans with access to live classes, expert support, and interview and internship opportunities.</p>
-        </div>
-        <div class=" cta-area   wow fadeInUp" data-wow-delay=".8s"><a class="cta-btn btn-solid    "
-            href="subscription.php">see all plans<i class="bi bi-arrow-right icon "></i></a></div>
+      <!-- section background elements -->
+      <div class="pricing-bg-elements">
+        <span class="design-element dots el-1"></span>
+        <span class="design-element rounded-shape el-2"></span>
       </div>
-      <div class="row">
-        <!--First Plan-->
-        <!-- <div class="col-12  col-md-6 col-xl-3  mx-auto price-plan ">
-          <div class="plan    wow fadeInUp  " data-wow-delay=".1s ">
-            <div class="plan-head"><i class="flaticon-nft-1 plan-icon"></i>
-              <h4 class="plane-name">Web Development</h4>
-              <div class="plan-price">
-                <h3 class="price">1,495<sup class="currency-symbol">₹</sup></h3><span class="per">Full Course</span>
-              </div>
-            </div>
-            <div class="plan-details">
-              <table class="price-table">
-                <thead>
-                  <tr>
-                    <th>Course</th>
-                    <th>Duration</th>
-                    <th>Monthly</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Front-End</td>
-                    <td>2 Months</td>
-                    <td>₹499</td>
-                    <td>₹998</td>
-                  </tr>
-                  <tr>
-                    <td>Back-End</td>
-                    <td>2 Months</td>
-                    <td>₹499</td>
-                    <td>₹998</td>
-                  </tr>
-                  <tr class="highlight">
-                    <td>Full Stack</td>
-                    <td>3 Months</td>
-                    <td>—</td>
-                    <td>₹1,495</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+
+      <div class="container position-relative">
+
+        <div class="sec-heading">
+          <div class="content-area">
+            <span class="pre-title wow fadeInUp" data-wow-delay=".2s">pricing plans</span>
+            <h2 class="title wow fadeInUp" data-wow-delay=".4s">
+              <span class="hollow-text">Courses</span> pricing plans
+            </h2>
+            <p class="info-text wow fadeInUp" data-wow-delay=".6s">
+              MI Skills offers flexible and affordable pricing plans with access to live classes,
+              expert support, and interview and internship opportunities.
+            </p>
           </div>
-        </div> -->
 
-        <div class="col-12 col-md-6 col-xl-3 price-plan">
-          <div class="plan">
-            <div class="plan-head">
-              <i class="flaticon-nft-1 plan-icon"></i>
-              <h4 class="plane-name">Web Development</h4>
-              <h3 class="price">₹1,495</h3>
-              <span class="per">Full Course</span>
-            </div>
-            <div class="plan-details sketch-style">
-              <div class="bubble-wrap">
-                <div class="bubble">
-                  <strong>Frontend</strong>
-                  <span>₹499 / Month</span>
-                </div>
-                <div class="bubble">
-                  <strong>Backend</strong>
-                  <span>₹499 / Month</span>
-                </div>
-              </div>
-
-              <div class="price-grid header">
-                <span>Course</span>
-                <span>Monthly</span>
-                <span>Total</span>
-              </div>
-
-              <div class="price-grid">
-                <span>Frontend</span>
-                <span>₹499</span>
-                <span>₹998 (2 Months)</span>
-              </div>
-
-              <div class="price-grid">
-                <span>Backend</span>
-                <span>₹499</span>
-                <span>₹998 (2 Months)</span>
-              </div>
-            </div>
+          <div class="cta-area wow fadeInUp" data-wow-delay=".8s">
+            <a class="cta-btn btn-solid" href="subscription.php">
+              see all plans <i class="bi bi-arrow-right icon"></i>
+            </a>
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-xl-3 price-plan">
-  <div class="plan">
-    <div class="plan-head">
-      <i class="flaticon-virtual-reality plan-icon"></i>
-      <h4 class="plane-name">App Development</h4>
-      <h3 class="price">₹3,899</h3>
-      <span class="per">Full Course</span>
-    </div>
-    <div class="plan-details sketch-style">
-      <div class="bubble-wrap">
-        <div class="bubble"><strong>iOS</strong><span>₹899 / Month</span></div>
-        <div class="bubble"><strong>Android</strong><span>₹899 / Month</span></div>
-        <div class="bubble"><strong>Cross</strong><span>₹1,299</span></div>
-      </div>
+    <div class="row">
 
-      <div class="price-grid header">
-        <span>Course</span>
-        <span>Duration</span>
-        <span>Total</span>
-      </div>
+      <!-- Web Development -->
+      <div class="col-12 col-md-6 col-xl-3 price-plan">
+        <div class="plan">
 
-      <div class="price-grid">
-        <span>iOS App</span>
-        <span>2 Months</span>
-        <span>₹1,798</span>
-      </div>
-
-      <div class="price-grid">
-        <span>Android App</span>
-        <span>2 Months</span>
-        <span>₹1,798</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="col-12 col-md-6 col-xl-3 price-plan">
-  <div class="plan featured">
-    <div class="plan-head">
-      <i class="flaticon-box plan-icon"></i>
-      <h4 class="plane-name">Digital Marketing</h4>
-      <h3 class="price">₹4,799</h3>
-      <span class="per">Full Course</span>
-    </div>
-    <div class="plan-details sketch-style">
-      <div class="bubble-wrap">
-        <div class="bubble"><strong>SEO</strong></div>
-        <div class="bubble"><strong>SMO</strong></div>
-        <div class="bubble"><strong>Content</strong></div>
-      </div>
-
-      <p class="summary-text">
-        Duration: <strong>4 Months</strong><br>
-        ₹1,299 / Month · <strong>Total ₹4,799</strong>
-      </p>
-    </div>
-  </div>
-</div>
-<div class="col-12 col-md-6 col-xl-3 price-plan">
-  <div class="plan">
-    <div class="plan-head">
-      <i class="flaticon-basic-shapes plan-icon"></i>
-      <h4 class="plane-name">Graphic Designing</h4>
-      <h3 class="price">₹2,495</h3>
-      <span class="per">Full Course</span>
-    </div>
-    <div class="plan-details sketch-style">
-      <div class="bubble-wrap">
-        <div class="bubble"><strong>UI / UX</strong></div>
-        <div class="bubble"><strong>Figma</strong></div>
-        <div class="bubble"><strong>Canva</strong></div>
-        <div class="bubble"><strong>Photoshop</strong></div>
-      </div>
-
-      <p class="summary-text">
-        Duration: <strong>5 Months</strong><br>
-        ₹499 / Month · <strong>Total ₹2,495</strong>
-      </p>
-    </div>
-  </div>
-</div>
-
-
-        <!--Second-plan-->
-        <!-- <div class="col-12  col-md-6 col-xl-3  mx-auto price-plan ">
-          <div class="plan    wow fadeInUp  " data-wow-delay=".3s ">
-            <div class="plan-head"><i class="flaticon-virtual-reality plan-icon"></i>
-              <h4 class="plane-name">App Development</h4>
-              <div class="plan-price">
-                <h3 class="price">3,899<sup class="currency-symbol">₹</sup></h3><span class="per">Full Course</span>
-              </div>
-            </div>
-            <div class="plan-details">
-              <table class="price-table">
-                <thead>
-                  <tr>
-                    <th>Course</th>
-                    <th>Duration</th>
-                    <th>Monthly</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>iOS App</td>
-                    <td>2 Months</td>
-                    <td>₹899</td>
-                    <td>₹1,798</td>
-                  </tr>
-                  <tr>
-                    <td>Android App</td>
-                    <td>2 Months</td>
-                    <td>₹899</td>
-                    <td>₹1,798</td>
-                  </tr>
-                  <tr>
-                    <td>Cross-Platform</td>
-                    <td>2 Months</td>
-                    <td>—</td>
-                    <td>₹1,299</td>
-                  </tr>
-                  <tr class="highlight">
-                    <td>Complete Course</td>
-                    <td>4 Months</td>
-                    <td>—</td>
-                    <td>₹3,899</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="plan-head">
+            <i class="flaticon-nft-1 plan-icon"></i>
+            <h4 class="plane-name">Web Development</h4>
+            <h3 class="price">₹1,495</h3>
+            <span class="per">Full Course</span>
           </div>
-        </div> -->
-        <!--Third-plan-->
-        <!-- <div class="col-12  col-md-6 col-xl-3  mx-auto price-plan ">
-          <div class="plan featured wow fadeInUp" data-wow-delay=".5s">
-            <div class="plan-head">
-              <i class="flaticon-box plan-icon"></i>
-              <h4 class="plane-name">Digital Marketing</h4>
-              <div class="plan-price">
-                <h3 class="price">4,799<sup class="currency-symbol">₹</sup></h3>
-                <span class="per">Full Course</span>
+
+          <div class="plan-details sketch-style">
+
+            <div class="bubble-wrap">
+              <div class="bubble">
+                <strong>Frontend</strong>
+                <span>₹499 / Month</span>
+              </div>
+              <div class="bubble">
+                <strong>Backend</strong>
+                <span>₹499 / Month</span>
               </div>
             </div>
 
-            <div class="plan-details">
-              <table class="price-table">
-                <thead>
-                  <tr>
-                    <th>Course</th>
-                    <th colspan="3">Duration & Fee</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>SEO</td>
-                    <td colspan="3" class="no-details">No individual module pricing</td>
-                  </tr>
-                  <tr>
-                    <td>SMO</td>
-                    <td colspan="3" class="no-details">No individual module pricing</td>
-                  </tr>
-                  <tr>
-                    <td>Content Writing</td>
-                    <td colspan="3" class="no-details">No individual module pricing</td>
-                  </tr>
-                  <tr class="highlight">
-                    <td colspan="4" class="price-note">
-                      Duration: 4 Months · ₹1,299 / month · Total ₹4,799
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="price-grid header">
+              <span>Course</span>
+              <span>Monthly</span>
+              <span>Total</span>
             </div>
+
+            <div class="price-grid">
+              <span>Frontend</span>
+              <span>₹499</span>
+              <span>₹998 (2 Months)</span>
+            </div>
+
+            <div class="price-grid">
+              <span>Backend</span>
+              <span>₹499</span>
+              <span>₹998 (2 Months)</span>
+            </div>
+
           </div>
-
-        </div> -->
-        <!--fourth-plan-->
-        <!-- <div class="col-12  col-md-6 col-xl-3  mx-auto price-plan ">
-          <div class="plan wow fadeInUp" data-wow-delay=".6s">
-            <div class="plan-head">
-              <i class="flaticon-basic-shapes plan-icon"></i>
-              <h4 class="plane-name">Graphic Designing</h4>
-              <div class="plan-price">
-                <h3 class="price">2,495<sup class="currency-symbol">₹</sup></h3>
-                <span class="per">Full Course</span>
-              </div>
-            </div>
-
-            <div class="plan-details">
-              <table class="price-table">
-                <thead>
-                  <tr>
-                    <th>Course</th>
-                    <th colspan="3">Duration & Fee</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>UI / UX Design</td>
-                    <td colspan="3" class="no-details">No individual pricing</td>
-                  </tr>
-                  <tr>
-                    <td>Figma</td>
-                    <td colspan="3" class="no-details">No individual pricing</td>
-                  </tr>
-                  <tr>
-                    <td>Canva</td>
-                    <td colspan="3" class="no-details">No individual pricing</td>
-                  </tr>
-                  <tr>
-                    <td>Photoshop & Illustration</td>
-                    <td colspan="3" class="no-details">No individual pricing</td>
-                  </tr>
-                  <tr>
-                    <td>Branding & Logo Design</td>
-                    <td colspan="3" class="no-details">No individual pricing</td>
-                  </tr>
-                  <tr class="highlight">
-                    <td colspan="4" class="price-note">
-                      Duration: 5 Months · ₹499 / month · Total ₹2,495
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-        </div> -->
+        </div>
       </div>
+
+      <!-- App Development -->
+      <div class="col-12 col-md-6 col-xl-3 price-plan">
+        <div class="plan">
+
+          <div class="plan-head">
+            <i class="flaticon-virtual-reality plan-icon"></i>
+            <h4 class="plane-name">App Development</h4>
+            <h3 class="price">₹3,899</h3>
+            <span class="per">Full Course</span>
+          </div>
+
+          <div class="plan-details sketch-style">
+
+            <div class="bubble-wrap">
+              <div class="bubble"><strong>iOS</strong><span>₹899 / Month</span></div>
+              <div class="bubble"><strong>Android</strong><span>₹899 / Month</span></div>
+              <div class="bubble"><strong>Cross</strong><span>₹1,299</span></div>
+            </div>
+
+            <div class="price-grid header">
+              <span>Course</span>
+              <span>Duration</span>
+              <span>Total</span>
+            </div>
+
+            <div class="price-grid">
+              <span>iOS App</span>
+              <span>2 Months</span>
+              <span>₹1,798</span>
+            </div>
+
+            <div class="price-grid">
+              <span>Android App</span>
+              <span>2 Months</span>
+              <span>₹1,798</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Digital Marketing (Featured) -->
+      <div class="col-12 col-md-6 col-xl-3 price-plan">
+        <div class="plan featured">
+
+          <!-- featured background -->
+          <div class="featured-bg">
+            <span class="orbit"></span>
+            <span class="radar"></span>
+          </div>
+
+          <div class="plan-head">
+            <i class="flaticon-box plan-icon"></i>
+            <h4 class="plane-name">Digital Marketing</h4>
+            <h3 class="price">₹4,799</h3>
+            <span class="per">Full Course</span>
+          </div>
+
+          <div class="plan-details sketch-style">
+            <div class="bubble-wrap">
+              <div class="bubble"><strong>SEO</strong></div>
+              <div class="bubble"><strong>SMO</strong></div>
+              <div class="bubble"><strong>Content</strong></div>
+            </div>
+
+            <p class="summary-text">
+              Duration: <strong>4 Months</strong><br>
+              ₹1,299 / Month · <strong>Total ₹4,799</strong>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Graphic Designing -->
+      <div class="col-12 col-md-6 col-xl-3 price-plan">
+        <div class="plan">
+
+          <div class="plan-head">
+            <i class="flaticon-basic-shapes plan-icon"></i>
+            <h4 class="plane-name">Graphic Designing</h4>
+            <h3 class="price">₹2,495</h3>
+            <span class="per">Full Course</span>
+          </div>
+
+          <div class="plan-details sketch-style">
+            <div class="bubble-wrap">
+              <div class="bubble"><strong>UI / UX</strong></div>
+              <div class="bubble"><strong>Figma</strong></div>
+              <div class="bubble"><strong>Canva</strong></div>
+              <div class="bubble"><strong>Photoshop</strong></div>
+            </div>
+
+            <p class="summary-text">
+              Duration: <strong>5 Months</strong><br>
+              ₹499 / Month · <strong>Total ₹2,495</strong>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
     </div>
-  </section>
-  <!-- End  pricing Section-->
+  </div>
+</section>
+<!-- End pricing Section -->
+
      
     <!-- Start  testimonials Section-->
     <section class="testimonials testimonials-1-col   has-dark-bg  mega-section " id="testimonials-img-bg">
@@ -1022,8 +876,8 @@
         <div class="container">
           <div class="sec-heading  centered mb-0 ">
             <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">contact us</span>
-              <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">get in touch with us</h2>
-              <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">Our team at MI Skills is here to guide you at every step—from learning to real-world success. <br>Connect with us today and take the next step toward your career goals.</p>
+              <h2 class=" title wow fadeInUp" data-wow-delay=".4s">get in touch with us</h2>
+              <p class="info-text ">Our team at MI Skills is here to guide you at every step—from learning to real-world success. <br>Connect with us today and take the next step toward your career goals.</p>
             </div>
           </div>
           <!--Start .see-more-area-->

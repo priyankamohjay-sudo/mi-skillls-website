@@ -591,8 +591,12 @@ a:hover {
   text-transform: capitalize;
 }
 .info-items-list .info-text {
-  font-size: 1.1;
+  font-size: 1.1rem !important;
   opacity: 0.75;
+}
+
+.info-text{
+      font-size: 1.1rem !important;
 }
 .info-items-list .info-number {
   display: flex;
@@ -5276,7 +5280,7 @@ body.rounded-btns .read-more {
   max-width: 180px;
   min-height: 52px;
   padding: 0.6rem 1rem;
-  border-radius: 999px; /* pill shape */
+  border-radius: 999px;
   border: 1.8px solid rgba(var(--clr-main-rgb), 0.65);
   display: flex;
   flex-direction: column;
@@ -5285,11 +5289,20 @@ body.rounded-btns .read-more {
   text-align: center;
   font-size: 0.85rem;
   line-height: 1.2;
-  background: rgba(255, 255, 255, 0.02);
+  background: linear-gradient(
+    135deg,
+    rgba(103, 58, 183, 0.35),
+    rgba(0, 168, 255, 0.35)
+  );
+ box-shadow:
+  0 6px 14px rgba(0, 168, 255, 0.22),
+  inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
   position: relative;
   overflow: hidden;
   transition: all 0.35s ease;
 }
+
 
 .bubble {
   animation: wobbleXLoad 5s ease-in-out infinite;
@@ -5509,7 +5522,7 @@ body.rounded-btns .read-more {
   }
 }
 .stats .stat-desc {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 400;
   display: block;
   text-transform: capitalize;
@@ -5612,7 +5625,7 @@ body.rounded-btns .read-more {
 .price-plan .plan {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 95%;
 }
 
 /* Make table area grow equally */
@@ -5948,7 +5961,7 @@ html, body {
   width: 100%;
   min-width: 240px;
   text-align: center;
-  font-size: 17px;
+  font-size: 17.6px;
   font-weight: 500;
   transition: all 0.3s ease;
 }
@@ -6054,6 +6067,22 @@ html, body {
 .portfolio .portfolio-group {
   height: auto !important;
   min-height: 450px;
+}
+
+@media (max-width: 767px) {
+
+  /* Bootstrap row ke negative margin remove */
+  .portfolio-wrapper .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Video cards ko container jaisa spacing */
+  .portfolio-item {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
 }
 /*  End  stats section Rules    */
 

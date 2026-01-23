@@ -88,7 +88,7 @@
                 <div class="part">
                   <h2 class="service-title">Build Modern Websites & Full-Stack Applications</h2>
                   <h3 class="service-title">Course Overview</h3>
-                  <p class="service-text">Our Web Development course is designed to take you from fundamentals to industry-ready skills. You’ll learn how to design responsive user interfaces, build powerful backend systems, and deploy complete web applications. With live classes, hands-on projects, and real interview exposure, this course prepares you for real-world development roles.</p>
+                  <p class="info-text">Our Web Development course is designed to take you from fundamentals to industry-ready skills. You’ll learn how to design responsive user interfaces, build powerful backend systems, and deploy complete web applications. With live classes, hands-on projects, and real interview exposure, this course prepares you for real-world development roles.</p>
                 </div>
                 <div class="part">
                   <div class="two-cols-img ">
@@ -289,7 +289,7 @@
           <div class="sec-heading  centered mb-0 ">
             <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">contact us</span>
               <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">get in touch with us</h2>
-              <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">Our team at MI Skills is here to guide you at every step—from learning to real-world success. <br>Connect with us today and take the next step toward your career goals.</p>
+              <p class="info-text   wow fadeInUp " data-wow-delay=".6s">Our team at MI Skills is here to guide you at every step—from learning to real-world success. <br>Connect with us today and take the next step toward your career goals.</p>
             </div>
           </div>
           <!--Start .see-more-area-->

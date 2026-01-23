@@ -90,7 +90,7 @@
         <h2 class="title">
           <span class="hollow-text">Courses</span> pricing plans
         </h2>
-        <p class="subtitle">
+        <p class="info-text">
           MI Skills offers flexible and affordable pricing plans with access to live classes,<br>
           expert support, and interview and internship opportunities.
         </p>
@@ -582,7 +582,7 @@
           <div class="sec-heading  centered mb-0 ">
             <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">contact us</span>
               <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">get in touch with us</h2>
-              <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">Our team at MI Skills is here to guide you at every step—from learning to real-world success. <br>Connect with us today and take the next step toward your career goals.</p>
+              <p class="info-text   wow fadeInUp " data-wow-delay=".6s">Our team at MI Skills is here to guide you at every step—from learning to real-world success. <br>Connect with us today and take the next step toward your career goals.</p>
             </div>
           </div>
           <!--Start .see-more-area-->

@@ -82,9 +82,9 @@
     <section class="services services-boxed mega-section  " id="services">
       <div class="container">
         <div class="sec-heading  ">
-          <div class="content-area"><span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">Our Courses</span>
-            <h2 class=" title    wow fadeInUp" data-wow-delay=".4s"><span class='hollow-text'>Courses</span> we offer</h2>
-            <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">MI Skills offers live courses that build practical skills and support real career opportunity.</p>
+          <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">Our Courses</span>
+            <h2 class=" title wow fadeInUp" data-wow-delay=".4s"><span class='hollow-text'>Courses</span> we offer</h2>
+            <p class="info-text wow fadeInUp " data-wow-delay=".6s">MI Skills offers live courses that build practical skills and support real career opportunity.</p>
           </div>
         </div>
         <div class="row gx-4 gy-4 services-row text-center">  
@@ -350,8 +350,8 @@
         <div class="container">
           <div class="sec-heading  centered mb-0 ">
             <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">contact us</span>
-              <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">get in touch with us</h2>
-              <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">Our team at MI Skills is here to guide you at every step—from learning to real-world success. <br>Connect with us today and take the next step toward your career goals.</p>
+              <h2 class=" title wow fadeInUp" data-wow-delay=".4s">get in touch with us</h2>
+              <p class="info-text wow fadeInUp " data-wow-delay=".6s">Our team at MI Skills is here to guide you at every step—from learning to real-world success. <br>Connect with us today and take the next step toward your career goals.</p>
             </div>
           </div>
           <!--Start .see-more-area-->
