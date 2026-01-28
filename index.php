@@ -72,7 +72,7 @@
                   <div class="hero-social-icons mb-3">
                     <div class="sc-wrapper dir-row sc-flat">
                       <ul class="sc-list">
-                        <li class="sc-item " title="Facebook"><a class="sc-link" target="_blank" href="#" title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a></li>
+                        <li class="sc-item " title="Facebook"><a class="sc-link" target="_blank" href="https://www.facebook.com/people/Miskillsofficial/61587243383829/?mibextid=wwXIfr&rdid=OYWqwYRmFVKFqtL8&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16gAjpmgT9%2F%3Fmibextid%3DwwXIfr" title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a></li>
                         <li class="sc-item " title="youtube"><a class="sc-link" target="_blank" href="https://www.youtube.com/channel/UC0GbfPzvJazzHnPGJeOAgag" title="social media icon"><i class="fab fa-youtube sc-icon"></i></a></li>
                         <li class="sc-item " title="instagram"><a class="sc-link" target="_blank" href="https://www.instagram.com/miskills.india/?igsh=MWc4ZmZmYjkwMjhtcA%3D%3D&utm_source=qr#" title="social media icon"><i class="fab fa-instagram sc-icon"></i></a></li>
                         <!-- <li class="sc-item " title="X"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-x-twitter sc-icon"></i></a></li> -->
