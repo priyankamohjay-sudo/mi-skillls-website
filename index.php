@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+
+    <meta name="description" content="Join our online course platform today! Access a wide range of courses, connect with industry experts, and enhance your learning experience anytime, anywhere.">
+
+    <meta name="keywords" content="online course platform, online class platform, digital marketing classes, courses on web development">
+
+    <title>Discover the Best Online Course Platform for Learning</title>
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
         <!-- fav icon -->
@@ -42,7 +48,7 @@
         
         <!-- main-LTR -->
         <link rel="stylesheet" href="css/main-LTR.css">
-        <title>Mi Skills | miskills.in</title>
+        
 
         <style>
           .info-content{

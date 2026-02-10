@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta name="description" content="Discover your path to online learning success with us! Explore resources, tips, and support designed to enhance your educational journey today.">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
         <!-- fav icon -->
@@ -36,7 +36,7 @@
         
         <!-- main-LTR -->
         <link rel="stylesheet" href="css/main-LTR.css">
-        <title> Mi Skills  | About Us</title>
+        <title>About Us: Your Gateway to Online Learning Success</title>
   </head>
   <body class=" dark-theme ">
  

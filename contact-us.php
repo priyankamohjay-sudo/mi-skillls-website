@@ -35,7 +35,8 @@ if (isset($_POST['UserSubmit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta name="description" content="Have questions or need assistance? Contact MI Skills today! Our team is ready to help you with all your skill development needs.">
+    <meta name="keywords" content="contact mi skills, subscribe mi skills app">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
         <!-- fav icon -->
@@ -61,7 +62,7 @@ if (isset($_POST['UserSubmit'])) {
         
         <!-- main-LTR -->
         <link rel="stylesheet" href="css/main-LTR.css">
-        <title> Mi Skills | Contact Us</title>
+        <title>Contact MI Skills: Your Path to Success</title>
   </head>
   <body class=" dark-theme ">
   

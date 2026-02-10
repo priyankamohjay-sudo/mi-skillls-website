@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta name="description" content="Transform your passion for art into a career with our graphic designing course. Explore design principles and software tools to enhance your creativity.">
+    <meta name="keywords" content="graphic designing course, graphic and design course, class graphic design, graphic designing course online">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
         <!-- fav icon -->
@@ -36,7 +37,7 @@
         
         <!-- main-LTR -->
         <link rel="stylesheet" href="css/main-LTR.css">
-        <title> Mi Skills | Courses | Graphic Desinging</title>
+        <title>Learn Graphic Design: Join Our Comprehensive Course Now</title>
   </head>
   <body class=" dark-theme "> 
  

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta name="description" content="Advance your skills with our software testing course. Explore key concepts and practical applications to thrive in the competitive tech landscape.">
+    <meta name="keywords" content="software testing course, program testing course, software testing course online, software testing course with placement">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
         <!-- fav icon -->
@@ -36,7 +37,7 @@
         
         <!-- main-LTR -->
         <link rel="stylesheet" href="css/main-LTR.css">
-        <title> Mi Skills | Courses | Testing</title>
+        <title>Software Testing Course: Skills for Quality Assurance</title>
   </head>
   <body class=" dark-theme "> 
  

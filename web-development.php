@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta name="description" content="Master web development with our hands-on courses. Explore HTML, CSS, JavaScript, and more to launch your career in the tech industry effectively.">
+    <meta name="keywords" content="web development courses, website development course, web programming course, website development classes">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
         <!-- fav icon -->
@@ -36,7 +37,7 @@
         
         <!-- main-LTR -->
         <link rel="stylesheet" href="css/main-LTR.css">
-        <title> Mi Skills | Courses | Web Development</title>
+        <title>Master Web Development: Best Online Courses Available</title>
   </head>
   <body class=" dark-theme "> 
  

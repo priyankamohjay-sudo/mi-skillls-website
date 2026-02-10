@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta name="description" content="Discover our expert-led networking courses designed to boost your skills and career. Enroll now to master networking concepts and technologies.">
+    <meta name="keywords" content="networking courses, cloud networking courses, network engineer course, network engineer classes">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
         <!-- fav icon -->
@@ -36,7 +37,7 @@
         
         <!-- main-LTR -->
         <link rel="stylesheet" href="css/main-LTR.css">
-        <title> Mi Skills | Courses | Networking</title>
+        <title>Master Networking: Enroll in Our Expert Courses</title>
 
   </head>
   <body class=" dark-theme "> 

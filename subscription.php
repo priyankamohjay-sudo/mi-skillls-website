@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta name="description" content="Transform your education with our course subscription. Gain unlimited access to a wide range of courses and learn at your own pace, anytime you choose.">
+    <meta name="keywords" content="course subscription, subscription courses, subscribe to courses">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
         <!-- fav icon -->
@@ -36,7 +37,7 @@
         
         <!-- main-LTR -->
         <link rel="stylesheet" href="css/main-LTR.css">
-        <title> Mi Skills   |   Subscription</title>
+        <title>Affordable Course Subscription for Lifelong Learning</title>
   </head>
   <body class=" dark-theme ">
 

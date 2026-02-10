@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta name="description" content="Master digital marketing with our expert-led course. From SEO to social media strategies, equip yourself with the tools to succeed online.">
+    <meta name="keywords" content="digital marketing course, class digital marketing, web development courses, website development course">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
         <!-- fav icon -->
@@ -36,7 +37,7 @@
         
         <!-- main-LTR -->
         <link rel="stylesheet" href="css/main-LTR.css">
-        <title> Mi Skills   |   Courses </title>
+        <title>Comprehensive Digital Marketing Course for Aspiring Pros</title>
   </head>
   <body class=" dark-theme ">
 

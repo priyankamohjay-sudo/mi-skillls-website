@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta name="description" content="Join our app development course and transform your ideas into reality. Learn essential coding skills and industry best practices to excel in tech!">
+    <meta name="keywords" content="app development course, app building course, app making course, app creation course">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
         <!-- fav icon -->
@@ -36,7 +37,7 @@
         
         <!-- main-LTR -->
         <link rel="stylesheet" href="css/main-LTR.css">
-        <title> Mi Skills | Courses | App Development</title>
+        <title>Become an App Developer: Join Our Expert Course</title>
   </head>
   <body class=" dark-theme "> 
  
