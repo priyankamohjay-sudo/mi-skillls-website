@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="col-12">
-                  <div class="pre-title">Live Learning | Real Skills | Career</div>
+                  <div class="pre-title">Live Learning | Real Skills</div>
                   <h1 class="hero-title bold-title">
                     Career-Focused Live Classes with <span class="featured-text">MI Skills</span>
                   </h1>
