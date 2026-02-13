@@ -1,46 +1,8 @@
-<!DOCTYPE html>
-<html lang="zxx">
-  
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover your path to online learning success with us! Explore resources, tips, and support designed to enhance your educational journey today.">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        
-        <!-- fav icon -->
-         <link rel="icon" href="assets/images/fav-icon/logo-new.png">
-        
-        <!-- bootstarp -->
-        <link rel="stylesheet" href="css/vendors/bootstrap.min.css">
-        
-        <!-- animate.css file -->
-        <link rel="stylesheet" href="css/vendors/animate.css">
-        
-        <!-- Fancybox -->
-        <link rel="stylesheet" href="css/vendors/jquery.fancybox.min.css">
-        
-        <!-- Swiper -->
-        <link rel="stylesheet" href="css/vendors/swiper-bundle.min.css">
-        
-        <!-- flaticon -->
-        <link rel="stylesheet" href="css/vendors/flaticon/flaticon.css">
-        
-        <!-- fontAwesome -->
-        <link rel="stylesheet" href="css/vendors/all.min.css">
-        
-        <!-- bootstrap icons -->
-        <link rel="stylesheet" href="css/vendors/bootstrap-icons-1.9.1/bootstrap-icons.css">
-        
-        <!-- Font Family -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&amp;display=swap">
-        
-        <!-- main-LTR -->
-        <link rel="stylesheet" href="css/main-LTR.css">
-        <title>About Us: Your Gateway to Online Learning Success</title>
-  </head>
-  <body class=" dark-theme ">
- 
-<?php include 'header.php'; ?>
+<?php 
+$title="About Us: Your Gateway to Online Learning Success";
+$description="Discover your path to online learning success with us! Explore resources, tips, and support designed to enhance your educational journey today.";
+$tags = "";
+require_once __DIR__ . '/../includes/header.php'; ?>
 
 
   <!-- Start inner Page hero-->
@@ -48,7 +10,7 @@
 
   <!-- Background Image -->
   <div class="hero-bg"
-       style="background-image: url('assets/images/hero/inner-banner.jpg');">
+       style="background-image: url('<?=BASE_URL?>assets/images/hero/inner-banner.jpg');">
   </div>
 
   <!-- Black Overlay -->
@@ -78,7 +40,7 @@
 
       <!-- Start  about Section-->
     <section class="about" id="about">
-      <div class="overlay-photo-image-bg" data-bg-img="assets/images/sections-bg-images/pattern-bg-2.jpg" data-bg-opacity=".2"></div>
+      <div class="overlay-photo-image-bg" data-bg-img="<?=BASE_URL?>assets/images/sections-bg-images/pattern-bg-2.jpg" data-bg-opacity=".2"></div>
       <div class="section-dotted-bg"></div>   
       <div class="container">
         <!-- Start first about div-->
@@ -123,7 +85,7 @@
 
   <!-- Start  testimonials Section-->
     <section class="testimonials testimonials-1-col   has-dark-bg  mega-section " id="testimonials-img-bg">
-      <div class="overlay-photo-image-bg parallax " data-bg-img="assets/images/sections-bg-images/1.jpg" data-bg-opacity=".25"> </div>
+      <div class="overlay-photo-image-bg parallax " data-bg-img="<?=BASE_URL?>assets/images/sections-bg-images/1.jpg" data-bg-opacity=".25"> </div>
       <div class="container">
         <div class="sec-heading  centered ">
           <div class="content-area"><h3 class=" pre-title  wow fadeInUp " data-wow-delay=".2s">testimonials</h3>
@@ -138,7 +100,7 @@
                 <div class="swiper-slide">
                   <div class="testmonial-card d-flex align-items-center justify-content-center">
                     <div class="testimonial-content">
-                      <div class="customer-img "><img class="img-fluid " loading="lazy" src="assets/images/testimonials/user1.png" alt="First Slide "></div>
+                      <div class="customer-img "><img class="img-fluid " loading="lazy" src="<?=BASE_URL?>assets/images/testimonials/user1.png" alt="First Slide "></div>
                       <div class="customer-testimonial">
                         <div class="content">
                           <p class="testimonial-text ">MI Skills helped me learn through live classes with clear guidance. After completing my course, I got interview opportunities support that boosted my confidence. The learning experience feels very practical.</p>
@@ -157,7 +119,7 @@
                 <div class="swiper-slide">
                   <div class="testmonial-card d-flex align-items-center justify-content-center">
                     <div class="testimonial-content">
-                      <div class="customer-img "><img class="img-fluid " loading="lazy" src="assets/images/testimonials/user2.png" alt="First Slide "></div>
+                      <div class="customer-img "><img class="img-fluid " loading="lazy" src="<?=BASE_URL?>assets/images/testimonials/user2.png" alt="First Slide "></div>
                       <div class="customer-testimonial">
                         <div class="content">
                           <p class="testimonial-text ">The live classes at MI Skills are easy to understand and very interactive. What I liked most is the internship opportunities that helped me apply my skills in real projects.</p>
@@ -175,7 +137,7 @@
                 <div class="swiper-slide">
                   <div class="testmonial-card d-flex align-items-center justify-content-center">
                     <div class="testimonial-content">
-                      <div class="customer-img "><img class="img-fluid " loading="lazy" src="assets/images/testimonials/user3.png" alt="First Slide "></div>
+                      <div class="customer-img "><img class="img-fluid " loading="lazy" src="<?=BASE_URL?>assets/images/testimonials/user3.png" alt="First Slide "></div>
                       <div class="customer-testimonial">
                         <div class="content">
                           <p class="testimonial-text ">The live learning environment, interview preparation, and internship scheduling made MI Skills different from other platforms. I feel more prepared for real job opportunities now.</p>
@@ -194,7 +156,7 @@
                 <div class="swiper-slide">
                   <div class="testmonial-card d-flex align-items-center justify-content-center">
                     <div class="testimonial-content">
-                      <div class="customer-img "><img class="img-fluid " loading="lazy" src="assets/images/testimonials/user4.png" alt="First Slide "></div>
+                      <div class="customer-img "><img class="img-fluid " loading="lazy" src="<?=BASE_URL?>assets/images/testimonials/user4.png" alt="First Slide "></div>
                       <div class="customer-testimonial">
                         <div class="content">
                           <p class="testimonial-text ">I had a project idea but didn’t know how to start. MI Skills guided me with mentorship and gave me an opportunity to apply for business funding. It gave me confidence to work on my idea seriously.</p>
@@ -214,7 +176,7 @@
                   <div class="testmonial-card d-flex align-items-center justify-content-center">
                     <div class="testimonial-content">
                       <div class="customer-img ">
-                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user-5.webp" alt="Student Review">
+                        <img class="img-fluid" loading="lazy" src="<?=BASE_URL?>assets/images/testimonials/user-5.webp" alt="Student Review">
                       </div>
                       <div class="customer-testimonial">
                         <div class="content">
@@ -237,7 +199,7 @@
                   <div class="testmonial-card d-flex align-items-center justify-content-center">
                     <div class="testimonial-content">
                       <div class="customer-img ">
-                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user-6.png" alt="Student Review">
+                        <img class="img-fluid" loading="lazy" src="<?=BASE_URL?>assets/images/testimonials/user-6.png" alt="Student Review">
                       </div>
                       <div class="customer-testimonial">
                         <div class="content">
@@ -260,7 +222,7 @@
                   <div class="testmonial-card d-flex align-items-center justify-content-center">
                     <div class="testimonial-content">
                       <div class="customer-img ">
-                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user-7.webp" alt="Student Review">
+                        <img class="img-fluid" loading="lazy" src="<?=BASE_URL?>assets/images/testimonials/user-7.webp" alt="Student Review">
                       </div>
                       <div class="customer-testimonial">
                         <div class="content">
@@ -283,7 +245,7 @@
                   <div class="testmonial-card d-flex align-items-center justify-content-center">
                     <div class="testimonial-content">
                       <div class="customer-img ">
-                        <img class="img-fluid" loading="lazy" src="assets/images/testimonials/user-8.webp" alt="Student Review">
+                        <img class="img-fluid" loading="lazy" src="<?=BASE_URL?>assets/images/testimonials/user-8.webp" alt="Student Review">
                       </div>
                       <div class="customer-testimonial">
                         <div class="content">
@@ -413,7 +375,7 @@
    
     <!-- Start  take-action Section-->
     <section class=" elf-section " id="take-action" style="background: #673ab7;">
-      <div class="overlay-photo-image-bg  " data-bg-img="assets/images/hero/white-bg.jpg" data-bg-opacity=".25"> </div>
+      <div class="overlay-photo-image-bg  " data-bg-img="<?=BASE_URL?>assets/images/hero/white-bg.jpg" data-bg-opacity=".25"> </div>
       <div class="cta-wrapper">
         <div class="container">
           <div class="sec-heading  centered mb-0 ">         
@@ -432,40 +394,4 @@
 
     <!-- End  take-action Section-->
    
-<?php include 'footer.php'; ?>
-
-    <!-- Start loading-screen Component-->
-    <div class="loading-screen" id="loading-screen"><span class="bar top-bar"></span><span class="bar down-bar"></span><span class="progress-line"></span><span class="loading-counter"> </span></div>
-    <!-- End loading-screen Component-->
-    <!-- Start back-to-top Button-->
-    <div class="back-to-top" id="back-to-top"><i class="bi bi-arrow-up icon "></i>
-    </div>
-    <!-- End back-to-top Button-->
-   
-        
-        <!--     JQuery     -->
-        <script src="js/vendors/jquery-3.6.1.min.js"></script>
-        
-        <!--     bootstrap     -->
-        <script src="js/vendors/bootstrap.bundle.min.js"></script>
-        
-        <!--     wow     -->
-        <script src="js/vendors/wow.min.js"></script>
-        
-        <!--     swiper     -->
-        <script src="js/vendors/swiper-bundle.min.js"></script>
-        
-        <!--     fancybox     -->
-        <script src="js/vendors/jquery.fancybox.min.js"></script>
-        
-        <!--     particles     -->
-        <script src="js/vendors/particles.min.js"></script>
-        
-        <!--     countTo     -->
-        <script src="js/vendors/jquery.countTo.js"></script>
-        
-        <!--     main     -->
-        <script src="js/main.js"></script>
-  </body>
-
-</html>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>
