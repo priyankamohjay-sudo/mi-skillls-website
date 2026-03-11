@@ -1,55 +1,15 @@
-<!DOCTYPE html>
-<html lang="zxx">
-  
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover our expert-led networking courses designed to boost your skills and career. Enroll now to master networking concepts and technologies.">
-    <meta name="keywords" content="networking courses, cloud networking courses, network engineer course, network engineer classes">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        
-        <!-- fav icon -->
-       <link rel="icon" href="assets/images/fav-icon/logo-new.png">
-        
-        <!-- bootstarp -->
-        <link rel="stylesheet" href="css/vendors/bootstrap.min.css">
-        
-        <!-- animate.css file -->
-        <link rel="stylesheet" href="css/vendors/animate.css">
-        
-        <!-- Fancybox -->
-        <link rel="stylesheet" href="css/vendors/jquery.fancybox.min.css">
-        
-        <!-- flaticon -->
-        <link rel="stylesheet" href="css/vendors/flaticon/flaticon.css">
-        
-        <!-- fontAwesome -->
-        <link rel="stylesheet" href="css/vendors/all.min.css">
-        
-        <!-- bootstrap icons -->
-        <link rel="stylesheet" href="css/vendors/bootstrap-icons-1.9.1/bootstrap-icons.css">
-        
-        <!-- Swiper -->
-        <link rel="stylesheet" href="css/vendors/swiper-bundle.min.css">
-        
-        <!-- Font Family -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&amp;display=swap">
-        
-        <!-- main-LTR -->
-        <link rel="stylesheet" href="css/main-LTR.css">
-        <title>Master Networking: Enroll in Our Expert Courses</title>
+<?php
+$title = "Contact MI Skills: Your Path to Success";
+$description = "Have questions or need assistance? Contact MI Skills today! Our team is ready to help you with all your skill development needs.";
+$tags = "contact mi skills, subscribe mi skills app";
+require_once __DIR__ . '/../../includes/header.php'; 
+?>
 
-  </head>
-  <body class=" dark-theme "> 
- 
-  <?php include 'header.php'; ?>
-
-  <!-- Start inner Page hero-->
+<!-- Start inner Page hero-->
 <section class="page-hero inner-page-hero d-flex align-items-center" id="page-hero">
 
   <!-- Background Image -->
-  <div class="hero-bg"
-       style="background-image: url('assets/images/hero/inner-banner.jpg');">
+  <div class="hero-bg" style="background-image: url('<?=BASE_URL?>assets/images/hero/inner-banner.jpg');">
   </div>
 
   <!-- Black Overlay -->
@@ -58,7 +18,7 @@
   <div class="container position-relative">
     <div class="hero-text-area centerd">
       <h1 class="hero-title wow fadeInUp" data-wow-delay=".2s">
-       Networking
+        Networking
       </h1>
 
       <nav aria-label="breadcrumb">
@@ -77,16 +37,16 @@
 </section>
 <!-- End inner Page hero-->
 
- 
-    <!-- Start inner Page hero-->
-   <div class="service-single "> 
+
+<!-- Start inner Page hero-->
+<div class="service-single ">
   <div class="container">
     <div class="row">
       <!--Start service content-->
       <div class="col-12 col-xl-8  ">
         <div class="service-content-area">
           <div class="featured-img-area part">
-            <img class="feat-img img-fluid" src="assets/images/services/networking-3.avif" alt="featured image">
+            <img class="feat-img img-fluid" src="<?=BASE_URL?>assets/images/services/networking-3.avif" alt="featured image">
           </div>
 
           <div class="service-content">
@@ -94,8 +54,10 @@
               <h2 class="service-title">Networking Course – Build Strong IT & Network Infrastructure Skills</h2>
               <h3 class="service-title">Course Overview</h3>
               <p class="info-text">
-                Our Networking Course is designed to help you understand how computer networks work in real-world IT environments.
-                This course covers networking fundamentals, devices, configuration, security, and troubleshooting, preparing you
+                Our Networking Course is designed to help you understand how computer networks work in real-world IT
+                environments.
+                This course covers networking fundamentals, devices, configuration, security, and troubleshooting,
+                preparing you
                 for networking and IT support roles in the industry.
               </p>
             </div>
@@ -105,12 +67,14 @@
                 <div class="row">
                   <div class="col-12 col-md-6 mb-3">
                     <div class="img-col">
-                      <img class="img-fluid" src="assets/images/services/networking.avif" loading="lazy" alt="service single image ">
+                      <img class="img-fluid" src="<?=BASE_URL?>assets/images/services/networking.avif" loading="lazy"
+                        alt="service single image ">
                     </div>
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="img-col">
-                      <img class="img-fluid" src="assets/images/services/networking-1.jpg" loading="lazy" alt="service single image ">
+                      <img class="img-fluid" src="<?=BASE_URL?>assets/images/services/networking-1.jpg" loading="lazy"
+                        alt="service single image ">
                     </div>
                   </div>
                 </div>
@@ -216,13 +180,14 @@
 
             <div class="part">
               <h2 class="service-title">Frequently Asked Questions</h2>
-              <div class="faq">           
+              <div class="faq">
                 <div class="faq-accordion " id="accordion">
 
                   <div class="card mb-2">
                     <div class="card-header " id="heading-1">
                       <h5 class="mb-0 faq-title">
-                        <button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-1">
+                        <button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse"
+                          data-bs-target="#collapse-1">
                           Is this networking course suitable for beginners?
                         </button>
                       </h5>
@@ -239,7 +204,8 @@
                   <div class="card mb-2">
                     <div class="card-header " id="heading-2">
                       <h5 class="mb-0 faq-title">
-                        <button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-2">
+                        <button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse"
+                          data-bs-target="#collapse-2">
                           What job roles can I apply for after this course?
                         </button>
                       </h5>
@@ -247,7 +213,8 @@
                     <div class="collapse" id="collapse-2" data-bs-parent="#accordion">
                       <div class="card-body">
                         <p class="faq-answer">
-                          You can apply for Network Support Engineer, IT Support Executive, and Junior Network Administrator roles.
+                          You can apply for Network Support Engineer, IT Support Executive, and Junior Network
+                          Administrator roles.
                         </p>
                       </div>
                     </div>
@@ -256,7 +223,8 @@
                   <div class="card mb-2">
                     <div class="card-header " id="heading-3">
                       <h5 class="mb-0 faq-title">
-                        <button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-3">
+                        <button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse"
+                          data-bs-target="#collapse-3">
                           Will I learn network security basics?
                         </button>
                       </h5>
@@ -284,12 +252,18 @@
           <div class="sidebar-pane">
             <h2 class="sidebar-title">list of Courses</h2>
             <ul class="list">
-              <li class="list-item"><i class="flaticon-web-development font-icon"></i><a href="web-development.php"> web development<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-nanotechnology font-icon"></i><a href="digital-marketing.php"> Digital Marketing<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-web-domain font-icon"></i><a href="app-development.php"> App Development<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-profile font-icon"></i><a href="graphic-designing.php"> Graphic Desinging<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-search font-icon"></i><a href="testing.php">Testing<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item active"><i class="flaticon-strategy font-icon"></i><a href="networking.php"> Networking<i class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item"><i class="flaticon-web-development font-icon"></i><a href="web-development.php"> web
+                  development<i class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item"><i class="flaticon-nanotechnology font-icon"></i><a href="digital-marketing.php">
+                  Digital Marketing<i class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item"><i class="flaticon-web-domain font-icon"></i><a href="app-development.php"> App
+                  Development<i class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item"><i class="flaticon-profile font-icon"></i><a href="graphic-designing.php"> Graphic
+                  Desinging<i class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item"><i class="flaticon-search font-icon"></i><a href="testing.php">Testing<i
+                    class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item active"><i class="flaticon-strategy font-icon"></i><a href="networking.php">
+                  Networking<i class="bi bi-arrow-right icon "></i></a></li>
             </ul>
           </div>
 
@@ -314,11 +288,17 @@
               <h2 class="sidebar-title">follow us</h2>
               <div class="sc-wrapper dir-row sc-size-40">
                 <ul class="sc-list">
-                      <li class="sc-item " title="Facebook"><a class="sc-link" target="_blank" href="https://www.facebook.com/people/Miskillsofficial/61587243383829/?mibextid=wwXIfr&rdid=OYWqwYRmFVKFqtL8&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16gAjpmgT9%2F%3Fmibextid%3DwwXIfr" title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a></li>
-                      <li class="sc-item " title="youtube"><a class="sc-link" target="_blank" href="https://www.youtube.com/channel/UC0GbfPzvJazzHnPGJeOAgag" title="social media icon"><i class="fab fa-youtube sc-icon"></i></a></li>
-                      <li class="sc-item " title="instagram"><a class="sc-link" target="_blank" href="https://www.instagram.com/miskills.india/?igsh=MWc4ZmZmYjkwMjhtcA%3D%3D&utm_source=qr#" title="social media icon"><i class="fab fa-instagram sc-icon"></i></a></li>
-                      <!-- <li class="sc-item " title="X"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-x-twitter sc-icon"></i></a></li> -->
-                    </ul>
+                  <li class="sc-item " title="Facebook"><a class="sc-link" target="_blank"
+                      href="https://www.facebook.com/people/Miskillsofficial/61587243383829/?mibextid=wwXIfr&rdid=OYWqwYRmFVKFqtL8&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16gAjpmgT9%2F%3Fmibextid%3DwwXIfr"
+                      title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a></li>
+                  <li class="sc-item " title="youtube"><a class="sc-link" target="_blank"
+                      href="https://www.youtube.com/channel/UC0GbfPzvJazzHnPGJeOAgag" title="social media icon"><i
+                        class="fab fa-youtube sc-icon"></i></a></li>
+                  <li class="sc-item " title="instagram"><a class="sc-link" target="_blank"
+                      href="https://www.instagram.com/miskills.india/?igsh=MWc4ZmZmYjkwMjhtcA%3D%3D&utm_source=qr#"
+                      title="social media icon"><i class="fab fa-instagram sc-icon"></i></a></li>
+                  <!-- <li class="sc-item " title="X"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-x-twitter sc-icon"></i></a></li> -->
+                </ul>
               </div>
             </div>
           </div>
@@ -329,57 +309,30 @@
     </div>
   </div>
 </div>
-      <!--Start service content-->
-    <!-- End inner Page hero-->
+<!--Start service content-->
+<!-- End inner Page hero-->
 
-        <!-- Start  take-action Section-->
-    <section class=" elf-section " id="take-action" style="background: #673ab7;">
-      <div class="overlay-photo-image-bg  " data-bg-img="assets/images/hero/white-bg.jpg" data-bg-opacity=".25"> </div>
-      <div class="cta-wrapper">
-        <div class="container">
-          <div class="sec-heading  centered mb-0 ">         
-            <!-- <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">contact us</span> -->
-              <h4 class=" title    wow fadeInUp" data-wow-delay=".4s">Get in touch with us</h4>
-              <p class="info-text   wow fadeInUp " data-wow-delay=".6s">Our team at MI Skills is here to guide you at every step—from learning to real-world success. <br>Connect with us today and take the next step toward your career goals.</p>
-            </div>
-          </div>
-
-            <div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn btn-dark cta-link" href="contact-us.php">contact us</a></div>
-
-        </div>
+<!-- Start  take-action Section-->
+<section class=" elf-section " id="take-action" style="background: #673ab7;">
+  <div class="overlay-photo-image-bg  " data-bg-img="<?=BASE_URL?>assets/images/hero/white-bg.jpg" data-bg-opacity=".25"> </div>
+  <div class="cta-wrapper">
+    <div class="container">
+      <div class="sec-heading  centered mb-0 ">
+        <!-- <div class="content-area"><span class=" pre-title wow fadeInUp " data-wow-delay=".2s">contact us</span> -->
+        <h4 class=" title    wow fadeInUp" data-wow-delay=".4s">Get in touch with us</h4>
+        <p class="info-text   wow fadeInUp " data-wow-delay=".6s">Our team at MI Skills is here to guide you at every
+          step—from learning to real-world success. <br>Connect with us today and take the next step toward your career
+          goals.</p>
       </div>
-    </section>
-
-    <!-- End  take-action Section-->
-
-     <?php include 'footer.php'; ?>
-
-    <!-- Start loading-screen Component-->
-    <div class="loading-screen" id="loading-screen"><span class="bar top-bar"></span><span class="bar down-bar"></span><span class="progress-line"></span><span class="loading-counter"> </span></div>
-    <!-- End loading-screen Component-->
-    <!-- Start back-to-top Button-->
-    <div class="back-to-top" id="back-to-top"><i class="bi bi-arrow-up icon "></i>
     </div>
-    <!-- End back-to-top Button-->
-    
-        
-        <!--     JQuery     -->
-        <script src="js/vendors/jquery-3.6.1.min.js"></script>
-        
-        <!--     bootstrap     -->
-        <script src="js/vendors/bootstrap.bundle.min.js"></script>
-        
-        <!--     fancybox     -->
-        <script src="js/vendors/jquery.fancybox.min.js"></script>
-        
-        <!--     swiper     -->
-        <script src="js/vendors/swiper-bundle.min.js"></script>
-        
-        <!--     wow     -->
-        <script src="js/vendors/wow.min.js"></script>
-        
-        <!--     main     -->
-        <script src="js/main.js"></script>
-  </body>
 
-</html>
+    <div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn btn-dark cta-link"
+        href="contact-us.php">contact us</a></div>
+
+  </div>
+  </div>
+</section>
+
+<!-- End  take-action Section-->
+
+<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
