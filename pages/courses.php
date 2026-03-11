@@ -59,7 +59,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <h3 class="service-title">web development</h3>
             <p class="service-text">This course covers essential web concepts frontent, backend and practical skills to
               create fast, user-friendly websites.</p>
-          </div><a class="read-more" href="web-development.php">read more<i class="bi bi-arrow-right icon "></i></a>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/web-development">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End First service box   -->
       </div>
@@ -72,7 +72,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <h3 class="service-title">Apps development</h3>
             <p class="service-text">This course covers core app development concepts and practical skills to build
               functional, user-friendly mobile applications.</p>
-          </div><a class="read-more" href="app-development.php">read more<i class="bi bi-arrow-right icon "></i></a>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/app-development">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End Second service box-->
       </div>
@@ -85,7 +85,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <h3 class="service-title">Digital Marketing</h3>
             <p class="service-text">This course covers key digital marketing concepts and practical strategies to grow
               brands and improve online visibility.</p>
-          </div><a class="read-more" href="digital-marketing.php">read more<i class="bi bi-arrow-right icon "></i></a>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/digital-marketing">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End Third service box-->
       </div>
@@ -98,7 +98,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <h3 class="service-title">Graphic Desinging</h3>
             <p class="service-text">This course covers design fundamentals and creative skills to create attractive
               visuals and digital design assets.</p>
-          </div><a class="read-more" href="graphic-designing.php">read more<i class="bi bi-arrow-right icon "></i></a>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/graphic-designing">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End fourth service box   -->
       </div>
@@ -108,10 +108,10 @@ require_once __DIR__ . '/../includes/header.php'; ?>
           <div class="service-icon"><i class="flaticon-strategy font-icon"></i></div><span
             class="service-num hollow-text">5 </span>
           <div class="service-content">
-            <h3 class="service-title">Networking</h3>
+            <h3 class="service-title">Networking & Non Technical Courses</h3>
             <p class="service-text">This course covers basic networking concepts and practical knowledge to understand
               system connectivity and network operations.</p>
-          </div><a class="read-more" href="networking.php">read more<i class="bi bi-arrow-right icon "></i></a>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/networking-and-non-technical-courses">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End 5th service box-->
       </div>
@@ -121,10 +121,10 @@ require_once __DIR__ . '/../includes/header.php'; ?>
           <div class="service-icon"><i class="flaticon-search font-icon"></i></div><span
             class="service-num hollow-text">6 </span>
           <div class="service-content">
-            <h3 class="service-title">Testing</h3>
+            <h3 class="service-title">Software Testing</h3>
             <p class="service-text">This course covers software testing concepts and practical methods to identify
               issues and ensure application quality.</p>
-          </div><a class="read-more" href="testing.php">read more<i class="bi bi-arrow-right icon "></i></a>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/software-testing">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End 6th service box-->
       </div>

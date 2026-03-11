@@ -101,7 +101,7 @@ require_once 'includes/header.php'; ?>
         <p class="info-text wow fadeInUp " data-wow-delay=".6s">MI Skills offers live courses that build practical
           skills and support real career opportunity.</p>
       </div>
-      <div class=" info-text" data-wow-delay=".8s"><a class="cta-btn btn-solid" href="courses.php">see all Courses <i
+      <div class=" info-text" data-wow-delay=".8s"><a class="cta-btn btn-solid" href="courses">see all Courses <i
             class="bi bi-arrow-right icon "></i></a></div>
     </div>
     <div class="row gx-4 gy-4 services-row text-center">
@@ -114,7 +114,7 @@ require_once 'includes/header.php'; ?>
             <h3 class="service-title">web development</h3>
             <p class="service-text">This course covers essential web concepts frontent, backend and practical skills to
               create fast, user-friendly websites.</p>
-          </div><a class="read-more" href="web-development.php">read more<i class="bi bi-arrow-right icon "></i></a>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/web-development">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End First service box   -->
       </div>
@@ -127,7 +127,7 @@ require_once 'includes/header.php'; ?>
             <h3 class="service-title">Apps development</h3>
             <p class="service-text">This course covers core app development concepts and practical skills to build
               functional, user-friendly mobile applications.</p>
-          </div><a class="read-more" href="app-development.php">read more<i class="bi bi-arrow-right icon "></i></a>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/app-development">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End Second service box-->
       </div>
@@ -140,7 +140,7 @@ require_once 'includes/header.php'; ?>
             <h3 class="service-title">Digital Marketing</h3>
             <p class="service-text">This course covers key digital marketing concepts and practical strategies to grow
               brands and improve online visibility.</p>
-          </div><a class="read-more" href="digital-marketing.php">read more<i class="bi bi-arrow-right icon "></i></a>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/digital-marketing">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End Third service box-->
       </div>
@@ -153,7 +153,7 @@ require_once 'includes/header.php'; ?>
             <h3 class="service-title">Graphic Desinging</h3>
             <p class="service-text">This course covers design fundamentals and creative skills to create attractive
               visuals and digital design assets.</p>
-          </div><a class="read-more" href="graphic-designing.php">read more<i class="bi bi-arrow-right icon "></i></a>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/graphic-designing">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End fourth service box   -->
       </div>
@@ -163,23 +163,23 @@ require_once 'includes/header.php'; ?>
           <div class="service-icon"><i class="flaticon-strategy font-icon"></i></div><span
             class="service-num hollow-text">5 </span>
           <div class="service-content">
-            <h3 class="service-title">Networking</h3>
+            <h3 class="service-title">Networking & Non Technical Courses</h3>
             <p class="service-text">This course covers basic networking concepts and practical knowledge to understand
               system connectivity and network operations.</p>
-          </div><a class="read-more" href="networking.php">read more<i class="bi bi-arrow-right icon "></i></a>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/networking-and-non-technical-courses">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End 5th service box-->
       </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
+      <div class="col-12 col-md-6  col-lg-4 mx-auto">
         <!--Start 6th service box-->
         <div class="box service-box  wow fadeInUp  reveal-start" data-wow-offset="0" data-wow-delay=".6s">
           <div class="service-icon"><i class="flaticon-search font-icon"></i></div><span
             class="service-num hollow-text">6 </span>
           <div class="service-content">
-            <h3 class="service-title">Testing</h3>
+            <h3 class="service-title">Software Testing</h3>
             <p class="service-text">This course covers software testing concepts and practical methods to identify
               issues and ensure application quality.</p>
-          </div><a class="read-more" href="testing.php">read more<i class="bi bi-arrow-right icon "></i></a>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/software-testing">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End 6th service box-->
       </div>
@@ -217,7 +217,7 @@ require_once 'includes/header.php'; ?>
               Skills provides opportunities for interview scheduling and internships, helping students connect with
               companies and move closer to their career goals.</p>
 
-            <div class="cta-area"><a class=" btn-solid reveal-start" href="about-us.php">Get in touch</a>
+            <div class="cta-area"><a class=" btn-solid reveal-start" href="about-us">Get in touch</a>
 
             </div>
           </div>

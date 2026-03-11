@@ -137,7 +137,7 @@ if (isset($_POST['UserSubmit'])) {
           </li>
 
           <li class="menu-item has-sub-menu">
-            <a class="menu-link" href="javascript:void(0)">
+            <a class="menu-link" href="<?= BASE_URL ?>courses">
               Courses
               <span class="plus-icon">
                 <i class="fas fa-plus"></i>
@@ -166,13 +166,13 @@ if (isset($_POST['UserSubmit'])) {
                 </a>
               </li>
               <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/testing">
-                  Testing
+                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/software-testing">
+                  Software Testing
                 </a>
               </li>
               <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/networking">
-                  Networking
+                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/networking-and-non-technical-courses">
+                  Networking & Non Technical Courses
                 </a>
               </li>
             </ul>
