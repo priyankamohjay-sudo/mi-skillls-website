@@ -106,17 +106,16 @@ require_once 'includes/header.php'; ?>
     </div>
     <div class="row gx-4 gy-4 services-row text-center">
       <div class="col-12 col-md-6  col-lg-4 mx-auto ">
-        <!--Start First service box-->
-        <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".1s">
-          <div class="service-icon"><i class="flaticon-web-development font-icon"></i></div><span
-            class="service-num hollow-text">1 </span>
+        <!--Start 7th service box-->
+        <div class="box service-box  wow fadeInUp  reveal-start" data-wow-offset="0" data-wow-delay=".7s">
+          <div class="service-icon"><i class="flaticon-database font-icon"></i></div><span
+            class="service-num hollow-text">7 </span>
           <div class="service-content">
-            <h3 class="service-title">web development</h3>
-            <p class="service-text">This course covers essential web concepts frontent, backend and practical skills to
-              create fast, user-friendly websites.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/web-development">read more<i class="bi bi-arrow-right icon "></i></a>
+            <h3 class="service-title">Data Science With Gen AI</h3>
+            <p class="service-text">This course covers data science concepts and AI tools with practical skills to analyze data and build intelligent data-driven solutions.</p>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/data-science-with-gen-ai">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
-        <!-- End First service box   -->
+        <!-- End 7th service box-->
       </div>
       <div class="col-12 col-md-6  col-lg-4 mx-auto ">
         <!--Start Second service box-->
@@ -124,10 +123,9 @@ require_once 'includes/header.php'; ?>
           <div class="service-icon"><i class="flaticon-nanotechnology font-icon"></i></div><span
             class="service-num hollow-text">2 </span>
           <div class="service-content">
-            <h3 class="service-title">Apps development</h3>
-            <p class="service-text">This course covers core app development concepts and practical skills to build
-              functional, user-friendly mobile applications.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/app-development">read more<i class="bi bi-arrow-right icon "></i></a>
+            <h3 class="service-title">App Development With AI Tools</h3>
+            <p class="service-text">This course covers mobile app development concepts and AI tools with practical skills to build functional and user-friendly applications.</p>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/app-development-with-ai-tools">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End Second service box-->
       </div>
@@ -163,10 +161,9 @@ require_once 'includes/header.php'; ?>
           <div class="service-icon"><i class="flaticon-strategy font-icon"></i></div><span
             class="service-num hollow-text">5 </span>
           <div class="service-content">
-            <h3 class="service-title">Networking & Non Technical Courses</h3>
-            <p class="service-text">This course covers basic networking concepts and practical knowledge to understand
-              system connectivity and network operations.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/networking-and-non-technical-courses">read more<i class="bi bi-arrow-right icon "></i></a>
+            <h3 class="service-title">AI & Applied Machine Learning</h3>
+            <p class="service-text">This course covers essential AI and machine learning concepts along with practical skills to build intelligent systems and data-driven applications.</p>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/artificial-intelligence-and-applied-machine-learning">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End 5th service box-->
       </div>
@@ -176,10 +173,9 @@ require_once 'includes/header.php'; ?>
           <div class="service-icon"><i class="flaticon-search font-icon"></i></div><span
             class="service-num hollow-text">6 </span>
           <div class="service-content">
-            <h3 class="service-title">Software Testing</h3>
-            <p class="service-text">This course covers software testing concepts and practical methods to identify
-              issues and ensure application quality.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/software-testing">read more<i class="bi bi-arrow-right icon "></i></a>
+            <h3 class="service-title">Cloud Computing & DevOps</h3>
+            <p class="service-text">This course covers cloud platforms and DevOps practices with practical skills to deploy, manage, and scale modern applications efficiently.</p>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/cloud-computing-and-devops">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
         <!-- End 6th service box-->
       </div>
@@ -479,7 +475,7 @@ require_once 'includes/header.php'; ?>
       </div>
 
       <div class="cta-area wow fadeInUp" data-wow-delay=".8s">
-        <a class="cta-btn btn-solid" href="subscription.php">
+        <a class="cta-btn btn-solid" href="subscription">
           see all plans <i class="bi bi-arrow-right icon"></i>
         </a>
       </div>
@@ -875,7 +871,7 @@ require_once 'includes/header.php'; ?>
     </div>
 
     <div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn btn-dark cta-link"
-        href="contact-us.php">contact us</a></div>
+        href="contact-us">contact us</a></div>
 
   </div>
   </div>

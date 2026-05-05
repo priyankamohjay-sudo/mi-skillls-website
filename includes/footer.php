@@ -49,15 +49,15 @@
           </ul>
         </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-2 footer-col ">
+      <div class="col-12 col-md-6 col-lg-3 footer-col ">
         <h2 class=" footer-col-title">Our Courses</h2>
         <div class="footer-col-content-wrapper">
           <ul class="footer-menu">
             <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
-                href="<?= BASE_URL ?>course/web-development">Web Development</a>
+                href="<?= BASE_URL ?>course/artificial-intelligence-and-applied-machine-learning">AI & Applied Machine Learning</a>
             </li>
             <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
-                href="<?= BASE_URL ?>course/app-development">App Development</a>
+                href="<?= BASE_URL ?>course/cloud-computing-and-devops">Cloud Computing & DevOps</a>
             </li>
             <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
                 href="<?= BASE_URL ?>course/digital-marketing">Digital Marketing</a>
@@ -66,10 +66,19 @@
                 href="<?= BASE_URL ?>course/graphic-designing">Graphic Desinging</a>
             </li>
             <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
-                href="<?= BASE_URL ?>course/networking">Networking & Non <br>Technical Courses</a>
+                href="<?= BASE_URL ?>course/data-science-with-gen-ai">Data Science with Gen AI</a>
             </li>
             <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
-                href="<?= BASE_URL ?>course/testing">Software Testing</a>
+                href="<?= BASE_URL ?>course/cybersecurity-ai-and-cloud-security">Cybersecurity - AI & Cloud Security</a>
+            </li>
+            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
+                href="<?= BASE_URL ?>course/data-analytics-with-gen-ai">Data Analytics with Gen AI</a>
+            </li>
+             <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
+                href="<?= BASE_URL ?>course/app-development-with-ai-tools">App Development with AI Tools</a>
+            </li>
+            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
+                href="<?= BASE_URL ?>course/web-development-with-ai-tools">Web Development with AI Tools</a>
             </li>
           </ul>
         </div>
@@ -95,13 +104,13 @@
         </div>
       </div>
 
-      <div class="col-12 col-lg-3 footer-col ">
+      <div class="col-12 col-lg-2 footer-col ">
         <h2 class=" footer-col-title">contact information</h2>
         <div class="footer-col-content-wrapper">
           <div class="contact-info-card"><i class="bi bi-envelope icon"></i><a class="info"
               href="mailto:contact@miskills.in">contact@miskills.in</a></div>
           <div class="contact-info-card"><i class="bi bi-geo-alt icon"></i><span class="info">Hyderabad,
-              Telangana - 500084</span></div>
+              Telangana <br> 500084</span></div>
           <!-- <div class="contact-info-card"><i class="bi bi-phone icon"></i><a class="info" href="tel:+20123456789">+20123456789  </a></div> -->
           <div class="contact-info-card">
             <div class="social-icons">

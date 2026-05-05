@@ -146,13 +146,13 @@ if (isset($_POST['UserSubmit'])) {
 
             <ul class="sub-menu">
               <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/web-development">
-                  Web Development
+                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/artificial-intelligence-and-applied-machine-learning">
+                  AI & Applied Machine Learning
                 </a>
               </li>
               <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/app-development">
-                  App Development
+                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/cloud-computing-and-devops">
+                  Cloud Computing & DevOps
                 </a>
               </li>
               <li class="menu-item sub-menu-item">
@@ -166,13 +166,28 @@ if (isset($_POST['UserSubmit'])) {
                 </a>
               </li>
               <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/software-testing">
-                  Software Testing
+                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/data-science-with-gen-ai">
+                  Data Science with Gen AI
                 </a>
               </li>
               <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/networking-and-non-technical-courses">
-                  Networking & Non Technical Courses
+                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/data-analytics-with-gen-ai">
+                  Data Analytics with Gen AI
+                </a>
+              </li>
+              <li class="menu-item sub-menu-item">
+                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/cybersecurity-ai-and-cloud-security">
+                  Cybersecurity - AI & Cloud Security
+                </a>
+              </li>
+               <li class="menu-item sub-menu-item">
+                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/app-development-with-ai-tools">
+                  App Development with AI Tools
+                </a>
+              </li>
+              <li class="menu-item sub-menu-item">
+                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/web-development-with-ai-tools">
+                  Web Development with AI Tools
                 </a>
               </li>
             </ul>
