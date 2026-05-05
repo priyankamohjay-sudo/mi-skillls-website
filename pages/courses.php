@@ -346,7 +346,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
     </div>
 
     <div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn btn-dark cta-link"
-        href="contact-us">contact us</a></div>
+        href="<?= BASE_URL ?>contact-us">contact us</a></div>
 
 
   </div>

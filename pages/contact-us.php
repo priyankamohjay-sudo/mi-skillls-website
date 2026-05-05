@@ -109,8 +109,8 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <div class="contact-form-inputs wow fadeInUp" data-wow-delay=".6s">
               <div class="custom-form-area input-boxed">
                 <!--Form To have user messages-->
-                <form class="main-form" id="contact-us-form"
-                  action="https://amincode.com/tm-html/flex-it/php/send-mail.php" method="post"><span
+                <form class="main-form" id="contact-us-form" action="" method="post">
+<span
                     class="done-msg"></span>
                   <div class="row ">
                     <div class="col-12 col-lg-6">

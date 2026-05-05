@@ -7,7 +7,7 @@ require_once 'includes/header.php'; ?>
 <!-- Start  Page hero-->
 <section class="page-hero d-flex align-items-center" id="page-hero">
   <div class="section-video-bg">
-    <video class="hero-video-bg" src="assets/videos/banner-video.mp4" autoplay muted loop> </video>
+    <video class="hero-video-bg" src="<?= BASE_URL ?>assets/videos/banner-video.mp4" autoplay muted loop> </video>
   </div>
   <div class="overlay-color" data-bg-opacity=".7"></div>
   <div class="container">
@@ -53,8 +53,8 @@ require_once 'includes/header.php'; ?>
 
             <!-- <div class="col-12">
                   <div class="cta-links-area">
-                    <a class="btn-solid cta-link cta-link-primary" href="courses.php">Find Courses</a>
-                    <a class="btn-outline cta-link" href="contact-us.php">Contact Us</a>
+                    <a class="btn-solid cta-link cta-link-primary" href="<?= BASE_URL ?>courses">Find Courses</a>
+                    <a class="btn-outline cta-link" href="<?= BASE_URL ?>contact-us">Contact Us</a>
                   </div>
                 </div> -->
 
@@ -101,7 +101,7 @@ require_once 'includes/header.php'; ?>
         <p class="info-text wow fadeInUp " data-wow-delay=".6s">MI Skills offers live courses that build practical
           skills and support real career opportunity.</p>
       </div>
-      <div class=" info-text" data-wow-delay=".8s"><a class="cta-btn btn-solid" href="courses">see all Courses <i
+      <div class=" info-text" data-wow-delay=".8s"><a class="cta-btn btn-solid" href="<?= BASE_URL ?>courses">see all Courses <i
             class="bi bi-arrow-right icon "></i></a></div>
     </div>
     <div class="row gx-4 gy-4 services-row text-center">
@@ -213,7 +213,7 @@ require_once 'includes/header.php'; ?>
               Skills provides opportunities for interview scheduling and internships, helping students connect with
               companies and move closer to their career goals.</p>
 
-            <div class="cta-area"><a class=" btn-solid reveal-start" href="about-us">Get in touch</a>
+            <div class="cta-area"><a class=" btn-solid reveal-start" href="<?= BASE_URL ?>about-us">Get in touch</a>
 
             </div>
           </div>
@@ -223,7 +223,7 @@ require_once 'includes/header.php'; ?>
           <div class="img-area ">
             <div class="video-wrapper">
               <video class="about-video img-fluid" autoplay muted loop playsinline preload="metadata">
-                <source src="assets/videos/APP Interface MI Skills.mp4" type="video/mp4">
+                <source src="<?= BASE_URL ?>assets/videos/APP Interface MI Skills.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -327,7 +327,7 @@ require_once 'includes/header.php'; ?>
         <div class="img-area">
           <div class="video-wrapper">
             <video class="about-video img-fluid" autoplay muted loop playsinline preload="metadata">
-              <source src="assets/videos/miskills-info-video.mp4" type="video/mp4">
+              <source src="<?= BASE_URL ?>assets/videos/miskills-info-video.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -411,7 +411,7 @@ require_once 'includes/header.php'; ?>
           <!-- Splash Screen Video -->
           <div class="col-12 col-md-6 col-lg-3 portfolio-item web">
             <div class="item">
-              <video class="img-fluid" src="assets/videos/splash-sceen-video.mov" autoplay muted loop playsinline>
+              <video class="img-fluid" src="<?= BASE_URL ?>assets/videos/splash-sceen-video.mov" autoplay muted loop playsinline>
               </video>
             </div>
           </div>
@@ -419,7 +419,7 @@ require_once 'includes/header.php'; ?>
           <!-- Interview Video -->
           <div class="col-12 col-md-6 col-lg-3 portfolio-item web">
             <div class="item">
-              <video class="img-fluid" src="assets/videos/interview-video.mov" autoplay muted loop playsinline>
+              <video class="img-fluid" src="<?= BASE_URL ?>assets/videos/interview-video.mov" autoplay muted loop playsinline>
               </video>
             </div>
           </div>
@@ -427,7 +427,7 @@ require_once 'includes/header.php'; ?>
           <!-- Interview Schedule Video -->
           <div class="col-12 col-md-6 col-lg-3 portfolio-item data">
             <div class="item">
-              <video class="img-fluid" src="assets/videos/interview-schedule-video.mov" autoplay muted loop playsinline>
+              <video class="img-fluid" src="<?= BASE_URL ?>assets/videos/interview-schedule-video.mov" autoplay muted loop playsinline>
               </video>
             </div>
           </div>
@@ -435,7 +435,7 @@ require_once 'includes/header.php'; ?>
           <!-- Placement Video -->
           <div class="col-12 col-md-6 col-lg-3 portfolio-item data">
             <div class="item">
-              <video class="img-fluid" src="assets/videos/placement-video.mov" autoplay muted loop playsinline>
+              <video class="img-fluid" src="<?= BASE_URL ?>assets/videos/placement-video.mov" autoplay muted loop playsinline>
               </video>
             </div>
           </div>
@@ -475,7 +475,7 @@ require_once 'includes/header.php'; ?>
       </div>
 
       <div class="cta-area wow fadeInUp" data-wow-delay=".8s">
-        <a class="cta-btn btn-solid" href="subscription">
+        <a class="cta-btn btn-solid" href="<?= BASE_URL ?>subscription">
           see all plans <i class="bi bi-arrow-right icon"></i>
         </a>
       </div>
@@ -871,7 +871,7 @@ require_once 'includes/header.php'; ?>
     </div>
 
     <div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn btn-dark cta-link"
-        href="contact-us">contact us</a></div>
+        href="<?= BASE_URL ?>contact-us">contact us</a></div>
 
   </div>
   </div>

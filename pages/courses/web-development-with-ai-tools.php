@@ -333,21 +333,21 @@ require_once __DIR__ . '/../../includes/header.php';
             <h2 class="sidebar-title">list of Courses</h2>
                 <ul class="list">
               <li class="list-item "><i class="flaticon-web-development font-icon"></i><a
-                  href="artificial-intelligence-and-applied-machine-learning">AI & Applied Machine Learning<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-nanotechnology font-icon"></i><a href="digital-marketing">
+                  href="<?= BASE_URL ?>course/artificial-intelligence-and-applied-machine-learning">AI & Applied Machine Learning<i class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item"><i class="flaticon-nanotechnology font-icon"></i><a href="<?= BASE_URL ?>course/digital-marketing">
                   Digital Marketing<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-web-domain font-icon"></i><a href="cloud-computing-and-devops"> Cloud Computing & DevOps<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-profile font-icon"></i><a href="graphic-designing"> Graphic
+              <li class="list-item"><i class="flaticon-web-domain font-icon"></i><a href="<?= BASE_URL ?>course/cloud-computing-and-devops"> Cloud Computing & DevOps<i class="bi bi-arrow-right icon "></i></a></li>
+              <li class="list-item"><i class="flaticon-profile font-icon"></i><a href="<?= BASE_URL ?>course/graphic-designing"> Graphic
                   Desinging<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-search font-icon"></i><a href="data-science-with-gen-ai">Data Science with Gen AI<i
+              <li class="list-item"><i class="flaticon-search font-icon"></i><a href="<?= BASE_URL ?>course/data-science-with-gen-ai">Data Science with Gen AI<i
                     class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item "><i class="flaticon-nanotechnology font-icon"></i><a href="cybersecurity-ai-and-cloud-security">Cybersecurity - AI & Cloud Security<i
+              <li class="list-item "><i class="flaticon-nanotechnology font-icon"></i><a href="<?= BASE_URL ?>course/cybersecurity-ai-and-cloud-security">Cybersecurity - AI & Cloud Security<i
                     class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-strategy font-icon"></i><a href="data-analytics-with-gen-ai"> Data Analytics with Gen AI<i
+              <li class="list-item"><i class="flaticon-strategy font-icon"></i><a href="<?= BASE_URL ?>course/data-analytics-with-gen-ai"> Data Analytics with Gen AI<i
                     class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-nanotechnology font-icon"></i><a href="app-development-with-ai-tools"> App Development with AI Tools<i
+              <li class="list-item"><i class="flaticon-nanotechnology font-icon"></i><a href="<?= BASE_URL ?>course/app-development-with-ai-tools"> App Development with AI Tools<i
                     class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item active"><i class="flaticon-web-development font-icon"></i><a href="web-development-with-ai-tools"> Web Development with AI Tools<i
+              <li class="list-item active"><i class="flaticon-web-development font-icon"></i><a href="<?= BASE_URL ?>course/web-development-with-ai-tools"> Web Development with AI Tools<i
                     class="bi bi-arrow-right icon "></i></a></li>
             </ul>
           </div>
@@ -358,7 +358,7 @@ require_once __DIR__ . '/../../includes/header.php';
                 course. Download resources anytime to support your learning and practice.</p>
               <ul class="list">
 
-                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="courses.php">
+                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses">
                     All Courses<i class="bi bi-arrow-right icon "></i></a></li>
               </ul>
             </div>
@@ -404,7 +404,7 @@ require_once __DIR__ . '/../../includes/header.php';
     </div>
 
     <div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn btn-dark cta-link"
-        href="contact-us.php">contact us</a></div>
+        href="<?= BASE_URL ?>contact-us">contact us</a></div>
 
   </div>
   </div>

@@ -333,58 +333,6 @@
     </div>
 
     <script>
-function activateTab(el){
-  document.querySelectorAll('.cat-tab').forEach(btn=>{
-    btn.classList.remove('active');
-  });
-  el.classList.add('active');
-}
-
-function showCategory(name){
-  document.querySelectorAll('.category-content')
-    .forEach(sec => sec.style.display = 'none');
-
-  document.getElementById(name).style.display = 'block';
-
-  if(name === 'web'){
-    toggleWeb('individual');
-  }
-
-  if(name === 'app'){
-    toggleApp('individual');
-  }
-}
-
-function toggleWeb(type){
-  document.getElementById('web_full').style.display =
-    type === 'full' ? 'block' : 'none';
-
-  document.getElementById('web_individual').style.display =
-    type === 'individual' ? 'block' : 'none';
-
-  document.getElementById('btnIndividual').classList.remove('active');
-  document.getElementById('btnFull').classList.remove('active');
-
-  type === 'individual'
-    ? document.getElementById('btnIndividual').classList.add('active')
-    : document.getElementById('btnFull').classList.add('active');
-}
-
-function toggleApp(type){
-  document.getElementById('app_individual').style.display =
-    type === 'individual' ? 'block' : 'none';
-
-  document.getElementById('app_full').style.display =
-    type === 'full' ? 'block' : 'none';
-
-  document.getElementById('btnAppIndividual').classList.remove('active');
-  document.getElementById('btnAppFull').classList.remove('active');
-
-  type === 'individual'
-    ? document.getElementById('btnAppIndividual').classList.add('active')
-    : document.getElementById('btnAppFull').classList.add('active');
-}
-
   document.querySelectorAll('a[href="#take-action"]').forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
@@ -427,6 +375,9 @@ function toggleApp(type){
 
 <!--     countTo     -->
 <script src="<?= BASE_URL ?>assets/js/vendors/jquery.countTo.js"></script>
+
+<!--     subscription purchase logic     -->
+<script src="<?= BASE_URL ?>assets/js/subscription-purchase.js"></script>
 
 <!--     main     -->
 <script src="<?= BASE_URL ?>assets/js/main.js"></script>

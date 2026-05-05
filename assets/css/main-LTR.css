@@ -5930,7 +5930,87 @@ html, body {
   box-shadow: 0 6px 18px rgba(139, 92, 246, 0.45);
 }
 
- /* banner download button css  */
+ /* ================= AUTH STYLES ================= */
+.auth-modal-content {
+  background-color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px;
+}
+
+.custom-input-group {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.custom-input-group .input-group-text,
+.custom-input-group .form-control {
+  border: none;
+  padding: 12px 15px;
+}
+
+.custom-input-group .form-control:focus {
+  box-shadow: none;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-auth-gradient {
+  background: linear-gradient(90deg, #673ab7 0%, #3f51b5 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.btn-auth-gradient:hover {
+  transform: translateY(-2px);
+  color: white;
+  opacity: 0.9;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #9c27b0, #3f51b5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.otp-input-v2 {
+  width: 50px;
+  height: 60px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px;
+  color: white !important;
+}
+
+.otp-input-v2:focus {
+  border-color: #673ab7 !important;
+  box-shadow: 0 0 10px rgba(103, 58, 183, 0.3) !important;
+}
+
+.auth-page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #080808;
+  padding: 100px 20px 40px; /* Added top padding for navbar clearance */
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+  background-color: #111111;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* ================= END AUTH STYLES ================= */
 
 .download-buttons-wrapper {
   width: 100%;

@@ -68,7 +68,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   loop
                   playsinline
                   preload="metadata">
-                  <source src="assets/videos/APP Interface MI Skills.mp4" type="video/mp4">
+                  <source src="<?= BASE_URL ?>assets/videos/APP Interface MI Skills.mp4" type="video/mp4">
                  
                 </video>
               </div>
@@ -360,7 +360,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   loop
                   playsinline
                   preload="metadata">
-                  <source src="assets/videos/miskills-info-video.mp4" type="video/mp4">              
+                  <source src="<?= BASE_URL ?>assets/videos/miskills-info-video.mp4" type="video/mp4">              
                 </video>
               </div>
               </div>
@@ -385,7 +385,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             </div>
           </div>
 
-            <div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn btn-dark cta-link" href="contact-us">contact us</a></div>
+            <div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn btn-dark cta-link" href="<?= BASE_URL ?>contact-us">contact us</a></div>
 
            
         </div>

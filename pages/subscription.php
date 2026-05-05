@@ -44,7 +44,6 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 <section class="pricing mega-section" id="pricing-1">
   <div class="container position-relative">
 
-    <!-- SECTION HEADING -->
     <div class="sec-heading centered">
       <div class="content-area">
         <span class="pre-title">pricing plans</span>
@@ -56,9 +55,19 @@ require_once __DIR__ . '/../includes/header.php'; ?>
           expert support, and interview and internship opportunities.
         </p>
       </div>
+      <div id="investor-notice" class="alert alert-info mt-3 mx-auto" style="display:none; max-width: 600px; border-radius: 30px; background: rgba(103, 58, 183, 0.1); color: #fff; border: 1px solid #673ab7;">
+        <i class="bi bi-info-circle me-2"></i> As an <strong>Investor</strong>, you are currently restricted to the Business Funding package.
+      </div>
     </div>
 
     <!-- CATEGORY TABS -->
+    <div class="text-center mb-4">
+      <div class="d-inline-flex gap-2 category-pill-wrap">
+        <button id="btnOnlineMode" class="cat-tab btn active" onclick="setLearningMode('online')">Online Learning</button>
+        <button id="btnOfflineMode" class="cat-tab btn" onclick="setLearningMode('offline')">Offline Learning</button>
+      </div>
+    </div>
+
     <div class="course-category-tabs text-center mb-5">
       <div class="d-inline-flex flex-wrap gap-2 justify-content-center category-pill-wrap">
         <button class="cat-tab btn active" onclick="activateTab(this); showCategory('web')">Web Development with AI Tools</button>
@@ -95,6 +104,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
           <div class="full-course-card mx-auto">
             <div class="full-course-left">
               <span class="badge">Most Popular</span>
+              <span class="badge bg-secondary">Medium Level</span>
               <h3>Web Development – Full Course</h3>
               <p class="sub-text">Full Stack Development – Frontend + Backend</p>
               <ul class="full-feature-list">
@@ -108,92 +118,64 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             </div>
             <div class="full-course-right">
               <span class="best-value">BEST VALUE</span>
-              <h2 class="price">₹1,996</h2>
+              <h2 class="price online-price">₹1,996</h2>
+              <h2 class="price offline-price" style="display:none">₹3,596</h2>
               <p class="duration">Duration:</p>
-              <p class="duration">3 Months Access</p>
+              <p class="duration">4 Months Access</p>
                <p class="duration">3 Hours / Day</p>
-              <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('web-development-with-ai-tools-full-stack-front-end-back-end', 'TOTAL')">Buy Now</button></div>
             </div>
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- INDIVIDUAL -->
-        <div id="web_individual">
-          <div class="row">
+            <!-- INDIVIDUAL -->
+            <div id="web_individual">
+            <div class="row">
 
-            <!-- FRONTEND -->
-            <div class="col-md-6">
+            <!-- WEB DEVELOPMENT -->
+            <div class="col-md-8 mx-auto">
               <div class="plan ui-style-card p-4 price-card">
-                <h3>Frontend Development</h3>
-                <p class="text-white-50">HTML · CSS · JavaScript · Responsive UI</p>
+                <h3>Web Development</h3>
+                <p class="text-white-50">Full Stack Development: Frontend + Backend</p>
 
-                <div class="price-option">
+                <div class="price-option online-price">
                   <label>
-                    <input type="radio" name="frontend_price">
+                    <input type="radio" name="web_price" checked>
                     Monthly
                   </label>
                   <strong>₹499 / Month</strong>
                 </div>
 
-                <div class="price-option">
+                <div class="price-option offline-price" style="display:none">
                   <label>
-                    <input type="radio" name="frontend_price">
-                    2 Months
-                  </label>
-                  <strong>₹998 / Two Month</strong>
-                </div>
-
-                <ul class="feature-list mt-3">
-                  <li>HTML5 & CSS3</li>
-                  <li>JavaScript ES6+</li>
-                  <li>React Basics</li>
-                  <li>8+ Projects</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- BACKEND -->
-            <div class="col-md-6">
-              <div class="plan ui-style-card p-4 price-card">
-                <h3>Backend Development</h3>
-                <p class="text-white-50">MongoDB · SQL · APIs · Auth</p>
-
-                <div class="price-option">
-                  <label>
-                    <input type="radio" name="backend_price">
+                    <input type="radio" name="web_price_off">
                     Monthly
                   </label>
-                  <strong>₹499 / Month</strong>
-                </div>
-
-                <div class="price-option">
-                  <label>
-                    <input type="radio" name="backend_price">
-                    2 Months
-                  </label>
-                  <strong>₹998 / Two Month</strong>
+                  <strong>₹899 / Month</strong>
                 </div>
 
                 <ul class="feature-list mt-3">
-                  <li>Node & Express</li>
-                  <li>REST APIs</li>
-                  <li>Authentication</li>
-                  <li>7+ Projects</li>
+                  <li>HTML5, CSS3 & Responsive UI</li>
+                  <li>JavaScript ES6+ & React Basics</li>
+                  <li>Node.js & Express</li>
+                  <li>MongoDB & SQL</li>
+                  <li>15+ Industry Projects</li>
                 </ul>
+                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('web-development-with-ai-tools-full-stack-front-end-back-end', 'MONTHLY')">Buy Now</button></div>
               </div>
             </div>
 
-          </div>
+            </div>
 
-        </div>
+            </div>
 
-      </div>
+            </div>
 
-      <!-- ================= APP DEVELOPMENT ================= -->
-      <div id="app" class="category-content" style="display:none">
+            <!-- ================= APP DEVELOPMENT ================= -->
+            <div id="app" class="category-content" style="display:none">
 
-        <div class="text-center mb-4">
-          <div class="d-inline-flex gap-2 category-pill-wrap">
+            <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
             <button id="btnAppIndividual" class="cat-tab btn active" onclick="toggleApp('individual')">
               Individual Courses
             </button>
@@ -201,15 +183,16 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <button id="btnAppFull" class="cat-tab btn" onclick="toggleApp('full')">
               Full Course Package
             </button>
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- FULL -->
-        <div id="app_full" style="display:none">
-          <div class="full-course-card mx-auto">
+            <!-- FULL -->
+            <div id="app_full" style="display:none">
+            <div class="full-course-card mx-auto">
 
             <div class="full-course-left">
               <span class="badge">Complete Program</span>
+              <span class="badge bg-secondary">Medium Level</span>
               <h3>App Development – Full Course</h3>
               <p class="sub-text">Android + iOS + Cross Platform</p>
 
@@ -224,117 +207,64 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
             <div class="full-course-right">
               <span class="best-value">BEST VALUE</span>
-              <h2 class="price">₹3,596</h2>
+              <h2 class="price online-price">₹3,596</h2>
+              <h2 class="price offline-price" style="display:none">₹35,996</h2>
               <p class="duration">Duration:</p>
               <p class="duration">4 Months Access</p>
                <p class="duration">3 Hours / Day</p>
-              <!-- <div class="plan-cta"><a class="cta-btn btn-solid" href="#">Select Plan</a></div> -->
+              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('app-development-with-ai-tools-android-ios-cross-platform', 'TOTAL')">Buy Now</button></div>
             </div>
 
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- INDIVIDUAL -->
-        <div id="app_individual">
-          <div class="row">
+            <!-- INDIVIDUAL -->
+            <div id="app_individual">
+            <div class="row">
 
-            <!-- IOS -->
-            <div class="col-md-4">
+            <!-- APP DEVELOPMENT -->
+            <div class="col-md-8 mx-auto">
               <div class="plan ui-style-card p-4 price-card">
+                <h3>App Development</h3>
+                <p class="text-white-50">Mobile Development: Android + iOS + Cross-Platform</p>
 
-                <h3>iOS App Development</h3>
-                <p class="text-white-50">Swift · iOS SDK</p>
-
-                <div class="price-option">
+                <div class="price-option online-price">
                   <label>
-                    <input type="radio" name="ios_price">
+                    <input type="radio" name="app_price" checked>
                     Monthly
                   </label>
                   <strong>₹899 / Month</strong>
                 </div>
 
-                <div class="price-option">
+                <div class="price-option offline-price" style="display:none">
                   <label>
-                    <input type="radio" name="ios_price">
-                    2 Months
+                    <input type="radio" name="app_price_off">
+                    Monthly
                   </label>
-                  <strong>₹1,798 / Two Month</strong>
+                  <strong>₹8,999 / Month</strong>
                 </div>
 
                 <ul class="feature-list mt-3">
-                  <li>Swift Programming</li>
-                  <li>iOS SDK & Xcode</li>
+                  <li>Android App Development (Java/Kotlin)</li>
+                  <li>iOS App Development (Swift)</li>
+                  <li>Cross-Platform Apps (Flutter/React Native)</li>
+                  <li>Live Projects & API Integration</li>
                   <li>App UI & Navigation</li>
-                  <li>Live Projects</li>
                 </ul>
-
+                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('app-development-with-ai-tools-android-ios-cross-platform', 'MONTHLY')">Buy Now</button></div>
               </div>
             </div>
 
-            <!-- ANDROID -->
-            <div class="col-md-4">
-              <div class="plan ui-style-card p-4 price-card">
-
-                <h3>Android App Development</h3>
-                <p class="text-white-50">Java · Kotlin</p>
-
-                <div class="price-option">
-                  <label>
-                    <input type="radio" name="android_price">
-                    Monthly
-                  </label>
-                  <strong>₹899 / Month</strong>
-                </div>
-
-                <div class="price-option">
-                  <label>
-                    <input type="radio" name="android_price">
-                    2 Months
-                  </label>
-                  <strong>₹1,798 /Two Month</strong>
-                </div>
-
-                <ul class="feature-list mt-3">
-                  <li>Java & Kotlin</li>
-                  <li>Android SDK</li>
-                  <li>API Integration</li>
-                  <li>Live Projects</li>
-                </ul>
-
-              </div>
+            </div>
             </div>
 
-            <!-- CROSS PLATFORM -->
-            <div class="col-md-4">
-              <div class="plan ui-style-card p-4 price-card">
-
-                <h3>Cross-Platform App Development</h3>
-                <p class="text-white-50">Flutter · React Native</p>
-
-                <div class="price-option">
-                  <strong>₹1,299</strong>
-                </div>
-
-                <ul class="feature-list mt-3">
-                  <li>Flutter / React Native</li>
-                  <li>Single Codebase</li>
-                  <li>Android & iOS Apps</li>
-                  <li>Live Projects</li>
-                  <li>Dart</li>
-                </ul>
-
-              </div>
             </div>
-          </div>
-        </div>
 
-      </div>
+            <!-- DIGITAL MARKETING -->
+            <div id="marketing" class="category-content" style="display:none">
 
-      <!-- DIGITAL MARKETING -->
-      <div id="marketing" class="category-content" style="display:none">
-
-        <div class="text-center mb-4">
-          <div class="d-inline-flex gap-2 category-pill-wrap">
+            <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
             <button id="btnMarketingIndividual" class="cat-tab btn active" onclick="toggleMarketing('individual')">
               Individual Courses
             </button>
@@ -342,14 +272,15 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <button id="btnMarketingFull" class="cat-tab btn" onclick="toggleMarketing('full')">
               Full Course Package
             </button>
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- FULL -->
-        <div id="marketing_full" style="display:none">
-          <div class="full-course-card mx-auto">
+            <!-- FULL -->
+            <div id="marketing_full" style="display:none">
+            <div class="full-course-card mx-auto">
             <div class="full-course-left">
               <span class="badge">Complete Program</span>
+              <span class="badge bg-secondary">Easy Level</span>
               <h3>Digital Marketing – Full Course</h3>
               <p class="sub-text">Complete Digital Marketing Journey: SEO, SMO, Content & Ads</p>
               <ul class="full-feature-list">
@@ -363,29 +294,39 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
             <div class="full-course-right">
               <span class="best-value">BEST VALUE</span>
-              <h2 class="price">₹3,897</h2>
+              <h2 class="price online-price">₹3,897</h2>
+              <h2 class="price offline-price" style="display:none">₹26,997</h2>
               <p class="duration">Duration:</p>
               <p class="duration">3 Months Access</p>
-               <p class="duration">3 Hours / Day</p>             
+               <p class="duration">3 Hours / Day</p>
+              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('digital-marketing', 'TOTAL')">Buy Now</button></div>
             </div>
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- INDIVIDUAL -->
-        <div id="marketing_individual">
-          <div class="row">
+            <!-- INDIVIDUAL -->
+            <div id="marketing_individual">
+            <div class="row">
             <!-- COURSE 1 - DIGITAL MARKETING -->
             <div class="col-md-8 mx-auto">
               <div class="plan ui-style-card p-4 price-card">
                 <h3>Digital Marketing</h3>
                 <p class="text-white-50">Complete Digital Marketing Journey from Basics to Advanced</p>
 
-                <div class="price-option">
+                <div class="price-option online-price">
                   <label>
-                    <input type="radio" name="marketing_price">
+                    <input type="radio" name="marketing_price" checked>
                     Monthly
                   </label>
                   <strong>₹1,299 / Month</strong>
+                </div>
+
+                <div class="price-option offline-price" style="display:none">
+                  <label>
+                    <input type="radio" name="marketing_price_off">
+                    Monthly
+                  </label>
+                  <strong>₹8,999 / Month</strong>
                 </div>
 
                 <ul class="feature-list mt-3">
@@ -399,19 +340,20 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <li>Campaign Management & Optimization</li>
                   <li>Email Marketing Strategies</li>
                 </ul>
+                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('digital-marketing', 'MONTHLY')">Buy Now</button></div>
               </div>
             </div>
-          </div>
-        </div>
+            </div>
+            </div>
 
-      </div>
+            </div>
 
 
-      <!-- ================= GRAPHIC ================= -->
-      <div id="graphic" class="category-content" style="display:none">
+            <!-- ================= GRAPHIC ================= -->
+            <div id="graphic" class="category-content" style="display:none">
 
-        <div class="text-center mb-4">
-          <div class="d-inline-flex gap-2 category-pill-wrap">
+            <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
             <button id="btnGraphicIndividual" class="cat-tab btn active" onclick="toggleGraphic('individual')">
               Individual Courses
             </button>
@@ -419,14 +361,15 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <button id="btnGraphicFull" class="cat-tab btn" onclick="toggleGraphic('full')">
               Full Course Package
             </button>
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- FULL -->
-        <div id="graphic_full" style="display:none">
-          <div class="full-course-card mx-auto">
+            <!-- FULL -->
+            <div id="graphic_full" style="display:none">
+            <div class="full-course-card mx-auto">
             <div class="full-course-left">
               <span class="badge">Complete Program</span>
+              <span class="badge bg-secondary">Easy Level</span>
               <h3>Graphic Designing – Full Course</h3>
               <p class="sub-text">Complete Design Journey: UI/UX, Figma, Photoshop & More</p>
               <ul class="full-feature-list">
@@ -441,30 +384,39 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
             <div class="full-course-right">
               <span class="best-value">BEST VALUE</span>
-              <h2 class="price">₹2,997</h2>
+              <h2 class="price online-price">₹2,997</h2>
+              <h2 class="price offline-price" style="display:none">₹26,997</h2>
               <p class="duration">Duration:</p>
               <p class="duration">3 Months Access</p>
               <p class="duration">3 Hours / Day</p>
-              
+              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('graphic-designing', 'TOTAL')">Buy Now</button></div>
             </div>
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- INDIVIDUAL -->
-        <div id="graphic_individual">
-          <div class="row">
+            <!-- INDIVIDUAL -->
+            <div id="graphic_individual">
+            <div class="row">
             <!-- COURSE 1 - GRAPHIC DESIGNING -->
             <div class="col-md-8 mx-auto">
               <div class="plan ui-style-card p-4 price-card">
                 <h3>Graphic Designing</h3>
                 <p class="text-white-50">Complete Graphic Designing Journey from Basics to Advanced</p>
 
-                <div class="price-option">
+                <div class="price-option online-price">
                   <label>
-                    <input type="radio" name="graphic_price">
+                    <input type="radio" name="graphic_price" checked>
                     Monthly
                   </label>
                   <strong>₹999 / Month</strong>
+                </div>
+
+                <div class="price-option offline-price" style="display:none">
+                  <label>
+                    <input type="radio" name="graphic_price_off">
+                    Monthly
+                  </label>
+                  <strong>₹8,999 / Month</strong>
                 </div>
 
                 <ul class="feature-list mt-3">
@@ -477,18 +429,19 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <li>Vector Graphics Design</li>
                   <li>Canva for Social Media Design</li>
                 </ul>
+                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('graphic-designing', 'MONTHLY')">Buy Now</button></div>
               </div>
             </div>
-          </div>
-        </div>
+            </div>
+            </div>
 
-      </div>
+            </div>
 
-      <!-- ================= AI & APPLIED MACHINE LEARNING ================= -->
-      <div id="ai_ml" class="category-content" style="display:none">
+            <!-- ================= AI & APPLIED MACHINE LEARNING ================= -->
+            <div id="ai_ml" class="category-content" style="display:none">
 
-        <div class="text-center mb-4">
-          <div class="d-inline-flex gap-2 category-pill-wrap">
+            <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
             <button id="btnAiMlIndividual" class="cat-tab btn active" onclick="toggleAiMl('individual')">
               Individual Courses
             </button>
@@ -496,15 +449,16 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <button id="btnAiMlFull" class="cat-tab btn" onclick="toggleAiMl('full')">
               Full Course Package
             </button>
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- FULL -->
-        <div id="ai_ml_full" style="display:none">
-          <div class="full-course-card mx-auto">
+            <!-- FULL -->
+            <div id="ai_ml_full" style="display:none">
+            <div class="full-course-card mx-auto">
 
             <div class="full-course-left">
               <span class="badge">Complete Program</span>
+              <span class="badge bg-secondary">Hard Level</span>
               <h3>AI & Applied Machine Learning – Full Course</h3>
               <p class="sub-text">Complete AI Journey: Fundamentals to Advanced Applications</p>
 
@@ -520,18 +474,20 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
             <div class="full-course-right">
               <span class="best-value">BEST VALUE</span>
-              <h2 class="price">₹10,493</h2>
+              <h2 class="price online-price">₹10,493</h2>
+              <h2 class="price offline-price" style="display:none">₹62,993</h2>
               <p class="duration">Duration:</p>
               <p class="duration">7 Months Access</p>
                <p class="duration">3 Hours / Day</p>
+               <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('ai-applied-machine-learning', 'TOTAL')">Buy Now</button></div>
             </div>
 
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- INDIVIDUAL -->
-        <div id="ai_ml_individual">
-          <div class="row">
+            <!-- INDIVIDUAL -->
+            <div id="ai_ml_individual">
+            <div class="row">
 
             <!-- COURSE 1 - AI & APPLIED MACHINE LEARNING -->
             <div class="col-md-8 mx-auto">
@@ -540,12 +496,20 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                 <h3>AI & Applied Machine Learning</h3>
                 <p class="text-white-50">Complete AI & ML Journey from Basics to Advanced</p>
 
-                <div class="price-option">
+                <div class="price-option online-price">
                   <label>
-                    <input type="radio" name="ai_ml_price">
+                    <input type="radio" name="ai_ml_price" checked>
                     Monthly
                   </label>
                   <strong>₹1,499 / Month</strong>
+                </div>
+
+                <div class="price-option offline-price" style="display:none">
+                  <label>
+                    <input type="radio" name="ai_ml_price_off">
+                    Monthly
+                  </label>
+                  <strong>₹8,999 / Month</strong>
                 </div>
 
                 <ul class="feature-list mt-3">
@@ -556,21 +520,21 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <li>Computer Vision & Image Processing</li>
                   <li>Data Preprocessing & Feature Engineering</li>
                   <li>Model Evaluation & Optimization</li>
-                 
-                </ul>
 
+                </ul>
+                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('ai-applied-machine-learning', 'MONTHLY')">Buy Now</button></div>
               </div>
             </div>
-          </div>
-        </div>
+            </div>
+            </div>
 
-      </div>
+            </div>
 
-      <!-- ================= CLOUD COMPUTING & DEVOPS ================= -->
-      <div id="cloud_devops" class="category-content" style="display:none">
+            <!-- ================= CLOUD COMPUTING & DEVOPS ================= -->
+            <div id="cloud_devops" class="category-content" style="display:none">
 
-        <div class="text-center mb-4">
-          <div class="d-inline-flex gap-2 category-pill-wrap">
+            <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
             <button id="btnCloudIndividual" class="cat-tab btn active" onclick="toggleCloudDevops('individual')">
               Individual Courses
             </button>
@@ -578,15 +542,16 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <button id="btnCloudFull" class="cat-tab btn" onclick="toggleCloudDevops('full')">
               Full Course Package
             </button>
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- FULL -->
-        <div id="cloud_devops_full" style="display:none">
-          <div class="full-course-card mx-auto">
+            <!-- FULL -->
+            <div id="cloud_devops_full" style="display:none">
+            <div class="full-course-card mx-auto">
 
             <div class="full-course-left">
               <span class="badge">Complete Program</span>
+              <span class="badge bg-secondary">Medium Level</span>
               <h3>Cloud Computing & DevOps – Full Course</h3>
               <p class="sub-text">Complete Cloud & DevOps Journey: AWS, Azure, GCP, Kubernetes & CI/CD</p>
 
@@ -602,18 +567,20 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
             <div class="full-course-right">
               <span class="best-value">BEST VALUE</span>
-              <h2 class="price">₹8,495</h2>
+              <h2 class="price online-price">₹8,495</h2>
+              <h2 class="price offline-price" style="display:none">₹44,995</h2>
               <p class="duration">Duration:</p>
               <p class="duration">5 Months Access</p>
               <p class="duration">3 Hours / Day</p>
+              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cloud-computing-devops-aws-azure-gcp', 'TOTAL')">Buy Now</button></div>
             </div>
 
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- INDIVIDUAL -->
-        <div id="cloud_devops_individual">
-          <div class="row">
+            <!-- INDIVIDUAL -->
+            <div id="cloud_devops_individual">
+            <div class="row">
 
             <!-- COURSE 1 - CLOUD COMPUTING & DEVOPS -->
             <div class="col-md-8 mx-auto">
@@ -622,12 +589,20 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                 <h3>Cloud Computing & DevOps</h3>
                 <p class="text-white-50">Complete Cloud & DevOps Journey from Basics to Advanced</p>
 
-                <div class="price-option">
+                <div class="price-option online-price">
                   <label>
-                    <input type="radio" name="cloud_devops_price">
+                    <input type="radio" name="cloud_devops_price" checked>
                     Monthly
                   </label>
-                  <strong>₹1699 / Month</strong>
+                  <strong>₹1,699 / Month</strong>
+                </div>
+
+                <div class="price-option offline-price" style="display:none">
+                  <label>
+                    <input type="radio" name="cloud_devops_price_off">
+                    Monthly
+                  </label>
+                  <strong>₹8,999 / Month</strong>
                 </div>
 
                 <ul class="feature-list mt-3">
@@ -638,19 +613,19 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <li>Kubernetes Orchestration</li>
                   <li>CI/CD Pipelines & Automation</li>
                 </ul>
-
+                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cloud-computing-devops-aws-azure-gcp', 'MONTHLY')">Buy Now</button></div>
               </div>
             </div>
-          </div>
-        </div>
+            </div>
+            </div>
 
-      </div>
+            </div>
 
-      <!-- ================= DATA SCIENCE WITH GEN AI ================= -->
-      <div id="data_science" class="category-content" style="display:none">
+            <!-- ================= DATA SCIENCE WITH GEN AI ================= -->
+            <div id="data_science" class="category-content" style="display:none">
 
-        <div class="text-center mb-4">
-          <div class="d-inline-flex gap-2 category-pill-wrap">
+            <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
             <button id="btnDataScienceIndividual" class="cat-tab btn active" onclick="toggleDataScience('individual')">
               Individual Courses
             </button>
@@ -658,15 +633,16 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <button id="btnDataScienceFull" class="cat-tab btn" onclick="toggleDataScience('full')">
               Full Course Package
             </button>
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- FULL -->
-        <div id="data_science_full" style="display:none">
-          <div class="full-course-card mx-auto">
+            <!-- FULL -->
+            <div id="data_science_full" style="display:none">
+            <div class="full-course-card mx-auto">
 
             <div class="full-course-left">
               <span class="badge">Complete Program</span>
+              <span class="badge bg-secondary">Hard Level</span>
               <h3>Data Science with Gen AI – Full Course</h3>
               <p class="sub-text">Complete Data Science Journey: Analytics, ML & Generative AI</p>
 
@@ -681,18 +657,20 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
             <div class="full-course-right">
               <span class="best-value">BEST VALUE</span>
-              <h2 class="price">₹9,093</h2>
+              <h2 class="price online-price">₹9,093</h2>
+              <h2 class="price offline-price" style="display:none">₹62,993</h2>
               <p class="duration">Duration:</p>
               <p class="duration">7 Months Access</p>
               <p class="duration">3 Hours / Day</p>
+              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('data-science-with-gen-ai', 'TOTAL')">Buy Now</button></div>
             </div>
 
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- INDIVIDUAL -->
-        <div id="data_science_individual">
-          <div class="row">
+            <!-- INDIVIDUAL -->
+            <div id="data_science_individual">
+            <div class="row">
 
             <!-- COURSE 1 - DATA SCIENCE WITH GEN AI -->
             <div class="col-md-8 mx-auto">
@@ -701,12 +679,20 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                 <h3>Data Science with Gen AI</h3>
                 <p class="text-white-50">Complete Data Science Journey from Basics to Advanced with AI</p>
 
-                <div class="price-option">
+                <div class="price-option online-price">
                   <label>
-                    <input type="radio" name="data_science_price">
+                    <input type="radio" name="data_science_price" checked>
                     Monthly
                   </label>
                   <strong>₹1,299 / Month</strong>
+                </div>
+
+                <div class="price-option offline-price" style="display:none">
+                  <label>
+                    <input type="radio" name="data_science_price_off">
+                    Monthly
+                  </label>
+                  <strong>₹8,999 / Month</strong>
                 </div>
 
                 <ul class="feature-list mt-3">
@@ -717,19 +703,19 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <li>Large Language Models (LLMs)</li>
                   <li>Prompt Engineering</li>
                 </ul>
-
+                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('data-science-with-gen-ai', 'MONTHLY')">Buy Now</button></div>
               </div>
             </div>
-          </div>
-        </div>
+            </div>
+            </div>
 
-      </div>
+            </div>
 
-      <!-- ================= CYBERSECURITY - AI & CLOUD SECURITY ================= -->
-      <div id="cybersecurity" class="category-content" style="display:none">
+            <!-- ================= CYBERSECURITY - AI & CLOUD SECURITY ================= -->
+            <div id="cybersecurity" class="category-content" style="display:none">
 
-        <div class="text-center mb-4">
-          <div class="d-inline-flex gap-2 category-pill-wrap">
+            <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
             <button id="btnCybersecurityIndividual" class="cat-tab btn active" onclick="toggleCybersecurity('individual')">
               Individual Courses
             </button>
@@ -737,15 +723,16 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <button id="btnCybersecurityFull" class="cat-tab btn" onclick="toggleCybersecurity('full')">
               Full Course Package
             </button>
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- FULL -->
-        <div id="cybersecurity_full" style="display:none">
-          <div class="full-course-card mx-auto">
+            <!-- FULL -->
+            <div id="cybersecurity_full" style="display:none">
+            <div class="full-course-card mx-auto">
 
             <div class="full-course-left">
               <span class="badge">Complete Program</span>
+              <span class="badge bg-secondary">Medium Level</span>
               <h3>Cybersecurity - AI & Cloud Security – Full Course</h3>
               <p class="sub-text">Complete Cybersecurity Journey: Fundamentals, AI Security & Cloud Security</p>
 
@@ -761,18 +748,20 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
             <div class="full-course-right">
               <span class="best-value">BEST VALUE</span>
-              <h2 class="price">₹6,495</h2>
+              <h2 class="price online-price">₹6,495</h2>
+              <h2 class="price offline-price" style="display:none">₹44,995</h2>
               <p class="duration">Duration:</p>
               <p class="duration">5 Months Access</p>
               <p class="duration">3 Hours / Day</p>
+              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cyber-security-ai-cloud-security', 'TOTAL')">Buy Now</button></div>
             </div>
 
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- INDIVIDUAL -->
-        <div id="cybersecurity_individual">
-          <div class="row">
+            <!-- INDIVIDUAL -->
+            <div id="cybersecurity_individual">
+            <div class="row">
 
             <!-- COURSE 1 - CYBERSECURITY - AI & CLOUD SECURITY -->
             <div class="col-md-8 mx-auto">
@@ -781,12 +770,20 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                 <h3>Cybersecurity - AI & Cloud Security</h3>
                 <p class="text-white-50">Complete Cybersecurity Journey from Basics to Advanced with AI</p>
 
-                <div class="price-option">
+                <div class="price-option online-price">
                   <label>
-                    <input type="radio" name="cybersecurity_price">
+                    <input type="radio" name="cybersecurity_price" checked>
                     Monthly
                   </label>
                   <strong>₹1,299 / Month</strong>
+                </div>
+
+                <div class="price-option offline-price" style="display:none">
+                  <label>
+                    <input type="radio" name="cybersecurity_price_off">
+                    Monthly
+                  </label>
+                  <strong>₹8,999 / Month</strong>
                 </div>
 
                 <ul class="feature-list mt-3">
@@ -798,19 +795,19 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <li>Cloud Security Best Practices</li>
                   <li>Identity & Access Management (IAM)</li>
                 </ul>
-
+                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cyber-security-ai-cloud-security', 'MONTHLY')">Buy Now</button></div>
               </div>
             </div>
-          </div>
-        </div>
+            </div>
+            </div>
 
-      </div>
+            </div>
 
-      <!-- ================= DATA ANALYTICS WITH GEN AI ================= -->
-      <div id="data_analytics" class="category-content" style="display:none">
+            <!-- ================= DATA ANALYTICS WITH GEN AI ================= -->
+            <div id="data_analytics" class="category-content" style="display:none">
 
-        <div class="text-center mb-4">
-          <div class="d-inline-flex gap-2 category-pill-wrap">
+            <div class="text-center mb-4">
+            <div class="d-inline-flex gap-2 category-pill-wrap">
             <button id="btnDataAnalyticsIndividual" class="cat-tab btn active" onclick="toggleDataAnalytics('individual')">
               Individual Courses
             </button>
@@ -818,15 +815,16 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <button id="btnDataAnalyticsFull" class="cat-tab btn" onclick="toggleDataAnalytics('full')">
               Full Course Package
             </button>
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- FULL -->
-        <div id="data_analytics_full" style="display:none">
-          <div class="full-course-card mx-auto">
+            <!-- FULL -->
+            <div id="data_analytics_full" style="display:none">
+            <div class="full-course-card mx-auto">
 
             <div class="full-course-left">
               <span class="badge">Complete Program</span>
+              <span class="badge bg-secondary">Medium Level</span>
               <h3>Data Analytics with Gen AI – Full Course</h3>
               <p class="sub-text">Complete Analytics Journey: Fundamentals, BI Tools & AI Insights</p>
 
@@ -841,18 +839,20 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
             <div class="full-course-right">
               <span class="best-value">BEST VALUE</span>
-              <h2 class="price">₹5,196</h2>
+              <h2 class="price online-price">₹5,196</h2>
+              <h2 class="price offline-price" style="display:none">₹35,996</h2>
               <p class="duration">Duration:</p>
               <p class="duration">4 Months Access</p>
               <p class="duration">3 Hours / Day</p>
+              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('data-analytics-with-gen-ai', 'TOTAL')">Buy Now</button></div>
             </div>
 
-          </div>
-        </div>
+            </div>
+            </div>
 
-        <!-- INDIVIDUAL -->
-        <div id="data_analytics_individual">
-          <div class="row">
+            <!-- INDIVIDUAL -->
+            <div id="data_analytics_individual">
+            <div class="row">
 
             <!-- COURSE 1 - DATA ANALYTICS WITH GEN AI -->
             <div class="col-md-8 mx-auto">
@@ -861,12 +861,20 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                 <h3>Data Analytics with Gen AI</h3>
                 <p class="text-white-50">Complete Data Analytics Journey from Basics to Advanced with AI</p>
 
-                <div class="price-option">
+                <div class="price-option online-price">
                   <label>
-                    <input type="radio" name="data_analytics_price">
+                    <input type="radio" name="data_analytics_price" checked>
                     Monthly
                   </label>
                   <strong>₹1,299 / Month</strong>
+                </div>
+
+                <div class="price-option offline-price" style="display:none">
+                  <label>
+                    <input type="radio" name="data_analytics_price_off">
+                    Monthly
+                  </label>
+                  <strong>₹8,999 / Month</strong>
                 </div>
 
                 <ul class="feature-list mt-3">
@@ -878,13 +886,13 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <li>Dashboard Creation & Data Visualization</li>
                   <li>Statistical Analysis</li>
                 </ul>
-
+                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('data-analytics-with-gen-ai', 'MONTHLY')">Buy Now</button></div>
               </div>
             </div>
-          </div>
-        </div>
+            </div>
+            </div>
 
-      </div>
+            </div>
 
       <!-- ================= INTERVIEW ================= -->
       <div id="interview" class="category-content" style="display:none">
@@ -910,6 +918,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <div class="full-course-right">
               <span class="best-value">BEST VALUE</span>
               <h2 class="price">₹499</h2>
+              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('interview-internship-support', 'TOTAL')">Buy Now</button></div>
             </div>
           </div>
 
@@ -941,6 +950,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <div class="full-course-right">
               <span class="best-value">BEST VALUE</span>
               <h2 class="price">₹499</h2>
+              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('business-funding', 'TOTAL')">Buy Now</button></div>
             </div>
           </div>
 
@@ -950,6 +960,88 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
     </div>
 </section>
+
+<!-- Auth Modal -->
+<div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content auth-modal-content border-0">
+      <div class="modal-header border-0 pb-0">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4 pt-0">
+        <div class="text-center mb-4">
+          <img src="<?= BASE_URL ?>assets/images/logo/logo-white-new.png" alt="MI Skills" style="height: 40px;" class="mb-3">
+          <h4 class="fw-bold" id="authModalTitle">Login to Continue</h4>
+          <p class="text-white-50 small">Access your dashboard and manage subscriptions</p>
+        </div>
+
+        <!-- Login State -->
+        <div id="loginState">
+          <div class="mb-3">
+            <label class="form-label small text-white-50">Phone Number</label>
+            <div class="input-group custom-input-group">
+              <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-phone"></i></span>
+              <input type="text" id="loginPhone" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your phone number">
+            </div>
+          </div>
+          <button class="btn btn-auth-gradient w-100 mb-3 py-2 fw-bold" onclick="handleLoginSendOTP()">Send OTP</button>
+          <div class="text-center">
+            <span class="small text-white-50">Don't have an account?</span>
+            <a href="javascript:void(0)" class="small text-gradient fw-bold ms-1" onclick="switchAuthMode('signup')">Sign Up</a>
+          </div>
+        </div>
+
+        <!-- Signup State -->
+        <div id="signupState" style="display:none">
+          <div class="mb-3">
+            <label class="form-label small text-white-50">Full Name</label>
+            <div class="input-group custom-input-group">
+              <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-person"></i></span>
+              <input type="text" id="signupName" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your name">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small text-white-50">Phone Number</label>
+            <div class="input-group custom-input-group">
+              <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-phone"></i></span>
+              <input type="text" id="signupPhone" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your phone number">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label small text-white-50">Path Preference</label>
+            <div class="pref-group">
+              <input type="radio" class="btn-check" name="preference_modal" id="pref-learning-modal" value="Learning" checked>
+              <label class="pref-label" for="pref-learning-modal">Learning</label>
+
+              <input type="radio" class="btn-check" name="preference_modal" id="pref-funding-modal" value="Funding">
+              <label class="pref-label" for="pref-funding-modal">Funding</label>
+            </div>
+          </div>
+          <button class="btn btn-auth-gradient w-100 mb-3 py-2 fw-bold" onclick="handleSignupSendOTP()">Send OTP</button>
+          <div class="text-center">
+            <span class="small text-white-50">Already have an account?</span>
+            <a href="javascript:void(0)" class="small text-gradient fw-bold ms-1" onclick="switchAuthMode('login')">Login</a>
+          </div>
+        </div>
+
+        <!-- OTP State -->
+        <div id="otpState" style="display:none">
+          <p class="text-center small mb-3 text-white-50">Enter the 6-digit code sent to your phone</p>
+          <div class="mb-4 text-center d-flex gap-2 justify-content-center">
+            <input type="text" class="form-control text-center otp-input-v2" maxlength="1" onkeyup="moveNext(this)">
+            <input type="text" class="form-control text-center otp-input-v2" maxlength="1" onkeyup="moveNext(this)">
+            <input type="text" class="form-control text-center otp-input-v2" maxlength="1" onkeyup="moveNext(this)">
+            <input type="text" class="form-control text-center otp-input-v2" maxlength="1" onkeyup="moveNext(this)">
+            <input type="text" class="form-control text-center otp-input-v2" maxlength="1" onkeyup="moveNext(this)">
+            <input type="text" class="form-control text-center otp-input-v2" maxlength="1" onkeyup="moveNext(this)">
+          </div>
+          <button class="btn btn-auth-gradient w-100 mb-2 py-2 fw-bold" id="btnVerifyOTP" onclick="handleVerifyOTP()">Verify & Continue</button>
+          <button class="btn btn-link w-100 text-white-50 btn-sm text-decoration-none" onclick="backToPhone()"><i class="bi bi-arrow-left me-1"></i> Change Phone Number</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ================= PRICING SECTION END ================= -->
 
@@ -970,7 +1062,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
     </div>
 
     <div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn btn-dark cta-link"
-        href="contact-us">contact us</a></div>
+        href="<?= BASE_URL ?>contact-us">contact us</a></div>
 
 
   </div>
@@ -1127,6 +1219,31 @@ function showCategory(categoryId) {
     category.style.display = 'none';
   });
   document.getElementById(categoryId).style.display = 'block';
+
+  // Reset internal sub-toggles to 'individual' when switching main categories
+  if (categoryId === 'web') toggleWeb('individual');
+  if (categoryId === 'app') toggleApp('individual');
+  if (categoryId === 'marketing') toggleMarketing('individual');
+  if (categoryId === 'graphic') toggleGraphic('individual');
+  if (categoryId === 'ai_ml') toggleAiMl('individual');
+  if (categoryId === 'cloud_devops') toggleCloudDevops('individual');
+  if (categoryId === 'data_science') toggleDataScience('individual');
+  if (categoryId === 'cybersecurity') toggleCybersecurity('individual');
+  if (categoryId === 'data_analytics') toggleDataAnalytics('individual');
+}
+
+function setLearningMode(mode) {
+  if (mode === 'online') {
+    document.getElementById('btnOnlineMode').classList.add('active');
+    document.getElementById('btnOfflineMode').classList.remove('active');
+    document.querySelectorAll('.online-price').forEach(el => el.style.display = 'block');
+    document.querySelectorAll('.offline-price').forEach(el => el.style.display = 'none');
+  } else {
+    document.getElementById('btnOnlineMode').classList.remove('active');
+    document.getElementById('btnOfflineMode').classList.add('active');
+    document.querySelectorAll('.online-price').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.offline-price').forEach(el => el.style.display = 'block');
+  }
 }
 </script>
 

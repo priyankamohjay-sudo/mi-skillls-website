@@ -68,9 +68,110 @@ if (isset($_POST['UserSubmit'])) {
   <!-- main-LTR -->
   <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/main-LTR.css">
   <title><?= $title ?? 'MISKILLS' ?></title>
+  <script>
+    const BASE_URL = '<?= BASE_URL ?>';
+  </script>
+  <style>
+    .header-basic .links-list > .menu-item > .menu-link {
+      padding: 10px 18px; /* Reduced from 30px to fit more items */
+    }
+    .header-basic .menu-item {
+      padding: 0 4px; /* Reduced from 1rem to prevent wrapping */
+    }
+    .user-avatar-link {
+      display: flex !important;
+      align-items: center;
+      padding: 10px 18px !important; /* Match other menu links */
+      border-radius: 30px !important;
+      border: 1.5px solid transparent !important;
+      transition: all 0.3s ease !important;
+      background:
+        linear-gradient(#05062d, #05062d) padding-box,
+        linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb) border-box !important;
+    }
+    .user-avatar-link:hover {
+      box-shadow: 0 0 15px rgba(103, 58, 183, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Theme Consistent Preference Selection */
+    .pref-group {
+      display: flex;
+      gap: 10px;
+    }
+    .pref-label {
+      flex: 1;
+      text-align: center;
+      padding: 8px 15px;
+      border-radius: 30px;
+      border: 1.5px solid rgba(103, 58, 183, 0.4);
+      color: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: rgba(103, 58, 183, 0.05);
+    }
+    .btn-check:checked + .pref-label {
+      background: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(103, 58, 183, 0.3);
+    }
+    .pref-label:hover {
+      border-color: #af40ff;
+      color: #fff;
+    }
+    .user-avatar-circle {
+      width: 26px;
+      height: 26px;
+      background: linear-gradient(135deg, #673ab7 0%, #9c27b0 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+    .user-profile-dropdown:hover .user-avatar-circle {
+      transform: scale(1.05);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 15px rgba(103, 58, 183, 0.4);
+    }
+    .user-profile-dropdown .sub-menu {
+      min-width: 150px !important;
+      right: 0;
+      left: auto !important;
+    }
+    @media (max-width: 1199px) {
+      .header-basic .menu-item {
+        padding: 0;
+        width: 100%;
+      }
+      .header-basic .links-list > .menu-item > .menu-link {
+        padding: 0.75rem 1rem;
+      }
+    }
+    @media (max-width: 991px) {
+      .user-avatar-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+      }
+      .user-profile-dropdown .sub-menu {
+        position: relative !important;
+        width: 100% !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding-left: 20px !important;
+      }
+    }
+  </style>
 </head>
 
-<body class=" dark-theme "></body>
+<body class=" dark-theme ">
 <!--Start Page Header-->
 <header class=" page-header content-always-light header-basic" id="page-header">
   <div class="header-search-box">
@@ -89,44 +190,6 @@ if (isset($_POST['UserSubmit'])) {
             loading="lazy" src="<?= BASE_URL ?>assets/images/logo/logo-white-new.png" alt="logo" /><img class="logo-img  dark-logo"
             loading="lazy" src="<?= BASE_URL ?>assets/images/logo/logo-dark.png" alt="logo" /></a></div>
       <div class="links menu-wrapper ">
-        <!-- <ul class="list-js links-list">
-          <li class="menu-item"><a class="menu-link" href="<?= BASE_URL ?>">Home</a></li>
-          <li class="menu-item"><a class="menu-link" href="<?= BASE_URL ?>about-us">About Us </a></li>
-          <li class="menu-item has-sub-menu">
-
-            <a class="menu-link" href="courses.php">
-              Courses
-              <span class="plus-icon">
-                <i class="fas fa-plus"></i>
-              </span>
-            </a>
-
-            <ul class="sub-menu">
-              <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="web-development.php">Web Development</a>
-              </li>
-              <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="app-development.php">App Development</a>
-              </li>
-              <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="digital-marketing.php">Digital Marketing</a>
-              </li>
-              <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="graphic-designing.php">Graphic Designing</a>
-              </li>
-              <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="testing.php">Testing</a>
-              </li>
-              <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="networking.php">Networking</a>
-              </li>
-            </ul>
-
-          </li>
-          <li class="menu-item"><a class="menu-link " href="subscription.php">Subscription</a></li>
-          <li class="menu-item"><a class="menu-link " href="contact-us.php">contact Us</a></li>
-        </ul> -->
-
         <ul class="list-js links-list">
           <li class="menu-item">
             <a class="menu-link" href="<?= BASE_URL ?>">Home</a>
@@ -200,9 +263,19 @@ if (isset($_POST['UserSubmit'])) {
           <li class="menu-item">
             <a class="menu-link" href="<?= BASE_URL ?>contact-us">Contact Us</a>
           </li>
-        </ul>
 
-      </div>
+          <!-- Consolidated Auth Dropdown -->
+          <li class="menu-item has-sub-menu user-profile-dropdown">
+            <a class="menu-link user-avatar-link" href="javascript:void(0)" id="auth-main-btn">
+              <!-- Content dynamically changed by JS -->
+            </a>
+            <ul class="sub-menu" id="auth-dropdown-menu">
+              <!-- Content dynamically changed by JS -->
+            </ul>
+          </li>
+          </ul>
+          </div>
+
       <div class="controls-box">
         <!--Menu Toggler button-->
         <div class="control  menu-toggler"><span></span><span></span><span></span></div>
