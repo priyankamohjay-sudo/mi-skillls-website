@@ -1,374 +1,268 @@
 /**
  * Subscription Purchase & Authentication Logic
- * Connects to the Node.js backend for OTP auth and payment creation.
+ * Frictionless One-Step Flow for MI Skills Website
  */
 
 // const API_BASE_URL = 'https://api.miskills.in'; 
-const API_BASE_URL = 'http://localhost:5000'; // Update this with your actual backend URL
+const API_BASE_URL = 'http://localhost:5000'; // Development
 
 let currentPurchase = {
   subcategoryId: '',
   subscriptionMode: '',
-  learningMode: 'ONLINE'
+  learningMode: 'ONLINE',
+  slug: ''
 };
 
-let authMode = 'login';
-let pendingVerifyAction = ''; // 'login' or 'signup'
-let tempPhone = '';
-let tempName = '';
+/**
+ * Custom Theme-Consistent Toast Notification
+ */
+function showToast(title, message, type = 'info') {
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  toast.className = `custom-toast ${type}`;
+  
+  let icon = 'bi-info-circle-fill';
+  if (type === 'error') icon = 'bi-x-circle-fill';
+  if (type === 'warning') icon = 'bi-exclamation-triangle-fill';
+  if (type === 'success') icon = 'bi-check-circle-fill';
+
+  toast.innerHTML = `
+    <i class="bi ${icon}"></i>
+    <div class="toast-content">
+      <span class="toast-title">${title}</span>
+      <span class="toast-message">${message}</span>
+    </div>
+  `;
+
+  container.appendChild(toast);
+
+  // Animate in
+  setTimeout(() => toast.classList.add('show'), 100);
+
+  // Auto remove
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 400);
+  }, 5000);
+}
 
 /**
- * Initiates the purchase flow using a stable slug.
- * Fetches the current database ID from the backend using the slug lookup API.
+ * Validates path preference selection based on the current course.
  */
-async function startPurchase(slug, subscriptionMode) {
+function validatePreferenceSelection() {
+  const fundingRadio = document.getElementById('direct-pref-funding');
+  const warningEl = document.getElementById('pref-warning');
+  
+  if (fundingRadio && fundingRadio.checked) {
+    // Only 'business-funding' allows Funding path
+    if (currentPurchase.slug !== 'business-funding') {
+      document.getElementById('direct-pref-learning').checked = true;
+      if (warningEl) {
+        warningEl.style.display = 'block';
+        setTimeout(() => { warningEl.style.display = 'none'; }, 6000);
+      }
+      showToast('Path Adjusted', 'The "Funding" path is exclusive to the Business Funding course. We have set your preference to "Learning".', 'warning');
+    }
+  }
+}
+
+/**
+ * Triggered when a "Buy Now" button is clicked.
+ */
+async function startPurchase(slug, mode) {
+  currentPurchase.slug = slug;
+  currentPurchase.subscriptionMode = mode;
+  
+  // Detect learning mode from UI tabs
+  const offlineBtn = document.getElementById('btnOfflineMode');
+  currentPurchase.learningMode = (offlineBtn && offlineBtn.classList.contains('active')) ? 'OFFLINE' : 'ONLINE';
+
   try {
-    // 1. Fetch the real ID from backend using the slug
+    // 1. Fetch Subcategory ID from slug (to keep createSubsPayment logic working)
     const response = await fetch(`${API_BASE_URL}/api/subcategories/slug/${slug}`);
     const data = await response.json();
 
     if (!data.success || !data.subcategory) {
-      console.error(`❌ Subcategory not found for slug: ${slug}`);
-      alert("Course information is currently unavailable. Please try again later.");
-      return;
+      return showToast('Course Error', 'This course information is currently unavailable. Please try again later.', 'error');
     }
 
-    // 2. Set the current purchase details
     currentPurchase.subcategoryId = data.subcategory._id;
-    currentPurchase.subscriptionMode = subscriptionMode;
 
-    // Determine learning mode from UI state
-    const onlineBtn = document.getElementById('btnOnlineMode');
-    currentPurchase.learningMode = (onlineBtn && onlineBtn.classList.contains('active')) ? 'ONLINE' : 'OFFLINE';
-
-    // 3. Check for authentication
+    // 2. Check for existing authentication
     const token = localStorage.getItem('accessToken');
     if (!token) {
       const authModalEl = document.getElementById('authModal');
       if (authModalEl) {
+        // Reset modal fields and warnings
+        document.getElementById('directName').value = '';
+        document.getElementById('directPhone').value = '';
+        document.getElementById('direct-pref-learning').checked = true;
+        const warningEl = document.getElementById('pref-warning');
+        if (warningEl) warningEl.style.display = 'none';
+
         const authModal = new bootstrap.Modal(authModalEl);
         authModal.show();
-        switchAuthMode('login');
       } else {
-        // If no modal, redirect to login page with return URL (simplified for now)
-        window.location.href = 'login.php';
+        showToast('System Error', 'Enrollment modal could not be loaded.', 'error');
       }
     } else {
       proceedToCheckout(token);
     }
-  } catch (error) {
-    console.error("❌ Error during purchase initiation:", error);
-    alert("Something went wrong. Please check your internet and try again.");
-  }
-}
-
-/**
- * Calls the backend to create a payment session and redirects to checkout.
- */
-async function proceedToCheckout(token) {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/payments/create-subscription-payment`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
-      body: JSON.stringify({
-        subcategories: [{
-          subcategoryId: currentPurchase.subcategoryId,
-          learningMode: currentPurchase.learningMode
-        }],
-        subscriptionMode: currentPurchase.subscriptionMode,
-        client: "WEB"
-      })
-    });
-
-    const data = await response.json();
-    if (data.checkoutLink) {
-      window.location.href = data.checkoutLink;
-    } else {
-      alert(data.message || 'Error creating checkout link. Please try again.');
-    }
-  } catch (error) {
-    console.error('Checkout error:', error);
-    alert('An error occurred during checkout. Please try again.');
-  }
-}
-
-/**
- * Switches between Login and Signup states in the Auth Modal or Page.
- */
-function switchAuthMode(mode) {
-  authMode = mode;
-  const titleEl = document.getElementById('authModalTitle') || document.getElementById('authPageTitle');
-  const loginState = document.getElementById('loginState');
-  const signupState = document.getElementById('signupState');
-  const otpState = document.getElementById('otpState');
-
-  if (titleEl) {
-    if (mode === 'login') {
-      titleEl.innerText = titleEl.id === 'authModalTitle' ? 'Login to Continue' : 'Login';
-    } else {
-      titleEl.innerText = titleEl.id === 'authModalTitle' ? 'Create an Account' : 'Create Account';
-    }
-  }
-
-  if (loginState) loginState.style.display = mode === 'login' ? 'block' : 'none';
-  if (signupState) signupState.style.display = mode === 'signup' ? 'block' : 'none';
-  if (otpState) otpState.style.display = 'none';
-}
-
-/**
- * Handles sending OTP for Login.
- */
-async function handleLoginSendOTP() {
-  const phone = document.getElementById('loginPhone').value;
-  if (!phone) return alert('Please enter phone number');
-  tempPhone = phone;
-  
-  try {
-    const res = await fetch(`${API_BASE_URL}/api/auth/login-send-otp`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ phoneNumber: phone })
-    });
-    if (res.ok) {
-      pendingVerifyAction = 'login';
-      showOTPState();
-    } else {
-      const data = await res.json();
-      alert(data.message || 'Error sending OTP');
-    }
   } catch (err) {
-    alert('Server error. Please try again.');
+    console.error("❌ Error during purchase initiation:", err);
+    showToast('Connection Error', 'Could not connect to the database. Please check your internet connection.', 'error');
   }
 }
 
 /**
- * Handles sending OTP for Signup.
+ * Helper to show/hide the professional loader
  */
-async function handleSignupSendOTP() {
-  const name = document.getElementById('signupName').value;
-  const phone = document.getElementById('signupPhone').value;
-  
-  // Get preference and map to role
-  let preference = '';
-  const prefLearning = document.getElementById('pref-learning') || document.getElementById('pref-learning-modal');
-  const prefFunding = document.getElementById('pref-funding') || document.getElementById('pref-funding-modal');
-  
-  if (prefLearning && prefLearning.checked) preference = 'Learning';
-  else if (prefFunding && prefFunding.checked) preference = 'Funding';
-  
-  const role = (preference === 'Funding') ? 'investor' : 'student';
+function toggleLoader(show) {
+  const loader = document.getElementById('enrollLoader');
+  if (loader) {
+    if (show) loader.classList.add('show');
+    else loader.classList.remove('show');
+  }
+}
 
-  if (!name || !phone) return alert('Please fill all fields');
-  tempName = name;
-  tempPhone = phone;
+/**
+ * Handles frictionless account creation/retrieval and proceeds to payment.
+ */
+async function handleDirectSubscribe() {
+  const name = document.getElementById('directName').value;
+  const phone = document.getElementById('directPhone').value;
+  const email = document.getElementById('directEmail').value;
+  
+  let preference = 'LEARNING';
+  const prefFunding = document.getElementById('direct-pref-funding');
+  if (prefFunding && prefFunding.checked) preference = 'FUNDING';
+
+  if (!name || !phone || !email) {
+    return showToast('Missing Fields', 'Please enter your full name, phone number, and email to continue.', 'warning');
+  }
+
+  // Basic email validation
+  if (!email.includes('@') || !email.includes('.')) {
+    return showToast('Invalid Email', 'Please provide a valid email address for subscription details.', 'warning');
+  }
+
+  // Double check preference vs course logic before submitting
+  if (preference === 'FUNDING' && currentPurchase.slug !== 'business-funding') {
+    preference = 'LEARNING';
+    document.getElementById('direct-pref-learning').checked = true;
+  }
+
+  // Show Loader
+  toggleLoader(true);
 
   try {
-    const res = await fetch(`${API_BASE_URL}/api/auth/signup-send-otp`, {
+    const res = await fetch(`${API_BASE_URL}/api/auth/direct-subscribe`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
         name, 
         phoneNumber: phone,
-        role: role,
+        email: email,
         preference: preference
       })
     });
-    if (res.ok) {
-      pendingVerifyAction = 'signup';
-      showOTPState();
-    } else {
-      const data = await res.json();
-      alert(data.message || 'Error sending OTP');
-    }
-  } catch (err) {
-    alert('Server error. Please try again.');
-  }
-}
-
-/**
- * Shows the OTP entry view in the modal or page.
- */
-function showOTPState() {
-  if (document.getElementById('loginState')) document.getElementById('loginState').style.display = 'none';
-  if (document.getElementById('signupState')) document.getElementById('signupState').style.display = 'none';
-  if (document.getElementById('otpState')) document.getElementById('otpState').style.display = 'block';
-  
-  const titleEl = document.getElementById('authModalTitle') || document.getElementById('authPageTitle');
-  if (titleEl) titleEl.innerText = 'Verify OTP';
-}
-
-/**
- * Navigates back from OTP state to the phone entry state.
- */
-function backToPhone() {
-  switchAuthMode(authMode);
-}
-
-/**
- * Verifies the entered OTP and stores the accessToken.
- */
-async function handleVerifyOTP() {
-  const otpInputs = document.querySelectorAll('.otp-input, .otp-input-v2');
-  let otp = '';
-  
-  // Re-collect OTP correctly if there are multiple sets of inputs (modal vs page)
-  // Actually, let's just target the visible ones
-  const visibleInputs = Array.from(otpInputs).filter(i => i.offsetParent !== null);
-  visibleInputs.forEach(input => otp += input.value);
-
-  if (otp.length < 6) return alert('Please enter the 6-digit OTP');
-
-  const action = window.pendingVerifyAction || pendingVerifyAction;
-  const url = action === 'login' 
-    ? `${API_BASE_URL}/api/auth/login-verify-otp`
-    : `${API_BASE_URL}/api/auth/signup-verify-otp`;
-
-  const body = { phoneNumber: tempPhone, otp };
-  if (action === 'signup') body.name = tempName;
-
-  try {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
-    });
+    
     const data = await res.json();
-    if (data.accessToken) {
+    if (data.success && data.accessToken) {
       localStorage.setItem('accessToken', data.accessToken);
       
-      // Store user role if returned by backend
-      if (data.user && data.user.role) {
-        localStorage.setItem('userRole', data.user.role);
-      } else if (action === 'signup') {
-        // Fallback for signup if not in response
-        const prefFunding = document.getElementById('pref-funding') || document.getElementById('pref-funding-modal');
-        const role = (prefFunding && prefFunding.checked) ? 'investor' : 'student';
-        localStorage.setItem('userRole', role);
-      }
-
       const modalEl = document.getElementById('authModal');
       if (modalEl) {
         const modal = bootstrap.Modal.getInstance(modalEl);
         if (modal) modal.hide();
       }
       
-      if (currentPurchase.subcategoryId) {
-        proceedToCheckout(data.accessToken);
-      } else {
-        // Standard login/signup redirect
-        window.location.href = BASE_URL;
-      }
+      proceedToCheckout(data.accessToken);
     } else {
-      alert(data.message || 'Invalid OTP');
+      toggleLoader(false);
+      showToast('Enrollment Failed', data.message || 'We could not process your details. Please try again.', 'error');
     }
   } catch (err) {
-    alert('Verification failed. Please try again.');
+    toggleLoader(false);
+    console.error("Direct subscribe error:", err);
+    showToast('Database Error', 'Could not reach the server to secure your enrollment. Please try again.', 'error');
   }
 }
 
+const COURSE_DURATIONS = {
+  'web-development-with-ai-tools-full-stack-front-end-back-end': 4,
+  'app-development-with-ai-tools-android-ios-cross-platform': 4,
+  'digital-marketing': 3,
+  'graphic-designing': 3,
+  'ai-applied-machine-learning': 7,
+  'cloud-computing-devops-aws-azure-gcp': 5,
+  'data-science-with-gen-ai': 7,
+  'cyber-security-ai-cloud-security': 5,
+  'data-analytics-with-gen-ai': 4,
+  'interview-internship-support': 1,
+  'business-funding': 1
+};
+
 /**
- * Helper to auto-focus next input in OTP fields.
+ * Calls the backend to create a payment session and redirects to Razorpay.
  */
-function moveNext(el) {
-  if (el.value.length === 1 && el.nextElementSibling) {
-    el.nextElementSibling.focus();
+async function proceedToCheckout(token) {
+  try {
+    // If loader isn't already on (e.g. user was already logged in), turn it on
+    toggleLoader(true);
+
+    // 1. Determine months based on mode and slug
+    let months = 1;
+    if (currentPurchase.subscriptionMode === 'TOTAL') {
+      months = COURSE_DURATIONS[currentPurchase.slug] || 4;
+    }
+
+    const payload = {
+      subcategories: [
+        {
+          subcategoryId: currentPurchase.subcategoryId,
+          learningMode: currentPurchase.learningMode,
+          months: months,
+          locationId: null,
+          batchId: null,
+          seatNumber: null
+        }
+      ],
+      subscriptionMode: currentPurchase.subscriptionMode,
+      client: "WEB"
+    };
+
+    const res = await fetch(`${API_BASE_URL}/api/payments/create-subscription-payment`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+
+    if (data.success && data.checkoutLink) {
+      // Redirect to Razorpay
+      window.location.href = data.checkoutLink;
+    } else {
+      toggleLoader(false);
+      showToast('Payment Error', data.message || 'Failed to initiate the payment gateway. Please try again.', 'error');
+    }
+  } catch (err) {
+    toggleLoader(false);
+    console.error("❌ Checkout error:", err);
+    showToast('Database Error', 'A connection error occurred while reaching the payment gateway.', 'error');
   }
 }
 
 /**
- * Logs out the user and clears local storage.
+ * Simple logout helper
  */
 function handleLogout() {
   localStorage.removeItem('accessToken');
-  window.location.href = BASE_URL;
+  window.location.reload();
 }
-
-/**
- * Updates the UI based on authentication state.
- */
-function updateAuthUI() {
-  const token = localStorage.getItem('accessToken');
-  const role = localStorage.getItem('userRole');
-  const authMainBtn = document.getElementById('auth-main-btn');
-  const authDropdownMenu = document.getElementById('auth-dropdown-menu');
-  
-  if (!authMainBtn || !authDropdownMenu) return;
-
-  if (token) {
-    // Logged In State
-    authMainBtn.innerHTML = `
-      <div class="user-avatar-circle">
-        <i class="bi bi-person-fill"></i>
-      </div>
-      <span class="ms-2">Account</span>
-      <span class="plus-icon">
-        <i class="fas fa-plus"></i>
-      </span>
-    `;
-    authDropdownMenu.innerHTML = `
-      <li class="menu-item sub-menu-item">
-        <a class="menu-link sub-menu-link" href="${BASE_URL}dashboard">
-          <i class="bi bi-speedometer2 me-2"></i>My Dashboard
-        </a>
-      </li>
-      <li class="menu-item sub-menu-item">
-        <a class="menu-link sub-menu-link" href="javascript:void(0)" onclick="handleLogout()">
-          <i class="bi bi-box-arrow-right me-2"></i>Logout
-        </a>
-      </li>
-    `;
-
-    // Handle Role-based restrictions on Subscription Page
-    if (window.location.pathname.includes('subscription')) {
-      const investorNotice = document.getElementById('investor-notice');
-      if (role === 'investor') {
-        if (investorNotice) investorNotice.style.display = 'block';
-        
-        // Disable all "Buy Now" buttons except for Business Funding
-        document.querySelectorAll('button[onclick*="startPurchase"]').forEach(btn => {
-          if (!btn.getAttribute('onclick').includes('business-funding')) {
-            btn.disabled = true;
-            btn.innerText = 'Restricted';
-            btn.classList.add('btn-secondary');
-            btn.classList.remove('btn-solid');
-            btn.style.opacity = '0.5';
-            btn.style.cursor = 'not-allowed';
-          }
-        });
-      } else {
-        if (investorNotice) investorNotice.style.display = 'none';
-      }
-    }
-
-  } else {
-    // Guest State
-    authMainBtn.innerHTML = `
-      <div class="user-avatar-circle">
-        <i class="bi bi-person"></i>
-      </div>
-      <span class="ms-2">Join Us</span>
-      <span class="plus-icon">
-        <i class="fas fa-plus"></i>
-      </span>
-    `;
-    authDropdownMenu.innerHTML = `
-      <li class="menu-item sub-menu-item">
-        <a class="menu-link sub-menu-link" href="${BASE_URL}login">
-          <i class="bi bi-box-arrow-in-right me-2"></i>Login
-        </a>
-      </li>
-      <li class="menu-item sub-menu-item">
-        <a class="menu-link sub-menu-link" href="${BASE_URL}signup">
-          <i class="bi bi-person-plus me-2"></i>Sign Up
-        </a>
-      </li>
-    `;
-  }
-}
-
-// Initialize UI on load
-document.addEventListener('DOMContentLoaded', updateAuthUI);
-

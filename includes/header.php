@@ -263,16 +263,6 @@ if (isset($_POST['UserSubmit'])) {
           <li class="menu-item">
             <a class="menu-link" href="<?= BASE_URL ?>contact-us">Contact Us</a>
           </li>
-
-          <!-- Consolidated Auth Dropdown -->
-          <li class="menu-item has-sub-menu user-profile-dropdown">
-            <a class="menu-link user-avatar-link" href="javascript:void(0)" id="auth-main-btn">
-              <!-- Content dynamically changed by JS -->
-            </a>
-            <ul class="sub-menu" id="auth-dropdown-menu">
-              <!-- Content dynamically changed by JS -->
-            </ul>
-          </li>
           </ul>
           </div>
 

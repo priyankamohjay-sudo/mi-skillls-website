@@ -971,76 +971,64 @@ require_once __DIR__ . '/../includes/header.php'; ?>
       <div class="modal-body p-4 pt-0">
         <div class="text-center mb-4">
           <img src="<?= BASE_URL ?>assets/images/logo/logo-white-new.png" alt="MI Skills" style="height: 40px;" class="mb-3">
-          <h4 class="fw-bold" id="authModalTitle">Login to Continue</h4>
-          <p class="text-white-50 small">Access your dashboard and manage subscriptions</p>
+          <h4 class="fw-bold" id="authModalTitle">Instant Enrollment</h4>
+          <p class="text-white-50 small">Quickly secure your spot in this course</p>
         </div>
 
-        <!-- Login State -->
-        <div id="loginState">
-          <div class="mb-3">
-            <label class="form-label small text-white-50">Phone Number</label>
-            <div class="input-group custom-input-group">
-              <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-phone"></i></span>
-              <input type="text" id="loginPhone" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your phone number">
-            </div>
-          </div>
-          <button class="btn btn-auth-gradient w-100 mb-3 py-2 fw-bold" onclick="handleLoginSendOTP()">Send OTP</button>
-          <div class="text-center">
-            <span class="small text-white-50">Don't have an account?</span>
-            <a href="javascript:void(0)" class="small text-gradient fw-bold ms-1" onclick="switchAuthMode('signup')">Sign Up</a>
-          </div>
-        </div>
-
-        <!-- Signup State -->
-        <div id="signupState" style="display:none">
+        <!-- Instant Enrollment State -->
+        <div id="directSubscribeState">
           <div class="mb-3">
             <label class="form-label small text-white-50">Full Name</label>
             <div class="input-group custom-input-group">
               <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-person"></i></span>
-              <input type="text" id="signupName" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your name">
+              <input type="text" id="directName" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your full name">
             </div>
           </div>
           <div class="mb-3">
             <label class="form-label small text-white-50">Phone Number</label>
             <div class="input-group custom-input-group">
               <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-phone"></i></span>
-              <input type="text" id="signupPhone" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your phone number">
+              <input type="text" id="directPhone" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your phone number">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small text-white-50">Email Address</label>
+            <div class="input-group custom-input-group">
+              <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-envelope"></i></span>
+              <input type="email" id="directEmail" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your email address">
             </div>
           </div>
           <div class="mb-4">
             <label class="form-label small text-white-50">Path Preference</label>
             <div class="pref-group">
-              <input type="radio" class="btn-check" name="preference_modal" id="pref-learning-modal" value="Learning" checked>
-              <label class="pref-label" for="pref-learning-modal">Learning</label>
+              <input type="radio" class="btn-check" name="direct_preference" id="direct-pref-learning" value="LEARNING" checked onchange="validatePreferenceSelection()">
+              <label class="pref-label" for="direct-pref-learning">Learning</label>
 
-              <input type="radio" class="btn-check" name="preference_modal" id="pref-funding-modal" value="Funding">
-              <label class="pref-label" for="pref-funding-modal">Funding</label>
+              <input type="radio" class="btn-check" name="direct_preference" id="direct-pref-funding" value="FUNDING" onchange="validatePreferenceSelection()">
+              <label class="pref-label" for="direct-pref-funding">Funding</label>
+            </div>
+            <div id="pref-warning" class="text-warning small mt-2" style="display:none;">
+              <i class="bi bi-exclamation-triangle-fill me-1"></i> Funding is only available for Business Funding course. Switched to Learning.
             </div>
           </div>
-          <button class="btn btn-auth-gradient w-100 mb-3 py-2 fw-bold" onclick="handleSignupSendOTP()">Send OTP</button>
+          <button class="btn btn-auth-gradient w-100 mb-3 py-2 fw-bold" onclick="handleDirectSubscribe()">Continue to Payment</button>
           <div class="text-center">
-            <span class="small text-white-50">Already have an account?</span>
-            <a href="javascript:void(0)" class="small text-gradient fw-bold ms-1" onclick="switchAuthMode('login')">Login</a>
+            <span class="small text-white-50">By continuing, you agree to our Terms and Privacy Policy.</span>
           </div>
-        </div>
-
-        <!-- OTP State -->
-        <div id="otpState" style="display:none">
-          <p class="text-center small mb-3 text-white-50">Enter the 6-digit code sent to your phone</p>
-          <div class="mb-4 text-center d-flex gap-2 justify-content-center">
-            <input type="text" class="form-control text-center otp-input-v2" maxlength="1" onkeyup="moveNext(this)">
-            <input type="text" class="form-control text-center otp-input-v2" maxlength="1" onkeyup="moveNext(this)">
-            <input type="text" class="form-control text-center otp-input-v2" maxlength="1" onkeyup="moveNext(this)">
-            <input type="text" class="form-control text-center otp-input-v2" maxlength="1" onkeyup="moveNext(this)">
-            <input type="text" class="form-control text-center otp-input-v2" maxlength="1" onkeyup="moveNext(this)">
-            <input type="text" class="form-control text-center otp-input-v2" maxlength="1" onkeyup="moveNext(this)">
-          </div>
-          <button class="btn btn-auth-gradient w-100 mb-2 py-2 fw-bold" id="btnVerifyOTP" onclick="handleVerifyOTP()">Verify & Continue</button>
-          <button class="btn btn-link w-100 text-white-50 btn-sm text-decoration-none" onclick="backToPhone()"><i class="bi bi-arrow-left me-1"></i> Change Phone Number</button>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<!-- Toast Notifications -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Professional Loader Overlay -->
+<div class="enroll-loader-overlay" id="enrollLoader">
+  <div class="enroll-spinner"></div>
+  <h5 class="text-white fw-bold mb-1">Securing Your Enrollment</h5>
+  <p class="text-white-50 small">Please wait while we connect to the payment gateway...</p>
 </div>
 
 <!-- ================= PRICING SECTION END ================= -->
