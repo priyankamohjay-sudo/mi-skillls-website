@@ -7,23 +7,26 @@ const SUBSCRIPTION_API_BASE_URL = window.MI_API_BASE_URL || 'https://dev.miskill
 
 const COURSE_API_SLUGS = {
   'web-and-app-development-with-ai-tools': [
-    'web-development-with-ai-tools-full-stack-front-end-back-end',
-    'web-and-app-development-with-ai-tools'
+    'web-and-app-development-with-ai-tools',
+    'web-development-with-ai-tools-full-stack-front-end-back-end'
   ],
-  'ai-applied-machine-learning': [
-    'ai-applied-machine-learning',
-    'artificial-intelligence-and-applied-machine-learning'
+  'ai-and-applied-machine-learning': [
+    'ai-and-applied-machine-learning',
+    'artificial-intelligence-and-applied-machine-learning',
+    'ai-applied-machine-learning'
   ],
   'data-science-and-analytics-with-gen-ai': [
     'data-science-and-analytics-with-gen-ai'
   ],
-  'cloud-computing-devops-aws-azure-gcp': [
+  'cloud-computing-and-devops-aws-azure-gcp': [
+    'cloud-computing-and-devops-aws-azure-gcp',
     'cloud-computing-devops-aws-azure-gcp',
     'cloud-computing-and-devops'
   ],
-  'cyber-security-ai-cloud-security': [
-    'cyber-security-ai-cloud-security',
-    'cybersecurity-ai-and-cloud-security'
+  'cyber-security-ai-and-cloud-security': [
+    'cyber-security-ai-and-cloud-security',
+    'cybersecurity-ai-and-cloud-security',
+    'cyber-security-ai-cloud-security'
   ]
 };
 
@@ -356,10 +359,13 @@ function redirectToOfflineEnrollment() {
 
   window.location.href = `${BASE_URL}offline-enrollment?${qs}`;
 }
-
 const COURSE_DURATIONS = {
   'web-and-app-development-with-ai-tools': 4,
   'data-science-and-analytics-with-gen-ai': 7,
+  'ai-and-applied-machine-learning': 7,
+  'cloud-computing-and-devops-aws-azure-gcp': 5,
+  'cyber-security-ai-and-cloud-security': 5,
+  // Keep legacy for backward compatibility
   'ai-applied-machine-learning': 7,
   'artificial-intelligence-and-applied-machine-learning': 7,
   'cloud-computing-devops-aws-azure-gcp': 5,
@@ -369,7 +375,6 @@ const COURSE_DURATIONS = {
   'interview-internship-support': 1,
   'business-funding': 1
 };
-
 /**
  * Calls the backend to create a payment session and redirects to Razorpay.
  */

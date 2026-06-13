@@ -7,36 +7,24 @@ const OFFLINE_API_BASE_URL = window.MI_API_BASE_URL || 'https://dev.miskills.in'
 
 const OFFLINE_COURSE_API_SLUGS = {
   'web-and-app-development-with-ai-tools': [
-    'web-development-with-ai-tools-full-stack-front-end-back-end',
-    'web-and-app-development-with-ai-tools'
-  ],
-  'web-development-with-ai-tools-full-stack-front-end-back-end': [
+    'web-and-app-development-with-ai-tools',
     'web-development-with-ai-tools-full-stack-front-end-back-end'
   ],
-  'ai-applied-machine-learning': [
-    'ai-applied-machine-learning',
-    'artificial-intelligence-and-applied-machine-learning'
-  ],
-  'artificial-intelligence-and-applied-machine-learning': [
+  'ai-and-applied-machine-learning': [
+    'ai-and-applied-machine-learning',
     'artificial-intelligence-and-applied-machine-learning',
     'ai-applied-machine-learning'
   ],
   'data-science-and-analytics-with-gen-ai': [
     'data-science-and-analytics-with-gen-ai'
   ],
-  'cloud-computing-devops-aws-azure-gcp': [
+  'cloud-computing-and-devops-aws-azure-gcp': [
+    'cloud-computing-and-devops-aws-azure-gcp',
     'cloud-computing-devops-aws-azure-gcp',
     'cloud-computing-and-devops'
   ],
-  'cloud-computing-and-devops': [
-    'cloud-computing-and-devops',
-    'cloud-computing-devops-aws-azure-gcp'
-  ],
-  'cyber-security-ai-cloud-security': [
-    'cyber-security-ai-cloud-security',
-    'cybersecurity-ai-and-cloud-security'
-  ],
-  'cybersecurity-ai-and-cloud-security': [
+  'cyber-security-ai-and-cloud-security': [
+    'cyber-security-ai-and-cloud-security',
     'cybersecurity-ai-and-cloud-security',
     'cyber-security-ai-cloud-security'
   ]
@@ -44,10 +32,13 @@ const OFFLINE_COURSE_API_SLUGS = {
 
 const COURSE_NAMES = {
   'web-and-app-development-with-ai-tools': 'Web and App Development with AI Tools',
+  'ai-and-applied-machine-learning': 'AI & Applied Machine Learning',
+  'data-science-and-analytics-with-gen-ai': 'Data Science and Analytics with Gen AI',
+  'cloud-computing-and-devops-aws-azure-gcp': 'Cloud Computing & DevOps (AWS / Azure / GCP)',
+  'cyber-security-ai-and-cloud-security': 'Cyber Security (AI & Cloud Security)',
   'web-development-with-ai-tools-full-stack-front-end-back-end': 'Web and App Development with AI Tools',
   'ai-applied-machine-learning': 'AI & Applied Machine Learning',
   'artificial-intelligence-and-applied-machine-learning': 'AI & Applied Machine Learning',
-  'data-science-and-analytics-with-gen-ai': 'Data Science and Analytics with Gen AI',
   'cloud-computing-devops-aws-azure-gcp': 'Cloud Computing & DevOps (AWS / Azure / GCP)',
   'cloud-computing-and-devops': 'Cloud Computing & DevOps (AWS / Azure / GCP)',
   'cyber-security-ai-cloud-security': 'Cyber Security (AI & Cloud Security)',
@@ -285,12 +276,40 @@ async function fetchSubcategoryContext(slug) {
   throw lastError || new Error('Course information is unavailable.');
 }
 
+function showToast(title, message, type = 'info') {
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  toast.className = `custom-toast ${type}`;
+  
+  let icon = 'bi-info-circle-fill';
+  if (type === 'error') icon = 'bi-x-circle-fill';
+  if (type === 'warning') icon = 'bi-exclamation-triangle-fill';
+  if (type === 'success') icon = 'bi-check-circle-fill';
+
+  toast.innerHTML = `
+    <i class="bi ${icon}"></i>
+    <div class="toast-content">
+      <span class="toast-title">${title}</span>
+      <span class="toast-message">${message}</span>
+    </div>
+  `;
+
+  container.appendChild(toast);
+
+  // Animate in
+  setTimeout(() => toast.classList.add('show'), 100);
+
+  // Auto remove
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 400);
+  }, 5000);
+}
+
 function notifyUser(title, message, type = 'info') {
-  if (typeof showToast === 'function') {
-    showToast(title, message, type);
-    return;
-  }
-  console[type === 'error' ? 'error' : 'log'](`${title}: ${message}`);
+  showToast(title, message, type);
 }
 
 async function initOfflineEnrollment() {
@@ -809,12 +828,18 @@ function normalizeBatches(batches, purchase = {}) {
     const time = batch.time || batch.batchTime || ([startTime, endTime].filter(Boolean).join(' - '));
     const days = Array.isArray(batch.days) ? batch.days.join(', ') : (batch.days || batch.weekDays || batch.scheduleDays || 'Monday - Saturday');
     const rawMode = String(batch.paymentMode || batch.subscriptionMode || '').toLowerCase();
-    const isFullOnly = batch.monthlyAllowed === false || batch.isMonthlyAvailable === false || rawMode.includes('full');
+    
+    const batchNum = batch.number || batch.batchNumber || (index + 1);
+    const isFullOnly = batch.monthlyAllowed === false || 
+                       batch.isMonthlyAvailable === false || 
+                       rawMode.includes('full') || 
+                       String(batchNum) === '2' || 
+                       String(batchNum) === '4';
 
     return {
       id,
-      number: batch.number || batch.batchNumber || batch.name || index + 1,
-      course: batch.courseName || batch.course || courseName,
+      number: batchNum,
+      course: batch.name || batch.courseName || batch.course || courseName,
       time: time || 'Time will be announced',
       days,
       duration: batch.duration || batch.classDuration || '2.5 hours',
@@ -907,11 +932,31 @@ function selectBatch(card) {
   selectedBatch = BATCHES_DATA.find(b => String(b.id) === String(batchId));
 
   if (selectedBatch) {
+    const purchase = getStoredPurchase() || {};
+    const originalMode = new URLSearchParams(window.location.search).get('mode') || config.subscriptionMode || 'TOTAL';
+    let targetMode = purchase.subscriptionMode || originalMode;
+
+    if (selectedBatch.paymentMode === 'full-only') {
+      if (targetMode !== 'TOTAL') {
+        targetMode = 'TOTAL';
+        notifyUser('Payment Mode Updated', 'This batch only supports Full Course Payment. Your selection has been updated to Full Payment.', 'warning');
+      }
+    } else {
+      // Revert to original preference if it was different
+      if (targetMode !== originalMode) {
+        targetMode = originalMode;
+        if (originalMode === 'MONTHLY') {
+          notifyUser('Payment Mode Restored', 'Flexible payment is available for this batch. Restored to Monthly payment.', 'info');
+        }
+      }
+    }
+
     // Save selection
     saveSelection({ 
       batchId: selectedBatch.id, 
       batch: selectedBatch,
-      paymentMode: selectedBatch.paymentMode
+      paymentMode: selectedBatch.paymentMode,
+      subscriptionMode: targetMode
     });
 
     // Show/hide payment note based on batch
@@ -942,6 +987,21 @@ function restoreSelectedBatch() {
       const paymentNote = document.getElementById('batchPaymentNote');
       if (paymentNote && match.paymentMode === 'full-only') {
         paymentNote.style.display = 'flex';
+      }
+
+      // Sync subscription mode
+      const purchase = getStoredPurchase() || {};
+      const originalMode = params.get('mode') || config.subscriptionMode || 'TOTAL';
+      let targetMode = purchase.subscriptionMode || originalMode;
+
+      if (match.paymentMode === 'full-only') {
+        targetMode = 'TOTAL';
+      } else {
+        targetMode = originalMode;
+      }
+
+      if (purchase.subscriptionMode !== targetMode) {
+        saveSelection({ subscriptionMode: targetMode });
       }
     }
   }

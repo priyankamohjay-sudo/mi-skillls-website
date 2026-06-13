@@ -135,7 +135,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <strong>₹1,299 / Month</strong>
                 </div>
                 <div class="price-option offline-price" style="display:none">
-                  <label><input type="radio" name="web_app_price_off"> Monthly</label>
+                  <label><input type="radio" name="web_app_price_off" checked> Monthly</label>
                   <strong>₹9,999 / Month</strong>
                 </div>
                 <ul class="feature-list mt-3">
@@ -195,7 +195,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <p class="duration">Duration:</p>
               <p class="duration">7 Months Access</p>
                <p class="duration">2.5 Hours / Day</p>
-               <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('ai-applied-machine-learning', 'TOTAL')">Buy Now</button></div>
+               <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('ai-and-applied-machine-learning', 'TOTAL')">Buy Now</button></div>
             </div>
 
             </div>
@@ -222,7 +222,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
                 <div class="price-option offline-price" style="display:none">
                   <label>
-                    <input type="radio" name="ai_ml_price_off">
+                    <input type="radio" name="ai_ml_price_off" checked>
                     Monthly
                   </label>
                   <strong>₹8,999 / Month</strong>
@@ -238,7 +238,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <li>Model Evaluation & Optimization</li>
 
                 </ul>
-                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('ai-applied-machine-learning', 'MONTHLY')">Buy Now</button></div>
+                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('ai-and-applied-machine-learning', 'MONTHLY')">Buy Now</button></div>
               </div>
             </div>
             </div>
@@ -288,7 +288,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <p class="duration">Duration:</p>
               <p class="duration">5 Months Access</p>
               <p class="duration">2.5 Hours / Day</p>
-              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cloud-computing-devops-aws-azure-gcp', 'TOTAL')">Buy Now</button></div>
+              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cloud-computing-and-devops-aws-azure-gcp', 'TOTAL')">Buy Now</button></div>
             </div>
 
             </div>
@@ -315,7 +315,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
                 <div class="price-option offline-price" style="display:none">
                   <label>
-                    <input type="radio" name="cloud_devops_price_off">
+                    <input type="radio" name="cloud_devops_price_off" checked>
                     Monthly
                   </label>
                   <strong>₹8,999 / Month</strong>
@@ -329,7 +329,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <li>Kubernetes Orchestration</li>
                   <li>CI/CD Pipelines & Automation</li>
                 </ul>
-                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cloud-computing-devops-aws-azure-gcp', 'MONTHLY')">Buy Now</button></div>
+                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cloud-computing-and-devops-aws-azure-gcp', 'MONTHLY')">Buy Now</button></div>
               </div>
             </div>
             </div>
@@ -405,7 +405,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
                 <div class="price-option offline-price" style="display:none">
                   <label>
-                    <input type="radio" name="data_science_price_off">
+                    <input type="radio" name="data_science_price_off" checked>
                     Monthly
                   </label>
                   <strong>₹8,999 / Month</strong>
@@ -469,7 +469,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <p class="duration">Duration:</p>
               <p class="duration">5 Months Access</p>
               <p class="duration">2.5 Hours / Day</p>
-              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cyber-security-ai-cloud-security', 'TOTAL')">Buy Now</button></div>
+              <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cyber-security-ai-and-cloud-security', 'TOTAL')">Buy Now</button></div>
             </div>
 
             </div>
@@ -496,7 +496,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
                 <div class="price-option offline-price" style="display:none">
                   <label>
-                    <input type="radio" name="cybersecurity_price_off">
+                    <input type="radio" name="cybersecurity_price_off" checked>
                     Monthly
                   </label>
                   <strong>₹8,999 / Month</strong>
@@ -511,7 +511,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <li>Cloud Security Best Practices</li>
                   <li>Identity & Access Management (IAM)</li>
                 </ul>
-                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cyber-security-ai-cloud-security', 'MONTHLY')">Buy Now</button></div>
+                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cyber-security-ai-and-cloud-security', 'MONTHLY')">Buy Now</button></div>
               </div>
             </div>
             </div>
