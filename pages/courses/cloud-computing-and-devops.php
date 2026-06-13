@@ -1,7 +1,8 @@
 <?php
 $title = "Master Web Development: Best Online Courses Available";
 $description = "Master web development with our hands-on courses. Explore HTML, CSS, JavaScript, and more to launch your career in the tech industry effectively.";
-$tags = "web development courses, website development course, web programming course, website development classes";
+$tags = "cloud computing, devops, AWS, Azure, GCP";
+$activeCourse = 'cloud-computing-and-devops';
 require_once __DIR__ . '/../../includes/header.php'; 
 ?>
 
@@ -18,7 +19,7 @@ require_once __DIR__ . '/../../includes/header.php';
   <div class="container position-relative">
     <div class="hero-text-area centerd">
       <h1 class="hero-title wow fadeInUp" data-wow-delay=".2s">
-        Cloud Computing & DevOps
+        Cloud Computing & DevOps (AWS / Azure / GCP)
       </h1>
 
       <nav aria-label="breadcrumb">
@@ -194,7 +195,7 @@ require_once __DIR__ . '/../../includes/header.php';
 
                 <tr>
                   <td><strong>Daily Time</strong></td>
-                  <td>3 Hours / Day</td>
+                  <td>2.5 Hours / Day</td>
                   </tr>
 
                 </tbody>
@@ -367,25 +368,7 @@ require_once __DIR__ . '/../../includes/header.php';
         <div class="service-sidebar ">
           <div class="sidebar-pane">
             <h2 class="sidebar-title">list of Courses</h2>
-            <ul class="list">
-              <li class="list-item "><i class="flaticon-web-development font-icon"></i><a
-                  href="<?= BASE_URL ?>course/artificial-intelligence-and-applied-machine-learning">AI & Applied Machine Learning<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-nanotechnology font-icon"></i><a href="<?= BASE_URL ?>course/digital-marketing">
-                  Digital Marketing<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item active"><i class="flaticon-web-domain font-icon"></i><a href="<?= BASE_URL ?>course/cloud-computing-and-devops"> Cloud Computing & DevOps<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-profile font-icon"></i><a href="<?= BASE_URL ?>course/graphic-designing"> Graphic
-                  Desinging<i class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item "><i class="flaticon-search font-icon"></i><a href="<?= BASE_URL ?>course/data-science-with-gen-ai">Data Science with Gen AI<i
-                    class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item "><i class="flaticon-nanotechnology font-icon"></i><a href="<?= BASE_URL ?>course/cybersecurity-ai-and-cloud-security">Cybersecurity - AI & Cloud Security<i
-                    class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-strategy font-icon"></i><a href="<?= BASE_URL ?>course/data-analytics-with-gen-ai"> Data Analytics with Gen AI<i
-                    class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item "><i class="flaticon-nanotechnology font-icon"></i><a href="<?= BASE_URL ?>course/app-development-with-ai-tools"> App Development with AI Tools<i
-                    class="bi bi-arrow-right icon "></i></a></li>
-              <li class="list-item"><i class="flaticon-web-development font-icon"></i><a href="<?= BASE_URL ?>course/web-development-with-ai-tools"> Web Development with AI Tools<i
-                    class="bi bi-arrow-right icon "></i></a></li>
-            </ul>
+            <?php require_once __DIR__ . '/../../includes/courses-sidebar.php'; ?>
           </div>
           <div class="sidebar-pane">
             <div class="download-area">

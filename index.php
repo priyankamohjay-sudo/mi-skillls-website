@@ -105,79 +105,53 @@ require_once 'includes/header.php'; ?>
             class="bi bi-arrow-right icon "></i></a></div>
     </div>
     <div class="row gx-4 gy-4 services-row text-center">
-      <div class="col-12 col-md-6  col-lg-4 mx-auto ">
-        <!--Start 7th service box-->
-        <div class="box service-box  wow fadeInUp  reveal-start" data-wow-offset="0" data-wow-delay=".7s">
-          <div class="service-icon"><i class="flaticon-database font-icon"></i></div><span
-            class="service-num hollow-text">7 </span>
-          <div class="service-content">
-            <h3 class="service-title">Data Science With Gen AI</h3>
-            <p class="service-text">This course covers data science concepts and AI tools with practical skills to analyze data and build intelligent data-driven solutions.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/data-science-with-gen-ai">read more<i class="bi bi-arrow-right icon "></i></a>
-        </div>
-        <!-- End 7th service box-->
-      </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto ">
-        <!--Start Second service box-->
-        <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".2s">
-          <div class="service-icon"><i class="flaticon-nanotechnology font-icon"></i></div><span
-            class="service-num hollow-text">2 </span>
-          <div class="service-content">
-            <h3 class="service-title">App Development With AI Tools</h3>
-            <p class="service-text">This course covers mobile app development concepts and AI tools with practical skills to build functional and user-friendly applications.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/app-development-with-ai-tools">read more<i class="bi bi-arrow-right icon "></i></a>
-        </div>
-        <!-- End Second service box-->
-      </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
-        <!--Start Third service box-->
-        <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".3s">
-          <div class="service-icon"><i class="flaticon-web-domain font-icon"></i></div><span
-            class="service-num hollow-text">3 </span>
-          <div class="service-content">
-            <h3 class="service-title">Digital Marketing</h3>
-            <p class="service-text">This course covers key digital marketing concepts and practical strategies to grow
-              brands and improve online visibility.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/digital-marketing">read more<i class="bi bi-arrow-right icon "></i></a>
-        </div>
-        <!-- End Third service box-->
-      </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
-        <!--Start fourth service box-->
-        <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".4s">
-          <div class="service-icon"><i class="flaticon-profile font-icon"></i></div><span
-            class="service-num hollow-text">4 </span>
-          <div class="service-content">
-            <h3 class="service-title">Graphic Desinging</h3>
-            <p class="service-text">This course covers design fundamentals and creative skills to create attractive
-              visuals and digital design assets.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/graphic-designing">read more<i class="bi bi-arrow-right icon "></i></a>
-        </div>
-        <!-- End fourth service box   -->
-      </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
-        <!--Start 5th service box-->
-        <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".5s">
-          <div class="service-icon"><i class="flaticon-strategy font-icon"></i></div><span
-            class="service-num hollow-text">5 </span>
+      <div class="col-12 col-md-6 col-lg-4 mx-auto">
+        <div class="box service-box wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".1s">
+          <div class="service-icon"><i class="flaticon-strategy font-icon"></i></div><span class="service-num hollow-text">1</span>
           <div class="service-content">
             <h3 class="service-title">AI & Applied Machine Learning</h3>
-            <p class="service-text">This course covers essential AI and machine learning concepts along with practical skills to build intelligent systems and data-driven applications.</p>
+            <p class="service-text">Build intelligent systems with essential AI and machine learning concepts, practical projects, and industry-relevant applied skills.</p>
           </div><a class="read-more" href="<?= BASE_URL ?>course/artificial-intelligence-and-applied-machine-learning">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
-        <!-- End 5th service box-->
       </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto">
-        <!--Start 6th service box-->
-        <div class="box service-box  wow fadeInUp  reveal-start" data-wow-offset="0" data-wow-delay=".6s">
-          <div class="service-icon"><i class="flaticon-search font-icon"></i></div><span
-            class="service-num hollow-text">6 </span>
+      <div class="col-12 col-md-6 col-lg-4 mx-auto">
+        <div class="box service-box wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".2s">
+          <div class="service-icon"><i class="flaticon-database font-icon"></i></div><span class="service-num hollow-text">2</span>
           <div class="service-content">
-            <h3 class="service-title">Cloud Computing & DevOps</h3>
-            <p class="service-text">This course covers cloud platforms and DevOps practices with practical skills to deploy, manage, and scale modern applications efficiently.</p>
+            <h3 class="service-title">Data Science and Analytics with Gen AI</h3>
+            <p class="service-text">Master data science, analytics, and Generative AI to analyze data, extract insights, and build intelligent data-driven solutions.</p>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/data-science-and-analytics-with-gen-ai">read more<i class="bi bi-arrow-right icon "></i></a>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mx-auto">
+        <div class="box service-box wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".3s">
+          <div class="service-icon"><i class="flaticon-search font-icon"></i></div><span class="service-num hollow-text">3</span>
+          <div class="service-content">
+            <h3 class="service-title">Cloud Computing & DevOps (AWS / Azure / GCP)</h3>
+            <p class="service-text">Learn cloud platforms and DevOps practices to deploy, manage, and scale modern applications across AWS, Azure, and GCP.</p>
           </div><a class="read-more" href="<?= BASE_URL ?>course/cloud-computing-and-devops">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
-        <!-- End 6th service box-->
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mx-auto">
+        <div class="box service-box wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".4s">
+          <div class="service-icon"><i class="flaticon-security font-icon"></i></div><span class="service-num hollow-text">4</span>
+          <div class="service-content">
+            <h3 class="service-title">Cyber Security (AI & Cloud Security)</h3>
+            <p class="service-text">Develop cybersecurity and cloud security skills with AI-powered threat detection and modern security best practices.</p>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/cybersecurity-ai-and-cloud-security">read more<i class="bi bi-arrow-right icon "></i></a>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mx-auto">
+        <div class="box service-box wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".5s">
+          <div class="service-icon"><i class="flaticon-web-development font-icon"></i></div><span class="service-num hollow-text">5</span>
+          <div class="service-content">
+            <h3 class="service-title">Web and App Development with AI Tools</h3>
+            <p class="service-text">Build full-stack web and mobile applications using modern development workflows and AI-powered tools for faster delivery.</p>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/web-and-app-development-with-ai-tools">read more<i class="bi bi-arrow-right icon "></i></a>
+        </div>
+      </div>
+          <div class="col-12 col-md-6 col-lg-4 mx-auto">
+       
       </div>
     </div>
   </div>
@@ -291,7 +265,7 @@ require_once 'includes/header.php'; ?>
         <!--Info Two-->
         <div class="col-12 col-md-6 col-lg-3 stat-box ">
           <div class="stat-box-inner" data-tilt="data-tilt"><i class="flaticon-content-management stat-icon"></i>
-            <p class="stat-num "><span class="counter" data-from="0" data-to="8" data-speed="3000"
+            <p class="stat-num "><span class="counter" data-from="0" data-to="5" data-speed="3000"
                 data-refresh-interval="50"></span><span class="sign">+</span></p>
             <h4 class="stat-desc">Total Courses</h4>
           </div>
@@ -451,6 +425,7 @@ require_once 'includes/header.php'; ?>
 </section>
 <!-- placement section end -->
 
+
 <!-- start  pricing Section-->
 <section class="pricing mega-section has-dark-bg" id="pricing-1">
 
@@ -483,94 +458,87 @@ require_once 'includes/header.php'; ?>
 
     <div class="row">
 
-      <!-- Web Development -->
+      <!-- Web & App Development -->
       <div class="col-12 col-md-6 col-xl-3 price-plan">
         <div class="plan">
 
           <div class="plan-head">
             <i class="flaticon-nft-1 plan-icon"></i>
-            <h4 class="plane-name">Web Development</h4>
-            <h3 class="price">₹1,495</h3>
-            <span class="per">Full Course</span>
+            <h4 class="plane-name">Web and App Development with AI Tools</h4>
+            <!-- <h3 class="price">₹1,495</h3> -->
+            <span class="per">Course Details</span>
           </div>
 
           <div class="plan-details sketch-style">
 
             <div class="bubble-wrap">
               <div class="bubble">
-                <strong>Frontend</strong>
-                <span>₹499 / Month</span>
+                <strong>1 Month</strong>
+                <span>₹899</span>
               </div>
               <div class="bubble">
-                <strong>Backend</strong>
-                <span>₹499 / Month</span>
+                <strong>Full Course</strong>
+                <span>₹3596</span>
               </div>
             </div>
 
             <div class="price-grid header">
-              <span>Course</span>
-              <span>Monthly</span>
-              <span>Total</span>
+              <span><strong>Topics</strong></span>
             </div>
 
             <div class="price-grid">
-              <span>Frontend</span>
-              <span>₹499</span>
-              <span>₹998 (2 Months)</span>
+              <span><strong>Frontend</strong></span>
             </div>
 
             <div class="price-grid">
-              <span>Backend</span>
-              <span>₹499</span>
-              <span>₹998 (2 Months)</span>
+              <span><strong>Backend</strong></span>
             </div>
+          
 
           </div>
         </div>
       </div>
 
-      <!-- App Development -->
+      <!-- AI & Applied Machine Learning -->
       <div class="col-12 col-md-6 col-xl-3 price-plan">
         <div class="plan">
 
           <div class="plan-head">
             <i class="flaticon-virtual-reality plan-icon"></i>
-            <h4 class="plane-name">App Development</h4>
-            <h3 class="price">₹3,899</h3>
-            <span class="per">Full Course</span>
-          </div>
+            <h4 class="plane-name">AI & Applied Machine Learning</h4>
+            <!-- <h3 class="price">₹3,899</h3> -->
+            <span class="per">Course Details</span>
+          </div> 
 
           <div class="plan-details sketch-style">
 
             <div class="bubble-wrap">
-              <div class="bubble"><strong>iOS</strong><span>₹899 / Month</span></div>
-              <div class="bubble"><strong>Android</strong><span>₹899 / Month</span></div>
-              <div class="bubble"><strong>Cross</strong><span>₹1,299</span></div>
+              <div class="bubble"><strong>1 Month</strong><span>₹1499</span></div>
+              <div class="bubble"><strong>Full Course</strong><span>₹10,493</span></div>
+            
             </div>
 
             <div class="price-grid header">
-              <span>Course</span>
-              <span>Duration</span>
-              <span>Total</span>
+              <span>Topics</span>
+              
+             
             </div>
 
             <div class="price-grid">
               <span>iOS App</span>
-              <span>2 Months</span>
-              <span>₹1,798</span>
+             
             </div>
 
             <div class="price-grid">
               <span>Android App</span>
-              <span>2 Months</span>
-              <span>₹1,798</span>
+             
             </div>
 
           </div>
         </div>
       </div>
 
-      <!-- Digital Marketing (Featured) -->
+      <!-- Cyber Security (Featured) -->
       <div class="col-12 col-md-6 col-xl-3 price-plan">
         <div class="plan featured">
 
@@ -582,50 +550,73 @@ require_once 'includes/header.php'; ?>
 
           <div class="plan-head">
             <i class="flaticon-box plan-icon"></i>
-            <h4 class="plane-name">Digital Marketing</h4>
-            <h3 class="price">₹4,799</h3>
-            <span class="per">Full Course</span>
+            <h4 class="plane-name">Cyber Security (AI & Cloud Security)</h4>
+            <!-- <h3 class="price">₹4,799</h3> -->
+            <span class="per">Course Details</span>
           </div>
 
           <div class="plan-details sketch-style">
+
             <div class="bubble-wrap">
-              <div class="bubble"><strong>SEO</strong></div>
-              <div class="bubble"><strong>SMO</strong></div>
-              <div class="bubble"><strong>Content</strong></div>
+              <div class="bubble"><strong>1 Month</strong><span>₹1,299</span></div>
+              <div class="bubble"><strong>Full Course</strong><span>₹4,799</span></div>
             </div>
 
-            <p class="summary-text">
-              Duration: <strong>4 Months</strong><br>
-              ₹1,299 / Month · <strong>Total ₹4,799</strong>
-            </p>
+            <div class="price-grid header">
+              <span><strong>Topics</strong></span>
+            </div>
+
+            <div class="price-grid">
+              <span><strong>Fundamentals</strong></span>
+            </div>
+
+            <div class="price-grid">
+              <span><strong>Cloud</strong></span>
+            </div>
+
+            <div class="price-grid">
+              <span><strong>AI</strong></span>
+            </div>
+
           </div>
 
         </div>
       </div>
 
-      <!-- Graphic Designing -->
+      <!-- Cloud Computing & DevOps -->
       <div class="col-12 col-md-6 col-xl-3 price-plan">
         <div class="plan">
 
           <div class="plan-head">
             <i class="flaticon-basic-shapes plan-icon"></i>
-            <h4 class="plane-name">Graphic Designing</h4>
-            <h3 class="price">₹2,495</h3>
-            <span class="per">Full Course</span>
+            <h4 class="plane-name">Cloud Computing & DevOps</h4>
+            <!-- <h3 class="price">₹2,495</h3> -->
+            <span class="per">Course Details</span>
           </div>
 
           <div class="plan-details sketch-style">
+
             <div class="bubble-wrap">
-              <div class="bubble"><strong>UI / UX</strong></div>
-              <div class="bubble"><strong>Figma</strong></div>
-              <div class="bubble"><strong>Canva</strong></div>
-              <div class="bubble"><strong>Photoshop</strong></div>
+              <div class="bubble"><strong>1 Month</strong><span>₹1,299</span></div>
+              <div class="bubble"><strong>Full Course</strong><span>₹4,799</span></div>
             </div>
 
-            <p class="summary-text">
-              Duration: <strong>5 Months</strong><br>
-              ₹499 / Month · <strong>Total ₹2,495</strong>
-            </p>
+            <div class="price-grid header">
+              <span><strong>Topics</strong></span>
+            </div>
+
+            <div class="price-grid">
+              <span><strong>Cloud</strong></span>
+            </div>
+
+            <div class="price-grid">
+              <span><strong>DevOps</strong></span>
+            </div>
+
+            <div class="price-grid">
+              <span><strong>CI/CD</strong></span>
+            </div>
+
           </div>
 
         </div>

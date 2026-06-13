@@ -774,11 +774,8 @@ $(function () {
   const path = window.location.pathname;
 
   if (
-    path.includes("web-development") ||
-    path.includes("app-development") ||
-    path.includes("digital-marketing") ||
-    path.includes("graphic-designing") ||
-    path.includes("testing")||
+    path.includes("/course/") ||
+    path.includes("testing") ||
     path.includes("networking")
   ) {
     document.documentElement.style.setProperty(

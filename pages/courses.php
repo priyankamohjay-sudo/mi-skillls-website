@@ -50,116 +50,53 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
     </div>
     <div class="row gx-4 gy-4 services-row text-center">
-      <div class="col-12 col-md-6  col-lg-4 mx-auto ">
-          <!--Start 7th service box-->
-        <div class="box service-box  wow fadeInUp  reveal-start" data-wow-offset="0" data-wow-delay=".7s">
-          <div class="service-icon"><i class="flaticon-database font-icon"></i></div><span
-            class="service-num hollow-text">7 </span>
-          <div class="service-content">
-            <h3 class="service-title">Data Science With Gen AI</h3>
-            <p class="service-text">This course covers data science concepts and AI tools with practical skills to analyze data and build intelligent data-driven solutions.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/data-science-with-gen-ai">read more<i class="bi bi-arrow-right icon "></i></a>
-        </div>
-        <!-- End 7th service box-->
-      </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto ">
-        <!--Start Second service box-->
-        <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".2s">
-          <div class="service-icon"><i class="flaticon-nanotechnology font-icon"></i></div><span
-            class="service-num hollow-text">2 </span>
-          <div class="service-content">
-            <h3 class="service-title">App Development With AI Tools</h3>
-            <p class="service-text">This course covers mobile app development concepts and AI tools with practical skills to build functional and user-friendly applications.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/app-development-with-ai-tools">read more<i class="bi bi-arrow-right icon "></i></a>
-        </div>
-        <!-- End Second service box-->
-      </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
-        <!--Start Third service box-->
-        <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".3s">
-          <div class="service-icon"><i class="flaticon-web-domain font-icon"></i></div><span
-            class="service-num hollow-text">3 </span>
-          <div class="service-content">
-            <h3 class="service-title">Digital Marketing</h3>
-            <p class="service-text">This course covers key digital marketing concepts and practical strategies to grow
-              brands and improve online visibility.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/digital-marketing">read more<i class="bi bi-arrow-right icon "></i></a>
-        </div>
-        <!-- End Third service box-->
-      </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
-        <!--Start fourth service box-->
-        <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".4s">
-          <div class="service-icon"><i class="flaticon-profile font-icon"></i></div><span
-            class="service-num hollow-text">4 </span>
-          <div class="service-content">
-            <h3 class="service-title">Graphic Desinging</h3>
-            <p class="service-text">This course covers design fundamentals and creative skills to create attractive
-              visuals and digital design assets.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/graphic-designing">read more<i class="bi bi-arrow-right icon "></i></a>
-        </div>
-        <!-- End fourth service box   -->
-      </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
-        <!--Start 5th service box-->
-        <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".5s">
-          <div class="service-icon"><i class="flaticon-strategy font-icon"></i></div><span
-            class="service-num hollow-text">5 </span>
+      <div class="col-12 col-md-6 col-lg-4 mx-auto">
+        <div class="box service-box wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".1s">
+          <div class="service-icon"><i class="flaticon-strategy font-icon"></i></div><span class="service-num hollow-text">1</span>
           <div class="service-content">
             <h3 class="service-title">AI & Applied Machine Learning</h3>
-            <p class="service-text">This course covers essential AI and machine learning concepts along with practical skills to build intelligent systems and data-driven applications.</p>
+            <p class="service-text">Build intelligent systems with essential AI and machine learning concepts, practical projects, and industry-relevant applied skills.</p>
           </div><a class="read-more" href="<?= BASE_URL ?>course/artificial-intelligence-and-applied-machine-learning">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
-        <!-- End 5th service box-->
       </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
-        <!--Start 6th service box-->
-        <div class="box service-box  wow fadeInUp  reveal-start" data-wow-offset="0" data-wow-delay=".6s">
-          <div class="service-icon"><i class="flaticon-search font-icon"></i></div><span
-            class="service-num hollow-text">6 </span>
+      <div class="col-12 col-md-6 col-lg-4 mx-auto">
+        <div class="box service-box wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".2s">
+          <div class="service-icon"><i class="flaticon-database font-icon"></i></div><span class="service-num hollow-text">2</span>
           <div class="service-content">
-            <h3 class="service-title">Cloud Computing & DevOps</h3>
-            <p class="service-text">This course covers cloud platforms and DevOps practices with practical skills to deploy, manage, and scale modern applications efficiently.</p>
+            <h3 class="service-title">Data Science and Analytics with Gen AI</h3>
+            <p class="service-text">Master data science, analytics, and Generative AI to analyze data, extract insights, and build intelligent data-driven solutions.</p>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/data-science-and-analytics-with-gen-ai">read more<i class="bi bi-arrow-right icon "></i></a>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mx-auto">
+        <div class="box service-box wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".3s">
+          <div class="service-icon"><i class="flaticon-search font-icon"></i></div><span class="service-num hollow-text">3</span>
+          <div class="service-content">
+            <h3 class="service-title">Cloud Computing & DevOps (AWS / Azure / GCP)</h3>
+            <p class="service-text">Learn cloud platforms and DevOps practices to deploy, manage, and scale modern applications across AWS, Azure, and GCP.</p>
           </div><a class="read-more" href="<?= BASE_URL ?>course/cloud-computing-and-devops">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
-        <!-- End 6th service box-->
       </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
-         <!--Start First service box-->
-        <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".1s">
-          <div class="service-icon"><i class="flaticon-web-development font-icon"></i></div><span
-            class="service-num hollow-text">1 </span>
+      <div class="col-12 col-md-6 col-lg-4 mx-auto">
+        <div class="box service-box wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".4s">
+          <div class="service-icon"><i class="flaticon-security font-icon"></i></div><span class="service-num hollow-text">4</span>
           <div class="service-content">
-            <h3 class="service-title">Web Development With AI Tools</h3>
-            <p class="service-text">This course covers frontend, backend, and AI-powered tools with practical skills to create fast and responsive web applications.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/web-development-with-ai-tools">read more<i class="bi bi-arrow-right icon "></i></a>
-        </div>
-        <!-- End First service box   -->
-     
-      </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
-        <!--Start 8th service box-->
-        <div class="box service-box  wow fadeInUp  reveal-start" data-wow-offset="0" data-wow-delay=".8s">
-          <div class="service-icon"><i class="flaticon-data-management font-icon"></i></div><span
-            class="service-num hollow-text">8 </span>
-          <div class="service-content">
-            <h3 class="service-title">Data Analytics With Gen AI</h3>
-            <p class="service-text">This course covers data analysis, visualization, and AI tools with practical skills to extract insights and support better decision-making.</p>
-          </div><a class="read-more" href="<?= BASE_URL ?>course/data-analytics-with-gen-ai">read more<i class="bi bi-arrow-right icon "></i></a>
-        </div>
-        <!-- End 8th service box-->
-      </div>
-      <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
-        <!--Start 9th service box-->
-        <div class="box service-box  wow fadeInUp  reveal-start" data-wow-offset="0" data-wow-delay=".9s">
-          <div class="service-icon"><i class="flaticon-security font-icon"></i></div><span
-            class="service-num hollow-text">9 </span>
-          <div class="service-content">
-            <h3 class="service-title">Cybersecurity - AI & Cloud Security</h3>
-            <p class="service-text">This course covers cybersecurity fundamentals and cloud security with practical skills to protect systems and manage modern security threats.</p>
+            <h3 class="service-title">Cyber Security (AI & Cloud Security)</h3>
+            <p class="service-text">Develop cybersecurity and cloud security skills with AI-powered threat detection and modern security best practices.</p>
           </div><a class="read-more" href="<?= BASE_URL ?>course/cybersecurity-ai-and-cloud-security">read more<i class="bi bi-arrow-right icon "></i></a>
         </div>
-        <!-- End 9th service box-->
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mx-auto">
+        <div class="box service-box wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".5s">
+          <div class="service-icon"><i class="flaticon-web-development font-icon"></i></div><span class="service-num hollow-text">5</span>
+          <div class="service-content">
+            <h3 class="service-title">Web and App Development with AI Tools</h3>
+            <p class="service-text">Build full-stack web and mobile applications using modern development workflows and AI-powered tools for faster delivery.</p>
+          </div><a class="read-more" href="<?= BASE_URL ?>course/web-and-app-development-with-ai-tools">read more<i class="bi bi-arrow-right icon "></i></a>
+        </div>
+      </div>
+       <div class="col-12 col-md-6 col-lg-4 mx-auto">
+       
       </div>
     </div>
   </div>
@@ -203,9 +140,10 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <div class="collapse" id="collapse-1" data-bs-parent="#accordion">
               <div class="card-body">
                 <p class="faq-answer">
-                  MI Skills offers industry-focused courses including Web Development,
-                  App Development, Digital Marketing, Graphic Designing, Software Testing,
-                  and Networking. All courses are designed to match current industry needs.
+                  MI Skills offers industry-focused courses including AI & Applied Machine Learning,
+                  Data Science and Analytics with Gen AI, Cloud Computing & DevOps,
+                  Cyber Security, and Web and App Development with AI Tools.
+                  All courses are designed to match current industry needs.
                 </p>
               </div>
             </div>

@@ -44,6 +44,12 @@
                 href="<?= BASE_URL ?>subscription">Subscription</a>
             </li>
             <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
+                href="<?= BASE_URL ?>hiring">Hire</a>
+            </li>
+            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
+                href="<?= BASE_URL ?>careers">Careers</a>
+            </li>
+            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
                 href="<?= BASE_URL ?>contact-us">Contact Us</a>
             </li>
           </ul>
@@ -57,28 +63,16 @@
                 href="<?= BASE_URL ?>course/artificial-intelligence-and-applied-machine-learning">AI & Applied Machine Learning</a>
             </li>
             <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
-                href="<?= BASE_URL ?>course/cloud-computing-and-devops">Cloud Computing & DevOps</a>
+                href="<?= BASE_URL ?>course/data-science-and-analytics-with-gen-ai">Data Science and Analytics with Gen AI</a>
             </li>
             <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
-                href="<?= BASE_URL ?>course/digital-marketing">Digital Marketing</a>
+                href="<?= BASE_URL ?>course/cloud-computing-and-devops">Cloud Computing & DevOps (AWS / Azure / GCP)</a>
             </li>
             <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
-                href="<?= BASE_URL ?>course/graphic-designing">Graphic Desinging</a>
+                href="<?= BASE_URL ?>course/cybersecurity-ai-and-cloud-security">Cyber Security (AI & Cloud Security)</a>
             </li>
             <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
-                href="<?= BASE_URL ?>course/data-science-with-gen-ai">Data Science with Gen AI</a>
-            </li>
-            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
-                href="<?= BASE_URL ?>course/cybersecurity-ai-and-cloud-security">Cybersecurity - AI & Cloud Security</a>
-            </li>
-            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
-                href="<?= BASE_URL ?>course/data-analytics-with-gen-ai">Data Analytics with Gen AI</a>
-            </li>
-             <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
-                href="<?= BASE_URL ?>course/app-development-with-ai-tools">App Development with AI Tools</a>
-            </li>
-            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a class="footer-menu-link"
-                href="<?= BASE_URL ?>course/web-development-with-ai-tools">Web Development with AI Tools</a>
+                href="<?= BASE_URL ?>course/web-and-app-development-with-ai-tools">Web and App Development with AI Tools</a>
             </li>
           </ul>
         </div>

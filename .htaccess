@@ -2,6 +2,16 @@ RewriteEngine On
 Options -Indexes
 
 # -------------------------
+# LEGACY COURSE REDIRECTS
+# -------------------------
+RewriteRule ^course/data-science-with-gen-ai/?$ course/data-science-and-analytics-with-gen-ai [R=301,L]
+RewriteRule ^course/data-analytics-with-gen-ai/?$ course/data-science-and-analytics-with-gen-ai [R=301,L]
+RewriteRule ^course/web-development-with-ai-tools/?$ course/web-and-app-development-with-ai-tools [R=301,L]
+RewriteRule ^course/app-development-with-ai-tools/?$ course/web-and-app-development-with-ai-tools [R=301,L]
+RewriteRule ^course/digital-marketing/?$ courses [R=301,L]
+RewriteRule ^course/graphic-designing/?$ courses [R=301,L]
+
+# -------------------------
 # COURSE ROUTES
 # /course/web-development -> pages/course/web-development.php
 # -------------------------

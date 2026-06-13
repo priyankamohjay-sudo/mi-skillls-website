@@ -3,15 +3,155 @@
  * Frictionless One-Step Flow for MI Skills Website
  */
 
-// const API_BASE_URL = 'https://api.miskills.in'; 
-const API_BASE_URL = 'http://localhost:5000'; // Development
+const SUBSCRIPTION_API_BASE_URL = window.MI_API_BASE_URL || 'https://dev.miskills.in';
+
+const COURSE_API_SLUGS = {
+  'web-and-app-development-with-ai-tools': [
+    'web-development-with-ai-tools-full-stack-front-end-back-end',
+    'web-and-app-development-with-ai-tools'
+  ],
+  'ai-applied-machine-learning': [
+    'ai-applied-machine-learning',
+    'artificial-intelligence-and-applied-machine-learning'
+  ],
+  'data-science-and-analytics-with-gen-ai': [
+    'data-science-and-analytics-with-gen-ai'
+  ],
+  'cloud-computing-devops-aws-azure-gcp': [
+    'cloud-computing-devops-aws-azure-gcp',
+    'cloud-computing-and-devops'
+  ],
+  'cyber-security-ai-cloud-security': [
+    'cyber-security-ai-cloud-security',
+    'cybersecurity-ai-and-cloud-security'
+  ]
+};
+
+const SUBCATEGORY_CACHE = new Map();
 
 let currentPurchase = {
   subcategoryId: '',
   subscriptionMode: '',
   learningMode: 'ONLINE',
-  slug: ''
+  slug: '',
+  apiSlug: '',
+  courseName: ''
 };
+
+async function fetchSubcategoryBySlug(slug) {
+  const slugsToTry = COURSE_API_SLUGS[slug] || [slug];
+  let lastError = null;
+
+  for (const apiSlug of slugsToTry) {
+    try {
+      const response = await fetch(`${SUBSCRIPTION_API_BASE_URL}/api/subcategories/slug/${encodeURIComponent(apiSlug)}`);
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && data.success !== false && data.subcategory) {
+        const result = { subcategory: data.subcategory, apiSlug };
+        SUBCATEGORY_CACHE.set(slug, result);
+        return result;
+      }
+
+      lastError = new Error(data.message || `Course not found for slug: ${apiSlug}`);
+    } catch (err) {
+      lastError = err;
+    }
+  }
+
+  throw lastError || new Error('Course information is unavailable.');
+}
+
+function getNestedValue(source, paths) {
+  for (const path of paths) {
+    const value = path.split('.').reduce((obj, key) => obj?.[key], source);
+    if (value !== undefined && value !== null && value !== '') return value;
+  }
+  return null;
+}
+
+function formatCurrency(value) {
+  if (value === null || value === undefined || value === '') return '';
+  const numeric = Number(String(value).replace(/[^\d.]/g, ''));
+  if (Number.isNaN(numeric)) return String(value);
+  return `Rs. ${numeric.toLocaleString('en-IN')}`;
+}
+
+function getCoursePrice(subcategory, mode, learningMode) {
+  const normalizedMode = mode === 'TOTAL' ? 'full' : 'monthly';
+  const normalizedLearning = learningMode.toLowerCase();
+  return getNestedValue(subcategory, [
+    `pricing.${normalizedLearning}.${normalizedMode}`,
+    `prices.${normalizedLearning}.${normalizedMode}`,
+    `${normalizedLearning}${normalizedMode.charAt(0).toUpperCase()}${normalizedMode.slice(1)}Price`,
+    `${normalizedLearning}_${normalizedMode}_price`,
+    normalizedLearning === 'offline' && normalizedMode === 'monthly' ? 'offlineMonthlyPrice' : '',
+    normalizedLearning === 'offline' && normalizedMode === 'full' ? 'offlineFullPrice' : '',
+    normalizedLearning === 'online' && normalizedMode === 'monthly' ? 'onlineMonthlyPrice' : '',
+    normalizedLearning === 'online' && normalizedMode === 'full' ? 'onlineFullPrice' : '',
+    normalizedMode === 'monthly' ? 'monthlyPrice' : 'fullPrice',
+    'price'
+  ].filter(Boolean));
+}
+
+async function hydrateSubscriptionCardsFromBackend() {
+  const buttons = Array.from(document.querySelectorAll('button[onclick^="startPurchase("]'));
+  if (!buttons.length) return;
+
+  const slugMap = new Map();
+  buttons.forEach(button => {
+    const match = button.getAttribute('onclick')?.match(/startPurchase\('([^']+)'\s*,\s*'([^']+)'\)/);
+    if (!match) return;
+    const [, slug, mode] = match;
+    if (!slugMap.has(slug)) slugMap.set(slug, { slug, modes: new Set(), buttons: [] });
+    slugMap.get(slug).modes.add(mode);
+    slugMap.get(slug).buttons.push(button);
+  });
+
+  await Promise.all(Array.from(slugMap.values()).map(async item => {
+    try {
+      const { subcategory, apiSlug } = await fetchSubcategoryBySlug(item.slug);
+      SUBCATEGORY_CACHE.set(item.slug, { subcategory, apiSlug });
+      item.buttons.forEach(button => {
+        button.dataset.subcategoryId = subcategory._id || subcategory.id || '';
+        button.dataset.apiSlug = apiSlug;
+
+        const card = button.closest('.price-card, .full-course-card, .plan');
+        if (!card) return;
+
+        const titleEl = card.querySelector('h3');
+        const descEl = card.querySelector('.text-white-50, .sub-text');
+        const mode = button.getAttribute('onclick')?.includes("'TOTAL'") ? 'TOTAL' : 'MONTHLY';
+
+        if (titleEl && (subcategory.name || subcategory.title)) {
+          const isFullCard = card.classList.contains('full-course-card') || mode === 'TOTAL';
+          titleEl.textContent = `${subcategory.name || subcategory.title}${isFullCard ? ' - Full Course' : ''}`;
+        }
+
+        if (descEl && (subcategory.shortDescription || subcategory.description || subcategory.subtitle)) {
+          descEl.textContent = subcategory.shortDescription || subcategory.description || subcategory.subtitle;
+        }
+
+        const onlinePrice = getCoursePrice(subcategory, mode, 'ONLINE');
+        const offlinePrice = getCoursePrice(subcategory, mode, 'OFFLINE');
+
+        if (onlinePrice) {
+          const el = card.querySelector('.online-price strong, .online-price.price');
+          if (el) el.textContent = `${formatCurrency(onlinePrice)}${mode === 'MONTHLY' ? ' / Month' : ''}`;
+        }
+
+        if (offlinePrice) {
+          const el = card.querySelector('.offline-price strong, .offline-price.price');
+          if (el) el.textContent = `${formatCurrency(offlinePrice)}${mode === 'MONTHLY' ? ' / Month' : ''}`;
+        }
+      });
+    } catch (err) {
+      console.warn(`Could not hydrate course ${item.slug}:`, err);
+    }
+  }));
+}
+
+document.addEventListener('DOMContentLoaded', hydrateSubscriptionCardsFromBackend);
 
 /**
  * Custom Theme-Consistent Toast Notification
@@ -80,15 +220,12 @@ async function startPurchase(slug, mode) {
   currentPurchase.learningMode = (offlineBtn && offlineBtn.classList.contains('active')) ? 'OFFLINE' : 'ONLINE';
 
   try {
-    // 1. Fetch Subcategory ID from slug (to keep createSubsPayment logic working)
-    const response = await fetch(`${API_BASE_URL}/api/subcategories/slug/${slug}`);
-    const data = await response.json();
-
-    if (!data.success || !data.subcategory) {
-      return showToast('Course Error', 'This course information is currently unavailable. Please try again later.', 'error');
-    }
-
-    currentPurchase.subcategoryId = data.subcategory._id;
+    // 1. Fetch Subcategory ID from backend slug (keeps payment tied to backend data)
+    const lookup = SUBCATEGORY_CACHE.get(slug) || await fetchSubcategoryBySlug(slug);
+    const { subcategory, apiSlug } = lookup;
+    currentPurchase.subcategoryId = subcategory._id || subcategory.id;
+    currentPurchase.apiSlug = apiSlug;
+    currentPurchase.courseName = subcategory.name || subcategory.title || currentPurchase.courseName;
 
     // 2. Check for existing authentication
     const token = localStorage.getItem('accessToken');
@@ -107,6 +244,8 @@ async function startPurchase(slug, mode) {
       } else {
         showToast('System Error', 'Enrollment modal could not be loaded.', 'error');
       }
+    } else if (currentPurchase.learningMode === 'OFFLINE') {
+      redirectToOfflineEnrollment();
     } else {
       proceedToCheckout(token);
     }
@@ -158,7 +297,7 @@ async function handleDirectSubscribe() {
   toggleLoader(true);
 
   try {
-    const res = await fetch(`${API_BASE_URL}/api/auth/direct-subscribe`, {
+    const res = await fetch(`${SUBSCRIPTION_API_BASE_URL}/api/auth/direct-subscribe`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
@@ -179,7 +318,12 @@ async function handleDirectSubscribe() {
         if (modal) modal.hide();
       }
       
-      proceedToCheckout(data.accessToken);
+      if (currentPurchase.learningMode === 'OFFLINE') {
+        toggleLoader(false);
+        redirectToOfflineEnrollment();
+      } else {
+        proceedToCheckout(data.accessToken);
+      }
     } else {
       toggleLoader(false);
       showToast('Enrollment Failed', data.message || 'We could not process your details. Please try again.', 'error');
@@ -191,16 +335,37 @@ async function handleDirectSubscribe() {
   }
 }
 
+/**
+ * Redirects offline learners to the enrollment wizard.
+ */
+function redirectToOfflineEnrollment() {
+  sessionStorage.setItem('offlinePurchase', JSON.stringify({
+    slug: currentPurchase.slug,
+    apiSlug: currentPurchase.apiSlug,
+    subcategoryId: currentPurchase.subcategoryId,
+    courseName: currentPurchase.courseName,
+    subscriptionMode: currentPurchase.subscriptionMode,
+    learningMode: 'OFFLINE'
+  }));
+
+  const qs = new URLSearchParams({
+    course: currentPurchase.slug,
+    mode: currentPurchase.subscriptionMode,
+    step: 'location'
+  });
+
+  window.location.href = `${BASE_URL}offline-enrollment?${qs}`;
+}
+
 const COURSE_DURATIONS = {
-  'web-development-with-ai-tools-full-stack-front-end-back-end': 4,
-  'app-development-with-ai-tools-android-ios-cross-platform': 4,
-  'digital-marketing': 3,
-  'graphic-designing': 3,
+  'web-and-app-development-with-ai-tools': 4,
+  'data-science-and-analytics-with-gen-ai': 7,
   'ai-applied-machine-learning': 7,
+  'artificial-intelligence-and-applied-machine-learning': 7,
   'cloud-computing-devops-aws-azure-gcp': 5,
-  'data-science-with-gen-ai': 7,
+  'cloud-computing-and-devops': 5,
   'cyber-security-ai-cloud-security': 5,
-  'data-analytics-with-gen-ai': 4,
+  'cybersecurity-ai-and-cloud-security': 5,
   'interview-internship-support': 1,
   'business-funding': 1
 };
@@ -219,22 +384,39 @@ async function proceedToCheckout(token) {
       months = COURSE_DURATIONS[currentPurchase.slug] || 4;
     }
 
+    const subscriptionMode =
+      currentPurchase.learningMode === 'OFFLINE' &&
+      (currentPurchase.subscriptionMode === 'TOTAL' || currentPurchase.paymentMode === 'full-only')
+        ? 'FULL'
+        : currentPurchase.subscriptionMode;
+
+    if (
+      currentPurchase.learningMode === 'OFFLINE' &&
+      (!currentPurchase.locationId || !currentPurchase.batchId || !currentPurchase.seatNumber)
+    ) {
+      toggleLoader(false);
+      return showToast('Offline Selection Missing', 'Please select your location, batch, and seat before payment.', 'warning');
+    }
+
+    const subscriptionItem = {
+      subcategoryId: currentPurchase.subcategoryId,
+      learningMode: currentPurchase.learningMode,
+      locationId: currentPurchase.locationId || null,
+      batchId: currentPurchase.batchId || null,
+      seatNumber: currentPurchase.seatNumber || null
+    };
+
+    if (!(currentPurchase.learningMode === 'OFFLINE' && subscriptionMode === 'FULL')) {
+      subscriptionItem.months = months;
+    }
+
     const payload = {
-      subcategories: [
-        {
-          subcategoryId: currentPurchase.subcategoryId,
-          learningMode: currentPurchase.learningMode,
-          months: months,
-          locationId: null,
-          batchId: null,
-          seatNumber: null
-        }
-      ],
-      subscriptionMode: currentPurchase.subscriptionMode,
+      subcategories: [subscriptionItem],
+      subscriptionMode,
       client: "WEB"
     };
 
-    const res = await fetch(`${API_BASE_URL}/api/payments/create-subscription-payment`, {
+    const res = await fetch(`${SUBSCRIPTION_API_BASE_URL}/api/payments/create-subscription-payment`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

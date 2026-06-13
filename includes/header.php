@@ -70,6 +70,8 @@ if (isset($_POST['UserSubmit'])) {
   <title><?= $title ?? 'MISKILLS' ?></title>
   <script>
     const BASE_URL = '<?= BASE_URL ?>';
+    const API_BASE_URL = '<?= API_BASE_URL ?>';
+    window.MI_API_BASE_URL = '<?= API_BASE_URL ?>';
   </script>
   <style>
     .header-basic .links-list > .menu-item > .menu-link {
@@ -199,6 +201,10 @@ if (isset($_POST['UserSubmit'])) {
             <a class="menu-link" href="<?= BASE_URL ?>about-us">About Us</a>
           </li>
 
+          <li class="menu-item">
+            <a class="menu-link" href="<?= BASE_URL ?>hiring">Hiring</a>
+          </li>
+
           <li class="menu-item has-sub-menu">
             <a class="menu-link" href="<?= BASE_URL ?>courses">
               Courses
@@ -214,43 +220,23 @@ if (isset($_POST['UserSubmit'])) {
                 </a>
               </li>
               <li class="menu-item sub-menu-item">
+                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/data-science-and-analytics-with-gen-ai">
+                  Data Science and Analytics with Gen AI
+                </a>
+              </li>
+              <li class="menu-item sub-menu-item">
                 <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/cloud-computing-and-devops">
-                  Cloud Computing & DevOps
-                </a>
-              </li>
-              <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/digital-marketing">
-                  Digital Marketing
-                </a>
-              </li>
-              <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/graphic-designing">
-                  Graphic Designing
-                </a>
-              </li>
-              <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/data-science-with-gen-ai">
-                  Data Science with Gen AI
-                </a>
-              </li>
-              <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/data-analytics-with-gen-ai">
-                  Data Analytics with Gen AI
+                  Cloud Computing & DevOps (AWS / Azure / GCP)
                 </a>
               </li>
               <li class="menu-item sub-menu-item">
                 <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/cybersecurity-ai-and-cloud-security">
-                  Cybersecurity - AI & Cloud Security
-                </a>
-              </li>
-               <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/app-development-with-ai-tools">
-                  App Development with AI Tools
+                  Cyber Security (AI & Cloud Security)
                 </a>
               </li>
               <li class="menu-item sub-menu-item">
-                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/web-development-with-ai-tools">
-                  Web Development with AI Tools
+                <a class="menu-link sub-menu-link" href="<?= BASE_URL ?>course/web-and-app-development-with-ai-tools">
+                  Web and App Development with AI Tools
                 </a>
               </li>
             </ul>
@@ -258,6 +244,10 @@ if (isset($_POST['UserSubmit'])) {
 
           <li class="menu-item">
             <a class="menu-link" href="<?= BASE_URL ?>subscription">Subscription</a>
+          </li>
+
+          <li class="menu-item">
+            <a class="menu-link" href="<?= BASE_URL ?>careers">Careers</a>
           </li>
 
           <li class="menu-item">
