@@ -121,9 +121,9 @@ async function hydrateSubscriptionCardsFromBackend() {
 
   await Promise.all(Array.from(slugMap.values()).map(async item => {
     try {
-      console.log(`[Hydration] Fetching data for course slug: ${item.slug}`);
+      // console.log(`[Hydration] Fetching data for course slug: ${item.slug}`);
       const { subcategory, apiSlug } = await fetchSubcategoryBySlug(item.slug);
-      console.log(`[Hydration] Successfully fetched data for slug: ${item.slug}`, subcategory);
+      // console.log(`[Hydration] Successfully fetched data for slug: ${item.slug}`, subcategory);
       
       SUBCATEGORY_CACHE.set(item.slug, { subcategory, apiSlug });
       item.buttons.forEach(button => {
@@ -152,7 +152,7 @@ async function hydrateSubscriptionCardsFromBackend() {
         // Hydrate dynamic duration and daily hours
         const durationEl = card.querySelector('[data-duration-months]');
         if (durationEl && subcategory.durationMonths) {
-          console.log(`[Hydration] Updating duration for ${item.slug} to ${subcategory.durationMonths} months`);
+          // console.log(`[Hydration] Updating duration for ${item.slug} to ${subcategory.durationMonths} months`);
           durationEl.textContent = `${subcategory.durationMonths} Months Access`;
         }
         const dailyHoursEl = card.querySelector('[data-daily-hours]');
@@ -185,9 +185,9 @@ async function hydrateSubscriptionCardsFromBackend() {
 
         if (onlineFeaturesList) {
           const onlineFeatures = subcategory.plans?.online?.features || [];
-          console.log(`[Hydration] Updating online features for ${item.slug}`, onlineFeatures);
+          // console.log(`[Hydration] Updating online features for ${item.slug}`, onlineFeatures);
           onlineFeaturesList.innerHTML = '';
-          const combinedOnline = [...baseCurriculum, ...onlineFeatures];
+          const combinedOnline = [...baseCurriculum];
           combinedOnline.forEach(feat => {
             const li = document.createElement('li');
             li.textContent = feat;
@@ -197,9 +197,9 @@ async function hydrateSubscriptionCardsFromBackend() {
 
         if (offlineFeaturesList) {
           const offlineFeatures = subcategory.plans?.offline?.features || [];
-          console.log(`[Hydration] Updating offline features for ${item.slug}`, offlineFeatures);
+          // console.log(`[Hydration] Updating offline features for ${item.slug}`, offlineFeatures);
           offlineFeaturesList.innerHTML = '';
-          const combinedOffline = [...baseCurriculum, ...offlineFeatures];
+          const combinedOffline = [...baseCurriculum];
           combinedOffline.forEach(feat => {
             const li = document.createElement('li');
             li.textContent = feat;
@@ -209,12 +209,12 @@ async function hydrateSubscriptionCardsFromBackend() {
 
         const onlinePrice = getCoursePrice(subcategory, mode, 'ONLINE');
         const offlinePrice = getCoursePrice(subcategory, mode, 'OFFLINE');
-        console.log(`[Hydration] Prices for ${item.slug}: Online = ${onlinePrice}, Offline = ${offlinePrice}`);
+        // console.log(`[Hydration] Prices for ${item.slug}: Online = ${onlinePrice}, Offline = ${offlinePrice}`);
 
         if (onlinePrice) {
           const el = card.querySelector('.online-price strong, .online-price.price');
           if (el) {
-            console.log(`[Hydration] Updating online price element for ${item.slug}`, el, `with price: ${onlinePrice}`);
+            // console.log(`[Hydration] Updating online price element for ${item.slug}`, el, `with price: ${onlinePrice}`);
             el.textContent = `${formatCurrency(onlinePrice)}${mode === 'MONTHLY' ? ' / Month' : ''}`;
           } else {
             console.warn(`[Hydration] Online price element not found in card for ${item.slug}`, card);
@@ -224,7 +224,7 @@ async function hydrateSubscriptionCardsFromBackend() {
         if (offlinePrice) {
           const el = card.querySelector('.offline-price strong, .offline-price.price');
           if (el) {
-            console.log(`[Hydration] Updating offline price element for ${item.slug}`, el, `with price: ${offlinePrice}`);
+            // console.log(`[Hydration] Updating offline price element for ${item.slug}`, el, `with price: ${offlinePrice}`);
             el.textContent = `${formatCurrency(offlinePrice)}${mode === 'MONTHLY' ? ' / Month' : ''}`;
           } else {
             console.warn(`[Hydration] Offline price element not found in card for ${item.slug}`, card);
