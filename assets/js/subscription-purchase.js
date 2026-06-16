@@ -77,13 +77,15 @@ function formatCurrency(value) {
   if (value === null || value === undefined || value === '') return '';
   const numeric = Number(String(value).replace(/[^\d.]/g, ''));
   if (Number.isNaN(numeric)) return String(value);
-  return `Rs. ${numeric.toLocaleString('en-IN')}`;
+  return `₹${numeric.toLocaleString('en-IN')}`;
 }
 
 function getCoursePrice(subcategory, mode, learningMode) {
   const normalizedMode = mode === 'TOTAL' ? 'full' : 'monthly';
   const normalizedLearning = learningMode.toLowerCase();
   return getNestedValue(subcategory, [
+    `plans.${normalizedLearning}.${normalizedMode === 'full' ? 'totalPrice' : 'monthlyPrice'}`,
+    `plans.${normalizedLearning}.${normalizedMode === 'full' ? 'total' : 'monthly'}`,
     `pricing.${normalizedLearning}.${normalizedMode}`,
     `prices.${normalizedLearning}.${normalizedMode}`,
     `${normalizedLearning}${normalizedMode.charAt(0).toUpperCase()}${normalizedMode.slice(1)}Price`,
@@ -98,8 +100,14 @@ function getCoursePrice(subcategory, mode, learningMode) {
 }
 
 async function hydrateSubscriptionCardsFromBackend() {
-  const buttons = Array.from(document.querySelectorAll('button[onclick^="startPurchase("]'));
-  if (!buttons.length) return;
+  const buttons = Array.from(document.querySelectorAll('button')).filter(btn => {
+    const onclickStr = btn.getAttribute('onclick') || '';
+    return onclickStr.includes('startPurchase(');
+  });
+  if (!buttons.length) {
+    console.warn('[Hydration] No startPurchase buttons found on page.');
+    return;
+  }
 
   const slugMap = new Map();
   buttons.forEach(button => {
@@ -113,14 +121,20 @@ async function hydrateSubscriptionCardsFromBackend() {
 
   await Promise.all(Array.from(slugMap.values()).map(async item => {
     try {
+      console.log(`[Hydration] Fetching data for course slug: ${item.slug}`);
       const { subcategory, apiSlug } = await fetchSubcategoryBySlug(item.slug);
+      console.log(`[Hydration] Successfully fetched data for slug: ${item.slug}`, subcategory);
+      
       SUBCATEGORY_CACHE.set(item.slug, { subcategory, apiSlug });
       item.buttons.forEach(button => {
         button.dataset.subcategoryId = subcategory._id || subcategory.id || '';
         button.dataset.apiSlug = apiSlug;
 
         const card = button.closest('.price-card, .full-course-card, .plan');
-        if (!card) return;
+        if (!card) {
+          console.warn(`[Hydration] Card element not found for button`, button);
+          return;
+        }
 
         const titleEl = card.querySelector('h3');
         const descEl = card.querySelector('.text-white-50, .sub-text');
@@ -135,26 +149,99 @@ async function hydrateSubscriptionCardsFromBackend() {
           descEl.textContent = subcategory.shortDescription || subcategory.description || subcategory.subtitle;
         }
 
+        // Hydrate dynamic duration and daily hours
+        const durationEl = card.querySelector('[data-duration-months]');
+        if (durationEl && subcategory.durationMonths) {
+          console.log(`[Hydration] Updating duration for ${item.slug} to ${subcategory.durationMonths} months`);
+          durationEl.textContent = `${subcategory.durationMonths} Months Access`;
+        }
+        const dailyHoursEl = card.querySelector('[data-daily-hours]');
+        if (dailyHoursEl && subcategory.dailyHours !== undefined) {
+          dailyHoursEl.textContent = `${subcategory.dailyHours} Hours / Day`;
+        }
+
+        // Hydrate Online & Offline Features Lists
+        const onlineFeaturesList = card.querySelector('[data-features-online]');
+        const offlineFeaturesList = card.querySelector('[data-features-offline]');
+
+        let originalFeatures = [];
+        if (onlineFeaturesList) {
+          if (!onlineFeaturesList.dataset.originalFeatures) {
+            const originalItems = Array.from(onlineFeaturesList.querySelectorAll('li')).map(li => li.textContent.trim());
+            onlineFeaturesList.dataset.originalFeatures = JSON.stringify(originalItems);
+          }
+          originalFeatures = JSON.parse(onlineFeaturesList.dataset.originalFeatures);
+        } else if (offlineFeaturesList) {
+          if (!offlineFeaturesList.dataset.originalFeatures) {
+            const originalItems = Array.from(offlineFeaturesList.querySelectorAll('li')).map(li => li.textContent.trim());
+            offlineFeaturesList.dataset.originalFeatures = JSON.stringify(originalItems);
+          }
+          originalFeatures = JSON.parse(offlineFeaturesList.dataset.originalFeatures);
+        }
+
+        const baseCurriculum = (subcategory.whatYouWillLearn && subcategory.whatYouWillLearn.length > 0)
+          ? subcategory.whatYouWillLearn
+          : originalFeatures;
+
+        if (onlineFeaturesList) {
+          const onlineFeatures = subcategory.plans?.online?.features || [];
+          console.log(`[Hydration] Updating online features for ${item.slug}`, onlineFeatures);
+          onlineFeaturesList.innerHTML = '';
+          const combinedOnline = [...baseCurriculum, ...onlineFeatures];
+          combinedOnline.forEach(feat => {
+            const li = document.createElement('li');
+            li.textContent = feat;
+            onlineFeaturesList.appendChild(li);
+          });
+        }
+
+        if (offlineFeaturesList) {
+          const offlineFeatures = subcategory.plans?.offline?.features || [];
+          console.log(`[Hydration] Updating offline features for ${item.slug}`, offlineFeatures);
+          offlineFeaturesList.innerHTML = '';
+          const combinedOffline = [...baseCurriculum, ...offlineFeatures];
+          combinedOffline.forEach(feat => {
+            const li = document.createElement('li');
+            li.textContent = feat;
+            offlineFeaturesList.appendChild(li);
+          });
+        }
+
         const onlinePrice = getCoursePrice(subcategory, mode, 'ONLINE');
         const offlinePrice = getCoursePrice(subcategory, mode, 'OFFLINE');
+        console.log(`[Hydration] Prices for ${item.slug}: Online = ${onlinePrice}, Offline = ${offlinePrice}`);
 
         if (onlinePrice) {
           const el = card.querySelector('.online-price strong, .online-price.price');
-          if (el) el.textContent = `${formatCurrency(onlinePrice)}${mode === 'MONTHLY' ? ' / Month' : ''}`;
+          if (el) {
+            console.log(`[Hydration] Updating online price element for ${item.slug}`, el, `with price: ${onlinePrice}`);
+            el.textContent = `${formatCurrency(onlinePrice)}${mode === 'MONTHLY' ? ' / Month' : ''}`;
+          } else {
+            console.warn(`[Hydration] Online price element not found in card for ${item.slug}`, card);
+          }
         }
 
         if (offlinePrice) {
           const el = card.querySelector('.offline-price strong, .offline-price.price');
-          if (el) el.textContent = `${formatCurrency(offlinePrice)}${mode === 'MONTHLY' ? ' / Month' : ''}`;
+          if (el) {
+            console.log(`[Hydration] Updating offline price element for ${item.slug}`, el, `with price: ${offlinePrice}`);
+            el.textContent = `${formatCurrency(offlinePrice)}${mode === 'MONTHLY' ? ' / Month' : ''}`;
+          } else {
+            console.warn(`[Hydration] Offline price element not found in card for ${item.slug}`, card);
+          }
         }
       });
     } catch (err) {
-      console.warn(`Could not hydrate course ${item.slug}:`, err);
+      console.error(`[Hydration Error] Could not hydrate course ${item.slug}:`, err);
     }
   }));
 }
 
-document.addEventListener('DOMContentLoaded', hydrateSubscriptionCardsFromBackend);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', hydrateSubscriptionCardsFromBackend);
+} else {
+  hydrateSubscriptionCardsFromBackend();
+}
 
 /**
  * Custom Theme-Consistent Toast Notification
@@ -238,7 +325,8 @@ async function startPurchase(slug, mode) {
         // Reset modal fields and warnings
         document.getElementById('directName').value = '';
         document.getElementById('directPhone').value = '';
-        document.getElementById('direct-pref-learning').checked = true;
+        const prefLearningEl = document.getElementById('direct-pref-learning');
+        if (prefLearningEl) prefLearningEl.checked = true;
         const warningEl = document.getElementById('pref-warning');
         if (warningEl) warningEl.style.display = 'none';
 
@@ -293,7 +381,8 @@ async function handleDirectSubscribe() {
   // Double check preference vs course logic before submitting
   if (preference === 'FUNDING' && currentPurchase.slug !== 'business-funding') {
     preference = 'LEARNING';
-    document.getElementById('direct-pref-learning').checked = true;
+    const prefLearningEl = document.getElementById('direct-pref-learning');
+    if (prefLearningEl) prefLearningEl.checked = true;
   }
 
   // Show Loader
@@ -386,7 +475,12 @@ async function proceedToCheckout(token) {
     // 1. Determine months based on mode and slug
     let months = 1;
     if (currentPurchase.subscriptionMode === 'TOTAL') {
-      months = COURSE_DURATIONS[currentPurchase.slug] || 4;
+      const lookup = SUBCATEGORY_CACHE.get(currentPurchase.slug);
+      if (lookup && lookup.subcategory && lookup.subcategory.durationMonths) {
+        months = lookup.subcategory.durationMonths;
+      } else {
+        months = COURSE_DURATIONS[currentPurchase.slug] || 4;
+      }
     }
 
     const subscriptionMode =

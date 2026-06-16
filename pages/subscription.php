@@ -103,7 +103,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <span class="badge bg-secondary">Medium Level</span>
               <h3>Web and App Development with AI Tools – Full Course</h3>
               <p class="sub-text">Full Stack Web + Android + iOS + Cross Platform</p>
-              <ul class="full-feature-list">
+              <ul class="full-feature-list online-price" data-features-online>
                 <li>Frontend & Backend Web Development</li>
                 <li>Android & iOS App Development</li>
                 <li>Cross-Platform Apps (Flutter/React Native)</li>
@@ -111,14 +111,16 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                 <li>15+ Industry Projects</li>
                 <li>Career Guidance & Interview Prep</li>
               </ul>
+              <ul class="full-feature-list offline-price" data-features-offline style="display:none">
+              </ul>
             </div>
             <div class="full-course-right">
               <span class="best-value">BEST VALUE</span>
               <h2 class="price online-price">₹5,592</h2>
               <h2 class="price offline-price" style="display:none">₹39,592</h2>
               <p class="duration">Duration:</p>
-              <p class="duration">4 Months Access</p>
-              <p class="duration">2.5 Hours / Day</p>
+              <p class="duration" data-duration-months>4 Months Access</p>
+              <p class="duration" data-daily-hours>2.5 Hours / Day</p>
               <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('web-and-app-development-with-ai-tools', 'TOTAL')">Buy Now</button></div>
             </div>
           </div>
@@ -138,12 +140,14 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <label><input type="radio" name="web_app_price_off" checked> Monthly</label>
                   <strong>₹9,999 / Month</strong>
                 </div>
-                <ul class="feature-list mt-3">
+                <ul class="feature-list mt-3 online-price" data-features-online>
                   <li>HTML5, CSS3, JavaScript & React</li>
                   <li>Node.js, Express, MongoDB & SQL</li>
                   <li>Android & iOS App Development</li>
                   <li>Cross-Platform Apps (Flutter/React Native)</li>
                   <li>AI Tools for Faster Development</li>
+                </ul>
+                <ul class="feature-list mt-3 offline-price" data-features-offline style="display:none">
                 </ul>
                 <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('web-and-app-development-with-ai-tools', 'MONTHLY')">Buy Now</button></div>
               </div>
@@ -178,13 +182,15 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <h3>AI & Applied Machine Learning – Full Course</h3>
               <p class="sub-text">Complete AI Journey: Fundamentals to Advanced Applications</p>
 
-              <ul class="full-feature-list">
+              <ul class="full-feature-list online-price" data-features-online>
                 <li>AI Core Concepts & Fundamentals</li>
                 <li>Python Programming for AI/ML</li>
                 <li>Machine Learning Algorithms</li>
                 <li>Deep Learning & Neural Networks</li>
                 <li>NLP & Computer Vision</li>
                 <li>Real-World Applications</li>             
+              </ul>
+              <ul class="full-feature-list offline-price" data-features-offline style="display:none">
               </ul>
             </div>
 
@@ -193,8 +199,8 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <h2 class="price online-price">₹10,493</h2>
               <h2 class="price offline-price" style="display:none">₹62,993</h2>
               <p class="duration">Duration:</p>
-              <p class="duration">7 Months Access</p>
-               <p class="duration">2.5 Hours / Day</p>
+              <p class="duration" data-duration-months>7 Months Access</p>
+               <p class="duration" data-daily-hours>2.5 Hours / Day</p>
                <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('ai-and-applied-machine-learning', 'TOTAL')">Buy Now</button></div>
             </div>
 
@@ -228,7 +234,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <strong>₹8,999 / Month</strong>
                 </div>
 
-                <ul class="feature-list mt-3">
+                <ul class="feature-list mt-3 online-price" data-features-online>
                   <li>AI Fundamentals & Core Concepts</li>
                   <li>Python Programming for AI/ML</li>
                   <li>Machine Learning Algorithms</li>     
@@ -236,7 +242,8 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <li>Computer Vision & Image Processing</li>
                   <li>Data Preprocessing & Feature Engineering</li>
                   <li>Model Evaluation & Optimization</li>
-
+                </ul>
+                <ul class="feature-list mt-3 offline-price" data-features-offline style="display:none">
                 </ul>
                 <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('ai-and-applied-machine-learning', 'MONTHLY')">Buy Now</button></div>
               </div>
@@ -271,13 +278,15 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <h3>Cloud Computing & DevOps – Full Course</h3>
               <p class="sub-text">Complete Cloud & DevOps Journey: AWS, Azure, GCP, Kubernetes & CI/CD</p>
 
-              <ul class="full-feature-list">
+              <ul class="full-feature-list online-price" data-features-online>
                 <li>Cloud Computing Fundamentals</li>
                 <li>AWS / Azure / GCP Platforms</li>
                 <li>Cloud Services & Architecture</li>
                 <li>Docker & Containerization</li>
                 <li>Kubernetes Orchestration</li>
                 <li>CI/CD Pipelines</li>
+              </ul>
+              <ul class="full-feature-list offline-price" data-features-offline style="display:none">
               </ul>
             </div>
 
@@ -286,8 +295,8 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <h2 class="price online-price">₹8,495</h2>
               <h2 class="price offline-price" style="display:none">₹44,995</h2>
               <p class="duration">Duration:</p>
-              <p class="duration">5 Months Access</p>
-              <p class="duration">2.5 Hours / Day</p>
+              <p class="duration" data-duration-months>5 Months Access</p>
+              <p class="duration" data-daily-hours>2.5 Hours / Day</p>
               <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cloud-computing-and-devops-aws-azure-gcp', 'TOTAL')">Buy Now</button></div>
             </div>
 
@@ -321,13 +330,15 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <strong>₹8,999 / Month</strong>
                 </div>
 
-                <ul class="feature-list mt-3">
+                <ul class="feature-list mt-3 online-price" data-features-online>
                   <li>Cloud Computing Fundamentals</li>
                   <li>AWS / Azure / GCP Platforms</li>
                   <li>Cloud Services & Architecture</li>
                   <li>Docker & Containerization</li>
                   <li>Kubernetes Orchestration</li>
                   <li>CI/CD Pipelines & Automation</li>
+                </ul>
+                <ul class="feature-list mt-3 offline-price" data-features-offline style="display:none">
                 </ul>
                 <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cloud-computing-and-devops-aws-azure-gcp', 'MONTHLY')">Buy Now</button></div>
               </div>
@@ -362,13 +373,16 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <h3>Data Science and Analytics with Gen AI – Full Course</h3>
               <p class="sub-text">Complete Data Science & Analytics Journey: ML, BI & Generative AI</p>
 
-              <ul class="full-feature-list">
+              <ul class="full-feature-list online-price" data-features-online>
                 <li>Data Science & Analytics Fundamentals</li>
                 <li>Python for Data Science</li>
                 <li>SQL & Business Intelligence Tools</li>
                 <li>Machine Learning Algorithms</li>
                 <li>Data Visualization & Dashboards</li>
                 <li>Generative AI & LLMs</li>
+              </ul>
+              <ul class="full-feature-list offline-price" data-features-offline style="display:none">
+              </ul>
             </div>
 
             <div class="full-course-right">
@@ -376,8 +390,8 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <h2 class="price online-price">₹14,289</h2>
               <h2 class="price offline-price" style="display:none">₹98,993</h2>
               <p class="duration">Duration:</p>
-              <p class="duration">7 Months Access</p>
-              <p class="duration">2.5 Hours / Day</p>
+              <p class="duration" data-duration-months>7 Months Access</p>
+              <p class="duration" data-daily-hours>2.5 Hours / Day</p>
               <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('data-science-and-analytics-with-gen-ai', 'TOTAL')">Buy Now</button></div>
             </div>
 
@@ -411,13 +425,15 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <strong>₹8,999 / Month</strong>
                 </div>
 
-                <ul class="feature-list mt-3">
+                <ul class="feature-list mt-3 online-price" data-features-online>
                   <li>Python for Data Science</li>
                   <li>Data Analysis & Visualization</li>
                   <li>Statistical Analysis</li>
                   <li>Machine Learning Algorithms</li>
                   <li>Large Language Models (LLMs)</li>
                   <li>Prompt Engineering</li>
+                </ul>
+                <ul class="feature-list mt-3 offline-price" data-features-offline style="display:none">
                 </ul>
                 <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('data-science-and-analytics-with-gen-ai', 'MONTHLY')">Buy Now</button></div>
               </div>
@@ -452,13 +468,15 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <h3>Cyber Security (AI & Cloud Security) – Full Course</h3>
               <p class="sub-text">Complete Cybersecurity Journey: Fundamentals, AI Security & Cloud Security</p>
 
-              <ul class="full-feature-list">
+              <ul class="full-feature-list online-price" data-features-online>
                 <li>Cybersecurity Fundamentals</li>
                 <li>Network Security & Cryptography</li>
                 <li>AI-Powered Threat Detection</li>
                 <li>Anomaly Detection & Security Automation</li>
                 <li>Cloud Security Best Practices</li>
                 <li>AWS / Azure / GCP Security</li>
+              </ul>
+              <ul class="full-feature-list offline-price" data-features-offline style="display:none">
               </ul>
             </div>
 
@@ -467,8 +485,8 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <h2 class="price online-price">₹6,495</h2>
               <h2 class="price offline-price" style="display:none">₹44,995</h2>
               <p class="duration">Duration:</p>
-              <p class="duration">5 Months Access</p>
-              <p class="duration">2.5 Hours / Day</p>
+              <p class="duration" data-duration-months>5 Months Access</p>
+              <p class="duration" data-daily-hours>2.5 Hours / Day</p>
               <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cyber-security-ai-and-cloud-security', 'TOTAL')">Buy Now</button></div>
             </div>
 
@@ -502,7 +520,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <strong>₹8,999 / Month</strong>
                 </div>
 
-                <ul class="feature-list mt-3">
+                <ul class="feature-list mt-3 online-price" data-features-online>
                   <li>Cybersecurity Fundamentals</li>
                   <li>Security Concepts & Frameworks</li>
                   <li>Network Security & Cryptography</li>
@@ -510,6 +528,8 @@ require_once __DIR__ . '/../includes/header.php'; ?>
                   <li>Security Automation & Orchestration</li>
                   <li>Cloud Security Best Practices</li>
                   <li>Identity & Access Management (IAM)</li>
+                </ul>
+                <ul class="feature-list mt-3 offline-price" data-features-offline style="display:none">
                 </ul>
                 <div class="plan-cta mt-3"><button class="cta-btn btn-solid w-100" onclick="startPurchase('cyber-security-ai-and-cloud-security', 'MONTHLY')">Buy Now</button></div>
               </div>
@@ -561,7 +581,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
               <input type="email" id="directEmail" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your email address">
             </div>
           </div>
-          <div class="mb-4">
+          <!-- <div class="mb-4">
             <label class="form-label small text-white-50">Path Preference</label>
             <div class="pref-group">
               <input type="radio" class="btn-check" name="direct_preference" id="direct-pref-learning" value="LEARNING" checked onchange="validatePreferenceSelection()">
@@ -573,7 +593,7 @@ require_once __DIR__ . '/../includes/header.php'; ?>
             <div id="pref-warning" class="text-warning small mt-2" style="display:none;">
               <i class="bi bi-exclamation-triangle-fill me-1"></i> Funding is only available for Business Funding course. Switched to Learning.
             </div>
-          </div>
+          </div> -->
           <button class="btn btn-auth-gradient w-100 mb-3 py-2 fw-bold" onclick="handleDirectSubscribe()">Continue to Payment</button>
           <div class="text-center">
             <span class="small text-white-50">By continuing, you agree to our Terms and Privacy Policy.</span>
