@@ -456,7 +456,8 @@ function normalizeLocationItem(loc) {
     landmark: loc.landmark || '',
     distance: loc.distance || '',
     lat: loc.lat || loc.latitude,
-    lng: loc.lng || loc.longitude
+    lng: loc.lng || loc.longitude,
+    status: loc.status || 'available' // available, upcoming
   };
 }
 
@@ -473,20 +474,23 @@ function renderLocationCards(locations) {
     const imgSrc = loc.image.startsWith('http') ? loc.image : `${baseUrl}${loc.image}`;
     const fallback = IMAGE_FALLBACKS[slug] || imgSrc;
     const distanceText = loc.distance ? `${loc.distance} km from ${loc.landmark}` : '';
+    const isUpcoming = String(loc.status).toLowerCase() === 'upcoming';
+    const cardClass = isUpcoming ? 'offline-location-card upcoming' : 'offline-location-card';
 
     return `
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="offline-location-card"
+        <div class="${cardClass}"
              data-location-id="${loc._id}"
              data-slug="${slug}"
+             data-status="${loc.status}"
              role="button"
-             tabindex="0"
+             tabindex="${isUpcoming ? '-1' : '0'}"
              aria-label="Select ${loc.city}">
           <div class="offline-location-card__image">
             <img src="${imgSrc}" alt="${loc.city} - ${loc.state}"
                  loading="lazy"
                  onerror="this.src='${fallback}'">
-            <span class="offline-location-card__check"><i class="bi bi-check-lg"></i></span>
+            ${isUpcoming ? '<span class="offline-location-card__upcoming-label">Coming Soon</span>' : '<span class="offline-location-card__check"><i class="bi bi-check-lg"></i></span>'}
           </div>
           <div class="offline-location-card__body">
             <h4 class="offline-location-card__city">${loc.city}</h4>
@@ -494,9 +498,15 @@ function renderLocationCards(locations) {
             ${distanceText ? `<p class="offline-location-card__distance">
               <i class="bi bi-geo-alt"></i> ${distanceText}
             </p>` : ''}
-            <span class="offline-location-card__seats">
-              <i class="bi bi-circle-fill"></i> ${loc.seatsAvailable} seats left
-            </span>
+            ${isUpcoming ? `
+              <span class="offline-location-card__seats upcoming">
+                <i class="bi bi-clock"></i> Opening Soon
+              </span>
+            ` : `
+              <span class="offline-location-card__seats">
+                <i class="bi bi-circle-fill"></i> ${loc.seatsAvailable} seats left
+              </span>
+            `}
           </div>
         </div>
       </div>
@@ -504,13 +514,15 @@ function renderLocationCards(locations) {
   }).join('');
 
   grid.querySelectorAll('.offline-location-card').forEach(card => {
-    card.addEventListener('click', () => selectLocation(card));
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        selectLocation(card);
-      }
-    });
+    if (card.dataset.status !== 'upcoming') {
+      card.addEventListener('click', () => selectLocation(card));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectLocation(card);
+        }
+      });
+    }
   });
 }
 
@@ -530,8 +542,7 @@ function selectLocation(card) {
 }
 
 /**
- * Display a dummy Google Map placeholder for the selected location.
- * TODO: Replace with proper Google Maps JS API integration when backend is ready.
+ * Display a Google Map for the selected location.
  */
 function updateGoogleMap(loc) {
   const mapContainer = document.getElementById('locationMapContainer');
@@ -539,20 +550,27 @@ function updateGoogleMap(loc) {
 
   mapContainer.style.display = 'block';
 
-  // Dummy Google Map placeholder - will be updated with real API later
+  const searchQuery = encodeURIComponent(`${loc.centreName || loc.city}, ${loc.address || loc.state}`);
+  const standardEmbedSrc = `https://maps.google.com/maps?q=${searchQuery}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
+
   mapContainer.innerHTML = `
     <div class="location-map-wrapper">
-      <h5 class="map-title"><i class="bi bi-geo-alt-fill me-2"></i>${loc.city} - Location Map</h5>
-      <div class="location-map-frame dummy-map-placeholder">
-        <div class="dummy-map-content">
-          <i class="bi bi-geo-alt" style="font-size: 3rem; color: #dc3545;"></i>
-          <p class="mt-3 mb-1"><strong>Google Map Placeholder</strong></p>
-          <p class="text-muted small">Location: ${loc.city}, ${loc.state}</p>
-          <p class="text-muted small">Coordinates: ${loc.lat || 'N/A'}, ${loc.lng || 'N/A'}</p>
-          <p class="text-muted small mt-2" style="font-size: 0.75rem;">
-            Real Google Map will be integrated here using Google Maps API
-          </p>
-        </div>
+      <h5 class="map-title text-white mb-3">
+        <i class="bi bi-geo-alt-fill me-2 text-danger"></i>${loc.city} - Centre Location
+      </h5>
+      <div class="location-map-frame" style="border: 2px solid rgba(255,255,255,0.1); border-radius: 15px; overflow: hidden; background: #1a1a1a;">
+        <iframe 
+          width="100%" 
+          height="350" 
+          style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(0.9);" 
+          src="${standardEmbedSrc}" 
+          allowfullscreen 
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="mt-3 text-center">
+        <p class="text-white small mb-1"><strong>Address:</strong> ${loc.address || loc.centreName}</p>
+        <p class="text-white-50 small"><i class="bi bi-clock me-1"></i> ${loc.operatingHours}</p>
       </div>
     </div>
   `;
@@ -665,6 +683,11 @@ function proceedToPayment() {
   if (!token) {
     window.location.href = `${baseUrl}subscription`;
     return;
+  }
+
+  // Show loader before calling payment logic
+  if (typeof toggleLoader === 'function') {
+    toggleLoader(true);
   }
 
   if (typeof proceedToCheckout === 'function' && purchase) {
@@ -1113,7 +1136,7 @@ function renderSeatColumn(column, facing, rows = SEAT_LAYOUT.rows) {
               data-seat-number="${seat.number}"
               data-seat-type="${seat.type}"
               data-seat-price="${seat.price}"
-              ${seat.isAvailable ? '' : 'disabled'}
+              data-is-booked="${seat.isBooked}"
               aria-label="Seat ${seat.id} - ${seat.isAvailable ? 'Available' : 'Taken'}">
         <span class="seat-back" aria-hidden="true"></span>
         <span class="seat-label">${seat.id}</span>
@@ -1132,6 +1155,11 @@ function getBatchIdFromState() {
  * Handle seat selection
  */
 function selectSeat(seatEl) {
+  if (seatEl.dataset.isBooked === 'true') {
+    showToast('Seat Taken', `Seat ${seatEl.dataset.seatId} is already booked. Please select an available seat.`, 'warning');
+    return;
+  }
+
   document.querySelectorAll('.seat').forEach(s => s.classList.remove('selected'));
   seatEl.classList.add('selected');
 
