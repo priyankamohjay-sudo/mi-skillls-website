@@ -309,6 +309,16 @@ async function startPurchase(slug, mode) {
   const offlineBtn = document.getElementById('btnOfflineMode');
   currentPurchase.learningMode = (offlineBtn && offlineBtn.classList.contains('active')) ? 'OFFLINE' : 'ONLINE';
 
+  // [MARKETING] Online mode is "Full" - force offline learning
+  if (currentPurchase.learningMode === 'ONLINE') {
+    const onlineModalEl = document.getElementById('onlineFullModal');
+    if (onlineModalEl) {
+      const onlineModal = new bootstrap.Modal(onlineModalEl);
+      onlineModal.show();
+      return;
+    }
+  }
+
   try {
     // 1. Fetch Subcategory ID from backend slug (keeps payment tied to backend data)
     const lookup = SUBCATEGORY_CACHE.get(slug) || await fetchSubcategoryBySlug(slug);
@@ -546,4 +556,29 @@ async function proceedToCheckout(token) {
 function handleLogout() {
   localStorage.removeItem('accessToken');
   window.location.reload();
+}
+
+/**
+ * Programmatically switches to offline mode, closes the modal, and prompts user.
+ */
+function switchToOfflineAndClose() {
+  const modalEl = document.getElementById('onlineFullModal');
+  if (modalEl) {
+    const modal = bootstrap.Modal.getInstance(modalEl);
+    if (modal) modal.hide();
+  }
+
+  // Switch UI to Offline Learning
+  setLearningMode('offline');
+
+  // Smooth scroll to pricing category tabs to prompt course selection
+  const pricingSection = document.getElementById('pricing-1');
+  if (pricingSection) {
+    pricingSection.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Show guiding toast
+  setTimeout(() => {
+    showToast('Mode Switched', 'We have switched you to Offline Learning. Please select your desired course again to proceed.', 'info');
+  }, 600);
 }

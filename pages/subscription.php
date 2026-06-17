@@ -544,6 +544,34 @@ require_once __DIR__ . '/../includes/header.php'; ?>
     </div>
 </section>
 
+<!-- Online Mode Full Modal -->
+<div class="modal fade" id="onlineFullModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content auth-modal-content border-0">
+      <div class="modal-header border-0 pb-0">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4 pt-0 text-center">
+        <div class="mb-4">
+          <i class="bi bi-exclamation-circle text-warning" style="font-size: 4rem;"></i>
+        </div>
+        <h4 class="fw-bold text-white mb-3">Online Mode is Full!</h4>
+        <p class="text-white mb-4">
+          We have reached the maximum capacity for online learning in this session. 
+          To ensure quality education, we recommend proceeding with our <strong>Offline Learning</strong> mode 
+          at one of our premium centers.
+        </p>
+        <button class="btn btn-auth-gradient w-100 mb-3 py-2 fw-bold" onclick="switchToOfflineAndClose()">
+          Proceed to Offline Learning
+        </button>
+        <button class="btn btn-outline-light w-100 py-2" data-bs-dismiss="modal">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Auth Modal -->
 <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
