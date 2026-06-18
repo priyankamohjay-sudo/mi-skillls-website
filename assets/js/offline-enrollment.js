@@ -71,7 +71,8 @@ const FALLBACK_BATCHES_DATA = [
     totalSeats: 40,
     availableSeats: 35,
     paymentMode: 'both', // both, full-only, monthly-only
-    isAvailable: true
+    isAvailable: true,
+    batchCode: 'AIML-01'
   },
   {
     id: 2,
@@ -84,7 +85,8 @@ const FALLBACK_BATCHES_DATA = [
     totalSeats: 40,
     availableSeats: 28,
     paymentMode: 'full-only',
-    isAvailable: true
+    isAvailable: true,
+    batchCode: 'DSA-02'
   },
   {
     id: 3,
@@ -97,7 +99,8 @@ const FALLBACK_BATCHES_DATA = [
     totalSeats: 40,
     availableSeats: 32,
     paymentMode: 'both',
-    isAvailable: true
+    isAvailable: true,
+    batchCode: 'DOPS-03'
   },
   {
     id: 4,
@@ -110,7 +113,8 @@ const FALLBACK_BATCHES_DATA = [
     totalSeats: 40,
     availableSeats: 25,
     paymentMode: 'full-only',
-    isAvailable: true
+    isAvailable: true,
+    batchCode: 'CSEC-04'
   },
   {
     id: 5,
@@ -123,7 +127,8 @@ const FALLBACK_BATCHES_DATA = [
     totalSeats: 40,
     availableSeats: 38,
     paymentMode: 'both',
-    isAvailable: true
+    isAvailable: true,
+    batchCode: 'WAD-05'
   }
 ];
 
@@ -828,8 +833,8 @@ async function fetchBatches() {
     const batches = data.batches || data.data || data.result || [];
     BATCHES_DATA = normalizeBatches(Array.isArray(batches) ? batches : [], purchase);
   } catch (err) {
-    console.error('Batches API unavailable:', err);
-    BATCHES_DATA = [];
+    console.error('Batches API unavailable, falling back to mock data:', err);
+    BATCHES_DATA = normalizeBatches(FALLBACK_BATCHES_DATA, purchase);
   }
 
   if (!BATCHES_DATA.length) {
@@ -871,6 +876,7 @@ function normalizeBatches(batches, purchase = {}) {
       availableSeats: batch.availableSeats ?? batch.seatsAvailable ?? batch.availableSeatCount ?? 0,
       paymentMode: isFullOnly ? 'full-only' : 'both',
       isAvailable: batch.isAvailable !== false && batch.status !== 'inactive' && batch.status !== 'closed',
+      batchCode: batch.batchCode || batch.code || '',
       raw: batch
     };
   });
@@ -913,6 +919,7 @@ function renderBatchCards() {
           <div class="batch-card__supporting">
             <span><i class="bi bi-calendar3"></i>${batch.days}</span>
             <span><i class="bi bi-calendar-event"></i>Starts ${batch.startDate}</span>
+            ${batch.batchCode ? `<span class="batch-card__code"><i class="bi bi-hash"></i>${batch.batchCode}</span>` : ''}
           </div>
         </div>
         <div class="batch-card__aside">
@@ -1213,6 +1220,16 @@ function updateSeatSummaryCard() {
   setText('seatSummaryTime', batch?.time || '-');
   setText('seatSummaryDays', batch?.days || '-');
 
+  const batchCodeRow = document.getElementById('seatSummaryBatchCodeRow');
+  if (batchCodeRow) {
+    if (batch && batch.batchCode) {
+      batchCodeRow.style.display = 'flex';
+      setText('seatSummaryBatchCode', batch.batchCode);
+    } else {
+      batchCodeRow.style.display = 'none';
+    }
+  }
+
   if (!selectedSeat) {
     if (empty) empty.style.display = 'block';
     if (details) details.style.display = 'none';
@@ -1328,27 +1345,131 @@ async function lockSelectedSeat() {
   }
 }
 
-function renderReviewSummary() {
+const FALLBACK_PRICES = {
+  'web-and-app-development-with-ai-tools': { TOTAL: 39592, MONTHLY: 8999 },
+  'ai-and-applied-machine-learning': { TOTAL: 62993, MONTHLY: 10493 },
+  'cloud-computing-and-devops-aws-azure-gcp': { TOTAL: 44995, MONTHLY: 8495 },
+  'data-science-and-analytics-with-gen-ai': { TOTAL: 98993, MONTHLY: 14289 },
+  'cyber-security-ai-and-cloud-security': { TOTAL: 44995, MONTHLY: 6495 }
+};
+
+function getNestedValue(obj, paths) {
+  for (const path of paths) {
+    const parts = path.split('.');
+    let current = obj;
+    for (const part of parts) {
+      if (current === null || current === undefined) {
+        current = undefined;
+        break;
+      }
+      current = current[part];
+    }
+    if (current !== undefined) return current;
+  }
+  return undefined;
+}
+
+function getCoursePrice(subcategory, mode, learningMode) {
+  if (!subcategory) return 0;
+  const normalizedMode = mode === 'TOTAL' ? 'full' : 'monthly';
+  const normalizedLearning = learningMode.toLowerCase();
+  return getNestedValue(subcategory, [
+    `plans.${normalizedLearning}.${normalizedMode === 'full' ? 'totalPrice' : 'monthlyPrice'}`,
+    `plans.${normalizedLearning}.${normalizedMode === 'full' ? 'total' : 'monthly'}`,
+    `pricing.${normalizedLearning}.${normalizedMode}`,
+    `prices.${normalizedLearning}.${normalizedMode}`,
+    `${normalizedLearning}${normalizedMode.charAt(0).toUpperCase()}${normalizedMode.slice(1)}Price`,
+    `${normalizedLearning}_${normalizedMode}_price`,
+    normalizedLearning === 'offline' && normalizedMode === 'monthly' ? 'offlineMonthlyPrice' : '',
+    normalizedLearning === 'offline' && normalizedMode === 'full' ? 'offlineFullPrice' : '',
+    normalizedLearning === 'online' && normalizedMode === 'monthly' ? 'onlineMonthlyPrice' : '',
+    normalizedLearning === 'online' && normalizedMode === 'full' ? 'onlineFullPrice' : '',
+    normalizedMode === 'monthly' ? 'monthlyPrice' : 'fullPrice',
+    'price'
+  ].filter(Boolean));
+}
+
+async function renderReviewSummary() {
   const container = document.getElementById('reviewSummary');
   if (!container) return;
+
+  container.innerHTML = `
+    <div class="text-center py-4">
+      <div class="enroll-spinner-sm mx-auto mb-3"></div>
+      <p class="text-white-50">Calculating pricing and fee details...</p>
+    </div>
+  `;
 
   const purchase = getStoredPurchase() || {};
   const location = purchase.location || selectedLocation;
   const batch = purchase.batch || selectedBatch;
   const seat = purchase.seat || selectedSeat;
   const courseName = purchase.courseName || COURSE_NAMES[purchase.slug] || COURSE_NAMES[getCourseSlug()] || 'Selected Course';
+  const slug = purchase.slug || getCourseSlug();
+
+  let price = 0;
+  try {
+    const context = await fetchSubcategoryContext(slug);
+    const subcategory = context?.subcategory;
+    price = getCoursePrice(subcategory, purchase.subscriptionMode, 'OFFLINE') || 0;
+  } catch (err) {
+    console.error('Pricing lookup failed, falling back to local defaults:', err);
+    const modeKey = purchase.subscriptionMode || 'TOTAL';
+    price = FALLBACK_PRICES[slug]?.[modeKey] || 0;
+  }
+
+  const totalVal = Number(price);
+  const subtotalVal = totalVal / 1.18;
+  const gstVal = totalVal - subtotalVal;
+
+  const formatINR = (num) => '₹' + Number(num).toLocaleString('en-IN', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+
+  const paymentModeText = purchase.subscriptionMode === 'TOTAL' ? 'Full Course Payment' : 'Monthly Subscription';
 
   container.innerHTML = `
-    <div class="selected-seat-card" style="position:static; width:auto; max-width:720px; margin:0 auto;">
-      <h5>Review Your Offline Enrollment</h5>
-      <div class="seat-summary-list">
-        <div class="seat-info-row"><span class="info-label">Course</span><span class="info-value">${courseName}</span></div>
-        <div class="seat-info-row"><span class="info-label">Location</span><span class="info-value">${location?.city || location?.centreName || '-'}</span></div>
-        <div class="seat-info-row"><span class="info-label">Batch</span><span class="info-value">${batch ? `Batch ${batch.number}` : '-'}</span></div>
-        <div class="seat-info-row"><span class="info-label">Start Date</span><span class="info-value">${batch?.startDate || '-'}</span></div>
-        <div class="seat-info-row"><span class="info-label">Time</span><span class="info-value">${batch?.time || '-'}</span></div>
-        <div class="seat-info-row"><span class="info-label">Days</span><span class="info-value">${batch?.days || '-'}</span></div>
-        <div class="seat-info-row"><span class="info-label">Seat</span><span class="info-value accent">${seat?.id || purchase.seatId || '-'}</span></div>
+    <div class="row g-4" style="max-width: 960px; margin: 0 auto; text-align: left;">
+      <div class="col-12 col-md-6">
+        <div class="selected-seat-card h-100" style="position:static; width:auto; margin:0; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
+          <h5 class="mb-4" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.8rem;">
+            <i class="bi bi-info-circle-fill me-2 text-primary"></i>Enrollment Details
+          </h5>
+          <div class="seat-summary-list">
+            <div class="seat-info-row"><span class="info-label">Course</span><span class="info-value" style="font-weight: 600;">${courseName}</span></div>
+            <div class="seat-info-row"><span class="info-label">Location</span><span class="info-value">${location?.city || location?.centreName || '-'}</span></div>
+            <div class="seat-info-row"><span class="info-label">Batch</span><span class="info-value">${batch ? `Batch ${batch.number}` : '-'}</span></div>
+            ${batch?.batchCode ? `<div class="seat-info-row"><span class="info-label">Batch Code</span><span class="info-value accent text-uppercase" style="font-weight: 700;">${batch.batchCode}</span></div>` : ''}
+            <div class="seat-info-row"><span class="info-label">Start Date</span><span class="info-value">${batch?.startDate || '-'}</span></div>
+            <div class="seat-info-row"><span class="info-label">Time</span><span class="info-value">${batch?.time || '-'}</span></div>
+            <div class="seat-info-row"><span class="info-label">Days</span><span class="info-value">${batch?.days || '-'}</span></div>
+            <div class="seat-info-row" style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed rgba(255,255,255,0.1);">
+              <span class="info-label">Selected Seat</span>
+              <span class="info-value accent" style="font-size: 1.1rem; font-weight: 700;">${seat?.id || purchase.seatId || '-'}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-12 col-md-6">
+        <div class="selected-seat-card h-100" style="position:static; width:auto; margin:0; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
+          <h5 class="mb-4" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.8rem;">
+            <i class="bi bi-receipt me-2 text-primary"></i>Fee & Tax Breakdown
+          </h5>
+          <div class="seat-summary-list">
+            <div class="seat-info-row"><span class="info-label">Payment Mode</span><span class="info-value text-white">${paymentModeText}</span></div>
+            <div class="seat-info-row"><span class="info-label">Base Fee (Subtotal)</span><span class="info-value">${formatINR(subtotalVal)}</span></div>
+            <div class="seat-info-row"><span class="info-label">GST (18%)</span><span class="info-value">${formatINR(gstVal)}</span></div>
+            <div class="seat-info-row" style="margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid rgba(255,255,255,0.15);">
+              <span class="info-label" style="color:#fff; font-size: 1rem; font-weight: 700;">Total Amount</span>
+              <span class="info-value accent" style="font-size: 1.2rem; font-weight: 800;">${formatINR(totalVal)}</span>
+            </div>
+            <div class="text-white-50 small mt-3 text-end" style="font-style: italic; font-size: 0.75rem; opacity: 0.7;">
+              * Prices are inclusive of 18% GST
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   `;
