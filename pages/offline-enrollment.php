@@ -141,10 +141,6 @@ $currentStep = htmlspecialchars($_GET['step'] ?? 'location', ENT_QUOTES, 'UTF-8'
               <span>Available</span>
             </div>
             <div class="legend-item">
-              <span class="legend-seat selected"></span>
-              <span>Your seat</span>
-            </div>
-            <div class="legend-item">
               <span class="legend-seat booked"></span>
               <span>Taken</span>
             </div>
@@ -230,6 +226,13 @@ $currentStep = htmlspecialchars($_GET['step'] ?? 'location', ENT_QUOTES, 'UTF-8'
 </section>
 
 <div class="toast-container" id="toastContainer"></div>
+
+<!-- Professional Loader Overlay -->
+<div class="enroll-loader-overlay" id="enrollLoader">
+  <div class="enroll-spinner"></div>
+  <h5 class="text-white fw-bold mb-1">Securing Your Enrollment</h5>
+  <p class="text-white-50 small">Please wait while we connect to the payment gateway...</p>
+</div>
 
 <script>
   window.OFFLINE_ENROLL_CONFIG = {

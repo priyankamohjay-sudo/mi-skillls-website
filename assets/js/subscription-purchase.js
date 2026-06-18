@@ -243,6 +243,13 @@ if (document.readyState === 'loading') {
   hydrateSubscriptionCardsFromBackend();
 }
 
+// Ensure the loader is hidden when navigating back to the page from BFCache (back-forward cache)
+window.addEventListener('pageshow', (event) => {
+  if (typeof toggleLoader === 'function') {
+    toggleLoader(false);
+  }
+});
+
 /**
  * Custom Theme-Consistent Toast Notification
  */
@@ -716,24 +723,38 @@ async function proceedToCheckout(token) {
       client: "WEB"
     };
 
-    const res = await fetch(`${SUBSCRIPTION_API_BASE_URL}/api/payments/create-subscription-payment`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
-      body: JSON.stringify(payload)
+    // Hide loader while guidelines modal is active
+    toggleLoader(false);
+
+    showPaymentTermsModal(token, async () => {
+      try {
+        toggleLoader(true);
+
+        const res = await fetch(`${SUBSCRIPTION_API_BASE_URL}/api/payments/create-subscription-payment`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        if (data.success && data.checkoutLink) {
+          // Redirect to Razorpay
+          window.location.href = data.checkoutLink;
+        } else {
+          toggleLoader(false);
+          showToast('Payment Error', data.message || 'Failed to initiate the payment gateway. Please try again.', 'error');
+        }
+      } catch (err) {
+        toggleLoader(false);
+        console.error("❌ Checkout API error:", err);
+        showToast('Database Error', 'A connection error occurred while reaching the payment gateway.', 'error');
+      }
     });
 
-    const data = await res.json();
-
-    if (data.success && data.checkoutLink) {
-      // Redirect to Razorpay
-      window.location.href = data.checkoutLink;
-    } else {
-      toggleLoader(false);
-      showToast('Payment Error', data.message || 'Failed to initiate the payment gateway. Please try again.', 'error');
-    }
   } catch (err) {
     toggleLoader(false);
     console.error("❌ Checkout error:", err);
@@ -773,4 +794,209 @@ function switchToOfflineAndClose() {
   setTimeout(() => {
     showToast('Mode Switched', 'We have switched you to Offline Learning. Please select your desired course again to proceed.', 'info');
   }, 600);
+}
+
+/**
+ * Renders and shows a static payment guidelines & terms modal.
+ * Forces the user to check the agreement checkbox before calling the payment callback.
+ */
+function showPaymentTermsModal(token, onAgreeCallback) {
+  let modalEl = document.getElementById('paymentTermsModal');
+  if (!modalEl) {
+    // Inject custom modal styles dynamically
+    const styleEl = document.createElement('style');
+    styleEl.textContent = `
+      .payment-terms-content {
+        background: #0d0d1b !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 20px !important;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6) !important;
+        overflow: hidden;
+      }
+      .payment-terms-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        padding: 1.25rem 1.5rem !important;
+      }
+      .payment-terms-body {
+        padding: 1.5rem !important;
+      }
+      .payment-terms-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        padding: 1.25rem 1.5rem !important;
+        background: rgba(255, 255, 255, 0.01);
+      }
+      #termsTextEl::-webkit-scrollbar {
+        width: 6px;
+      }
+      #termsTextEl::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 99px;
+      }
+      #termsTextEl::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 99px;
+      }
+      #termsTextEl::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+      .custom-terms-checkbox {
+        background-color: transparent !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+        width: 1.15em !important;
+        height: 1.15em !important;
+        margin-top: 0.15em !important;
+        cursor: pointer;
+      }
+      .custom-terms-checkbox:checked {
+        background-color: #af40ff !important;
+        border-color: #af40ff !important;
+      }
+      .custom-terms-checkbox:focus {
+        box-shadow: 0 0 0 0.25rem rgba(175, 64, 255, 0.25) !important;
+      }
+      #btnConfirmPaymentTerms[disabled] {
+        opacity: 0.5 !important;
+        cursor: not-allowed !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: rgba(255, 255, 255, 0.4) !important;
+      }
+    `;
+    document.head.appendChild(styleEl);
+
+    // Create Modal HTML
+    modalEl = document.createElement('div');
+    modalEl.className = 'modal fade';
+    modalEl.id = 'paymentTermsModal';
+    modalEl.tabIndex = -1;
+    modalEl.setAttribute('aria-labelledby', 'paymentTermsModalLabel');
+    modalEl.setAttribute('aria-hidden', 'true');
+    modalEl.setAttribute('data-bs-backdrop', 'static');
+    modalEl.setAttribute('data-bs-keyboard', 'false');
+    modalEl.innerHTML = `
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content payment-terms-content">
+          <div class="modal-header payment-terms-header">
+            <h5 class="modal-title text-white" id="paymentTermsModalLabel">
+              <i class="bi bi-shield-check text-primary me-2"></i>Payment Guidelines & Terms
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body payment-terms-body">
+            <div class="terms-loading text-center py-5" id="termsLoadingEl">
+              <div class="enroll-spinner-sm mx-auto mb-3"></div>
+              <p class="text-white-50">Fetching payment terms...</p>
+            </div>
+            <div class="terms-error text-center py-5" id="termsErrorEl" style="display:none;">
+              <i class="bi bi-exclamation-triangle text-danger fs-1 mb-3"></i>
+              <p class="text-white">Failed to load terms. Please check your internet connection.</p>
+              <button class="btn btn-outline-light btn-sm mt-3" id="retryTermsBtn">Retry</button>
+            </div>
+            <div class="terms-container text-white-50" id="termsTextEl" style="display:none; max-height: 350px; overflow-y: auto; padding-right: 10px; font-size: 0.9rem; line-height: 1.6;">
+            </div>
+          </div>
+          <div class="modal-footer payment-terms-footer d-flex flex-column align-items-stretch">
+            <div class="form-check terms-checkbox-wrapper mb-3" id="checkboxAreaEl" style="display:none;">
+              <input class="form-check-input custom-terms-checkbox" type="checkbox" id="agreePaymentTermsCheckbox">
+              <label class="form-check-label text-white-50" for="agreePaymentTermsCheckbox" style="font-size: 0.88rem; cursor: pointer; user-select: none;">
+                I have read and agree to the Payment Guidelines & Terms.
+              </label>
+            </div>
+            <div class="d-flex justify-content-end gap-2">
+              <button type="button" class="btn btn-secondary px-4" style="border-radius: 30px; font-size: 0.85rem;" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn-solid px-4 py-2" id="btnConfirmPaymentTerms" style="border: none; border-radius: 30px; font-size: 0.85rem; font-weight: 600;" disabled>
+                Proceed to Payment <i class="bi bi-arrow-right ms-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modalEl);
+
+    // Watch checkbox state changes
+    document.getElementById('agreePaymentTermsCheckbox').addEventListener('change', function(e) {
+      document.getElementById('btnConfirmPaymentTerms').disabled = !e.target.checked;
+    });
+  }
+
+  // Retrieve elements
+  const loadingEl = document.getElementById('termsLoadingEl');
+  const errorEl = document.getElementById('termsErrorEl');
+  const textEl = document.getElementById('termsTextEl');
+  const checkboxArea = document.getElementById('checkboxAreaEl');
+  const confirmBtn = document.getElementById('btnConfirmPaymentTerms');
+  const checkbox = document.getElementById('agreePaymentTermsCheckbox');
+  const retryBtn = document.getElementById('retryTermsBtn');
+
+  // Reset interactive states
+  checkbox.checked = false;
+  confirmBtn.disabled = true;
+
+  const baseApiUrl = window.MI_API_BASE_URL || 'https://dev.miskills.in';
+
+  async function loadTerms() {
+    loadingEl.style.display = 'block';
+    errorEl.style.display = 'none';
+    textEl.style.display = 'none';
+    checkboxArea.style.display = 'none';
+
+    try {
+      const response = await fetch(`${baseApiUrl}/api/content/payment`);
+      if (!response.ok) throw new Error('Failed to fetch terms content');
+      const data = await response.json();
+      
+      if (data && data.content) {
+        const termsText = typeof data.content === 'object' ? (data.content.content || '') : data.content;
+        textEl.innerHTML = formatTermsContent(termsText);
+        loadingEl.style.display = 'none';
+        textEl.style.display = 'block';
+        checkboxArea.style.display = 'block';
+      } else {
+        throw new Error('Terms payload missing content field');
+      }
+    } catch (err) {
+      console.error('Error fetching guidelines:', err);
+      loadingEl.style.display = 'none';
+      errorEl.style.display = 'block';
+    }
+  }
+
+  retryBtn.onclick = loadTerms;
+  confirmBtn.onclick = function() {
+    const bootstrapModal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+    bootstrapModal.hide();
+    onAgreeCallback();
+  };
+
+  // Turn off the general page loader so the modal is fully visible and clickable
+  if (typeof toggleLoader === 'function') {
+    toggleLoader(false);
+  }
+
+  const bootstrapModal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+  bootstrapModal.show();
+  loadTerms();
+}
+
+/**
+ * Text formatter to parse guidelines text newlines, headers, and bullet points.
+ */
+function formatTermsContent(text) {
+  if (!text) return '';
+  return text
+    .split('\n')
+    .map(line => {
+      line = line.trim();
+      if (!line) return '<br>';
+      // Bullet items
+      if (line.startsWith('- ')) {
+        return `<li class="ms-3 text-white-50">${line.substring(2)}</li>`;
+      }
+      // Section headers
+      if (/^\d+\./.test(line) || line.endsWith(':')) {
+        return `<h6 class="text-white mt-3 mb-2 font-weight-bold" style="color: #c4b5fd !important;">${line}</h6>`;
+      }
+      return `<p class="text-white-50 mb-2">${line}</p>`;
+    })
+    .join('');
 }
