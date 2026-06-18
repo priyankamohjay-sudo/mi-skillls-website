@@ -80,19 +80,24 @@ if (isset($_POST['UserSubmit'])) {
     .header-basic .menu-item {
       padding: 0 4px; /* Reduced from 1rem to prevent wrapping */
     }
-    .user-avatar-link {
-      display: flex !important;
+    .logout-nav-btn {
+      display: inline-flex !important;
       align-items: center;
-      padding: 10px 18px !important; /* Match other menu links */
+      justify-content: center;
+      padding: 10px 18px !important;
       border-radius: 30px !important;
-      border: 1.5px solid transparent !important;
+      border: 1.5px solid #ff4a5a !important;
       transition: all 0.3s ease !important;
-      background:
-        linear-gradient(#05062d, #05062d) padding-box,
-        linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb) border-box !important;
+      background: rgba(255, 74, 90, 0.08) !important;
+      color: #ff4a5a !important;
+      font-weight: 600 !important;
+      line-height: normal !important;
+      text-transform: capitalize;
     }
-    .user-avatar-link:hover {
-      box-shadow: 0 0 15px rgba(103, 58, 183, 0.4);
+    .logout-nav-btn:hover {
+      background: #ff4a5a !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 15px rgba(255, 74, 90, 0.4);
       transform: translateY(-2px);
     }
 
@@ -253,8 +258,34 @@ if (isset($_POST['UserSubmit'])) {
           <li class="menu-item">
             <a class="menu-link" href="<?= BASE_URL ?>contact-us">Contact Us</a>
           </li>
+          
+          <li class="menu-item d-none" id="nav-login-btn">
+            <a class="menu-link" href="<?= BASE_URL ?>login">Login</a>
+          </li>
+
+          <li class="menu-item d-none" id="nav-logout-btn" style="display: flex; align-items: center; height: 100%;">
+            <a class="logout-nav-btn" href="#" onclick="handleLogout(); return false;">Logout</a>
+          </li>
           </ul>
           </div>
+          
+          <script>
+            function handleLogout() {
+              localStorage.removeItem('accessToken');
+              localStorage.removeItem('user');
+              window.location.href = '<?= BASE_URL ?>login';
+            }
+            (function() {
+              const token = localStorage.getItem('accessToken');
+              const loginBtn = document.getElementById('nav-login-btn');
+              const logoutBtn = document.getElementById('nav-logout-btn');
+              if (token) {
+                if (logoutBtn) logoutBtn.classList.remove('d-none');
+              } else {
+                if (loginBtn) loginBtn.classList.remove('d-none');
+              }
+            })();
+          </script>
 
       <div class="controls-box">
         <!--Menu Toggler button-->

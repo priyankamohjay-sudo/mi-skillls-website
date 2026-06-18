@@ -332,9 +332,32 @@ async function startPurchase(slug, mode) {
     if (!token) {
       const authModalEl = document.getElementById('authModal');
       if (authModalEl) {
-        // Reset modal fields and warnings
-        document.getElementById('directName').value = '';
-        document.getElementById('directPhone').value = '';
+        // Reset modal steps
+        goBackToModalStep1();
+
+        // Reset or pre-fill modal fields
+        const savedUserStr = localStorage.getItem('user');
+        let savedUser = null;
+        if (savedUserStr) {
+          try { savedUser = JSON.parse(savedUserStr); } catch(e) {}
+        }
+
+        document.getElementById('directName').value = savedUser?.name || '';
+        document.getElementById('directPhone').value = savedUser?.phoneNumber || '';
+
+        // Handle dynamic modal view based on whether we have saved user details
+        const modalModeSignup = document.getElementById('modal-mode-signup');
+        const modalModeLogin = document.getElementById('modal-mode-login');
+        if (modalModeSignup && modalModeLogin) {
+          if (savedUser) {
+            modalModeLogin.checked = true;
+            toggleModalAuthMode('LOGIN');
+          } else {
+            modalModeSignup.checked = true;
+            toggleModalAuthMode('SIGNUP');
+          }
+        }
+
         const prefLearningEl = document.getElementById('direct-pref-learning');
         if (prefLearningEl) prefLearningEl.checked = true;
         const warningEl = document.getElementById('pref-warning');
@@ -367,73 +390,241 @@ function toggleLoader(show) {
   }
 }
 
+let modalOtpTimer = null;
+let modalOtpSecondsRemaining = 300;
+
+function startModalOtpTimer() {
+  clearInterval(modalOtpTimer);
+  modalOtpSecondsRemaining = 300;
+  const timerEl = document.getElementById('modalOtpTimer');
+  const resendBtn = document.getElementById('btnModalResend');
+  if (resendBtn) resendBtn.disabled = true;
+
+  modalOtpTimer = setInterval(() => {
+    modalOtpSecondsRemaining--;
+    const mins = Math.floor(modalOtpSecondsRemaining / 60);
+    const secs = modalOtpSecondsRemaining % 60;
+    if (timerEl) {
+      timerEl.textContent = `Expires in ${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    if (modalOtpSecondsRemaining <= 0) {
+      clearInterval(modalOtpTimer);
+      if (timerEl) timerEl.textContent = "OTP Expired";
+      if (resendBtn) resendBtn.disabled = false;
+    }
+  }, 1000);
+}
+
+function goBackToModalStep1() {
+  clearInterval(modalOtpTimer);
+  const step1 = document.getElementById('modalStep1');
+  const step2 = document.getElementById('modalStep2');
+  if (step1) step1.style.display = 'block';
+  if (step2) step2.style.display = 'none';
+}
+
 /**
- * Handles frictionless account creation/retrieval and proceeds to payment.
+ * Toggles auth modal fields between signup and login mode.
  */
-async function handleDirectSubscribe() {
-  const name = document.getElementById('directName').value;
-  const phone = document.getElementById('directPhone').value;
-  const email = document.getElementById('directEmail').value;
+function toggleModalAuthMode(mode) {
+  const nameField = document.getElementById('modalNameFieldContainer');
+  const emailField = document.getElementById('modalEmailFieldContainer');
+  const phoneLabel = document.getElementById('modalPhoneLabel');
+  const phoneIcon = document.getElementById('modalPhoneIcon');
+  const phoneInput = document.getElementById('directPhone');
+  const title = document.getElementById('authModalTitle');
+  const subtitle = document.getElementById('authModalSubtitle');
   
+  if (mode === 'LOGIN') {
+    if (nameField) nameField.style.display = 'none';
+    if (emailField) emailField.style.display = 'none';
+    if (phoneLabel) phoneLabel.textContent = 'Phone Number or Email';
+    if (phoneIcon) phoneIcon.className = 'bi bi-phone';
+    if (phoneInput) phoneInput.placeholder = 'Enter email or phone';
+    if (title) title.textContent = 'Existing User Login';
+    if (subtitle) subtitle.textContent = 'Enter phone & email to verify and pay';
+  } else {
+    if (nameField) nameField.style.display = 'block';
+    if (emailField) emailField.style.display = 'block';
+    if (phoneLabel) phoneLabel.textContent = 'Phone Number';
+    if (phoneIcon) phoneIcon.className = 'bi bi-phone';
+    if (phoneInput) phoneInput.placeholder = 'Enter your phone number';
+    if (title) title.textContent = 'Instant Enrollment';
+    if (subtitle) subtitle.textContent = 'Quickly secure your spot in this course';
+  }
+}
+
+/**
+ * Handles sending OTP for the modal auth flow.
+ */
+async function handleModalSendOTP() {
+  const loginModeRadio = document.getElementById('modal-mode-login');
+  const isLoginMode = loginModeRadio && loginModeRadio.checked;
+
+  const identifier = document.getElementById('directPhone').value.trim();
+  
+  let name = '';
+  let email = '';
   let preference = 'LEARNING';
-  const prefFunding = document.getElementById('direct-pref-funding');
-  if (prefFunding && prefFunding.checked) preference = 'FUNDING';
-
-  if (!name || !phone || !email) {
-    return showToast('Missing Fields', 'Please enter your full name, phone number, and email to continue.', 'warning');
+  
+  if (currentPurchase.slug === 'business-funding') {
+    preference = 'FUNDING';
   }
 
-  // Basic email validation
-  if (!email.includes('@') || !email.includes('.')) {
-    return showToast('Invalid Email', 'Please provide a valid email address for subscription details.', 'warning');
-  }
+  if (isLoginMode) {
+    if (!identifier) {
+      return showToast('Missing Field', 'Please enter your phone number or email address.', 'warning');
+    }
+  } else {
+    name = document.getElementById('directName').value.trim();
+    email = document.getElementById('directEmail').value.trim();
+    if (!name || !identifier || !email) {
+      return showToast('Missing Fields', 'Please enter your name, phone number, and email address to continue.', 'warning');
+    }
 
-  // Double check preference vs course logic before submitting
-  if (preference === 'FUNDING' && currentPurchase.slug !== 'business-funding') {
-    preference = 'LEARNING';
-    const prefLearningEl = document.getElementById('direct-pref-learning');
-    if (prefLearningEl) prefLearningEl.checked = true;
+    // Basic email validation
+    if (!email.includes('@') || !email.includes('.')) {
+      return showToast('Invalid Email', 'Please provide a valid email address.', 'warning');
+    }
   }
 
   // Show Loader
   toggleLoader(true);
 
+  const endpoint = isLoginMode ? `${SUBSCRIPTION_API_BASE_URL}/api/auth/login-v2` : `${SUBSCRIPTION_API_BASE_URL}/api/auth/signup-v2`;
+  const body = isLoginMode 
+    ? { identifier }
+    : { name, phoneNumber: identifier, email, role: 'student', preference };
+
   try {
-    const res = await fetch(`${SUBSCRIPTION_API_BASE_URL}/api/auth/direct-subscribe`, {
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
-        name, 
-        phoneNumber: phone,
-        email: email,
-        preference: preference
-      })
+      body: JSON.stringify(body)
     });
-    
+
     const data = await res.json();
-    if (data.success && data.accessToken) {
-      localStorage.setItem('accessToken', data.accessToken);
+
+    if (res.status === 409 || (data.message && data.message.toLowerCase().includes('already registered'))) {
+      toggleLoader(false);
       
+      // If the conflict is about the email address, just show error and don't change mode
+      if (data.message && data.message.toLowerCase().includes('email')) {
+        showToast('Registration Error', data.message || 'Email already registered. Please login.', 'error');
+        return;
+      }
+
+      showToast('Account Exists', 'This phone number is already registered. Switched to Login mode.', 'info');
+
+      // Toggle to Login Mode
+      const modalModeLogin = document.getElementById('modal-mode-login');
+      if (modalModeLogin) {
+        modalModeLogin.checked = true;
+        toggleModalAuthMode('LOGIN');
+      }
+
+      // Pre-fill the identifier input with the phone number
+      const phoneInput = document.getElementById('directPhone');
+      if (phoneInput) {
+        phoneInput.value = identifier;
+      }
+      return;
+    }
+
+    toggleLoader(false);
+
+    if (data.success) {
+      showToast('OTP Sent', data.message || 'OTP sent successfully!', 'success');
+      
+      const sentMsgEl = document.getElementById('modalOtpSentMsg');
+      if (sentMsgEl) {
+        sentMsgEl.textContent = isLoginMode 
+          ? `OTP has been sent via ${data.data?.channel || 'your channel'}`
+          : `OTP has been sent to ${identifier}`;
+      }
+
+      // Switch step
+      document.getElementById('modalStep1').style.display = 'none';
+      document.getElementById('modalStep2').style.display = 'block';
+
+      // Start OTP Timer
+      startModalOtpTimer();
+    } else {
+      showToast('Request Failed', data.message || 'Could not send OTP. Please try again.', 'error');
+    }
+  } catch (err) {
+    toggleLoader(false);
+    console.error("Modal send OTP error:", err);
+    showToast('Database Error', 'Could not reach the server to send OTP.', 'error');
+  }
+}
+
+function handleModalResendOTP() {
+  handleModalSendOTP();
+}
+
+/**
+ * Handles verifying OTP and continuing with subscription checkout.
+ */
+async function handleModalVerifyOTP() {
+  const loginModeRadio = document.getElementById('modal-mode-login');
+  const isLoginMode = loginModeRadio && loginModeRadio.checked;
+
+  const identifier = document.getElementById('directPhone').value.trim();
+  const otp = document.getElementById('directOtp').value.trim();
+
+  if (!otp || otp.length < 6) {
+    return showToast('Invalid OTP', 'Please enter the 6-digit code.', 'warning');
+  }
+
+  // Show Loader
+  toggleLoader(true);
+
+  const endpoint = isLoginMode ? `${SUBSCRIPTION_API_BASE_URL}/api/auth/login-v2/verify-otp` : `${SUBSCRIPTION_API_BASE_URL}/api/auth/signup-v2/verify-otp`;
+  const body = isLoginMode 
+    ? { identifier, otp }
+    : { phoneNumber: identifier, otp };
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    const data = await res.json();
+    
+    if (data.success && data.data?.accessToken) {
+      clearInterval(modalOtpTimer);
+      
+      localStorage.setItem('accessToken', data.data.accessToken);
+      if (data.data.user) {
+        localStorage.setItem('user', JSON.stringify(data.data.user));
+      }
+
+      // Hide modal
       const modalEl = document.getElementById('authModal');
       if (modalEl) {
         const modal = bootstrap.Modal.getInstance(modalEl);
         if (modal) modal.hide();
       }
-      
+
+      // Perform checkout or offline redirect
       if (currentPurchase.learningMode === 'OFFLINE') {
         toggleLoader(false);
         redirectToOfflineEnrollment();
       } else {
-        proceedToCheckout(data.accessToken);
+        proceedToCheckout(data.data.accessToken);
       }
     } else {
       toggleLoader(false);
-      showToast('Enrollment Failed', data.message || 'We could not process your details. Please try again.', 'error');
+      showToast('Verification Failed', data.message || 'Invalid or expired OTP.', 'error');
     }
   } catch (err) {
     toggleLoader(false);
-    console.error("Direct subscribe error:", err);
-    showToast('Database Error', 'Could not reach the server to secure your enrollment. Please try again.', 'error');
+    console.error("Modal OTP verification error:", err);
+    showToast('Database Error', 'Could not connect to the server to verify OTP.', 'error');
   }
 }
 
@@ -555,6 +746,7 @@ async function proceedToCheckout(token) {
  */
 function handleLogout() {
   localStorage.removeItem('accessToken');
+  localStorage.removeItem('user');
   window.location.reload();
 }
 

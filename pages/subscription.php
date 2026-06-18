@@ -583,49 +583,85 @@ require_once __DIR__ . '/../includes/header.php'; ?>
         <div class="text-center mb-4">
           <img src="<?= BASE_URL ?>assets/images/logo/logo-white-new.png" alt="MI Skills" style="height: 40px;" class="mb-3">
           <h4 class="fw-bold" id="authModalTitle">Instant Enrollment</h4>
-          <p class="text-white-50 small">Quickly secure your spot in this course</p>
+          <p class="text-white-50 small" id="authModalSubtitle">Quickly secure your spot in this course</p>
         </div>
 
-        <!-- Instant Enrollment State -->
+        <!-- Dynamic Enrollment / Login State -->
         <div id="directSubscribeState">
-          <div class="mb-3">
-            <label class="form-label small text-white-50">Full Name</label>
-            <div class="input-group custom-input-group">
-              <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-person"></i></span>
-              <input type="text" id="directName" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your full name">
-            </div>
-          </div>
-          <div class="mb-3">
-            <label class="form-label small text-white-50">Phone Number</label>
-            <div class="input-group custom-input-group">
-              <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-phone"></i></span>
-              <input type="text" id="directPhone" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your phone number">
-            </div>
-          </div>
-          <div class="mb-3">
-            <label class="form-label small text-white-50">Email Address</label>
-            <div class="input-group custom-input-group">
-              <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-envelope"></i></span>
-              <input type="email" id="directEmail" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your email address">
-            </div>
-          </div>
-          <!-- <div class="mb-4">
-            <label class="form-label small text-white-50">Path Preference</label>
-            <div class="pref-group">
-              <input type="radio" class="btn-check" name="direct_preference" id="direct-pref-learning" value="LEARNING" checked onchange="validatePreferenceSelection()">
-              <label class="pref-label" for="direct-pref-learning">Learning</label>
+          
+          <!-- Step 1: Input Fields -->
+          <div id="modalStep1">
+            <!-- Toggle Mode Switcher -->
+            <div class="d-flex justify-content-center mb-4">
+              <div class="pref-group w-100" style="max-width: 260px;">
+                <input type="radio" class="btn-check" name="modal_auth_mode" id="modal-mode-signup" value="SIGNUP" checked onchange="toggleModalAuthMode('SIGNUP')">
+                <label class="pref-label w-50" for="modal-mode-signup">Enroll</label>
 
-              <input type="radio" class="btn-check" name="direct_preference" id="direct-pref-funding" value="FUNDING" onchange="validatePreferenceSelection()">
-              <label class="pref-label" for="direct-pref-funding">Funding</label>
+                <input type="radio" class="btn-check" name="modal_auth_mode" id="modal-mode-login" value="LOGIN" onchange="toggleModalAuthMode('LOGIN')">
+                <label class="pref-label w-50" for="modal-mode-login">Login</label>
+              </div>
             </div>
-            <div id="pref-warning" class="text-warning small mt-2" style="display:none;">
-              <i class="bi bi-exclamation-triangle-fill me-1"></i> Funding is only available for Business Funding course. Switched to Learning.
+
+            <!-- Full Name (Enroll only) -->
+            <div class="mb-3" id="modalNameFieldContainer">
+              <label class="form-label small text-white-50">Full Name</label>
+              <div class="input-group custom-input-group">
+                <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-person"></i></span>
+                <input type="text" id="directName" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your full name">
+              </div>
             </div>
-          </div> -->
-          <button class="btn btn-auth-gradient w-100 mb-3 py-2 fw-bold" onclick="handleDirectSubscribe()">Continue to Payment</button>
-          <div class="text-center">
-            <span class="small text-white-50">By continuing, you agree to our Terms and Privacy Policy.</span>
+
+            <!-- Phone Number / Identifier -->
+            <div class="mb-3" id="modalPhoneFieldContainer">
+              <label class="form-label small text-white-50" id="modalPhoneLabel">Phone Number</label>
+              <div class="input-group custom-input-group">
+                <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-phone" id="modalPhoneIcon"></i></span>
+                <input type="text" id="directPhone" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your phone number">
+              </div>
+            </div>
+
+            <!-- Email Address (Enroll only) -->
+            <div class="mb-3" id="modalEmailFieldContainer">
+              <label class="form-label small text-white-50">Email Address</label>
+              <div class="input-group custom-input-group">
+                <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-envelope"></i></span>
+                <input type="email" id="directEmail" class="form-control bg-transparent border-start-0 text-white" placeholder="Enter your email address">
+              </div>
+            </div>
+
+            <button class="btn btn-auth-gradient w-100 mb-3 py-2 fw-bold" id="modalAuthSubmitBtn" onclick="handleModalSendOTP()">Send OTP</button>
+            <div class="text-center">
+              <span class="small text-white-50">By continuing, you agree to our Terms and Privacy Policy.</span>
+            </div>
           </div>
+
+          <!-- Step 2: OTP Verification -->
+          <div id="modalStep2" style="display: none;">
+            <div class="text-center mb-3">
+              <span class="small text-warning" id="modalOtpSentMsg">OTP has been sent.</span>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label small text-white-50">Enter Verification Code</label>
+              <div class="input-group custom-input-group">
+                <span class="input-group-text bg-transparent border-end-0 text-white-50"><i class="bi bi-shield-lock"></i></span>
+                <input type="text" id="directOtp" class="form-control bg-transparent border-start-0 text-white text-center fw-bold fs-5" placeholder="Enter 6-digit OTP" maxlength="6">
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <button class="btn btn-link text-white-50 p-0 text-decoration-none small" id="btnModalBack" onclick="goBackToModalStep1()">
+                <i class="bi bi-arrow-left me-1"></i> Edit Details
+              </button>
+              <span class="small text-white-50" id="modalOtpTimer">Expires in 5:00</span>
+              <button class="btn btn-link text-white-50 p-0 text-decoration-none small" id="btnModalResend" onclick="handleModalResendOTP()" disabled>
+                Resend OTP
+              </button>
+            </div>
+
+            <button class="btn btn-auth-gradient w-100 mb-3 py-2 fw-bold" onclick="handleModalVerifyOTP()">Verify & Proceed</button>
+          </div>
+
         </div>
       </div>
     </div>

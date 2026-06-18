@@ -7270,6 +7270,25 @@ body.dark-theme .about .stats-counter.stats-cards .stat-box {
   color: #a78bfa;
 }
 
+.batch-card__code {
+  display: inline-flex;
+  align-items: center;
+  color: #c4b5fd !important;
+  background: rgba(168, 85, 247, 0.12) !important;
+  border: 1px solid rgba(196, 181, 253, 0.24) !important;
+  border-radius: 6px !important;
+  padding: 0.15rem 0.5rem !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.batch-card__code i {
+  color: #c4b5fd !important;
+  margin-right: 0.15rem;
+}
+
 .batch-card__seats {
   display: inline-flex;
   margin: 0;

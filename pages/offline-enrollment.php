@@ -176,6 +176,10 @@ $currentStep = htmlspecialchars($_GET['step'] ?? 'location', ENT_QUOTES, 'UTF-8'
                 <span class="info-label">Batch</span>
                 <span class="info-value" id="seatSummaryBatch">-</span>
               </div>
+              <div class="seat-info-row" id="seatSummaryBatchCodeRow" style="display: none;">
+                <span class="info-label">Batch Code</span>
+                <span class="info-value accent text-uppercase" id="seatSummaryBatchCode">-</span>
+              </div>
               <div class="seat-info-row">
                 <span class="info-label">Start Date</span>
                 <span class="info-value" id="seatSummaryStart">-</span>
