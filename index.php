@@ -469,33 +469,47 @@ require_once 'includes/header.php'; ?>
             <span class="per">Course Details</span>
           </div>
 
-          <div class="plan-details sketch-style">
+         <div class="plan-details sketch-style">
 
-            <div class="bubble-wrap">
-              <div class="bubble">
-                <strong>1 Month</strong>
-                <span>₹899</span>
-              </div>
-              <div class="bubble">
-                <strong>Full Course</strong>
-                <span>₹3596</span>
-              </div>
-            </div>
+    <div class="bubble-wrap">
+        <div class="bubble">
+            <strong>Online</strong>
+            <span>₹899/Mo.</span>
+        </div>
+        <div class="bubble">
+            <strong>Offline</strong>
+            <span>₹8,999/Mo.</span>
+        </div>
+    </div>
 
-            <div class="price-grid header">
-              <span><strong>Topics</strong></span>
-            </div>
+    <div class="price-grid header">
+        <span><strong>Course Topics Included</strong></span>
+       
+    </div>
+     <div class="price-grid header">
+        <span><strong>Frontend : </strong>HTML, CSS, Js, React.js</span>
+       
+    </div>
+     <div class="price-grid header">
+        <span><strong>Backend : </strong>PHP, Node.js, Express.js, DB</span>
+       
+    </div>
+     <div class="price-grid header">
+        <span><strong>iOS App : </strong>Swift, SwiftUI, UIKit</span>
+       
+    </div>
+      <div class="price-grid header">
+        <span><strong>Android : </strong>Java, Kotlin, Jetpack Compose</span>
+       
+    </div>
+      <div class="price-grid header">
+        <span><strong>Technology : </strong>Flutter, Dart, REST APIs</span>
+       
+    </div>
 
-            <div class="price-grid">
-              <span><strong>Frontend</strong></span>
-            </div>
+</div>
 
-            <div class="price-grid">
-              <span><strong>Backend</strong></span>
-            </div>
-          
 
-          </div>
         </div>
       </div>
 
@@ -510,31 +524,39 @@ require_once 'includes/header.php'; ?>
             <span class="per">Course Details</span>
           </div> 
 
-          <div class="plan-details sketch-style">
+        <div class="plan-details sketch-style">
 
-            <div class="bubble-wrap">
-              <div class="bubble"><strong>1 Month</strong><span>₹1499</span></div>
-              <div class="bubble"><strong>Full Course</strong><span>₹10,493</span></div>
-            
-            </div>
+    <div class="bubble-wrap">
+        <div class="bubble"><strong>Online</strong><span>₹1499/Mo.</span></div>
+        <div class="bubble"><strong>Offline</strong><span>₹8,999/Mo.</span></div>
+    </div>
 
-            <div class="price-grid header">
-              <span>Topics</span>
-              
-             
-            </div>
+    <div class="price-grid header">
+        <span><strong>Course Topics Included</strong></span>
+    </div>
 
-            <div class="price-grid">
-              <span>iOS App</span>
-             
-            </div>
+     <div class="price-grid header">
+        <span><strong>AI: </strong>AI Basics, Reasoning, Applications</span>
+    </div>
+     <div class="price-grid header">
+        <span><strong>ML : </strong>Supervised, Unsupervised, Models</span>
+    </div>
+     <div class="price-grid header">
+        <span><strong>Data : </strong>Processing, Analysis, Visual</span>
+    </div>
 
-            <div class="price-grid">
-              <span>Android App</span>
-             
-            </div>
+     <div class="price-grid header">
+        <span><strong>Tools : </strong>Real Datasets, Case Studies</span>
+    </div>
+    
+     <div class="price-grid header">
+        <span><strong>DL : </strong>NLP, CNNs, TensorFlow</span>
 
-          </div>
+</div>
+  
+
+</div>
+          
         </div>
       </div>
 
@@ -555,30 +577,35 @@ require_once 'includes/header.php'; ?>
             <span class="per">Course Details</span>
           </div>
 
-          <div class="plan-details sketch-style">
+         <div class="plan-details sketch-style">
 
-            <div class="bubble-wrap">
-              <div class="bubble"><strong>1 Month</strong><span>₹1,299</span></div>
-              <div class="bubble"><strong>Full Course</strong><span>₹4,799</span></div>
-            </div>
+    <div class="bubble-wrap">
+        <div class="bubble"><strong>Online</strong><span>₹1,299/Mo.</span></div>
+        <div class="bubble"><strong>Offline</strong><span>₹8,999/Mo.</span></div>
+    </div>
 
-            <div class="price-grid header">
-              <span><strong>Topics</strong></span>
-            </div>
+    <div class="price-grid header">
+        <span><strong>Course Topics Included</strong></span>
+    </div>
+       
+       <div class="price-grid header">
+        <span><strong>Basics : </strong>Networks, Encryption, Threats</span>
+    </div>
+       <div class="price-grid header">
+        <span><strong>Cloud : </strong>IAM, Data Protection, Config</span>
+    </div>
+       <div class="price-grid header">
+        <span><strong>AI : </strong>Detection, Automation, Response</span>
+    </div>
+       <div class="price-grid header">
+        <span><strong>Risk : </strong>Vulnerability, Audits, Incidents</span>
+    </div>
+    <div class="price-grid header">
+        <span><strong>Tools : </strong>SIEM, Firewalls, Monitoring</span>
+    </div>
 
-            <div class="price-grid">
-              <span><strong>Fundamentals</strong></span>
-            </div>
 
-            <div class="price-grid">
-              <span><strong>Cloud</strong></span>
-            </div>
-
-            <div class="price-grid">
-              <span><strong>AI</strong></span>
-            </div>
-
-          </div>
+</div>
 
         </div>
       </div>
@@ -596,28 +623,33 @@ require_once 'includes/header.php'; ?>
 
           <div class="plan-details sketch-style">
 
-            <div class="bubble-wrap">
-              <div class="bubble"><strong>1 Month</strong><span>₹1,299</span></div>
-              <div class="bubble"><strong>Full Course</strong><span>₹4,799</span></div>
-            </div>
+    <div class="bubble-wrap">
+        <div class="bubble"><strong>Online</strong><span>₹1,699/Mo.</span></div>
+        <div class="bubble"><strong>Offline</strong><span>₹8,999/Mo.</span></div>
+    </div>
 
-            <div class="price-grid header">
-              <span><strong>Topics</strong></span>
-            </div>
+    <div class="price-grid header">
+        <span><strong>Course Topics Included</strong></span>
+    </div>
+     <div class="price-grid header">
+        <span><strong>Cloud : </strong>IaaS, PaaS, SaaS, Storage</span>
+    </div>
+     <div class="price-grid header">
+        <span><strong>DevOps : </strong>CI/CD, Automation, Workflow</span>
+    </div>
+     <div class="price-grid header">
+        <span><strong>AWS : </strong>EC2, S3, Scalable Deployment</span>
+    </div>
+     <div class="price-grid header">
+        <span><strong>Azure : </strong>VMs, App Services, Compute</span>
+    </div>
+     <div class="price-grid header">
+        <span><strong>Docker : </strong>Containers, K8s, Terraform</span>
+    </div>
 
-            <div class="price-grid">
-              <span><strong>Cloud</strong></span>
-            </div>
+   
 
-            <div class="price-grid">
-              <span><strong>DevOps</strong></span>
-            </div>
-
-            <div class="price-grid">
-              <span><strong>CI/CD</strong></span>
-            </div>
-
-          </div>
+</div>
 
         </div>
       </div>
