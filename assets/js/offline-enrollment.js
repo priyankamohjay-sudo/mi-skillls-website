@@ -373,6 +373,7 @@ function restoreSelectedLocation() {
       selectedLocation = match;
       const card = document.querySelector(`[data-location-id="${match._id}"]`);
       if (card) card.classList.add('selected');
+      saveSelection({ locationId: match._id, location: match });
     }
   }
 
@@ -682,7 +683,7 @@ function saveSelection(extra) {
 }
 
 function proceedToPayment() {
-  const purchase = getStoredPurchase();
+  let purchase = getStoredPurchase() || {};
   const token = localStorage.getItem('accessToken');
 
   if (!token) {
@@ -694,6 +695,22 @@ function proceedToPayment() {
   if (typeof toggleLoader === 'function') {
     toggleLoader(true);
   }
+
+  // Sync session storage with local state variables to prevent 'Offline Selection Missing'
+  if (!purchase.locationId && selectedLocation) {
+    purchase.locationId = selectedLocation._id;
+    purchase.location = selectedLocation;
+  }
+  if (!purchase.batchId && selectedBatch) {
+    purchase.batchId = selectedBatch.id;
+    purchase.batch = selectedBatch;
+    purchase.paymentMode = selectedBatch.paymentMode;
+  }
+  if (!purchase.seatId && selectedSeat) {
+    purchase.seatId = selectedSeat.id;
+    purchase.seat = selectedSeat;
+  }
+  saveSelection(purchase);
 
   if (typeof proceedToCheckout === 'function' && purchase) {
     if (typeof currentPurchase !== 'undefined') {
@@ -737,15 +754,35 @@ function generateSeats(apiSeats = []) {
     SEAT_LAYOUT.columns.forEach(column => {
       const seatNumber = `${row}${column}`;
       const apiSeat = apiSeats.find(item => {
-        const apiSeatNumber = item.seatNumber || item.seatId || item.seatNo || item.seat || item.number || item.name || item.id;
+        let apiSeatNumber = '';
+        if (typeof item === 'object' && item !== null) {
+          const seatObj = item.seat || item;
+          if (typeof seatObj === 'object' && seatObj !== null) {
+            apiSeatNumber = seatObj.seatNumber || seatObj.seat_number || seatObj.seatId || seatObj.seat_id || seatObj.seatNo || seatObj.seat_no || seatObj.seat || seatObj.number || seatObj.name || seatObj.id || '';
+          } else {
+            apiSeatNumber = seatObj || '';
+          }
+        } else {
+          apiSeatNumber = item || '';
+        }
         return String(apiSeatNumber).toUpperCase() === seatNumber;
       });
       const section = column <= 4 ? 'Left Section' : 'Right Section';
-      const apiStatus = String(apiSeat?.status || '').toLowerCase();
-      const isTakenFromApi = apiSeat
-        ? apiSeat.isAvailable === false || ['taken', 'booked', 'blocked', 'locked', 'reserved', 'unavailable'].includes(apiStatus)
-        : false;
-      const isTaken = apiSeat ? isTakenFromApi : false;
+      
+      const isAvailableVal = apiSeat && typeof apiSeat === 'object' ? (apiSeat.isAvailable ?? apiSeat.is_available) : undefined;
+      const apiStatus = apiSeat && typeof apiSeat === 'object' ? String(apiSeat.status || '').toLowerCase() : '';
+      
+      let isTaken = false;
+      if (apiSeat) {
+        if (isAvailableVal === false || isAvailableVal === 'false' || ['taken', 'booked', 'blocked', 'locked', 'reserved', 'unavailable'].includes(apiStatus)) {
+          isTaken = true;
+        } else if (isAvailableVal === true || isAvailableVal === 'true' || apiStatus === 'available') {
+          isTaken = false;
+        } else {
+          // Default: if the seat is present in the API response (e.g. as a string or basic object), assume it is taken
+          isTaken = true;
+        }
+      }
 
       seats.push({
         id: seatNumber,
@@ -787,11 +824,15 @@ async function fetchSeatData() {
 
   try {
     const data = await apiRequest(`/api/batches/${encodeURIComponent(batchId)}/seats`);
-    const seats = data.seats || data.data || data.result || [];
+    let seats = data.seats || data.data || data.result || [];
+    if (seats && !Array.isArray(seats)) {
+      seats = seats.grid || seats.seats || seats.data || [];
+    }
     SEATS_DATA = generateSeats(Array.isArray(seats) ? seats : []);
   } catch (err) {
-    console.error('Seats API unavailable:', err);
-    SEATS_DATA = [];
+    console.error('Seats API unavailable, falling back to mock data:', err);
+    const mockSeats = SEAT_LAYOUT.takenByBatch[batchId] || [];
+    SEATS_DATA = generateSeats(mockSeats);
   }
 
   return SEATS_DATA;
@@ -924,8 +965,8 @@ function renderBatchCards() {
         </div>
         <div class="batch-card__aside">
           <div class="batch-card__total">
-            <span>Total Seats:</span>
-            <strong>${batch.totalSeats}</strong>
+            <span>Available Seats:</span>
+            <strong><span style="color: #6ee7b7;">${batch.availableSeats}</span><span style="font-size: 0.95rem; font-weight: normal; color: rgba(255, 255, 255, 0.35);"> / ${batch.totalSeats}</span></strong>
           </div>
           <span class="batch-card__payment ${isFullOnly ? 'full-only' : ''}">${isFullOnly ? 'Full Payment Only' : 'Flexible Payment'}</span>
         </div>
@@ -1030,9 +1071,12 @@ function restoreSelectedBatch() {
         targetMode = originalMode;
       }
 
-      if (purchase.subscriptionMode !== targetMode) {
-        saveSelection({ subscriptionMode: targetMode });
-      }
+      saveSelection({ 
+        batchId: match.id, 
+        batch: match,
+        paymentMode: match.paymentMode,
+        subscriptionMode: targetMode
+      });
     }
   }
 
@@ -1138,6 +1182,7 @@ function renderSeatColumn(column, facing, rows = SEAT_LAYOUT.rows) {
     return `
       <button class="seat ${statusClass} ${selectedClass} ${facingClass}"
               type="button"
+              ${seat.isBooked ? 'disabled' : ''}
               data-seat-id="${seat.id}"
               data-seat-row="${seat.row}"
               data-seat-number="${seat.number}"
@@ -1309,13 +1354,22 @@ function restoreSelectedSeat() {
 
   if (seatParam && SEATS_DATA.length > 0) {
     const match = SEATS_DATA.find(s => s.id === seatParam);
-    if (match && match.isAvailable) {
+    const isLockedByUser = stored?.lockedSeatId === seatParam;
+    if (match && (match.isAvailable || isLockedByUser || currentStep === 'review')) {
       selectedSeat = match;
       const seatEl = document.querySelector(`[data-seat-id="${match.id}"]`);
       if (seatEl) seatEl.classList.add('selected');
       
       updateSeatSummaryCard();
-      document.getElementById('selectedSeatCard').style.display = 'block';
+      const seatCard = document.getElementById('selectedSeatCard');
+      if (seatCard) seatCard.style.display = 'block';
+    } else if (currentStep !== 'review') {
+      // Stale or booked seat! Clear it from the state and session storage.
+      clearSeatSelection();
+    }
+  } else if (seatParam && currentStep === 'review') {
+    if (stored?.seat) {
+      selectedSeat = stored.seat;
     }
   }
 

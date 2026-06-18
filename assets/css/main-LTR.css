@@ -7629,8 +7629,8 @@ body.dark-theme .about .stats-counter.stats-cards .stat-box {
 }
 
 .legend-seat.available {
-  background: #0b1120;
-  border-color: #1f2545;
+  background: #34305b;
+  border-color: #504967;
 }
 
 .legend-seat.selected {
@@ -7829,7 +7829,7 @@ body.dark-theme .about .stats-counter.stats-cards .stat-box {
 }
 
 .seat-map-panel .legend-seat.available {
-  background: transparent;
+  background: #34305b;
   border-color: #504967;
 }
 
