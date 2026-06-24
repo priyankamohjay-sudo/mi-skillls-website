@@ -8334,6 +8334,42 @@ body.dark-theme .about .stats-counter.stats-cards .stat-box {
     background: rgba(255, 193, 7, 0.1) !important;
 }
 
+/* Offline Enrollment - Full Locations */
+.offline-location-card.full {
+    cursor: not-allowed;
+    opacity: 0.85;
+}
+
+.offline-location-card.full:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.offline-location-card.full .offline-location-card__image img {
+    filter: grayscale(80%);
+}
+
+.offline-location-card__full-label {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ef4444;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.offline-location-card__seats.full {
+    color: #ef4444 !important;
+    background: rgba(239, 68, 68, 0.1) !important;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
 /* Seat Taken Feedback */
 .seat.booked {
     cursor: pointer !important;

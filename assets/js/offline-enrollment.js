@@ -176,7 +176,8 @@ const FALLBACK_LOCATIONS = [
     landmark: 'MG Road Metro Station',
     distance: '4.8',
     lat: 12.9352,
-    lng: 77.6245
+    lng: 77.6245,
+    status: 'full'
   },
   {
     _id: 'ludhiana',
@@ -369,7 +370,7 @@ function restoreSelectedLocation() {
     const match = locationsData.find(
       l => l.slug === locationParam || String(l._id) === locationParam
     );
-    if (match) {
+    if (match && match.status !== 'upcoming' && match.status !== 'full') {
       selectedLocation = match;
       const card = document.querySelector(`[data-location-id="${match._id}"]`);
       if (card) card.classList.add('selected');
@@ -463,7 +464,7 @@ function normalizeLocationItem(loc) {
     distance: loc.distance || '',
     lat: loc.lat || loc.latitude,
     lng: loc.lng || loc.longitude,
-    status: loc.status || 'available' // available, upcoming
+    status: String(loc.status || 'available').toLowerCase() // available, upcoming, full
   };
 }
 
@@ -481,7 +482,8 @@ function renderLocationCards(locations) {
     const fallback = IMAGE_FALLBACKS[slug] || imgSrc;
     const distanceText = loc.distance ? `${loc.distance} km from ${loc.landmark}` : '';
     const isUpcoming = String(loc.status).toLowerCase() === 'upcoming';
-    const cardClass = isUpcoming ? 'offline-location-card upcoming' : 'offline-location-card';
+    const isFull = String(loc.status).toLowerCase() === 'full';
+    const cardClass = isUpcoming ? 'offline-location-card upcoming' : (isFull ? 'offline-location-card full' : 'offline-location-card');
 
     return `
       <div class="col-12 col-md-6 col-lg-4">
@@ -490,13 +492,13 @@ function renderLocationCards(locations) {
              data-slug="${slug}"
              data-status="${loc.status}"
              role="button"
-             tabindex="${isUpcoming ? '-1' : '0'}"
+             tabindex="${(isUpcoming || isFull) ? '-1' : '0'}"
              aria-label="Select ${loc.city}">
           <div class="offline-location-card__image">
             <img src="${imgSrc}" alt="${loc.city} - ${loc.state}"
                  loading="lazy"
                  onerror="this.src='${fallback}'">
-            ${isUpcoming ? '<span class="offline-location-card__upcoming-label">Coming Soon</span>' : '<span class="offline-location-card__check"><i class="bi bi-check-lg"></i></span>'}
+            ${isUpcoming ? '<span class="offline-location-card__upcoming-label">Coming Soon</span>' : (isFull ? '<span class="offline-location-card__full-label">Location Full</span>' : '<span class="offline-location-card__check"><i class="bi bi-check-lg"></i></span>')}
           </div>
           <div class="offline-location-card__body">
             <h4 class="offline-location-card__city">${loc.city}</h4>
@@ -508,11 +510,15 @@ function renderLocationCards(locations) {
               <span class="offline-location-card__seats upcoming">
                 <i class="bi bi-clock"></i> Opening Soon
               </span>
+            ` : (isFull ? `
+              <span class="offline-location-card__seats full">
+                <i class="bi bi-x-circle-fill"></i> Location Full
+              </span>
             ` : `
               <span class="offline-location-card__seats">
-                <i class="bi bi-circle-fill"></i> ${loc.seatsAvailable} seats left
+                <i class="bi bi-circle-fill"></i> Available
               </span>
-            `}
+            `)}
           </div>
         </div>
       </div>
@@ -520,7 +526,8 @@ function renderLocationCards(locations) {
   }).join('');
 
   grid.querySelectorAll('.offline-location-card').forEach(card => {
-    if (card.dataset.status !== 'upcoming') {
+    const status = String(card.dataset.status || '').toLowerCase();
+    if (status !== 'upcoming' && status !== 'full') {
       card.addEventListener('click', () => selectLocation(card));
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -533,16 +540,18 @@ function renderLocationCards(locations) {
 }
 
 function selectLocation(card) {
+  const locationId = card.dataset.locationId;
+  const loc = locationsData.find(l => String(l._id) === String(locationId));
+  if (!loc || loc.status === 'upcoming' || loc.status === 'full') {
+    return; // Prevent selection of upcoming or full locations
+  }
+
   document.querySelectorAll('.offline-location-card').forEach(c => c.classList.remove('selected'));
   card.classList.add('selected');
+  selectedLocation = loc;
 
-  const locationId = card.dataset.locationId;
-  selectedLocation = locationsData.find(l => String(l._id) === String(locationId));
-
-  if (selectedLocation) {
-    updateGoogleMap(selectedLocation);
-    saveSelection({ locationId: selectedLocation._id, location: selectedLocation });
-  }
+  updateGoogleMap(selectedLocation);
+  saveSelection({ locationId: selectedLocation._id, location: selectedLocation });
 
   updateContinueButton();
 }
