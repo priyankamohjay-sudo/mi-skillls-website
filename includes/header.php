@@ -66,7 +66,7 @@ if (isset($_POST['UserSubmit'])) {
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&amp;display=swap">
 
   <!-- main-LTR -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/main-LTR.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/main-LTR.css?v=<?= time() ?>">
   <title><?= $title ?? 'MISKILLS' ?></title>
   <script>
     const BASE_URL = '<?= BASE_URL ?>';

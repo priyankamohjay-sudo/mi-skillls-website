@@ -5,6 +5,24 @@
 
 const OFFLINE_API_BASE_URL = window.MI_API_BASE_URL || 'https://dev.miskills.in';
 
+// Configuration for restricting booking to a specific location
+const RESTRICTED_LOCATIONS_CONFIG = {
+  restrictBooking: true, // Set to false to allow bookings for all locations
+  allowedLocationId: 'hyderabad' // Slug, ID, or City name of the allowed location
+};
+
+function isLocationAllowedToBook(location) {
+  if (!RESTRICTED_LOCATIONS_CONFIG.restrictBooking) return true;
+  if (!location) return false;
+  
+  const target = String(RESTRICTED_LOCATIONS_CONFIG.allowedLocationId).toLowerCase();
+  const slug = String(location.slug || '').toLowerCase();
+  const id = String(location._id || '').toLowerCase();
+  const city = String(location.city || '').toLowerCase();
+  
+  return slug === target || id === target || city === target;
+}
+
 const OFFLINE_COURSE_API_SLUGS = {
   'web-and-app-development-with-ai-tools': [
     'web-and-app-development-with-ai-tools',
@@ -678,6 +696,37 @@ function handleBackStep() {
   window.location.href = `${baseUrl}offline-enrollment?${params}`;
 }
 
+function goToLocationTab() {
+  const stored = getStoredPurchase() || {};
+  delete stored.locationId;
+  delete stored.location;
+  delete stored.batchId;
+  delete stored.batch;
+  delete stored.seatId;
+  delete stored.seat;
+  sessionStorage.setItem('offlinePurchase', JSON.stringify(stored));
+
+  selectedLocation = null;
+  selectedBatch = null;
+  selectedSeat = null;
+
+  const params = new URLSearchParams(window.location.search);
+  params.set('step', 'location');
+  params.delete('location');
+  params.delete('batch');
+  params.delete('seat');
+
+  window.location.href = `${baseUrl}offline-enrollment?${params}`;
+}
+
+function showSeatsFullPopup() {
+  const modalEl = document.getElementById('seatsFullModal');
+  if (modalEl && typeof bootstrap !== 'undefined') {
+    const modal = new bootstrap.Modal(modalEl);
+    modal.show();
+  }
+}
+
 function getStoredPurchase() {
   try {
     return JSON.parse(sessionStorage.getItem('offlinePurchase') || 'null');
@@ -693,6 +742,14 @@ function saveSelection(extra) {
 
 function proceedToPayment() {
   let purchase = getStoredPurchase() || {};
+  const location = selectedLocation || purchase.location;
+  const isAllowed = isLocationAllowedToBook(location);
+
+  if (!isAllowed) {
+    showSeatsFullPopup();
+    return;
+  }
+
   const token = localStorage.getItem('accessToken');
 
   if (!token) {
@@ -961,9 +1018,9 @@ function renderBatchCards() {
         <div class="batch-card__content">
           <div class="batch-card__headline">
             <h4 class="batch-card__title">${batch.time}</h4>
-            <div class="batch-card__seats">
+            <!-- <div class="batch-card__seats">
               <span>${batch.availableSeats} seats left</span>
-            </div>
+            </div> -->
           </div>
           <p class="batch-card__course">${batch.course}</p>
           <div class="batch-card__supporting">
@@ -973,10 +1030,10 @@ function renderBatchCards() {
           </div>
         </div>
         <div class="batch-card__aside">
-          <div class="batch-card__total">
+          <!-- <div class="batch-card__total">
             <span>Available Seats:</span>
             <strong><span style="color: #6ee7b7;">${batch.availableSeats}</span><span style="font-size: 0.95rem; font-weight: normal; color: rgba(255, 255, 255, 0.35);"> / ${batch.totalSeats}</span></strong>
-          </div>
+          </div> -->
           <span class="batch-card__payment ${isFullOnly ? 'full-only' : ''}">${isFullOnly ? 'Full Payment Only' : 'Flexible Payment'}</span>
         </div>
         <div class="batch-card__radio" aria-hidden="true"></div>
@@ -1165,40 +1222,75 @@ function renderSeatLayout() {
     `;
   }).join('');
 
-  grid.querySelectorAll('.seat.available').forEach(seatEl => {
-    seatEl.addEventListener('click', () => selectSeat(seatEl));
-    seatEl.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
+  const purchase = getStoredPurchase() || {};
+  const location = selectedLocation || purchase.location;
+  const isAllowed = isLocationAllowedToBook(location);
+
+  if (!isAllowed) {
+    grid.querySelectorAll('.seat').forEach(seatEl => {
+      seatEl.classList.remove('available', 'selected');
+      seatEl.classList.add('booked');
+      seatEl.removeAttribute('disabled');
+      seatEl.addEventListener('click', (e) => {
         e.preventDefault();
-        selectSeat(seatEl);
-      }
+        e.stopPropagation();
+        showSeatsFullPopup();
+      });
+      seatEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          showSeatsFullPopup();
+        }
+      });
     });
-  });
+  } else {
+    grid.querySelectorAll('.seat.available').forEach(seatEl => {
+      seatEl.addEventListener('click', () => selectSeat(seatEl));
+      seatEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectSeat(seatEl);
+        }
+      });
+    });
+  }
 
   document.getElementById('clearSeatBtn')?.addEventListener('click', clearSeatSelection);
   updateSeatSummaryCard();
 }
 
 function renderSeatColumn(column, facing, rows = SEAT_LAYOUT.rows) {
+  const purchase = getStoredPurchase() || {};
+  const location = selectedLocation || purchase.location;
+  const isAllowed = isLocationAllowedToBook(location);
+
   return rows.map(row => {
     const seat = SEATS_DATA.find(item => item.id === `${row}${column}`);
     if (!seat) return '<span class="seat-spacer" aria-hidden="true"></span>';
 
-    const statusClass = seat.isBooked ? 'booked' : 'available';
+    let statusClass = seat.isBooked ? 'booked' : 'available';
+    let isDisabled = seat.isBooked;
+
+    if (!isAllowed) {
+      statusClass = 'booked';
+      isDisabled = false;
+    }
+
     const selectedClass = selectedSeat?.id === seat.id ? 'selected' : '';
     const facingClass = facing === 'left' ? 'seat-face-left' : 'seat-face-right';
 
     return `
       <button class="seat ${statusClass} ${selectedClass} ${facingClass}"
               type="button"
-              ${seat.isBooked ? 'disabled' : ''}
+              ${isDisabled ? 'disabled' : ''}
               data-seat-id="${seat.id}"
               data-seat-row="${seat.row}"
               data-seat-number="${seat.number}"
               data-seat-type="${seat.type}"
               data-seat-price="${seat.price}"
-              data-is-booked="${seat.isBooked}"
-              aria-label="Seat ${seat.id} - ${seat.isAvailable ? 'Available' : 'Taken'}">
+              data-is-booked="${!isAllowed ? 'true' : seat.isBooked}"
+              aria-label="Seat ${seat.id} - ${!isAllowed ? 'Taken' : (seat.isAvailable ? 'Available' : 'Taken')}">
         <span class="seat-back" aria-hidden="true"></span>
         <span class="seat-label">${seat.id}</span>
       </button>
@@ -1216,6 +1308,15 @@ function getBatchIdFromState() {
  * Handle seat selection
  */
 function selectSeat(seatEl) {
+  const purchase = getStoredPurchase() || {};
+  const location = selectedLocation || purchase.location;
+  const isAllowed = isLocationAllowedToBook(location);
+
+  if (!isAllowed) {
+    showSeatsFullPopup();
+    return;
+  }
+
   if (seatEl.dataset.isBooked === 'true') {
     showToast('Seat Taken', `Seat ${seatEl.dataset.seatId} is already booked. Please select an available seat.`, 'warning');
     return;
@@ -1310,9 +1411,31 @@ function updateSeatContinueButton() {
   updateBackButton();
 }
 
-// Keep the DOMContentLoaded handler pointed at one complete API-driven init path.
 initOfflineEnrollment = async function() {
   currentStep = config.currentStep || 'location';
+
+  // Register click handler for Choose Another Location button in the popup
+  document.getElementById('btnChooseAnotherLocation')?.addEventListener('click', () => {
+    const modalEl = document.getElementById('seatsFullModal');
+    if (modalEl && typeof bootstrap !== 'undefined') {
+      const modal = bootstrap.Modal.getInstance(modalEl);
+      if (modal) modal.hide();
+    }
+    goToLocationTab();
+  });
+
+  restoreSelectionsFromStorage();
+
+  const purchase = getStoredPurchase() || {};
+  const location = selectedLocation || purchase.location;
+  const isAllowed = isLocationAllowedToBook(location);
+
+  if (currentStep === 'review' && !isAllowed) {
+    // If not allowed, force location step
+    goToLocationTab();
+    return;
+  }
+
   updateCourseSubtitle();
   updateStepper(currentStep);
   showStepPanel(currentStep);
@@ -1328,8 +1451,6 @@ initOfflineEnrollment = async function() {
     console.error('Course lookup failed:', err);
     notifyUser('Course Error', err.message || 'Course information is unavailable.', 'error');
   }
-
-  restoreSelectionsFromStorage();
 
   if (currentStep === 'location') {
     await fetchLocations();
@@ -1357,6 +1478,16 @@ initOfflineEnrollment = async function() {
  * Restore selected seat from URL or storage
  */
 function restoreSelectedSeat() {
+  const purchase = getStoredPurchase() || {};
+  const location = selectedLocation || purchase.location;
+  const isAllowed = isLocationAllowedToBook(location);
+
+  if (!isAllowed) {
+    clearSeatSelection();
+    updateSeatContinueButton();
+    return;
+  }
+
   const params = new URLSearchParams(window.location.search);
   const stored = getStoredPurchase();
   const seatParam = params.get('seat') || stored?.seatId || stored?.seat?.id;
@@ -1549,6 +1680,15 @@ function updateReviewContinueButton() {
 // Override handleContinue for seat step
 const originalHandleContinue2 = handleContinue;
 handleContinue = async function() {
+  const purchase = getStoredPurchase() || {};
+  const location = selectedLocation || purchase.location;
+  const isAllowed = isLocationAllowedToBook(location);
+
+  if (currentStep === 'seat' && !isAllowed) {
+    showSeatsFullPopup();
+    return;
+  }
+
   if (currentStep === 'batch' && !selectedBatch) return;
   if (currentStep === 'seat' && !selectedSeat) return;
 

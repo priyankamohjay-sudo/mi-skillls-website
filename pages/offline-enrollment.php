@@ -221,9 +221,36 @@ $currentStep = htmlspecialchars($_GET['step'] ?? 'location', ENT_QUOTES, 'UTF-8'
         Continue <i class="bi bi-arrow-right ms-2"></i> Choose Seat
       </button>
     </div>
-
   </div>
 </section>
+
+<!-- Seats Full Modal -->
+<div class="modal fade" id="seatsFullModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="seatsFullModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content auth-modal-content text-center p-4 border-0 shadow-lg">
+      <div class="modal-body">
+        <div class="mb-4">
+          <div class="d-inline-flex align-items-center justify-content-center bg-danger bg-opacity-10 text-danger rounded-circle" style="width: 85px; height: 85px; font-size: 44px; border: 2px solid rgba(220, 53, 69, 0.3);">
+            <i class="bi bi-exclamation-triangle-fill" style="color: #dc3545; filter: drop-shadow(0 0 10px rgba(220, 53, 69, 0.5));"></i>
+          </div>
+        </div>
+        <h4 class="fw-bold mb-3 text-white" id="seatsFullModalLabel" style="font-size: 1.5rem; text-shadow: 0 2px 10px rgba(220, 53, 69, 0.2);">All Seats are Full</h4>
+        <p class="text-white-50 mb-4 fs-6" style="line-height: 1.6;">
+          Unfortunately, all seats are currently booked for this location. 
+          Please contact our support team at <a href="mailto:support@miskills.in" class="text-decoration-none fw-bold" style="color: #673ab7; transition: color 0.2s;">support@miskills.in</a> for assistance.
+        </p>
+        <div class="d-grid gap-2">
+          <button type="button" class="btn py-3 fw-bold text-white shadow-sm" id="btnChooseAnotherLocation" style="background: linear-gradient(135deg, #673ab7 0%, #512da8 100%); border-radius: 14px; border: none; box-shadow: 0 4px 15px rgba(103, 58, 183, 0.3); transition: all 0.3s ease;">
+            Choose Another Location
+          </button>
+          <a href="<?= BASE_URL ?>contact-us" class="btn py-3 fw-bold text-white shadow-sm" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
+            Contact Support Page
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="toast-container" id="toastContainer"></div>
 
