@@ -8407,3 +8407,63 @@ body.dark-theme .about .stats-counter.stats-cards .stat-box {
 }
 
 /* price card table css end */
+
+/* ================= PREMIUM SEAT LAYOUT THEME OVERRIDES ================= */
+/* Available Seats - Elegant Glowing White/Silver */
+.seat.available:not(.selected) {
+  opacity: 1 !important;
+}
+.seat.available:not(.selected) .seat-label {
+  background: #ffffff !important;
+  color: #0b1120 !important; /* highly legible dark text */
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15) !important;
+}
+.seat.available:not(.selected) .seat-back {
+  background: #e4e4e7 !important;
+}
+.seat.available:not(.selected)::before,
+.seat.available:not(.selected)::after {
+  background: #d4d4d8 !important;
+}
+
+/* Hover effect on available seats */
+.seat.available:not(.selected):hover {
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.45) !important;
+}
+.seat.available:not(.selected):hover .seat-label {
+  background: #f4f4f5 !important;
+}
+
+/* Booked/Taken Seats - Rich Theme Purple (No Cross, With Visible Text Labels) */
+.seat.booked {
+  opacity: 0.75 !important;
+}
+.seat.booked .seat-label {
+  background: #4a148c !important; /* deep purple */
+  color: rgba(255, 255, 255, 0.65) !important; /* show label text clearly */
+}
+.seat.booked .seat-back {
+  background: #673ab7 !important; /* theme purple */
+}
+.seat.booked::before,
+.seat.booked::after {
+  background: #311b92 !important; /* dark purple */
+}
+.seat.booked::after {
+  content: '' !important;
+}
+
+/* Legend Matches */
+.legend-seat.available,
+.seat-map-panel .legend-seat.available {
+  background: #ffffff !important;
+  border-color: #e4e4e7 !important;
+}
+
+.legend-seat.booked,
+.seat-map-panel .legend-seat.booked {
+  background: #4a148c !important;
+  border-color: #673ab7 !important;
+  opacity: 0.75 !important;
+}
