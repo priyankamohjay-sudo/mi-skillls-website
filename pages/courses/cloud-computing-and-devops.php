@@ -85,73 +85,15 @@ require_once __DIR__ . '/../../includes/header.php';
       </div>
     </div>
 
-    <!-- WHAT YOU'LL LEARN -->
-    <div class="part pb-5">
-      <h3 class="service-title">What You’ll Learn in This Course</h3>
-
-      <ul>
-        <li>Fundamentals of Cloud Computing and DevOps</li>
-        <li>Working with AWS, Azure, and GCP</li>
-        <li>IaaS and PaaS concepts</li>
-        <li>CI/CD pipelines and automation tools</li>
-        <li>Containerization and deployment strategies</li>
-        <li>Monitoring and managing cloud applications</li>
-      </ul>
+    <!-- What You'll Learn — hydrated by course-detail.js -->
+    <div class="part pb-5" data-course-learn>
+      <h3 class="service-title">What You'll Learn in This Course</h3>
+      <ul></ul>
     </div>
 
-    <!-- TOPICS TABLE -->
-    <div class="part pb-5">
+    <!-- Course Syllabus — hydrated by course-detail.js -->
+    <div class="part pb-5" data-course-syllabus>
       <h3 class="service-title">Topics Included in This Course</h3>
-
-      <div class="table-responsive">
-        <table class="custom-table">
-          <tbody>
-
-            <tr>
-              <td>
-                <strong>Introduction to Cloud Computing & DevOps</strong><br>
-                Understand the core concepts of cloud computing and how DevOps bridges development and operations.
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <strong>Cloud Computing Fundamentals</strong><br>
-                Learn IaaS, PaaS, SaaS, scalability, virtualization, and storage concepts.
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <strong>DevOps Practices & Workflow</strong><br>
-                Learn CI/CD, automation, and collaboration for faster delivery.
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <strong>Amazon Web Services (AWS)</strong><br>
-                Work with EC2, S3 and deploy scalable applications.
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <strong>Microsoft Azure</strong><br>
-                Learn virtual machines, app services, and cloud infrastructure.
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <strong>Google Cloud Platform (GCP)</strong><br>
-                Explore GCP tools for computing, storage, and deployment.
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
     </div>
 
     <!-- WHY CHOOSE -->
@@ -388,7 +330,7 @@ require_once __DIR__ . '/../../includes/header.php';
                 course. Download resources anytime to support your learning and practice.</p>
               <ul class="list">
 
-                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses">
+                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses" data-course-doc-link target="_blank">
                     Course Syllabus<i class="bi bi-arrow-right icon "></i></a></li>
               </ul>
             </div>
@@ -441,5 +383,8 @@ require_once __DIR__ . '/../../includes/header.php';
 </section>
 
 <!-- End  take-action Section-->
+
+<script>window.COURSE_PAGE_SLUG = 'cloud-computing-and-devops';</script>
+<script src="<?= BASE_URL ?>assets/js/course-detail.js"></script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

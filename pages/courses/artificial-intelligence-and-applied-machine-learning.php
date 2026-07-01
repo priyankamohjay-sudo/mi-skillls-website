@@ -69,63 +69,16 @@ require_once __DIR__ . '/../../includes/header.php';
                 </div>
               </div>
             </div>
-            <div class="part pb-5">
-              <h3 class="service-title">What You’ll Learn in This Course</h3>
-  
-              <ul>
-                <li>Fundamentals of Artificial Intelligence and Machine Learning</li>
-                <li>Data preprocessing and feature engineering</li>
-                <li>Supervised and unsupervised learning techniques</li>
-                <li>Model training, evaluation, and optimization</li>
-                <li>Working with real-world datasets</li>
-                 <li>Introduction to Deep Learning concepts</li>
-              </ul>
+            <!-- What You'll Learn — hydrated by course-detail.js -->
+            <div class="part pb-5" data-course-learn>
+              <h3 class="service-title">What You'll Learn in This Course</h3>
+              <ul></ul>
             </div>
 
-           <div class="part pb-5">
-            <h3 class="service-title">Topics Included in This Course</h3>
-
-            <div class="table-responsive">
-              <table class="custom-table">
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>Introduction to Artificial Intelligence & Applied Machine Learning</strong><br>
-                      Understand the fundamentals of AI and Machine Learning and how they are transforming industries. Learn how intelligent systems are designed to analyze data and make decisions.
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <strong>Artificial Intelligence</strong><br>
-                      Explore the core concepts of AI including problem-solving, reasoning, and automation. Learn how AI is used to build smart applications across various domains.
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <strong>Machine Learning</strong><br>
-                      Learn how machines learn from data using supervised and unsupervised techniques. Understand model building, training, and evaluation for predictive analysis.
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <strong>Data Analysis & Visualization</strong><br>
-                      Gain skills in analyzing data and extracting meaningful insights. Learn to visualize data using charts and tools to support better decision-making.
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <strong>Real-World Projects & Case Studies</strong><br>
-                      Work on practical projects and real-life scenarios to apply your knowledge. Build hands-on experience and develop a strong portfolio for career growth.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <!-- Course Syllabus — hydrated by course-detail.js -->
+            <div class="part pb-5" data-course-syllabus>
+              <h3 class="service-title">Topics Included in This Course</h3>
             </div>
-          </div>
 
             <div class="part pb-5">
               <h3 class="service-title">Why Choose This Course:</h3>
@@ -348,7 +301,7 @@ require_once __DIR__ . '/../../includes/header.php';
                 course. Download resources anytime to support your learning and practice.</p>
               <ul class="list">
  
-                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses">
+                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses" data-course-doc-link target="_blank">
                     Course Syllabus<i class="bi bi-arrow-right icon "></i></a></li>
               </ul>
             </div>
@@ -401,5 +354,8 @@ require_once __DIR__ . '/../../includes/header.php';
 </section>
 
 <!-- End  take-action Section-->
+
+<script>window.COURSE_PAGE_SLUG = 'artificial-intelligence-and-applied-machine-learning';</script>
+<script src="<?= BASE_URL ?>assets/js/course-detail.js"></script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>
