@@ -75,68 +75,15 @@ require_once __DIR__ . '/../../includes/header.php';
                 </div>
               </div>
             </div>
-            <div class="part pb-5">
-              <h3 class="service-title">What You’ll Learn in This Course</h3>
-               <ul>
-                <li>Fundamentals of Cybersecurity and threat management</li>
-                <li>Network security and system protection techniques</li>
-                <li>Cloud security principles and best practices</li>
-                <li>Role of AI in cybersecurity and threat detection</li>
-                <li>Risk assessment and vulnerability management</li>
-                <li>Working with real-world security tools and scenarios</li>
-                </ul>
+            <!-- What You'll Learn — hydrated by course-detail.js -->
+            <div class="part pb-5" data-course-learn>
+              <h3 class="service-title">What You'll Learn in This Course</h3>
+               <ul></ul>
             </div>
 
-          <div class="part pb-5">
+          <!-- Course Syllabus — hydrated by course-detail.js -->
+          <div class="part pb-5" data-course-syllabus>
             <h3 class="service-title">Topics Included in This Course</h3>
-
-            <div class="table-responsive">
-              <table class="custom-table">
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>Introduction to Cybersecurity & AI Security</strong><br>
-                      Understand the basics of cybersecurity and how AI is transforming threat detection and prevention. Learn about common cyber threats and modern security approaches.
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <strong>Cybersecurity Fundamentals</strong><br>
-                      Explore key concepts such as network security, encryption, authentication, and data protection. Learn how systems are secured against potential attacks.
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <strong>Cloud Security Fundamentals</strong><br>
-                      Understand how cloud environments are secured, including identity management, data protection, and secure configurations. Learn best practices for cloud-based applications.
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <strong>AI in Cybersecurity</strong><br>
-                      Learn how AI is used to detect threats, automate responses, and improve security systems. Explore real-world use cases of AI in cyber defense.
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <strong>Risk Management & Threat Analysis</strong><br>
-                      Gain skills in identifying vulnerabilities, analyzing risks, and implementing security measures. Learn how to handle security incidents effectively.
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <strong>Real-World Projects & Case Studies</strong><br>
-                      Work on practical cybersecurity scenarios and projects to apply your knowledge. Build hands-on experience in securing systems and cloud environments.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
 
             <div class="part pb-5">
@@ -360,8 +307,8 @@ require_once __DIR__ . '/../../includes/header.php';
                 course. Download resources anytime to support your learning and practice.</p>
               <ul class="list">
 
-                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses">
-                    Courses Syllabus<i class="bi bi-arrow-right icon "></i></a></li>
+                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses" data-course-doc-link target="_blank">
+                    Course Syllabus<i class="bi bi-arrow-right icon "></i></a></li>
               </ul>
             </div>
           </div>
@@ -413,5 +360,8 @@ require_once __DIR__ . '/../../includes/header.php';
 </section>
 
 <!-- End  take-action Section-->
+
+<script>window.COURSE_PAGE_SLUG = 'cybersecurity-ai-and-cloud-security';</script>
+<script src="<?= BASE_URL ?>assets/js/course-detail.js"></script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

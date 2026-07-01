@@ -8467,3 +8467,125 @@ body.dark-theme .about .stats-counter.stats-cards .stat-box {
   border-color: #673ab7 !important;
   opacity: 0.75 !important;
 }
+
+/* ============================================================
+   Course Detail Page — Syllabus Accordion & Skeleton Styles
+   ============================================================ */
+
+/* Skeleton loading lines */
+.skeleton-line {
+  animation: skeletonPulse 1.4s ease-in-out infinite;
+}
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.7; }
+}
+
+/* Syllabus accordion wrapper */
+.course-syllabus-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Each module card */
+.syllabus-module {
+  border: 1px solid rgba(103, 58, 183, 0.25) !important;
+  background: rgba(18, 18, 18, 0.55) !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+
+/* Module header */
+.syllabus-module-header {
+  padding: 0 !important;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(103, 58, 183, 0.2) !important;
+}
+
+/* Toggle button */
+.syllabus-toggle {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  padding: 14px 18px !important;
+  text-decoration: none !important;
+  color: #e0d7ff !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+  border: none !important;
+  white-space: normal !important;
+}
+.syllabus-toggle:hover,
+.syllabus-toggle:focus {
+  color: #fff !important;
+  background: rgba(103, 58, 183, 0.15) !important;
+}
+.syllabus-toggle.collapsed {
+  color: rgba(255,255,255,0.7) !important;
+}
+.syllabus-toggle.collapsed:hover {
+  color: #e0d7ff !important;
+}
+
+/* Module name — takes up remaining space */
+.syllabus-module-name {
+  flex: 1;
+  text-align: left;
+}
+
+/* Topic count badge */
+.syllabus-topic-count {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #a78bfa;
+  background: rgba(103, 58, 183, 0.2);
+  border: 1px solid rgba(103, 58, 183, 0.35);
+  border-radius: 20px;
+  padding: 2px 10px;
+  white-space: nowrap;
+}
+
+/* Chevron icon */
+.syllabus-chevron {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: #a78bfa;
+  transition: transform 0.25s ease;
+}
+.syllabus-toggle[aria-expanded="true"] .syllabus-chevron {
+  transform: rotate(-180deg);
+}
+
+/* Module body */
+.syllabus-module-body {
+  padding: 16px 18px !important;
+  background: rgba(103, 58, 183, 0.04) !important;
+}
+
+/* Topics list */
+.syllabus-topics-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.syllabus-topics-list li {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.syllabus-topics-list li i {
+  color: #7c3aed;
+  font-size: 0.7rem;
+  margin-top: 4px;
+  flex-shrink: 0;
+}

@@ -49,30 +49,15 @@ require_once __DIR__ . '/../../includes/header.php';
                 </div>
               </div>
             </div>
-            <div class="part pb-5">
+            <!-- What You'll Learn — hydrated by course-detail.js -->
+            <div class="part pb-5" data-course-learn>
               <h3 class="service-title">What You'll Learn in This Course</h3>
-              <ul>
-                <li>Data science and analytics fundamentals with Generative AI</li>
-                <li>Data collection, cleaning, preprocessing, and visualization</li>
-                <li>Statistical analysis and machine learning algorithms</li>
-                <li>SQL, Python, and business intelligence tools</li>
-                <li>Large Language Models (LLMs) and prompt engineering</li>
-                <li>Building data-driven and AI-powered applications</li>
-              </ul>
+              <ul></ul>
             </div>
-            <div class="part pb-5">
+
+            <!-- Course Syllabus — hydrated by course-detail.js -->
+            <div class="part pb-5" data-course-syllabus>
               <h3 class="service-title">Topics Included in This Course</h3>
-              <div class="table-responsive">
-                <table class="custom-table">
-                  <tbody>
-                    <tr><td><strong>Data Science Fundamentals</strong><br>Core concepts of data handling, analysis, and model building for intelligent solutions.</td></tr>
-                    <tr><td><strong>Data Analytics & Visualization</strong><br>SQL querying, dashboards, reporting, and insight generation using BI tools.</td></tr>
-                    <tr><td><strong>Machine Learning</strong><br>Supervised and unsupervised learning, model evaluation, and optimization.</td></tr>
-                    <tr><td><strong>Generative AI & LLMs</strong><br>Apply Gen AI models and prompt engineering to enhance data workflows.</td></tr>
-                    <tr><td><strong>Real-World Projects</strong><br>Work on industry datasets to build a strong data science portfolio.</td></tr>
-                  </tbody>
-                </table>
-              </div>
             </div>
             
                 <div class="part pb-5">
@@ -150,7 +135,7 @@ require_once __DIR__ . '/../../includes/header.php';
                 course. Download resources anytime to support your learning and practice.</p>
               <ul class="list">
  
-                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses">
+                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses" data-course-doc-link target="_blank">
                     Course Syllabus<i class="bi bi-arrow-right icon "></i></a></li>
               </ul>
             </div>
@@ -194,5 +179,8 @@ require_once __DIR__ . '/../../includes/header.php';
     </div>
   </div>
 </section>
+
+<script>window.COURSE_PAGE_SLUG = 'data-science-and-analytics-with-gen-ai';</script>
+<script src="<?= BASE_URL ?>assets/js/course-detail.js"></script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

@@ -77,7 +77,7 @@ if (isset($_POST['UserSubmit'])) {
     .header-basic .links-list > .menu-item > .menu-link {
       padding: 10px 18px; /* Reduced from 30px to fit more items */
     }
-    .header-basic .menu-item {
+    .header-basic .links-list > .menu-item {
       padding: 0 4px; /* Reduced from 1rem to prevent wrapping */
     }
     .logout-nav-btn {

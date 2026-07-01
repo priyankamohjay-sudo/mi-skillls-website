@@ -49,31 +49,15 @@ require_once __DIR__ . '/../../includes/header.php';
                 </div>
               </div>
             </div>
-            <div class="part pb-5">
+            <!-- What You'll Learn — hydrated by course-detail.js -->
+            <div class="part pb-5" data-course-learn>
               <h3 class="service-title">What You'll Learn in This Course</h3>
-              <ul>
-                <li>Full-stack web development (frontend & backend)</li>
-                <li>Android, iOS, and cross-platform mobile app development</li>
-                <li>Using AI tools to accelerate coding and design</li>
-                <li>Building responsive websites and mobile applications</li>
-                <li>Working with databases, APIs, and server-side logic</li>
-                <li>App testing, debugging, and deployment</li>
-              </ul>
+              <ul></ul>
             </div>
-            <div class="part pb-5">
+
+            <!-- Course Syllabus — hydrated by course-detail.js -->
+            <div class="part pb-5" data-course-syllabus>
               <h3 class="service-title">Topics Included in This Course</h3>
-              <div class="table-responsive">
-                <table class="custom-table">
-                  <tbody>
-                    <tr><td><strong>Web Development Fundamentals</strong><br>HTML, CSS, JavaScript, responsive UI, and modern frontend frameworks.</td></tr>
-                    <tr><td><strong>Backend Development</strong><br>Server-side logic, databases, APIs, and authentication for dynamic web apps.</td></tr>
-                    <tr><td><strong>Android & iOS Development</strong><br>Build native mobile applications with industry-standard tools and frameworks.</td></tr>
-                    <tr><td><strong>Cross-Platform Development</strong><br>Create apps for multiple platforms using Flutter and React Native.</td></tr>
-                    <tr><td><strong>AI Tools for Development</strong><br>Leverage AI assistants to speed up coding, debugging, and project delivery.</td></tr>
-                    <tr><td><strong>Real-World Projects</strong><br>Hands-on web and mobile projects to build a strong developer portfolio.</td></tr>
-                  </tbody>
-                </table>
-              </div>
             </div>
           </div>
         </div>
@@ -102,7 +86,7 @@ require_once __DIR__ . '/../../includes/header.php';
                 course. Download resources anytime to support your learning and practice.</p>
               <ul class="list">
  
-                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses">
+                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses" data-course-doc-link target="_blank">
                     Course Syllabus<i class="bi bi-arrow-right icon "></i></a></li>
               </ul>
             </div>
@@ -147,5 +131,8 @@ require_once __DIR__ . '/../../includes/header.php';
     </div>
   </div>
 </section>
+
+<script>window.COURSE_PAGE_SLUG = 'web-and-app-development-with-ai-tools';</script>
+<script src="<?= BASE_URL ?>assets/js/course-detail.js"></script>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>
