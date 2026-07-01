@@ -8513,7 +8513,7 @@ body.dark-theme .about .stats-counter.stats-cards .stat-box {
   text-decoration: none !important;
   color: #e0d7ff !important;
   font-weight: 600 !important;
-  font-size: 0.9rem !important;
+  font-size: 1rem !important;
   line-height: 1.4 !important;
   border: none !important;
   white-space: normal !important;
@@ -8576,7 +8576,7 @@ body.dark-theme .about .stats-counter.stats-cards .stat-box {
   gap: 8px;
 }
 .syllabus-topics-list li {
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   color: rgba(255,255,255,0.75);
   line-height: 1.5;
   display: flex;
@@ -8588,4 +8588,4 @@ body.dark-theme .about .stats-counter.stats-cards .stat-box {
   font-size: 0.7rem;
   margin-top: 4px;
   flex-shrink: 0;
-}
+}
