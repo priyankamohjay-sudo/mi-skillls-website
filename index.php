@@ -257,7 +257,7 @@ require_once 'includes/header.php'; ?>
         <!--Info One-->
         <div class="col-12 col-md-6 col-lg-3 stat-box ">
           <div class="stat-box-inner  " data-tilt="data-tilt"><i class="flaticon-project-management stat-icon"></i>
-            <p class="stat-num "><span class="counter" data-from="10" data-to="100" data-speed="3000"
+            <p class="stat-num "><span class="counter" data-from="10" data-to="450" data-speed="3000"
                 data-refresh-interval="50"></span><span class="sign">+</span></p>
             <h4 class="stat-desc">Hiring Partners</h4>
           </div>
@@ -266,7 +266,7 @@ require_once 'includes/header.php'; ?>
         <div class="col-12 col-md-6 col-lg-3 stat-box ">
           <div class="stat-box-inner" data-tilt="data-tilt"><i class="flaticon-content-management stat-icon"></i>
             <p class="stat-num "><span class="counter" data-from="0" data-to="5" data-speed="3000"
-                data-refresh-interval="50"></span><span class="sign">+</span></p>
+                data-refresh-interval="50"></span><span class="sign"></span></p>
             <h4 class="stat-desc">Total Courses</h4>
           </div>
         </div>
@@ -528,7 +528,7 @@ require_once 'includes/header.php'; ?>
 
     <div class="bubble-wrap">
         <div class="bubble"><strong>Online</strong><span>₹1499/Mo.</span></div>
-        <div class="bubble"><strong>Offline</strong><span>₹8,999/Mo.</span></div>
+        <div class="bubble"><strong>Offline</strong><span>₹12,999/Mo.</span></div>
     </div>
 
     <div class="price-grid header">
@@ -581,7 +581,7 @@ require_once 'includes/header.php'; ?>
 
     <div class="bubble-wrap">
         <div class="bubble"><strong>Online</strong><span>₹1,299/Mo.</span></div>
-        <div class="bubble"><strong>Offline</strong><span>₹8,999/Mo.</span></div>
+        <div class="bubble"><strong>Offline</strong><span>₹12,999/Mo.</span></div>
     </div>
 
     <div class="price-grid header">

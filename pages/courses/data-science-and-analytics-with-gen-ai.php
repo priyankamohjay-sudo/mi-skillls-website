@@ -74,6 +74,55 @@ require_once __DIR__ . '/../../includes/header.php';
                 </table>
               </div>
             </div>
+            
+                <div class="part pb-5">
+              <h3 class="service-title">Why Choose This Course:</h3>
+  
+              <ul>
+                <li>Available on both mobile app and desktop platform</li>
+                <li>Learn online or offline at your convenience</li>
+                <li>Designed for students and working professionals</li>
+                <li>Build job-ready Data Science and Analytics with Gen AI skills</li>
+              </ul>
+            </div>
+
+             <div class="part pb-5">
+          <h3 class="service-title">Course Price & Duration</h3>
+
+          <div class="table-responsive">
+            <table class="custom-table">
+              <tbody>
+
+                <tr>
+                  <td><strong>Course</strong></td>
+                  <td>Data Science and Analytics with Gen AI</td>
+                </tr>
+
+                <tr>
+                  <td><strong>Online Fee</strong></td>
+                  <td>₹1299 / month</td>
+                </tr>
+
+                <tr>
+                  <td><strong>Offline Fee</strong></td>
+                  <td>₹12,999 / month</td>
+                </tr>
+
+                <tr>
+                  <td><strong>Duration</strong></td>
+                  <td>6 Months</td>
+                </tr>
+
+                <tr>
+                  <td><strong>Daily Time</strong></td>
+                  <td>2.5 Hours / Day</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div> 
+
+          </div> 
           </div>
         </div>
       </div>
@@ -83,17 +132,48 @@ require_once __DIR__ . '/../../includes/header.php';
             <h2 class="sidebar-title">list of Courses</h2>
             <?php require_once __DIR__ . '/../../includes/courses-sidebar.php'; ?>
           </div>
-          <div class="sidebar-pane">
+            <div class="sidebar-pane">
             <div class="download-area">
-              <h2 class="sidebar-title">Course Resources</h2>
-              <p class="sidebar-text">Access all essential learning materials, guides, and documents related to your course.</p>
+              <h2 class="sidebar-title">Course Enrollment</h2>
+              <p class="sidebar-text">Start your Data Science and Analytics with Gen AI journey with live classes, hands-on projects, expert mentorship, internship opportunities, and career support. Subscribe now to unlock complete course access and begin learning today.</p>
               <ul class="list">
-                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses">All Courses<i class="bi bi-arrow-right icon "></i></a></li>
-                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>subscription">View Pricing<i class="bi bi-arrow-right icon "></i></a></li>
+
+                <li class="list-item"><i class="fas fa-graduation-cap font-icon"></i><a href="<?= BASE_URL ?>subscription">
+                    Enroll Now<i class="bi bi-arrow-right icon "></i></a></li>
               </ul>
             </div>
           </div>
+         <div class="sidebar-pane">
+            <div class="download-area">
+              <h2 class="sidebar-title">Course Resources</h2>
+              <p class="sidebar-text">Access all essential learning materials, guides, and documents related to your
+                course. Download resources anytime to support your learning and practice.</p>
+              <ul class="list">
+ 
+                <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses">
+                    Course Syllabus<i class="bi bi-arrow-right icon "></i></a></li>
+              </ul>
+            </div>
         </div>
+          <div class="sidebar-pane">
+            <div class="social-area">
+              <h2 class="sidebar-title">follow us</h2>
+              <div class="sc-wrapper dir-row sc-size-40">
+                <ul class="sc-list">
+                  <li class="sc-item " title="Facebook"><a class="sc-link" target="_blank"
+                      href="https://www.facebook.com/people/Miskillsofficial/61587243383829/?mibextid=wwXIfr&rdid=OYWqwYRmFVKFqtL8&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16gAjpmgT9%2F%3Fmibextid%3DwwXIfr"
+                      title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a></li>
+                  <li class="sc-item " title="youtube"><a class="sc-link" target="_blank"
+                      href="https://www.youtube.com/channel/UC0GbfPzvJazzHnPGJeOAgag" title="social media icon"><i
+                        class="fab fa-youtube sc-icon"></i></a></li>
+                  <li class="sc-item " title="instagram"><a class="sc-link" target="_blank"
+                      href="https://www.instagram.com/miskills.india/?igsh=MWc4ZmZmYjkwMjhtcA%3D%3D&utm_source=qr#"
+                      title="social media icon"><i class="fab fa-instagram sc-icon"></i></a></li>
+                  <!-- <li class="sc-item " title="X"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-x-twitter sc-icon"></i></a></li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   </div>

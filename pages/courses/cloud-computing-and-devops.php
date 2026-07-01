@@ -185,12 +185,12 @@ require_once __DIR__ . '/../../includes/header.php';
 
                 <tr>
                   <td><strong>Offline Fee</strong></td>
-                  <td>₹8999 / month</td>
+                  <td>₹12,999 / month</td>
                 </tr>
 
                 <tr>
                   <td><strong>Duration</strong></td>
-                  <td>5 Months</td>
+                  <td>6 Months</td>
                 </tr>
 
                 <tr>
@@ -370,6 +370,17 @@ require_once __DIR__ . '/../../includes/header.php';
             <h2 class="sidebar-title">list of Courses</h2>
             <?php require_once __DIR__ . '/../../includes/courses-sidebar.php'; ?>
           </div>
+             <div class="sidebar-pane">
+            <div class="download-area">
+              <h2 class="sidebar-title">Course Enrollment</h2>
+              <p class="sidebar-text">Start your Cloud Computing & DevOps journey with live classes, hands-on projects, expert mentorship, internship opportunities, and career support. Subscribe now to unlock complete course access and begin learning today.</p>
+              <ul class="list">
+
+                <li class="list-item"><i class="fas fa-graduation-cap font-icon"></i><a href="<?= BASE_URL ?>subscription">
+                    Enroll Now<i class="bi bi-arrow-right icon "></i></a></li>
+              </ul>
+            </div>
+          </div>
           <div class="sidebar-pane">
             <div class="download-area">
               <h2 class="sidebar-title">Course Resources</h2>
@@ -378,7 +389,7 @@ require_once __DIR__ . '/../../includes/header.php';
               <ul class="list">
 
                 <li class="list-item"><i class="flaticon-downloading font-icon"></i><a href="<?= BASE_URL ?>courses">
-                    All Courses<i class="bi bi-arrow-right icon "></i></a></li>
+                    Course Syllabus<i class="bi bi-arrow-right icon "></i></a></li>
               </ul>
             </div>
           </div>
