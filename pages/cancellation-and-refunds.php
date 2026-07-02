@@ -51,47 +51,25 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
       <div class="col-12 col-lg-9 mx-auto">
         <div class="post-main-area">
-          <div class="post-content">
-
-            <p class="post-text">
-              <strong>Last Updated:</strong> 10 December 2025
-            </p>
-
-            <h2 class="post-heading">1. Subscription Cancellation</h2>
-            <p class="post-text">
-              MISKILLS subscriptions cannot be manually cancelled by the user before the end of the purchased period.
-              Once a subscription is purchased, it will remain active until the end of its validity period and will then
-              automatically expire unless the user chooses to renew.
-            </p>
-            <p class="post-text">
-              Users may stop using the service at any time, but no partial or prorated refunds will be issued for unused
-              time.
-            </p>
-
-            <h2 class="post-heading">2. Refund Eligibility</h2>
-            <p class="post-text">
-              MISKILLS provides instant access to digital learning content; therefore, subscription payments are
-              generally non-refundable.
-            </p>
-            <p class="post-text">
-              Refunds may be issued only in special cases such as duplicate payments or failed transactions.
-            </p>
-
-            <h2 class="post-heading">3. Refund Processing</h2>
-            <p class="post-text">
-              Approved refunds will be processed to the original payment method within 5–7 business days as per
-              Razorpay’s
-              settlement timelines.
-            </p>
-
+          <div class="post-content" id="policy-content-area">
+            <div class="skeleton-line" style="height: 24px; width: 30%; background: rgba(255,255,255,.1); border-radius: 4px; margin-bottom: 25px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 100%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 95%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 90%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
+            <br>
+            <div class="skeleton-line" style="height: 24px; width: 45%; background: rgba(255,255,255,.1); border-radius: 4px; margin-bottom: 25px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 100%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 85%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <!-- End _post -->
 
-<!-- Start  page-footer Section-->
+<script>window.POLICY_TYPE = 'refunds';</script>
+<script src="<?= BASE_URL ?>assets/js/policy-loader.js?v=<?= time() ?>"></script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
