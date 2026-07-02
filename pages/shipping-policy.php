@@ -52,27 +52,15 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
       <div class="col-12 col-lg-9 mx-auto">
         <div class="post-main-area">
-          <div class="post-content">
-
-            <p class="post-text">
-              <strong>Last Updated:</strong> 10 December 2025
-            </p>
-
-            <h2 class="post-heading">1. Digital Delivery</h2>
-            <p class="post-text">
-              MISKILLS provides online educational content only. No physical products are shipped.
-            </p>
-
-            <h2 class="post-heading">2. Access Timeline</h2>
-            <p class="post-text">
-              After successful payment, access to your digital subscription is provided instantly.
-            </p>
-
-            <h2 class="post-heading">3. Access Issues</h2>
-            <p class="post-text">
-              If you face issues accessing content after payment, please contact our support team for assistance.
-            </p>
-
+          <div class="post-content" id="policy-content-area">
+            <div class="skeleton-line" style="height: 24px; width: 30%; background: rgba(255,255,255,.1); border-radius: 4px; margin-bottom: 25px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 100%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 95%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 90%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
+            <br>
+            <div class="skeleton-line" style="height: 24px; width: 45%; background: rgba(255,255,255,.1); border-radius: 4px; margin-bottom: 25px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 100%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 85%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
           </div>
         </div>
       </div>
@@ -80,10 +68,9 @@ require_once __DIR__ . '/../includes/header.php'; ?>
   </div>
 </div>
 
-
-
 <!-- End _post -->
 
-<!-- Start  page-footer Section-->
+<script>window.POLICY_TYPE = 'shipping';</script>
+<script src="<?= BASE_URL ?>assets/js/policy-loader.js?v=<?= time() ?>"></script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>

@@ -51,57 +51,15 @@ require_once __DIR__ . '/../includes/header.php'; ?>
 
       <div class="col-12 col-lg-9 mx-auto">
         <div class="post-main-area">
-          <div class="post-content">
-
-            <p class="post-text">
-              <strong>Last Updated:</strong> 10 December 2025
-            </p>
-
-            <h2 class="post-heading">1. Introduction</h2>
-            <p class="post-text">
-              Welcome to MISKILLS. By subscribing to or using our educational services, you agree to these Terms &amp;
-              Conditions.
-              If you do not agree, please do not use the platform.
-            </p>
-
-            <h2 class="post-heading">2. Subscription &amp; Access</h2>
-            <p class="post-text">
-              MISKILLS offers subscription-based online learning content. Upon successful payment, you receive access to
-              the
-              subscribed content for the duration of your plan.
-            </p>
-            <p class="post-text">
-              Subscriptions are non-transferable and should only be used by the registered user.
-            </p>
-
-            <h2 class="post-heading">3. Payments</h2>
-            <p class="post-text">
-              All payments are processed securely via Razorpay. By completing a payment, you authorize Razorpay to
-              process your transaction.
-            </p>
-            <p class="post-text">
-              You must provide accurate billing information. Failed or disputed payments may result in restricted
-              access.
-            </p>
-
-            <h2 class="post-heading">4. Content Usage</h2>
-            <p class="post-text">
-              All course content, videos, study materials, and resources are the intellectual property of MISKILLS.
-              Redistribution, recording, or unauthorized sharing is strictly prohibited.
-            </p>
-
-            <h2 class="post-heading">5. Account Termination</h2>
-            <p class="post-text">
-              We reserve the right to suspend or terminate accounts involved in misuse, abuse, or violation of platform
-              policies.
-            </p>
-
-            <h2 class="post-heading">6. Changes to Terms</h2>
-            <p class="post-text">
-              MISKILLS may update these terms periodically. Continued use of the platform indicates acceptance of
-              updated terms.
-            </p>
-
+          <div class="post-content" id="policy-content-area">
+            <div class="skeleton-line" style="height: 24px; width: 30%; background: rgba(255,255,255,.1); border-radius: 4px; margin-bottom: 25px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 100%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 95%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 90%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
+            <br>
+            <div class="skeleton-line" style="height: 24px; width: 45%; background: rgba(255,255,255,.1); border-radius: 4px; margin-bottom: 25px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 100%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
+            <div class="skeleton-line" style="height: 16px; width: 85%; background: rgba(255,255,255,.07); border-radius: 4px; margin-bottom: 12px;"></div>
           </div>
         </div>
       </div>
@@ -109,9 +67,9 @@ require_once __DIR__ . '/../includes/header.php'; ?>
   </div>
 </div>
 
-
 <!-- End _post -->
 
-<!-- Start  page-footer Section-->
+<script>window.POLICY_TYPE = 'terms';</script>
+<script src="<?= BASE_URL ?>assets/js/policy-loader.js?v=<?= time() ?>"></script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
