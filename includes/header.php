@@ -1,5 +1,28 @@
 <?php
 require_once 'config.php';
+
+// Check if maintenance mode is enabled and route the user accordingly
+if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE) {
+    if (basename($_SERVER['SCRIPT_NAME']) !== 'maintenance.php') {
+        // Calculate base path dynamically to avoid cross-domain redirection issues (e.g. if BASE_URL points to live site on local development)
+        $currentDir = dirname($_SERVER['SCRIPT_NAME']);
+        $currentDir = str_replace('\\', '/', $currentDir);
+        $basePath = rtrim($currentDir, '/');
+        if (preg_match('#/pages(/courses)?$#', $basePath)) {
+            $basePath = preg_replace('#/pages(/courses)?$#', '', $basePath);
+        }
+        $redirectUrl = $basePath . '/maintenance';
+
+        if (!headers_sent()) {
+            header("Location: " . $redirectUrl);
+        } else {
+            echo '<script>window.location.href="' . $redirectUrl . '";</script>';
+            echo '<meta http-equiv="refresh" content="0;url=' . $redirectUrl . '">';
+        }
+        exit;
+    }
+}
+
 $success = '';
 $error = '';
 
